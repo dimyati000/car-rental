@@ -6,8 +6,8 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
 
   <!-- General CSS Files -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/modules/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/modules/bootstrap/css/bootstrap.min.css">
 
   <!-- CSS Libraries -->
   
@@ -21,19 +21,13 @@
 
 <body>
   <div id="app">
-    <div class="main-wrapper">
+    <div class="main-wrapper main-wrapper-1">
       <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
         <form class="form-inline mr-auto">
           <ul class="navbar-nav mr-3">
             <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-            <!-- <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li> -->
           </ul>
-          <!-- <div class="search-element">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250">
-            <button class="btn" type="submit"><i class="fas fa-search"></i></button>
-            <div class="search-backdrop"></div>
-          </div> -->
         </form>
         <ul class="nav navbar-nav navbar-right">
           <?php
@@ -73,31 +67,17 @@
           <ul class="sidebar-menu">
             <li class="menu-header">MENU</li>
             <li class="active"><a class="nav-link" href="<?php echo base_url('Dashboard') ?>"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
-            <li class="nav-item dropdown">
-              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-database"></i> <span>Master</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="<?php echo base_url('Service')?>">Layanan Service</a></li>
-                <li><a class="nav-link" href="<?php echo base_url('DataBarang') ?>">Spare Part </a></li>
-                <li><a class="nav-link" href="<?php echo base_url('Transaksi')?>">Invoice</a></li>
-                <li><a class="nav-link" href="<?php echo base_url('Pesan')?>">Penjadwalan</a></li>
-                <!-- <li><a class="nav-link" href="<?php echo base_url('Laporan')?>">Laporan</a></li> -->
-                <li><a class="nav-link" href="<?php echo base_url('Service/BookingService')?>">Verifikasi Booking</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-store"></i> <span>Kasir</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="<?php echo base_url('Kasir')?>">Menu Kasir</a></li>
-                <li><a class="nav-link" href="<?php echo base_url('Kasir/data')?>">Data Kasir</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file"></i> <span>Laporan</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="<?php echo base_url('Laporan/laporan_pelayanan')?>">Laporan Pelayanan</a></li>
-                <li><a class="nav-link" href="<?php echo base_url('Laporan/laporan_penjualan')?>">Laporan Penjualan</a></li>
-              </ul>
-            </li>
+            <li class="menu-header">Master Data</li>
+            <li><a class="nav-link" href="<?php echo base_url('Pelanggan') ?>"><i class="fas fa-user"></i> <span>Pelanggan</span></a></li>
+            <li><a class="nav-link" href="<?php echo base_url('Mobil') ?>"><i class="fas fa-car"></i> <span>Mobil</span></a></li>
+            <li><a class="nav-link" href="<?php echo base_url('Dashboard') ?>"><i class="fas fa-clipboard-check"></i> <span>Jaminan</span></a></li>
+            <li class="menu-header">Transaksi</li>
+            <li><a class="nav-link" href="<?php echo base_url('Dashboard') ?>"><i class="far fa-file-alt"></i> <span>Form Sewa</span></a></li>
+            <li><a class="nav-link" href="<?php echo base_url('Dashboard') ?>"><i class="fas fa-car"></i> <span>Daftar Sewa</span></a></li>
+            <li><a class="nav-link" href="<?php echo base_url('Dashboard') ?>"><i class="far fa-file-alt"></i> <span>Form Kembali</span></a></li>
+            <li><a class="nav-link" href="<?php echo base_url('Dashboard') ?>"><i class="fas fa-clipboard-check"></i> <span>Daftar Kembali</span></a></li>
+            <li class="menu-header">Laporan</li>
+            <li><a class="nav-link" href="<?php echo base_url('Dashboard') ?>"><i class="fas fa-file"></i> <span>Laporan Transaksi</span></a></li>
             <!-- <li><a href="<?php echo base_url() . 'Tentang'?>"><i class="fas fa-cog"></i><span>Setting</span></a></li> -->
           </ul>
         </aside>

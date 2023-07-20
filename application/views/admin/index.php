@@ -1,4 +1,5 @@
 <title>Dashboard</title>
+
 <div class="main-content">
 	<section class="section">
 		<div class="section-header">
@@ -14,7 +15,7 @@
 					<a href="<?php echo base_url('Kasir/data') ?>" class="text-decoration-none">
 						<div class="card-wrap">
 							<div class="card-header">
-								<h4>Pendapatan Bulan Ini</h4>
+								<h4>Total Pelanggan</h4>
 							</div>
 							<div class="card-body">
 								<?php echo number_format($totalK);?>
@@ -31,7 +32,7 @@
 					<a href="<?php echo base_url('Service') ?>" class="text-decoration-none">
 						<div class="card-wrap">
 							<div class="card-header">
-								<h4>Jumlah Service</h4>
+								<h4>Total Transaski</h4>
 							</div>
 							<div class="card-body">
 								<?php echo $totalL;?>
@@ -43,12 +44,12 @@
 			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-warning">
-						<i class="far fa-file"></i>
+						<i class="fas fa-car"></i>
 					</div>
 					<a href="<?php echo base_url('Transaksi') ?>" class="text-decoration-none">
 						<div class="card-wrap">
 							<div class="card-header">
-								<h4>Sparepart Yang Terjual</h4>
+								<h4>Total Mobil</h4>
 							</div>
 							<div class="card-body">
 								<?php echo $totalS;?>
@@ -60,12 +61,12 @@
 			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-success">
-						<i class="fas fa-circle"></i>
+						<i class="fas fa-car-side"></i>
 					</div>
 					<a href="<?php echo base_url('DataBarang') ?>" class="text-decoration-none">
 						<div class="card-wrap">
 							<div class="card-header">
-								<h4>Stok Sparepart</h4>
+								<h4>Total Mobil Ready</h4>
 							</div>
 							<div class="card-body">
 								<?php echo $totalSt;?>
