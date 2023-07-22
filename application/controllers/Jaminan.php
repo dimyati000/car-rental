@@ -2,12 +2,12 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class DataBarang extends CI_Controller
+class Jaminan extends CI_Controller
 {   
     public function __construct()
     {
        parent::__construct();
-       $this->load->model('ModelBarang');
+       $this->load->model('ModelJaminan');
        if($this->session->userdata('roleId') != 1){
            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
            <strong>Anda Harus Login Terlebih Dahulu !</strong>
@@ -18,45 +18,24 @@ class DataBarang extends CI_Controller
          redirect('Auth/login');
        } 
     }
-	// Tampilkan data barang
+	// Tampilkan jaminan
     public function index()
     {   
-        $data['barang'] = $this->ModelBarang->showData()->result();
+        $data['jaminan'] = $this->ModelJaminan->tampilkanData()->result();
         $this->load->view("layout/templateAdmin");
-        $this->load->view("admin/dataBarang", $data);
+        $this->load->view("admin/jaminan", $data);
     }
-	// Tambah Data barang
+	// Tambah jaminan
     public function tambahData()
     {
-        $namaBarang = $this->input->post('namaBarang');
-        $kategori = $this->input->post('kategori');
-        $harga = $this->input->post('harga');
-        $keterangan = $this->input->post('keterangan');
-        $stok = $this->input->post('stok');
-        $gambar = $_FILES['gambar']['name'];
-        if($gambar = ''){}else{
-            $config ['upload_path'] = './uploads';
-            $config ['allowed_types'] = 'jpg|jpeg|png|gif';
-            
-            $this->load->library('upload', $config);
-            if(!$this->upload->do_upload('gambar')){
-                echo "Upload Gambar Gagal";
-            }else{
-                $gambar = $this->upload->data('file_name');
-            }
-        }
+        $namaJaminan = $this->input->post('namaJaminan');
         $data = array(
-            'namaBarang' => $namaBarang,
-            'kategori'   => $kategori,
-            'harga'      => $harga,
-            'keterangan' => $keterangan,
-            'stok'       => $stok,
-            'gambar'     => $gambar
-        );
-        $this->ModelBarang->tambahBarang($data, 'tb_product');
-        redirect('../DataBarang');
+                'namaJaminan' => $namaJaminan
+            );
+        $this->ModelJaminan->tambahJaminan($data, 'tb_jaminan');
+        redirect('../Jaminan');
     }
-	// Edit Data Barang
+	// Edit jaminan
     public function edit($idBarang)
     {
         $where = array('idBarang' => $idBarang);
@@ -64,7 +43,7 @@ class DataBarang extends CI_Controller
         $this->load->view('layout/templateAdmin');
         $this->load->view('admin/editBarang', $data);
     }
-	// Update data barang 
+	// Update jaminan 
     public function update()
     {
         $idBarang = $this->input->post('idBarang');
@@ -87,7 +66,7 @@ class DataBarang extends CI_Controller
         $this->ModelBarang->updateData($where, $data, 'tb_product');
         redirect('../DataBarang');
     }
-	// Delete data barang
+	// Delete jaminan
     public function delete($idBarang)
     {
         $where = array('idBarang' => $idBarang);

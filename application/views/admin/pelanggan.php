@@ -12,7 +12,7 @@
 					<div class="col-12">
 						<div class="card">
 							<div class="card-header">
-								<h4>Data Pelanggan</h4>
+								<h5>Data Pelanggan</h5>
 							</div>
 							<br>
 							<div class="section-body">
@@ -61,7 +61,9 @@
 						</div>
 					</div>
 				</div>
-		</section>
+			</div>
+		
+			</section>
 	</div>
 </div>
 

@@ -72,7 +72,7 @@
             <li class="menu-header">Master Data</li>
             <li><a class="nav-link" href="<?php echo base_url('Pelanggan') ?>"><i class="fas fa-user"></i> <span>Pelanggan</span></a></li>
             <li><a class="nav-link" href="<?php echo base_url('Mobil') ?>"><i class="fas fa-car"></i> <span>Mobil</span></a></li>
-            <li><a class="nav-link" href="<?php echo base_url('Dashboard') ?>"><i class="fas fa-clipboard-check"></i> <span>Jaminan</span></a></li>
+            <li><a class="nav-link" href="<?php echo base_url('Jaminan') ?>"><i class="fas fa-clipboard-check"></i> <span>Jaminan</span></a></li>
             <li class="menu-header">Transaksi</li>
             <li><a class="nav-link" href="<?php echo base_url('Dashboard') ?>"><i class="far fa-file-alt"></i> <span>Form Sewa</span></a></li>
             <li><a class="nav-link" href="<?php echo base_url('Dashboard') ?>"><i class="fas fa-car"></i> <span>Daftar Sewa</span></a></li>
