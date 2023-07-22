@@ -1,10 +1,11 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\Compiler;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\Core\Compiler;
 
 use TYPO3Fluid\Fluid\Core\Parser\BooleanParser;
 use TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\ArrayNode;
@@ -17,16 +18,12 @@ use TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\ObjectAccessorNode;
 use TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\RootNode;
 use TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\TextNode;
 use TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\ViewHelperNode;
-use TYPO3Fluid\Fluid\Core\Variables\VariableExtractor;
+use TYPO3Fluid\Fluid\Core\Variables\StandardVariableProvider;
 
-/**
- * Class NodeConverter
- */
 class NodeConverter
 {
-
     /**
-     * @var integer
+     * @var int
      */
     protected $variableCounter = 0;
 
@@ -44,8 +41,7 @@ class NodeConverter
     }
 
     /**
-     * @param integer $variableCounter
-     * @return void
+     * @param int $variableCounter
      */
     public function setVariableCounter($variableCounter)
     {
@@ -59,7 +55,6 @@ class NodeConverter
      *
      * @param NodeInterface $node
      * @return array two-element array, see above
-     * @throws FluidException
      */
     public function convert(NodeInterface $node)
     {
@@ -171,15 +166,13 @@ class NodeConverter
             $arguments = $node->getArgumentDefinitions();
             $argumentInitializationCode = sprintf('%s = array();', $argumentsVariableName) . chr(10);
             foreach ($arguments as $argumentName => $argumentDefinition) {
-                if (!isset($alreadyBuiltArguments[$argumentName])) {
-                    $argumentInitializationCode .= sprintf(
-                        '%s[\'%s\'] = %s;%s',
-                        $argumentsVariableName,
-                        $argumentName,
-                        var_export($argumentDefinition->getDefaultValue(), true),
-                        chr(10)
-                    );
-                }
+                $argumentInitializationCode .= sprintf(
+                    '%s[\'%s\'] = %s;%s',
+                    $argumentsVariableName,
+                    $argumentName,
+                    var_export($argumentDefinition->getDefaultValue(), true),
+                    chr(10)
+                );
             }
 
             $alreadyBuiltArguments = [];
@@ -211,11 +204,13 @@ class NodeConverter
 
             $initializationPhpCode .= $argumentInitializationCode . $viewHelperInitializationPhpCode;
         } catch (StopCompilingChildrenException $stopCompilingChildrenException) {
-            $convertedViewHelperExecutionCode = '\'' . $stopCompilingChildrenException->getReplacementString() . '\'';
+            $convertedViewHelperExecutionCode = '\'' . str_replace("'", "\'", $stopCompilingChildrenException->getReplacementString()) . '\'';
         }
         $initializationArray = [
             'initialization' => $initializationPhpCode,
-            'execution' => $convertedViewHelperExecutionCode === null ? 'NULL' : $convertedViewHelperExecutionCode
+            // @todo: compile() *should* return strings, but it's not enforced in the interface.
+            //        The string cast is here to stay compatible in case something still returns for instance null.
+            'execution' => (string)$convertedViewHelperExecutionCode === '' ? "''" : $convertedViewHelperExecutionCode
         ];
         return $initializationArray;
     }
@@ -237,8 +232,9 @@ class NodeConverter
                 'initialization' => '',
                 'execution' => sprintf('%s->getAll()', $providerReference)
             ];
-        } elseif (1 === count(array_unique($accessors))
-            && reset($accessors) === VariableExtractor::ACCESSOR_ARRAY
+        }
+        if (1 === count(array_unique($accessors))
+            && reset($accessors) === StandardVariableProvider::ACCESSOR_ARRAY
             && count($accessors) === count($pathSegments)
             && false === strpos($path, '{')
         ) {
@@ -332,6 +328,7 @@ class NodeConverter
                 if ($childNode instanceof NodeInterface) {
                     return $this->convert($childNode);
                 }
+                // no break
             default:
                 $outputVariableName = $this->variableName('output');
                 $initializationPhpCode = sprintf('%s = \'\';', $outputVariableName) . chr(10);

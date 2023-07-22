@@ -1,35 +1,45 @@
 <?php
-namespace TYPO3Fluid\Fluid\ViewHelpers\Format;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
 
+namespace TYPO3Fluid\Fluid\ViewHelpers\Format;
+
 use TYPO3Fluid\Fluid\Core\Compiler\TemplateCompiler;
 use TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\ViewHelperNode;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
- * Applies htmlspecialchars() escaping to a value
+ * Applies PHP ``htmlspecialchars()`` escaping to a value.
  *
- * @see http://www.php.net/manual/function.htmlspecialchars.php
+ * See http://www.php.net/manual/function.htmlspecialchars.php
  *
- * = Examples =
+ * Examples
+ * ========
  *
- * <code title="default notation">
- * <f:format.htmlspecialchars>{text}</f:format.htmlspecialchars>
- * </code>
- * <output>
- * Text with & " ' < > * replaced by HTML entities (htmlspecialchars applied).
- * </output>
+ * Default notation
+ * ----------------
  *
- * <code title="inline notation">
- * {text -> f:format.htmlspecialchars(encoding: 'ISO-8859-1')}
- * </code>
- * <output>
- * Text with & " ' < > * replaced by HTML entities (htmlspecialchars applied).
- * </output>
+ * ::
+ *
+ *     <f:format.htmlspecialchars>{text}</f:format.htmlspecialchars>
+ *
+ * Output::
+ *
+ *     Text with & " ' < > * replaced by HTML entities (htmlspecialchars applied).
+ *
+ * Inline notation
+ * ---------------
+ *
+ * ::
+ *
+ *     {text -> f:format.htmlspecialchars(encoding: 'ISO-8859-1')}
+ *
+ * Output::
+ *
+ *     Text with & " ' < > * replaced by HTML entities (htmlspecialchars applied).
  *
  * @api
  */
@@ -37,20 +47,17 @@ class HtmlspecialcharsViewHelper extends AbstractViewHelper
 {
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $escapeChildren = false;
 
     /**
      * Disable the output escaping interceptor so that the value is not htmlspecialchar'd twice
      *
-     * @var boolean
+     * @var bool
      */
     protected $escapeOutput = false;
 
-    /**
-     * @return void
-     */
     public function initializeArguments()
     {
         parent::initializeArguments();

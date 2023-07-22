@@ -1,10 +1,11 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\Parser\SyntaxTree;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\Core\Parser\SyntaxTree;
 
 use TYPO3Fluid\Fluid\Core\Parser;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
@@ -42,7 +43,7 @@ class EscapingNode extends AbstractNode
     {
         $evaluated = $this->node->evaluate($renderingContext);
         if (is_string($evaluated) || (is_object($evaluated) && method_exists($evaluated, '__toString'))) {
-            return htmlspecialchars((string) $evaluated, ENT_QUOTES);
+            return htmlspecialchars((string)$evaluated, ENT_QUOTES);
         }
         return $evaluated;
     }
@@ -60,7 +61,6 @@ class EscapingNode extends AbstractNode
      *
      * @param NodeInterface $childNode The sub node to add
      * @throws Parser\Exception
-     * @return void
      */
     public function addChildNode(NodeInterface $childNode)
     {

@@ -1,13 +1,13 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\Parser\SyntaxTree;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
 
+namespace TYPO3Fluid\Fluid\Core\Parser\SyntaxTree;
+
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
-use TYPO3Fluid\Fluid\Core\Variables\VariableExtractor;
 
 /**
  * A node which handles object access. This means it handles structures like {object.accessor.bla}
@@ -23,7 +23,8 @@ class ObjectAccessorNode extends AbstractNode
     protected $objectPath;
 
     /**
-     * Accessor names, one per segment in the object path. Use constants from VariableExtractor
+     * Accessor names, one per segment in the object path.
+     * Use constants from StandardVariableProvider.
      *
      * @var array
      */
@@ -43,7 +44,6 @@ class ObjectAccessorNode extends AbstractNode
         $this->objectPath = $objectPath;
         $this->accessors = $accessors;
     }
-
 
     /**
      * Internally used for building up cached templates; do not use directly!
@@ -84,6 +84,6 @@ class ObjectAccessorNode extends AbstractNode
         if ($objectPath === '_all') {
             return $variableProvider->getAll();
         }
-        return VariableExtractor::extract($variableProvider, $this->objectPath, $this->accessors);
+        return $variableProvider->getByPath($this->objectPath, $this->accessors);
     }
 }

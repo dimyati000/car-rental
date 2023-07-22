@@ -1,10 +1,11 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\ViewHelper;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\Core\ViewHelper;
 
 use TYPO3Fluid\Fluid\Core\Compiler\TemplateCompiler;
 use TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\NodeInterface;
@@ -25,20 +26,17 @@ interface ViewHelperInterface
     public function prepareArguments();
 
     /**
-     * @param array $arguments
-     * @return void
+     * @param array<string, mixed> $arguments
      */
     public function setArguments(array $arguments);
 
     /**
      * @param NodeInterface[] $nodes
-     * @return void
      */
     public function setChildNodes(array $nodes);
 
     /**
      * @param RenderingContextInterface $renderingContext
-     * @return void
      */
     public function setRenderingContext(RenderingContextInterface $renderingContext);
 
@@ -53,8 +51,6 @@ interface ViewHelperInterface
      * Initializes the view helper before invoking the render method.
      *
      * Override this method to solve tasks before the view helper content is rendered.
-     *
-     * @return void
      */
     public function initialize();
 
@@ -69,7 +65,6 @@ interface ViewHelperInterface
     /**
      * Validate arguments, and throw exception if arguments do not validate.
      *
-     * @return void
      * @throws \InvalidArgumentException
      */
     public function validateArguments();
@@ -77,8 +72,6 @@ interface ViewHelperInterface
     /**
      * Initialize all arguments. You need to override this method and call
      * $this->registerArgument(...) inside this method, to register all your arguments.
-     *
-     * @return void
      */
     public function initializeArguments();
 
@@ -87,8 +80,7 @@ interface ViewHelperInterface
      * the ability to allow additional, undeclared, dynamic etc. arguments for the
      * node in the template. Do not implement this unless you need it!
      *
-     * @param array $arguments
-     * @return void
+     * @param array<string, mixed> $arguments
      */
     public function handleAdditionalArguments(array $arguments);
 
@@ -97,8 +89,7 @@ interface ViewHelperInterface
      * the ability to allow additional, undeclared, dynamic etc. arguments for the
      * node in the template. Do not implement this unless you need it!
      *
-     * @param array $arguments
-     * @return void
+     * @param array<string, mixed> $arguments
      */
     public function validateAdditionalArguments(array $arguments);
 
@@ -116,7 +107,7 @@ interface ViewHelperInterface
      * $renderingContext contains references to the VariableProvider and the
      * ViewHelperVariableContainer.
      *
-     * @param array $arguments
+     * @param array<string, mixed> $arguments
      * @param \Closure $renderChildrenClosure
      * @param RenderingContextInterface $renderingContext
      * @return string the resulting string which is directly shown
@@ -159,7 +150,6 @@ interface ViewHelperInterface
      * Called when being inside a cached template.
      *
      * @param \Closure $renderChildrenClosure
-     * @return void
      */
     public function setRenderChildrenClosure(\Closure $renderChildrenClosure);
 }

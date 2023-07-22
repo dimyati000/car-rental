@@ -4,7 +4,7 @@ class ModelPelanggan extends CI_Model
     public function showData(){
         return $this->db->get('tb_pelanggan');
     }
-    public function tambahData($data, $table)
+    public function tambahPelanggan($data, $table)
     {
             return $this->db->insert($table, $data);
     }

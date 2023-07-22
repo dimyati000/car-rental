@@ -1,10 +1,11 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\Cache;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\Core\Cache;
 
 use TYPO3Fluid\Fluid\Core\Compiler\FailedCompilingState;
 use TYPO3Fluid\Fluid\Core\Parser\ParsedTemplateInterface;
@@ -14,7 +15,6 @@ use TYPO3Fluid\Fluid\Core\Parser\ParsedTemplateInterface;
  */
 class FluidCacheWarmupResult
 {
-
     const RESULT_COMPILABLE = 'compilable';
     const RESULT_COMPILED = 'compiled';
     const RESULT_HASLAYOUT = 'hasLayout';

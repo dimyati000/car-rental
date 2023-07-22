@@ -1,10 +1,11 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\Rendering;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\Core\Rendering;
 
 use TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\NodeInterface;
 
@@ -41,7 +42,6 @@ interface RenderableInterface
      * by the NodeConverter
      *
      * @param NodeInterface $node
-     * @return void
      */
     public function setNode(NodeInterface $node);
 

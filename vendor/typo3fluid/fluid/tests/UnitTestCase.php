@@ -1,10 +1,13 @@
 <?php
-namespace TYPO3Fluid\Fluid\Tests;
+
+declare(strict_types=1);
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\Tests;
 
 /**
  * Base test case for unit tests.
@@ -13,10 +16,7 @@ namespace TYPO3Fluid\Fluid\Tests;
  * to extend this class for unit test cases instead of the base test case because if,
  * at some point, specific behavior needs to be implemented for unit tests, your test cases
  * will profit from it automatically.
- *
- * @api
  */
 abstract class UnitTestCase extends BaseTestCase
 {
-
 }

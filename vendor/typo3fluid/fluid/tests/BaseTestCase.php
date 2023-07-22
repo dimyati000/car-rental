@@ -1,10 +1,13 @@
 <?php
-namespace TYPO3Fluid\Fluid\Tests;
+
+declare(strict_types=1);
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\Tests;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -12,37 +15,34 @@ use PHPUnit\Framework\TestCase;
 /**
  * The mother of all test cases.
  *
- * Don't sub class this test case but rather choose a more specialized base test case,
+ * Don't subclass this test case but rather choose a more specialized base test case,
  * such as UnitTestCase or FunctionalTestCase
- *
- * @api
  */
 abstract class BaseTestCase extends TestCase
 {
-
-    /**
-     * Enable or disable the backup and restoration of static attributes.
-     * @var boolean
-     */
-    protected $backupStaticAttributes = false;
-
     /**
      * Returns a mock object which allows for calling protected methods and access
      * of protected properties.
      *
-     * @param string $originalClassName Full qualified name of the original class
-     * @param array $methods
-     * @param array $arguments
-     * @param string $mockClassName
-     * @param boolean $callOriginalConstructor
-     * @param boolean $callOriginalClone
-     * @param boolean $callAutoload
-     * @return MockObject
-     * @api
+     * @template T of object
+     * @param class-string<T> $originalClassName Full qualified name of the original class
+     * @return MockObject&AccessibleObjectInterface&T
      */
-    protected function getAccessibleMock($originalClassName, $methods = [], array $arguments = [], $mockClassName = '', $callOriginalConstructor = true, $callOriginalClone = true, $callAutoload = true)
-    {
-        $builder = $this->getMockBuilder($this->buildAccessibleProxy($originalClassName))->setMethods($methods)->setConstructorArgs($arguments)->setMockClassName($mockClassName);
+    protected function getAccessibleMock(
+        string $originalClassName,
+        ?array $methods = null,
+        array $arguments = [],
+        string $mockClassName = '',
+        bool $callOriginalConstructor = true,
+        bool $callOriginalClone = true,
+        bool $callAutoload = true
+    ) {
+        $builder = $this->getMockBuilder($this->buildAccessibleProxy($originalClassName))
+            ->setConstructorArgs($arguments)
+            ->setMockClassName($mockClassName);
+        if ($methods !== null) {
+            $builder->onlyMethods($methods);
+        }
         if (!$callAutoload) {
             $builder->disableAutoload();
         }
@@ -52,36 +52,35 @@ abstract class BaseTestCase extends TestCase
         if (!$callOriginalConstructor) {
             $builder->disableOriginalConstructor();
         }
-
         return $builder->getMock();
     }
 
     public static function assertAttributeEquals($expected, string $actualAttributeName, $actualClassOrObject, string $message = '', float $delta = 0.0, int $maxDepth = 10, bool $canonicalize = false, bool $ignoreCase = false): void
     {
-        static::assertEquals($expected, static::extractNonPublicAttribute($actualClassOrObject, $actualAttributeName));
+        self::assertEquals($expected, self::extractNonPublicAttribute($actualClassOrObject, $actualAttributeName));
     }
 
     public static function assertAttributeSame($expected, string $actualAttributeName, $actualClassOrObject, string $message = '', float $delta = 0.0, int $maxDepth = 10, bool $canonicalize = false, bool $ignoreCase = false): void
     {
-        static::assertSame($expected, static::extractNonPublicAttribute($actualClassOrObject, $actualAttributeName));
+        self::assertSame($expected, self::extractNonPublicAttribute($actualClassOrObject, $actualAttributeName));
     }
 
     public static function assertAttributeContains($needle, string $haystackAttributeName, $haystackClassOrObject, string $message = '', bool $ignoreCase = false, bool $checkForObjectIdentity = true, bool $checkForNonObjectIdentity = false): void
     {
-        static::assertContains($needle, static::extractNonPublicAttribute($haystackClassOrObject, $haystackAttributeName));
+        self::assertContains($needle, self::extractNonPublicAttribute($haystackClassOrObject, $haystackAttributeName));
     }
 
     public static function assertAttributeNotEmpty(string $haystackAttributeName, $haystackClassOrObject, string $message = ''): void
     {
-        static::assertNotEmpty(static::extractNonPublicAttribute($haystackClassOrObject, $haystackAttributeName));
+        self::assertNotEmpty(self::extractNonPublicAttribute($haystackClassOrObject, $haystackAttributeName));
     }
 
     public static function assertAttributeInstanceOf(string $expected, string $attributeName, $classOrObject, string $message = ''): void
     {
-        static::assertInstanceOf($expected, static::extractNonPublicAttribute($classOrObject, $attributeName));
+        self::assertInstanceOf($expected, self::extractNonPublicAttribute($classOrObject, $attributeName));
     }
 
-    protected static function extractNonPublicAttribute($actualClassOrObject, string $actualAttributeName)
+    private static function extractNonPublicAttribute($actualClassOrObject, string $actualAttributeName)
     {
         $reflection = new \ReflectionClass($actualClassOrObject);
         $attribute = $reflection->getProperty($actualAttributeName);
@@ -93,30 +92,32 @@ abstract class BaseTestCase extends TestCase
      * Returns a mock object which allows for calling protected methods and access
      * of protected properties.
      *
-     * @param string $originalClassName Full qualified name of the original class
-     * @param array $methods
-     * @param array $arguments
-     * @param boolean $callOriginalConstructor
-     * @param boolean $callOriginalClone
-     * @param boolean $callAutoload
-     * @return MockObject
-     * @api
+     * @template T of object
+     * @param class-string<T> $originalClassName Full qualified name of the original class
+     * @return MockObject&T
      */
-    protected function getMock($originalClassName, $methods = [], array $arguments = [], $callOriginalConstructor = true, $callOriginalClone = true, $callAutoload = true)
-    {
-        $builder = $this->getMockBuilder($originalClassName)->setMethods($methods)->setConstructorArgs($arguments);
+    protected function getMock(
+        string $originalClassName,
+        ?array $methods = null,
+        array $arguments = [],
+        bool $callOriginalConstructor = true,
+        bool $callOriginalClone = true,
+        bool $callAutoload = true
+    ) {
+        $builder = $this->getMockBuilder($originalClassName);
+        if ($methods !== null) {
+            $builder->onlyMethods($methods);
+        }
+        $builder->setConstructorArgs($arguments);
         if (!$callAutoload) {
             $builder->disableAutoload();
         }
-
         if (!$callOriginalClone) {
             $builder->disableOriginalClone();
         }
-
         if (!$callOriginalConstructor) {
             $builder->disableOriginalConstructor();
         }
-
         return $builder->getMock();
     }
 
@@ -124,17 +125,18 @@ abstract class BaseTestCase extends TestCase
      * Returns a mock object which allows for calling protected methods and access
      * of protected properties.
      *
-     * @param string $originalClassName Full qualified name of the original class
-     * @param array $arguments
-     * @param string $mockClassName
-     * @param boolean $callOriginalConstructor
-     * @param boolean $callOriginalClone
-     * @param boolean $callAutoload
-     * @return \PHPUnit_Framework_MockObject_MockObject
-     * @api
+     * @template T of object
+     * @param class-string<T> $originalClassName Full qualified name of the original class
+     * @return MockObject&AccessibleObjectInterface&T
      */
-    protected function getAccessibleMockForAbstractClass($originalClassName, array $arguments = [], $mockClassName = '', $callOriginalConstructor = true, $callOriginalClone = true, $callAutoload = true)
-    {
+    protected function getAccessibleMockForAbstractClass(
+        string $originalClassName,
+        array $arguments = [],
+        string $mockClassName = '',
+        bool $callOriginalConstructor = true,
+        bool $callOriginalClone = true,
+        bool $callAutoload = true
+    ): object {
         return $this->getMockForAbstractClass($this->buildAccessibleProxy($originalClassName), $arguments, $mockClassName, $callOriginalConstructor, $callOriginalClone, $callAutoload);
     }
 
@@ -142,94 +144,28 @@ abstract class BaseTestCase extends TestCase
      * Creates a proxy class of the specified class which allows
      * for calling even protected methods and access of protected properties.
      *
-     * @param string $className Full qualified name of the original class
-     * @return string Full qualified name of the built class
-     * @api
+     * @template T of object
+     * @param class-string<T> $className Full qualified name of the original class
+     * @return class-string<AccessibleObjectInterface&T> Full qualified name of the built class
      */
-    protected function buildAccessibleProxy($className)
+    private function buildAccessibleProxy(string $className): string
     {
-        $accessibleClassName = 'AccessibleTestProxy' . md5(uniqid(mt_rand(), true));
+        $accessibleClassName = 'AccessibleTestProxy' . md5(uniqid((string)mt_rand(), true));
         $class = new \ReflectionClass($className);
         $abstractModifier = $class->isAbstract() ? 'abstract ' : '';
         eval('
-			' . $abstractModifier . 'class ' . $accessibleClassName . ' extends ' . $className . ' {
-				public function _call($methodName) {
-					return call_user_func_array(array($this, $methodName), array_slice(func_get_args(), 1));
+			' . $abstractModifier . 'class ' . $accessibleClassName . ' extends ' . $className . ' implements ' . AccessibleObjectInterface::class . ' {
+				public function _call(string $methodName, ...$methodArguments) {
+				    return $this->$methodName(...$methodArguments);
 				}
-				public function _callRef($methodName, &$arg1 = NULL, &$arg2 = NULL, &$arg3 = NULL, &$arg4 = NULL, &$arg5= NULL, &$arg6 = NULL, &$arg7 = NULL, &$arg8 = NULL, &$arg9 = NULL) {
-					switch (func_num_args()) {
-						case 0 : return $this->$methodName();
-						case 1 : return $this->$methodName($arg1);
-						case 2 : return $this->$methodName($arg1, $arg2);
-						case 3 : return $this->$methodName($arg1, $arg2, $arg3);
-						case 4 : return $this->$methodName($arg1, $arg2, $arg3, $arg4);
-						case 5 : return $this->$methodName($arg1, $arg2, $arg3, $arg4, $arg5);
-						case 6 : return $this->$methodName($arg1, $arg2, $arg3, $arg4, $arg5, $arg6);
-						case 7 : return $this->$methodName($arg1, $arg2, $arg3, $arg4, $arg5, $arg6, $arg7);
-						case 8 : return $this->$methodName($arg1, $arg2, $arg3, $arg4, $arg5, $arg6, $arg7, $arg8);
-						case 9 : return $this->$methodName($arg1, $arg2, $arg3, $arg4, $arg5, $arg6, $arg7, $arg8, $arg9);
-					}
-				}
-				public function _set($propertyName, $value) {
+				public function _set(string $propertyName, $value): void {
 					$this->$propertyName = $value;
 				}
-				public function _setRef($propertyName, &$value) {
-					$this->$propertyName = $value;
-				}
-				public function _get($propertyName) {
+				public function _get(string $propertyName) {
 					return $this->$propertyName;
 				}
 			}
 		');
         return $accessibleClassName;
-    }
-
-    protected function setExpectedException(string $class = \Exception::class, string $message = '', int $code = 0)
-    {
-        if ($class) {
-            $this->expectException($class);
-        }
-        if ($message) {
-            $this->expectExceptionMessage($message);
-        }
-        if ($code) {
-            $this->expectExceptionCode($code);
-        }
-    }
-
-    /**
-     * Injects $dependency into property $name of $target
-     *
-     * This is a convenience method for setting a protected or private property in
-     * a test subject for the purpose of injecting a dependency.
-     *
-     * @param object $target The instance which needs the dependency
-     * @param string $name Name of the property to be injected
-     * @param object $dependency The dependency to inject – usually an object but can also be any other type
-     * @return void
-     * @throws \RuntimeException
-     * @throws \InvalidArgumentException
-     */
-    protected function inject($target, $name, $dependency)
-    {
-        if (!is_object($target)) {
-            throw new \InvalidArgumentException('Wrong type for argument $target, must be object.');
-        }
-
-        $objectReflection = new \ReflectionObject($target);
-        $methodNamePart = strtoupper($name[0]) . substr($name, 1);
-        if ($objectReflection->hasMethod('set' . $methodNamePart)) {
-            $methodName = 'set' . $methodNamePart;
-            $target->$methodName($dependency);
-        } elseif ($objectReflection->hasMethod('inject' . $methodNamePart)) {
-            $methodName = 'inject' . $methodNamePart;
-            $target->$methodName($dependency);
-        } elseif ($objectReflection->hasProperty($name)) {
-            $property = $objectReflection->getProperty($name);
-            $property->setAccessible(true);
-            $property->setValue($target, $dependency);
-        } else {
-            throw new \RuntimeException('Could not inject ' . $name . ' into object of type ' . get_class($target));
-        }
     }
 }

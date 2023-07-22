@@ -1,10 +1,11 @@
 <?php
-namespace TYPO3Fluid\Fluid\ViewHelpers;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\ViewHelpers;
 
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
@@ -19,28 +20,33 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
  *
  * Heavily inspired by Twig's corresponding node type.
  *
- * <code title="Usage of f:spaceless">
- * <f:spaceless>
- * <div>
- *     <div>
- *         <div>text
+ * Usage of f:spaceless
+ * ====================
  *
- * text</div>
- *     </div>
- * </div>
- * </code>
- * <output>
- * <div><div><div>text
+ * ::
  *
- * text</div></div></div>
- * </output>
+ *     <f:spaceless>
+ *         <div>
+ *             <div>
+ *                 <div>text
+ *
+ *         text</div>
+ *             </div>
+ *         </div>
+ *     </f:spaceless>
+ *
+ * Output::
+ *
+ *     <div><div><div>text
+ *
+ *     text</div></div></div>
  */
 class SpacelessViewHelper extends AbstractViewHelper
 {
     use CompileWithRenderStatic;
 
-    /** 
-     * @var boolean
+    /**
+     * @var bool
      */
     protected $escapeOutput = false;
 
@@ -52,6 +58,6 @@ class SpacelessViewHelper extends AbstractViewHelper
      */
     public static function renderStatic(array $arguments, \Closure $childClosure, RenderingContextInterface $renderingContext)
     {
-        return trim(preg_replace('/\\>\\s+\\</', '><', $childClosure()));
+        return trim(preg_replace('/\\>\\s+\\</', '><', (string)$childClosure()));
     }
 }

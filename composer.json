@@ -15,7 +15,8 @@
 		"typo3fluid/fluid": "^2.6",
 		"picqer/php-barcode-generator": "^2.0",
 		"dompdf/dompdf": "^0.8.5",
-		"phpoffice/phpspreadsheet": "^1.12"
+		"phpoffice/phpspreadsheet": "^1.12",
+		"ramsey/uuid": "^4.2"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

@@ -1,10 +1,11 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\ViewHelper;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\Core\ViewHelper;
 
 use TYPO3Fluid\Fluid\Core\Compiler\TemplateCompiler;
 use TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\NodeInterface;
@@ -35,7 +36,7 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      * ViewHelper class many times throughout the rendering process.
      * @var array
      */
-    static private $argumentDefinitionCache = [];
+    private static $argumentDefinitionCache = [];
 
     /**
      * Current view helper node
@@ -44,14 +45,12 @@ abstract class AbstractViewHelper implements ViewHelperInterface
     protected $viewHelperNode;
 
     /**
-     * Arguments array.
-     * @var array
+     * @var array<string, mixed>
      * @api
      */
     protected $arguments = [];
 
     /**
-     * Arguments array.
      * @var NodeInterface[] array
      * @api
      */
@@ -72,7 +71,7 @@ abstract class AbstractViewHelper implements ViewHelperInterface
     /**
      * @var \Closure
      */
-    protected $renderChildrenClosure = null;
+    protected $renderChildrenClosure;
 
     /**
      * ViewHelper Variable Container
@@ -87,23 +86,22 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      *
      * Note: If this is NULL the value of $this->escapingInterceptorEnabled is considered for backwards compatibility
      *
-     * @var boolean
+     * @var bool
      * @api
      */
-    protected $escapeChildren = null;
+    protected $escapeChildren;
 
     /**
      * Specifies whether the escaping interceptors should be disabled or enabled for the render-result of this ViewHelper
      * @see isOutputEscapingEnabled()
      *
-     * @var boolean
+     * @var bool
      * @api
      */
-    protected $escapeOutput = null;
+    protected $escapeOutput;
 
     /**
-     * @param array $arguments
-     * @return void
+     * @param array<string, mixed> $arguments
      */
     public function setArguments(array $arguments)
     {
@@ -112,7 +110,6 @@ abstract class AbstractViewHelper implements ViewHelperInterface
 
     /**
      * @param RenderingContextInterface $renderingContext
-     * @return void
      */
     public function setRenderingContext(RenderingContextInterface $renderingContext)
     {
@@ -126,7 +123,7 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      *
      * Note: This method is no public API, use $this->escapeChildren instead!
      *
-     * @return boolean
+     * @return bool
      */
     public function isChildrenEscapingEnabled()
     {
@@ -140,9 +137,9 @@ abstract class AbstractViewHelper implements ViewHelperInterface
     /**
      * Returns whether the escaping interceptors should be disabled or enabled for the render-result of this ViewHelper
      *
-     * Note: This method is no public API, use $this->escapeChildren instead!
+     * Note: This method is no public API, use $this->escapeOutput instead!
      *
-     * @return boolean
+     * @return bool
      */
     public function isOutputEscapingEnabled()
     {
@@ -156,13 +153,14 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      * @param string $name Name of the argument
      * @param string $type Type of the argument
      * @param string $description Description of the argument
-     * @param boolean $required If TRUE, argument is required. Defaults to FALSE.
-     * @param mixed $defaultValue Default value of argument
+     * @param bool $required If TRUE, argument is required. Defaults to FALSE.
+     * @param mixed $defaultValue Default value of argument. Will be used if the argument is not set.
+     * @param bool|null $escape Can be toggled to TRUE to force escaping of variables and inline syntax passed as argument value.
      * @return \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper $this, to allow chaining.
      * @throws Exception
      * @api
      */
-    protected function registerArgument($name, $type, $description, $required = false, $defaultValue = null)
+    protected function registerArgument($name, $type, $description, $required = false, $defaultValue = null, $escape = null)
     {
         if (array_key_exists($name, $this->argumentDefinitions)) {
             throw new Exception(
@@ -170,7 +168,7 @@ abstract class AbstractViewHelper implements ViewHelperInterface
                 1253036401
             );
         }
-        $this->argumentDefinitions[$name] = new ArgumentDefinition($name, $type, $description, $required, $defaultValue);
+        $this->argumentDefinitions[$name] = new ArgumentDefinition($name, $type, $description, $required, $defaultValue, $escape);
         return $this;
     }
 
@@ -182,13 +180,14 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      * @param string $name Name of the argument
      * @param string $type Type of the argument
      * @param string $description Description of the argument
-     * @param boolean $required If TRUE, argument is required. Defaults to FALSE.
+     * @param bool $required If TRUE, argument is required. Defaults to FALSE.
      * @param mixed $defaultValue Default value of argument
+     * @param bool|null $escape Can be toggled to TRUE to force escaping of variables and inline syntax passed as argument value.
      * @return \TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper $this, to allow chaining.
      * @throws Exception
      * @api
      */
-    protected function overrideArgument($name, $type, $description, $required = false, $defaultValue = null)
+    protected function overrideArgument($name, $type, $description, $required = false, $defaultValue = null, $escape = null)
     {
         if (!array_key_exists($name, $this->argumentDefinitions)) {
             throw new Exception(
@@ -196,7 +195,7 @@ abstract class AbstractViewHelper implements ViewHelperInterface
                 1279212461
             );
         }
-        $this->argumentDefinitions[$name] = new ArgumentDefinition($name, $type, $description, $required, $defaultValue);
+        $this->argumentDefinitions[$name] = new ArgumentDefinition($name, $type, $description, $required, $defaultValue, $escape);
         return $this;
     }
 
@@ -206,7 +205,6 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      * This is PURELY INTERNAL! Never override this method!!
      *
      * @param ViewHelperNode $node View Helper node to be set.
-     * @return void
      */
     public function setViewHelperNode(ViewHelperNode $node)
     {
@@ -219,7 +217,6 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      * This is PURELY INTERNAL! Never override this method!!
      *
      * @param NodeInterface[] $childNodes
-     * @return void
      */
     public function setChildNodes(array $childNodes)
     {
@@ -230,7 +227,6 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      * Called when being inside a cached template.
      *
      * @param \Closure $renderChildrenClosure
-     * @return void
      */
     public function setRenderChildrenClosure(\Closure $renderChildrenClosure)
     {
@@ -281,7 +277,6 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      *
      * Override this method to solve tasks before the view helper content is rendered.
      *
-     * @return void
      * @api
      */
     public function initialize()
@@ -315,7 +310,7 @@ abstract class AbstractViewHelper implements ViewHelperInterface
     protected function buildRenderChildrenClosure()
     {
         $self = clone $this;
-        return function() use ($self) {
+        return function () use ($self) {
             return $self->renderChildren();
         };
     }
@@ -340,7 +335,6 @@ abstract class AbstractViewHelper implements ViewHelperInterface
     /**
      * Validate arguments, and throw exception if arguments do not validate.
      *
-     * @return void
      * @throws \InvalidArgumentException
      */
     public function validateArguments()
@@ -369,7 +363,7 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      *
      * @param string $type
      * @param mixed $value
-     * @return boolean
+     * @return bool
      */
     protected function isValidType($type, $value)
     {
@@ -380,7 +374,8 @@ abstract class AbstractViewHelper implements ViewHelperInterface
         } elseif ($type === 'array' || substr($type, -2) === '[]') {
             if (!is_array($value) && !$value instanceof \ArrayAccess && !$value instanceof \Traversable && !empty($value)) {
                 return false;
-            } elseif (substr($type, -2) === '[]') {
+            }
+            if (substr($type, -2) === '[]') {
                 $firstElement = $this->getFirstElementOfNonEmpty($value);
                 if ($firstElement === null) {
                     return true;
@@ -412,7 +407,8 @@ abstract class AbstractViewHelper implements ViewHelperInterface
     {
         if (is_array($value)) {
             return reset($value);
-        } elseif ($value instanceof \Traversable) {
+        }
+        if ($value instanceof \Traversable) {
             foreach ($value as $element) {
                 return $element;
             }
@@ -424,7 +420,6 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      * Initialize all arguments. You need to override this method and call
      * $this->registerArgument(...) inside this method, to register all your arguments.
      *
-     * @return void
      * @api
      */
     public function initializeArguments()
@@ -436,7 +431,7 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      * The isset() test used fills both those requirements.
      *
      * @param string $argumentName
-     * @return boolean TRUE if $argumentName is found, FALSE otherwise
+     * @return bool TRUE if $argumentName is found, FALSE otherwise
      * @api
      */
     protected function hasArgument($argumentName)
@@ -452,8 +447,7 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      * method must not be called, obviously.
      *
      * @throws Exception
-     * @param array $arguments
-     * @return void
+     * @param array<string, mixed> $arguments
      */
     public function handleAdditionalArguments(array $arguments)
     {
@@ -467,8 +461,7 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      * method must not be called, obviously.
      *
      * @throws Exception
-     * @param array $arguments
-     * @return void
+     * @param array<string, mixed> $arguments
      */
     public function validateAdditionalArguments(array $arguments)
     {
@@ -511,7 +504,7 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      * when compiled is able to render itself statically to increase performance. This
      * default implementation will simply delegate to the ViewHelperInvoker.
      *
-     * @param array $arguments
+     * @param array<string, mixed> $arguments
      * @param \Closure $renderChildrenClosure
      * @param RenderingContextInterface $renderingContext
      * @return mixed
@@ -527,9 +520,8 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      * called directly after the ViewHelper was built.
      *
      * @param ViewHelperNode $node
-     * @param TextNode[] $arguments
+     * @param array<string, TextNode> $arguments
      * @param VariableProviderInterface $variableContainer
-     * @return void
      */
     public static function postParseEvent(ViewHelperNode $node, array $arguments, VariableProviderInterface $variableContainer)
     {
@@ -539,8 +531,6 @@ abstract class AbstractViewHelper implements ViewHelperInterface
      * Resets the ViewHelper state.
      *
      * Overwrite this method if you need to get a clean state of your ViewHelper.
-     *
-     * @return void
      */
     public function resetState()
     {

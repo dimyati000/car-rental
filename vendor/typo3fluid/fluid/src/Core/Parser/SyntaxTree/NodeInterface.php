@@ -1,10 +1,11 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\Parser\SyntaxTree;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\Core\Parser\SyntaxTree;
 
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 
@@ -33,7 +34,6 @@ interface NodeInterface
      * Appends a sub node to this node. Is used inside the parser to append children
      *
      * @param NodeInterface $childNode The sub node to add
-     * @return void
      */
     public function addChildNode(NodeInterface $childNode);
 

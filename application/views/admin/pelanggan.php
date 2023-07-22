@@ -5,7 +5,6 @@
 			<div class="section-header">
 				<h1>Pelanggan</h1>
 			</div>
-
 			<div class="section-body">
 				<div class="row">
 					<div class="col-12">
@@ -72,7 +71,12 @@
 				</button>
 			</div>
 			<div class="modal-body">
+        <?php
+          use Ramsey\Uuid\Uuid;
+          $uuid = Uuid::uuid4();
+        ?>
 				<form method="POST" action="<?php echo base_url() . 'Pelanggan/tambahData'; ?>" enctype="multipart/form-data" autocomplete="off">
+        <input type="hidden" class="form-control" name="idPelanggan" value="<?= $uuid ?>"></input>
 					<div class="form-group">
 						<label>NIK</label>
 						<input type="text" name="nik" class="form-control">
@@ -96,8 +100,8 @@
 
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="submit" class="btn btn-primary">Save changes</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+				<button type="submit" class="btn btn-primary">Simpan</button>
 			</div>
 			</form>
 		</div>

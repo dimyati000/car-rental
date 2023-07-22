@@ -1,10 +1,11 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\ViewHelper;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\Core\ViewHelper;
 
 use TYPO3Fluid\Fluid\Core\Compiler\TemplateCompiler;
 use TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\ViewHelperNode;
@@ -33,7 +34,7 @@ abstract class AbstractConditionViewHelper extends AbstractViewHelper
 {
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $escapeOutput = false;
 
@@ -42,8 +43,8 @@ abstract class AbstractConditionViewHelper extends AbstractViewHelper
      */
     public function initializeArguments()
     {
-        $this->registerArgument('then', 'mixed', 'Value to be returned if the condition if met.', false);
-        $this->registerArgument('else', 'mixed', 'Value to be returned if the condition if not met.', false);
+        $this->registerArgument('then', 'mixed', 'Value to be returned if the condition if met.', false, null, true);
+        $this->registerArgument('else', 'mixed', 'Value to be returned if the condition if not met.', false, null, true);
     }
 
     /**
@@ -63,7 +64,7 @@ abstract class AbstractConditionViewHelper extends AbstractViewHelper
     }
 
     /**
-     * @param array $arguments
+     * @param array<string, mixed> $arguments
      * @param \Closure $renderChildrenClosure
      * @param RenderingContextInterface $renderingContext
      * @return mixed
@@ -91,7 +92,7 @@ abstract class AbstractConditionViewHelper extends AbstractViewHelper
      * requires a different (or faster) decision then this method is the one
      * to override and implement.
      *
-     * @param array $arguments
+     * @param array<string, mixed> $arguments
      * @param RenderingContextInterface $renderingContext
      * @return bool
      */
@@ -114,8 +115,8 @@ abstract class AbstractConditionViewHelper extends AbstractViewHelper
      * be a warning if someone considers changing this method signature!
      *
      * @deprecated Deprecated in favor of ClassName::verdict($arguments, renderingContext), will no longer be called in 3.0
-     * @param array|NULL $arguments
-     * @return boolean
+     * @param array<string, mixed> $arguments
+     * @return bool
      * @api
      */
     protected static function evaluateCondition($arguments = null)
@@ -134,10 +135,9 @@ abstract class AbstractConditionViewHelper extends AbstractViewHelper
         foreach ($closures as $elseNodeIndex => $elseNodeClosure) {
             if (!isset($conditionClosures[$elseNodeIndex])) {
                 return $elseNodeClosure();
-            } else {
-                if ($conditionClosures[$elseNodeIndex]()) {
-                    return $elseNodeClosure();
-                }
+            }
+            if ($conditionClosures[$elseNodeIndex]()) {
+                return $elseNodeClosure();
             }
         }
         return '';
@@ -172,9 +172,8 @@ abstract class AbstractConditionViewHelper extends AbstractViewHelper
 
         if ($elseViewHelperEncountered) {
             return '';
-        } else {
-            return $this->renderChildren();
         }
+        return $this->renderChildren();
     }
 
     /**
@@ -187,12 +186,11 @@ abstract class AbstractConditionViewHelper extends AbstractViewHelper
      */
     protected function renderElseChild()
     {
-
         if ($this->hasArgument('else')) {
             return $this->arguments['else'];
         }
 
-        /** @var ViewHelperNode|NULL $elseNode */
+        /** @var ViewHelperNode|null $elseNode */
         $elseNode = null;
         foreach ($this->viewHelperNode->getChildNodes() as $childNode) {
             if ($childNode instanceof ViewHelperNode

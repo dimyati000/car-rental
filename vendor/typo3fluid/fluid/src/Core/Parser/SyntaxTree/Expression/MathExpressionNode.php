@@ -1,10 +1,11 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\Expression;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\Expression;
 
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 
@@ -25,7 +26,7 @@ class MathExpressionNode extends AbstractExpressionNode
 		(
 			{                                # Start of shorthand syntax
 				(?:                          # Math expression is composed of...
-					[_a-zA-Z0-9\.]+(?:[\s]?[*+\^\/\%\-]{1}[\s]?[_a-zA-Z0-9\.]+)+   # Various math expressions left and right sides with any spaces
+					[_a-zA-Z0-9\.]+(?:[\s]*[*+\^\/\%\-]{1}[\s]*[_a-zA-Z0-9\.]+)+   # Various math expressions left and right sides with any spaces
 					|(?R)                    # Other expressions inside
 				)+
 			}                                # End of shorthand syntax
@@ -35,7 +36,7 @@ class MathExpressionNode extends AbstractExpressionNode
      * @param RenderingContextInterface $renderingContext
      * @param string $expression
      * @param array $matches
-     * @return integer|float
+     * @return int|float
      */
     public static function evaluateExpression(RenderingContextInterface $renderingContext, $expression, array $matches)
     {
@@ -62,24 +63,29 @@ class MathExpressionNode extends AbstractExpressionNode
     }
 
     /**
-     * @param integer|float $left
+     * @param int|float $left
      * @param string $operator
-     * @param integer|float $right
-     * @return integer|float
+     * @param int|float $right
+     * @return int|float
      */
     protected static function evaluateOperation($left, $operator, $right)
     {
         if ($operator === '%') {
             return $left % $right;
-        } elseif ($operator === '-') {
+        }
+        if ($operator === '-') {
             return $left - $right;
-        } elseif ($operator === '+') {
+        }
+        if ($operator === '+') {
             return $left + $right;
-        } elseif ($operator === '*') {
+        }
+        if ($operator === '*') {
             return $left * $right;
-        } elseif ($operator === '/') {
-            return (integer) $right !== 0 ? $left / $right : 0;
-        } elseif ($operator === '^') {
+        }
+        if ($operator === '/') {
+            return (integer)$right !== 0 ? $left / $right : 0;
+        }
+        if ($operator === '^') {
             return pow($left, $right);
         }
         return 0;

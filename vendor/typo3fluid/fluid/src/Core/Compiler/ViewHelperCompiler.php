@@ -1,4 +1,10 @@
 <?php
+
+/*
+ * This file belongs to the package "TYPO3 Fluid".
+ * See LICENSE.txt that was shipped with this package.
+ */
+
 namespace TYPO3Fluid\Fluid\Core\Compiler;
 
 use TYPO3Fluid\Fluid\Core\ViewHelper\ViewHelperInterface;
@@ -40,7 +46,6 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\ViewHelperInterface;
  */
 class ViewHelperCompiler
 {
-
     const RENDER_STATIC = 'renderStatic';
     const DEFAULT_INIT = '';
 
@@ -73,7 +78,7 @@ class ViewHelperCompiler
      * @param string $argumentsName Name of arguments variable passed to `compile()` method
      * @param string $renderChildrenClosureName Name of renderChildren closure passed to `compile()` method
      * @param string $method The name of the class' method to be called
-     * @param string|null Class name which contains the method; null means use ViewHelper's class name.
+     * @param string|null $onClass Class name which contains the method; null means use ViewHelper's class name.
      * @return array
      */
     public function compileWithCallToStaticMethod(

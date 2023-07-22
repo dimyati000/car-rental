@@ -1,10 +1,11 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\Parser;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\Core\Parser;
 
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\Variables\VariableProviderInterface;
@@ -18,7 +19,6 @@ interface ParsedTemplateInterface
 
     /**
      * @param string $identifier
-     * @return void
      */
     public function setIdentifier($identifier);
 
@@ -48,7 +48,7 @@ interface ParsedTemplateInterface
      * This requires the current rendering context in order to be able to evaluate the layout name
      *
      * @param RenderingContextInterface $renderingContext
-     * @return string
+     * @return string|null
      */
     public function getLayoutName(RenderingContextInterface $renderingContext);
 
@@ -57,14 +57,13 @@ interface ParsedTemplateInterface
      * and add those to the ones already defined in the ViewHelperResolver.
      *
      * @param RenderingContextInterface $renderingContext
-     * @return void
      */
     public function addCompiledNamespaces(RenderingContextInterface $renderingContext);
 
     /**
      * Returns TRUE if the current template has a template defined via <f:layout name="..." />
      *
-     * @return boolean
+     * @return bool
      */
     public function hasLayout();
 
@@ -72,12 +71,12 @@ interface ParsedTemplateInterface
      * If the template contains constructs which prevent the compiler from compiling the template
      * correctly, isCompilable() will return FALSE.
      *
-     * @return boolean TRUE if the template can be compiled
+     * @return bool TRUE if the template can be compiled
      */
     public function isCompilable();
 
     /**
-     * @return boolean TRUE if the template is already compiled, FALSE otherwise
+     * @return bool TRUE if the template is already compiled, FALSE otherwise
      */
     public function isCompiled();
 }

@@ -1,11 +1,13 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\Parser;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
 
+namespace TYPO3Fluid\Fluid\Core\Parser;
+
+use TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\AbstractNode;
 use TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\NodeInterface;
 use TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\RootNode;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
@@ -55,13 +57,12 @@ class ParsingState implements ParsedTemplateInterface
     protected $layoutNameNode;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $compilable = true;
 
     /**
      * @param string $identifier
-     * @return void
      */
     public function setIdentifier($identifier)
     {
@@ -80,7 +81,6 @@ class ParsingState implements ParsedTemplateInterface
      * Injects a variable container to be used during parsing.
      *
      * @param VariableProviderInterface $variableContainer
-     * @return void
      */
     public function setVariableProvider(VariableProviderInterface $variableContainer)
     {
@@ -91,7 +91,6 @@ class ParsingState implements ParsedTemplateInterface
      * Set root node of this parsing state.
      *
      * @param NodeInterface $rootNode
-     * @return void
      */
     public function setRootNode(RootNode $rootNode)
     {
@@ -124,7 +123,6 @@ class ParsingState implements ParsedTemplateInterface
      * templating tags.
      *
      * @param NodeInterface $node Node to push to node stack
-     * @return void
      */
     public function pushNodeToStack(NodeInterface $node)
     {
@@ -154,7 +152,7 @@ class ParsingState implements ParsedTemplateInterface
     /**
      * Count the size of the node stack
      *
-     * @return integer Number of elements on the node stack (i.e. number of currently open Fluid tags)
+     * @return int Number of elements on the node stack (i.e. number of currently open Fluid tags)
      */
     public function countNodeStack()
     {
@@ -174,7 +172,7 @@ class ParsingState implements ParsedTemplateInterface
     /**
      * Returns TRUE if the current template has a template defined via <f:layout name="..." />
      *
-     * @return boolean
+     * @return bool
      */
     public function hasLayout()
     {
@@ -187,25 +185,24 @@ class ParsingState implements ParsedTemplateInterface
      * This requires the current rendering context in order to be able to evaluate the layout name
      *
      * @param RenderingContextInterface $renderingContext
-     * @return string
+     * @return string|null
      * @throws View\Exception
      */
     public function getLayoutName(RenderingContextInterface $renderingContext)
     {
         $layoutName = $this->variableContainer->get('layoutName');
-        return ($layoutName instanceof RootNode ? $layoutName->evaluate($renderingContext) : $layoutName);
+        return $layoutName instanceof RootNode ? $layoutName->evaluate($renderingContext) : $layoutName;
     }
 
     /**
      * @param RenderingContextInterface $renderingContext
-     * @return void
      */
     public function addCompiledNamespaces(RenderingContextInterface $renderingContext)
     {
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isCompilable()
     {
@@ -213,7 +210,7 @@ class ParsingState implements ParsedTemplateInterface
     }
 
     /**
-     * @param boolean $compilable
+     * @param bool $compilable
      */
     public function setCompilable($compilable)
     {
@@ -221,7 +218,7 @@ class ParsingState implements ParsedTemplateInterface
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isCompiled()
     {

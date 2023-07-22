@@ -1,10 +1,11 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\Parser\TemplateProcessor;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\Core\Parser\TemplateProcessor;
 
 use TYPO3Fluid\Fluid\Core\Parser\PassthroughSourceException;
 use TYPO3Fluid\Fluid\Core\Parser\TemplateProcessorInterface;
@@ -40,7 +41,6 @@ class PassthroughSourceModifierTemplateProcessor implements TemplateProcessorInt
 
     /**
      * @param RenderingContextInterface $renderingContext
-     * @return void
      */
     public function setRenderingContext(RenderingContextInterface $renderingContext)
     {

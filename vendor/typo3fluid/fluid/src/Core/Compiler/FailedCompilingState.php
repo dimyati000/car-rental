@@ -1,10 +1,11 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\Compiler;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\Core\Compiler;
 
 use TYPO3Fluid\Fluid\Core\Parser\ParsedTemplateInterface;
 use TYPO3Fluid\Fluid\Core\Parser\ParsingState;
@@ -38,7 +39,6 @@ class FailedCompilingState extends ParsingState implements ParsedTemplateInterfa
 
     /**
      * @param string $failureReason
-     * @return void
      */
     public function setFailureReason($failureReason)
     {
@@ -63,7 +63,6 @@ class FailedCompilingState extends ParsingState implements ParsedTemplateInterfa
 
     /**
      * @param string $mitigation
-     * @return void
      */
     public function addMitigation($mitigation)
     {

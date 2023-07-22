@@ -1,10 +1,11 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\Cache;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\Core\Cache;
 
 /**
  * Interface FluidCacheInterface
@@ -30,7 +31,6 @@ interface FluidCacheInterface
      *
      * @param string $name
      * @param mixed $value
-     * @return void
      */
     public function set($name, $value);
 
@@ -38,8 +38,7 @@ interface FluidCacheInterface
      * Flushes the cache either by entry or flushes
      * the entire cache if no entry is provided.
      *
-     * @param string|NULL $name
-     * @return void
+     * @param string|null $name
      */
     public function flush($name = null);
 

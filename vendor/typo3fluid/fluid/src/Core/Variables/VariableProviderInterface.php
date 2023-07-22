@@ -1,10 +1,11 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\Variables;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\Core\Variables;
 
 /**
  * Interface VariableProviderInterface
@@ -19,12 +20,19 @@ namespace TYPO3Fluid\Fluid\Core\Variables;
  */
 interface VariableProviderInterface extends \ArrayAccess
 {
-
     /**
      * Variables, if any, with which to initialize this
      * VariableProvider.
      *
      * @param array $variables
+     * @todo: This must be removed from the interface! At the moment,
+     *        StandardVariableProvider accepts variables as constructor
+     *        arguments, while ChainedVariableProvider expects an array
+     *        of sub providers as constructor argument.
+     *        Thus, setSource() should be the only way to set variables
+     *        and StandardVariableProvider *must not* accept current
+     *        variables as constructor argument.
+     *        Adding variables as constructor must not be relied on!
      */
     public function __construct(array $variables = []);
 
@@ -48,7 +56,6 @@ interface VariableProviderInterface extends \ArrayAccess
      * supported by the VariableProvider itself.
      *
      * @param mixed $source
-     * @return void
      */
     public function setSource($source);
 
@@ -71,7 +78,6 @@ interface VariableProviderInterface extends \ArrayAccess
      *
      * @param string $identifier Identifier of the variable to add
      * @param mixed $value The variable's value
-     * @return void
      * @api
      */
     public function add($identifier, $value);
@@ -89,7 +95,7 @@ interface VariableProviderInterface extends \ArrayAccess
      * Get a variable by dotted path expression, retrieving the
      * variable from nested arrays/objects one segment at a time.
      * If the second variable is passed, it is expected to contain
-     * extraction method names (constants from VariableExtractor)
+     * extraction method names (constants from StandardVariableProvider)
      * which indicate how each value is extracted.
      *
      * @param string $path
@@ -102,7 +108,6 @@ interface VariableProviderInterface extends \ArrayAccess
      * Remove a variable from context.
      *
      * @param string $identifier The identifier to remove
-     * @return void
      * @api
      */
     public function remove($identifier);
@@ -118,7 +123,7 @@ interface VariableProviderInterface extends \ArrayAccess
      * Checks if this property exists in the VariableContainer.
      *
      * @param string $identifier
-     * @return boolean TRUE if $identifier exists, FALSE otherwise
+     * @return bool TRUE if $identifier exists, FALSE otherwise
      * @api
      */
     public function exists($identifier);
@@ -128,24 +133,25 @@ interface VariableProviderInterface extends \ArrayAccess
      *
      * @param string $identifier Identifier of the variable to add
      * @param mixed $value The variable's value
-     * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($identifier, $value);
 
     /**
      * Remove a variable from context.
      *
      * @param string $identifier The identifier to remove
-     * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($identifier);
 
     /**
      * Checks if this property exists in the VariableContainer.
      *
      * @param string $identifier
-     * @return boolean TRUE if $identifier exists, FALSE otherwise
+     * @return bool TRUE if $identifier exists, FALSE otherwise
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($identifier);
 
     /**
@@ -154,5 +160,6 @@ interface VariableProviderInterface extends \ArrayAccess
      * @param string $identifier
      * @return mixed The variable identified by $identifier
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($identifier);
 }

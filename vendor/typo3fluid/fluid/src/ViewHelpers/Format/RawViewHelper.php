@@ -1,10 +1,11 @@
 <?php
-namespace TYPO3Fluid\Fluid\ViewHelpers\Format;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
+
+namespace TYPO3Fluid\Fluid\ViewHelpers\Format;
 
 use TYPO3Fluid\Fluid\Core\Compiler\TemplateCompiler;
 use TYPO3Fluid\Fluid\Core\Parser\SyntaxTree\ViewHelperNode;
@@ -19,52 +20,61 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithContentArgumentAndRenderS
  * PAY SPECIAL ATTENTION TO SECURITY HERE (especially Cross Site Scripting),
  * as the output is NOT SANITIZED!
  *
- * = Examples =
+ * Examples
+ * ========
  *
- * <code title="Child nodes">
- * <f:format.raw>{string}</f:format.raw>
- * </code>
- * <output>
- * (Content of {string} without any conversion/escaping)
- * </output>
+ * Child nodes
+ * -----------
  *
- * <code title="Value attribute">
- * <f:format.raw value="{string}" />
- * </code>
- * <output>
- * (Content of {string} without any conversion/escaping)
- * </output>
+ * ::
  *
- * <code title="Inline notation">
- * {string -> f:format.raw()}
- * </code>
- * <output>
- * (Content of {string} without any conversion/escaping)
- * </output>
+ *     <f:format.raw>{string}</f:format.raw>
+ *
+ * Output::
+ *
+ *     (Content of ``{string}`` without any conversion/escaping)
+ *
+ * Value attribute
+ * ---------------
+ *
+ * ::
+ *
+ *     <f:format.raw value="{string}" />
+ *
+ * Output::
+ *
+ *     (Content of ``{string}`` without any conversion/escaping)
+ *
+ * Inline notation
+ * ---------------
+ *
+ * ::
+ *
+ *     {string -> f:format.raw()}
+ *
+ * Output::
+ *
+ *     (Content of ``{string}`` without any conversion/escaping)
  *
  * @api
  */
 class RawViewHelper extends AbstractViewHelper
 {
-
     use CompileWithContentArgumentAndRenderStatic;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $escapeChildren = false;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $escapeOutput = false;
 
-    /**
-     * @return void
-     */
     public function initializeArguments()
     {
-        $this->registerArgument('value', 'mixed', 'The value to output');
+        $this->registerArgument('value', 'mixed', 'The value to output', false, null, false);
     }
 
     /**

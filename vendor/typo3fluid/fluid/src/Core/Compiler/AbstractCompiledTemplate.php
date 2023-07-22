@@ -1,14 +1,16 @@
 <?php
-namespace TYPO3Fluid\Fluid\Core\Compiler;
 
 /*
  * This file belongs to the package "TYPO3 Fluid".
  * See LICENSE.txt that was shipped with this package.
  */
 
+namespace TYPO3Fluid\Fluid\Core\Compiler;
+
 use TYPO3Fluid\Fluid\Core\Parser\ParsedTemplateInterface;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\Variables\StandardVariableProvider;
+use TYPO3Fluid\Fluid\Core\Variables\VariableProviderInterface;
 
 /**
  * Abstract Fluid Compiled template.
@@ -20,7 +22,6 @@ abstract class AbstractCompiledTemplate implements ParsedTemplateInterface
 
     /**
      * @param string $identifier
-     * @return void
      */
     public function setIdentifier($identifier)
     {
@@ -57,7 +58,7 @@ abstract class AbstractCompiledTemplate implements ParsedTemplateInterface
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isCompilable()
     {
@@ -65,7 +66,7 @@ abstract class AbstractCompiledTemplate implements ParsedTemplateInterface
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isCompiled()
     {
@@ -73,7 +74,7 @@ abstract class AbstractCompiledTemplate implements ParsedTemplateInterface
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function hasLayout()
     {
@@ -91,7 +92,6 @@ abstract class AbstractCompiledTemplate implements ParsedTemplateInterface
 
     /**
      * @param RenderingContextInterface $renderingContext
-     * @return void
      */
     public function addCompiledNamespaces(RenderingContextInterface $renderingContext)
     {

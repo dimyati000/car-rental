@@ -18,8 +18,7 @@ class Pelanggan extends CI_Controller
          redirect('Auth/login');
        } 
     }
-
-		// Tampilkan data layanan service
+		// Tampilkan data pelanggan  
     public function index()
     {
         $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
@@ -27,7 +26,39 @@ class Pelanggan extends CI_Controller
         $this->load->view("admin/pelanggan", $data);
         $this->load->view("layout/footerTemplateAdmin");
     }
-		// edit layanan service
+    
+    // Tambah Data pelanggan
+    public function tambahData()
+    {
+      $idPelanggan = $this->input->post('idPelanggan');
+      $nik = $this->input->post('nik');
+      $namaPelanggan = $this->input->post('namaPelanggan');
+      $noTelp = $this->input->post('noTelp');
+      $alamat = $this->input->post('alamat');
+      $fotoKtp = $_FILES['fotoKtp']['name'];
+        if($fotoKtp = ''){}else{
+            $config ['upload_path'] = './uploads';
+            $config ['allowed_types'] = 'jpg|jpeg|png|gif';
+            
+            $this->load->library('upload', $config);
+            if(!$this->upload->do_upload('fotoKtp')){
+                echo "Upload Foto KTP Gagal";
+            }else{
+                $fotoKtp = $this->upload->data('file_name');
+            }
+        }
+        $data = array(
+          'idPelanggan' => $idPelanggan,
+          'nik' => $nik,
+          'namaPelanggan' => $namaPelanggan,
+          'noTelp' => $noTelp,
+          'alamat' => $alamat,
+          'fotoKtp' => $fotoKtp
+        );
+        $this->ModelPelanggan->tambahPelanggan($data, 'tb_pelanggan');
+        redirect('../Pelanggan');
+    }
+		// edit pelanggan  
     public function edit($idPelanggan)
     {
       $where = array('idPelanggan' => $idPelanggan);
@@ -35,7 +66,7 @@ class Pelanggan extends CI_Controller
       $this->load->view("layout/templateAdmin");
       $this->load->view("admin/editPelanggan", $data); 
     }
-		// update pelanggan service
+		// update pelanggan  
     public function update()
     {
         $idPelanggan = $this->input->post('idPelanggan');
@@ -57,11 +88,11 @@ class Pelanggan extends CI_Controller
         $this->ModelPelanggan->updateData($where, $data, 'tb_pelanggan');
         redirect('../Pelanggan');
     }
-		// Hapus data layanan
-    public function delete($idLayanan)
+		// Hapus data pelanggan
+    public function delete($idpelanggan)
     {
-        $where = array('idLayanan' => $idLayanan);
-        $this->ModelService->hapusData($where, 'tb_layanan');
-        redirect('../Service/BookingService');
+        $where = array('idpelanggan' => $idpelanggan);
+        $this->ModelPelanggan ->hapusData($where, 'tb_pelanggan');
+        redirect('../Pelanggan');
     } 
 }
