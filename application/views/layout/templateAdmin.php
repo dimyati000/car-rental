@@ -83,7 +83,6 @@
         </aside>
       </div>
     </div>
-    
   </div>
 
   <!-- General JS Scripts -->

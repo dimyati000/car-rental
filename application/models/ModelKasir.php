@@ -7,7 +7,8 @@ class ModelKasir extends CI_Model{
     {
 			return $this->db->insert($table, $data);
     }
-		public function hapusData($where, $table)
+	
+    public function hapusData($where, $table)
     {
         $this->db->where($where);
         $this->db->delete($table);

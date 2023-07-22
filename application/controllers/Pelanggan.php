@@ -7,7 +7,7 @@ class Pelanggan extends CI_Controller
     public function __construct()
     {
        parent::__construct();
-       $this->load->model('ModelService');
+       $this->load->model('ModelPelanggan');
        if($this->session->userdata('roleId') != 1){
            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
            <strong>Anda Harus Login Terlebih Dahulu !</strong>
@@ -22,61 +22,40 @@ class Pelanggan extends CI_Controller
 		// Tampilkan data layanan service
     public function index()
     {
-        $data['pelayanan'] = $this->ModelService->showDataReg()->result();
+        $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/pelanggan", $data);
         $this->load->view("layout/footerTemplateAdmin");
     }
 		// edit layanan service
-    public function edit($idLayanan)
+    public function edit($idPelanggan)
     {
-      $where = array('idLayanan' => $idLayanan);
-      $data['pelayanan'] = $this->ModelService->editLayanan($where, 'tb_layanan')->result();
+      $where = array('idPelanggan' => $idPelanggan);
+      $data['pelanggan'] = $this->ModelPelanggan->editPelanggan($where, 'tb_pelanggan')->result();
       $this->load->view("layout/templateAdmin");
-      $this->load->view("admin/editLayanan", $data); 
+      $this->load->view("admin/editPelanggan", $data); 
     }
-		// update layanan service
+		// update pelanggan service
     public function update()
     {
-        $idLayanan = $this->input->post('idLayanan');
+        $idPelanggan = $this->input->post('idPelanggan');
+        $nik = $this->input->post('nik');
         $namaPelanggan = $this->input->post('namaPelanggan');
-        $tipeKendaraan = $this->input->post('tipeKendaraan');
-        $merk = $this->input->post('merkKendaraan');
-        $nama = $this->input->post('namaKendaraan');
-        $transmisi = $this->input->post('transmisi');
-        $jenisBensin = $this->input->post('jenisBensin');
-        $platNomor = $this->input->post('platNomor');
+        $noTelp = $this->input->post('noTelp');
+        $alamat = $this->input->post('alamat');
 
         $data = array(
+            'nik' => $nik,
             'namaPelanggan' => $namaPelanggan,
-            'tipeKendaraan' => $tipeKendaraan,
-            'namaKendaraan' => $nama,
-            'merkKendaraan' => $merk,
-            'transmisi' => $transmisi,
-            'jenisBensin' => $jenisBensin,
-            'platNomor' => $platNomor
+            'noTelp' => $noTelp,
+            'alamat' => $alamat,
         );
         $where = array(
-            'idLayanan' => $idLayanan
+            'idPelanggan' => $idPelanggan
         );
         
-        $this->ModelService->updateData($where, $data, 'tb_layanan');
-        redirect('../Service');
-    }
-		// ambil data booking service
-    public function BookingService()
-    {
-        $data['pelayanan'] = $this->ModelService->showDataBooking()->result();
-        $this->load->view("layout/templateAdmin");
-        $this->load->view("admin/bookingService", $data);
-    }
-		// Ambil detail booking service
-    public function detailBooking($idLayanan)
-    {
-      $where = array('idLayanan' => $idLayanan);  
-      $data['booking'] = $this->ModelService->detailBooking($where, 'tb_layanan')->result();
-      $this->load->view("layout/templateAdmin");
-      $this->load->view("admin/detailBooking", $data);
+        $this->ModelPelanggan->updateData($where, $data, 'tb_pelanggan');
+        redirect('../Pelanggan');
     }
 		// Hapus data layanan
     public function delete($idLayanan)
@@ -84,29 +63,5 @@ class Pelanggan extends CI_Controller
         $where = array('idLayanan' => $idLayanan);
         $this->ModelService->hapusData($where, 'tb_layanan');
         redirect('../Service/BookingService');
-    }  
-		// Proses layanan  
-		public function proses($idLayanan)
-    {
-      $where = array('idLayanan' => $idLayanan);
-      $data['pelayanan'] = $this->ModelService->editLayanan($where, 'tb_layanan')->result();
-      $this->load->view("layout/templateAdmin");
-      $this->load->view("admin/verifikasi", $data); 
-    }
-		// Verifikasi Layanan Service
-    public function verifikasi()
-    {
-        $idLayanan = $this->input->post('idLayanan');
-        $verifikasi = $this->input->post('verifikasi');
-
-        $data = array(
-            'verifikasi' => $verifikasi,
-        );
-        $where = array(
-            'idLayanan' => $idLayanan
-        );
-        
-        $this->ModelService->verifikasi($where, $data, 'tb_layanan');
-        redirect('Service/BookingService');
-    }
+    } 
 }
