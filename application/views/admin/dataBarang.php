@@ -14,7 +14,7 @@
 				</div>
 
 <!-- <div class="main-content"> -->
-	<div class="container">
+	<!-- <div class="container"> -->
 		<!-- <div class="row justify-content-center"> -->
 			<div class="card shadow-lg border-0 rounded-lg mt-50">
 				<section class="section">

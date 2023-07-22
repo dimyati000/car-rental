@@ -24,6 +24,7 @@ class DataBarang extends CI_Controller
         $data['barang'] = $this->ModelBarang->showData()->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/dataBarang", $data);
+        $this->load->view("layout/jsAdmin");
     }
 	// Tambah Data barang
     public function tambahData()
