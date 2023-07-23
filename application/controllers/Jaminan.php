@@ -36,41 +36,33 @@ class Jaminan extends CI_Controller
         redirect('../Jaminan');
     }
 	// Edit jaminan
-    public function edit($idBarang)
+    public function edit($idJaminan)
     {
-        $where = array('idBarang' => $idBarang);
-        $data['barang'] = $this->ModelBarang->editBarang($where, 'tb_product')->result();
+        $where = array('idJaminan' => $idJaminan);
+        $data['jaminan'] = $this->ModelJaminan->editJaminan($where, 'tb_jaminan')->result();
         $this->load->view('layout/templateAdmin');
-        $this->load->view('admin/editBarang', $data);
+        $this->load->view('admin/editJaminan', $data);
     }
 	// Update jaminan 
     public function update()
     {
-        $idBarang = $this->input->post('idBarang');
-        $namaBarang = $this->input->post('namaBarang');
-        $kategori = $this->input->post('kategori');
-        $harga = $this->input->post('harga');
-        $keterangan = $this->input->post('keterangan');
-        $stok = $this->input->post('stok');
-
+        $idJaminan = $this->input->post('idJaminan');
+        $namaJaminan = $this->input->post('namaJaminan');
+     
         $data = array(
-            'namaBarang' => $namaBarang,
-            'kategori'   => $kategori,
-            'harga'      => $harga,
-            'keterangan' => $keterangan,
-            'stok'       => $stok
+            'namaJaminan' => $namaJaminan,
         );
         $where = array(
-            'idBarang' => $idBarang
+            'idJaminan' => $idJaminan
         );
-        $this->ModelBarang->updateData($where, $data, 'tb_product');
-        redirect('../DataBarang');
+        $this->ModelJaminan->updateData($where, $data, 'tb_jaminan');
+        redirect('../Jaminan');
     }
 	// Delete jaminan
-    public function delete($idBarang)
+    public function delete($idJaminan)
     {
-        $where = array('idBarang' => $idBarang);
-        $this->ModelBarang->hapusBarang($where, 'tb_product');
-        redirect('../DataBarang');
+        $where = array('idJaminan' => $idJaminan);
+        $this->ModelJaminan->hapusJaminan($where, 'tb_jaminan');
+        redirect('../Jaminan');
     }    
 }
