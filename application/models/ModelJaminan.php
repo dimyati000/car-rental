@@ -1,7 +1,7 @@
 <?php
 class ModelJaminan extends CI_Model
 {
-	public function tampilkanData($keyword = null)
+	public function showData($keyword = null)
 	{
 		if($keyword){
 			$this->db->like('namaJaminan', $keyword);

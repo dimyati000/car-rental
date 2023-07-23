@@ -21,7 +21,7 @@ class Jaminan extends CI_Controller
 	// Tampilkan jaminan
     public function index()
     {   
-        $data['jaminan'] = $this->ModelJaminan->tampilkanData()->result();
+        $data['jaminan'] = $this->ModelJaminan->showData()->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/jaminan", $data);
     }

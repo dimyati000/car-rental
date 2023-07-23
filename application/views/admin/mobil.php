@@ -14,7 +14,7 @@
 					</div>
 					<div class="section-body">
 						<div class="container-fluid">
-							<button class="btn btn-primary" data-toggle="modal" data-target="#tambahJaminan"><i class="fas fa-plus fa-sm"> Tambah Data</i></button>
+							<button class="btn btn-success btn-sm ml-2" data-toggle="modal" data-target="#tambahJaminan"><i class="fas fa-plus fa-sm"> Tambah Data</i></button>
 							<div class="card-body">
 								<div class="table-responsive">
 									<!-- Tabel Data Jaminan -->

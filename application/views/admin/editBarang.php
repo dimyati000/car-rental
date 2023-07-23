@@ -26,6 +26,7 @@
 						<!-- Form Edit Barang -->
 						<?php foreach ($barang as $brg) : ?>
 							<form action="<?php echo base_url() . 'DataBarang/update' ?>" method="post" autocomplete="off">
+								<input type="hidden" name="idBarang" class="form-control" value="<?php echo $brg->idBarang ?>">
 								<div class="form-group">
 									<label>Nama Barang</label>
 									<input type="text" name="namaBarang" class="form-control" value="<?php echo $brg->namaBarang ?>">
@@ -33,7 +34,6 @@
 								<div class="form-group">
 									<label>Kategori</label>
 									<input type="text" name="kategori" class="form-control" value="<?php echo $brg->kategori ?>">
-									<input type="hidden" name="idBarang" class="form-control" value="<?php echo $brg->idBarang ?>">
 								</div>
 								<div class="form-group">
 									<label>Harga</label>

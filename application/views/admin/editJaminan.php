@@ -26,6 +26,7 @@
 								<!-- Form Edit Layanan -->
 								<?php foreach ($jaminan as $j) : ?>
 								<form action="<?php echo base_url() . 'Jaminan/update' ?>" method="post" autocomplete="off">
+									<input type="hidden" name="idJaminan" class="form-control" value="<?php echo $j->idJaminan ?>">
 									<div class="form-group">
 										<label>Nama Jaminan</label>
 										<input type="text" name="namaJaminan" class="form-control"

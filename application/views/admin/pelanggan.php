@@ -44,7 +44,7 @@
 												<td><?php echo $pelanggan->namaPelanggan ?></td>
 												<td class="text-center"><?php echo $pelanggan->noTelp ?></td>
 												<td><?php echo $pelanggan->alamat ?></td>
-												<td class="text-center"><img style="width: 15rem;" src="<?php echo base_url() . '/uploads/' . $pelanggan->fotoKtp ?>"</td>
+												<td class="text-center"><img style="width: 15rem;" src="<?php echo base_url() . 'assets/uploads/ktp/' . $pelanggan->fotoKtp ?>"></td>
 												<td class="text-center">
 													<?php echo anchor('Pelanggan/edit/' . $pelanggan->idPelanggan, ' <div class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" data-original-title="Edit Data"><i class="fa fa-edit"></i></div>') ?>
 												</td>
