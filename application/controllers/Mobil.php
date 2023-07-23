@@ -7,7 +7,7 @@ class Mobil extends CI_Controller
     public function __construct()
     {
        parent::__construct();
-       $this->load->model('ModelService');
+       $this->load->model('ModelJaminan');
        if($this->session->userdata('roleId') != 1){
            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
            <strong>Anda Harus Login Terlebih Dahulu !</strong>
@@ -22,7 +22,7 @@ class Mobil extends CI_Controller
 		// Tampilkan data layanan service
     public function index()
     {
-        $data['pelayanan'] = $this->ModelService->showDataReg()->result();
+        $data['jaminan'] = $this->ModelJaminan->tampilkanData()->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/mobil", $data);
         $this->load->view("layout/footerTemplateAdmin");
