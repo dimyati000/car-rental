@@ -1,4 +1,4 @@
-<title>Data Jaminan</title>
+<title>Jaminan</title>
 
 <body>
 	<div class="main-wrapper main-wrapper-1">
@@ -31,9 +31,9 @@
 											<tr>
 												<td><?php echo $no++ ?></td>
 												<td><?php echo $j->namaJaminan ?></td>
-												<td><?php echo anchor('DataJaminan/edit/' . $j->idJaminan, ' <div class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit Data</div>') ?>
+												<td><?php echo anchor('Jaminan/edit/' . $j->idJaminan, ' <div class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit Data</div>') ?>
 												</td>
-												<td><?php echo anchor('DataJaminan/delete/' . $j->idJaminan, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>Hapus Data</div>') ?>
+												<td><?php echo anchor('Jaminan/delete/' . $j->idJaminan, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>Hapus Data</div>') ?>
 												</td>
 											</tr>
 										<?php endforeach; ?>
