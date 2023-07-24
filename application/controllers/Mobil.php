@@ -19,10 +19,43 @@ class Mobil extends CI_Controller
        } 
     }
 
+    // Tambah Data Mobil
+    public function tambahData()
+    {
+      $idPelanggan = $this->input->post('idPelanggan');
+      $nik = $this->input->post('nik');
+      $namaPelanggan = $this->input->post('namaPelanggan');
+      $noTelp = $this->input->post('noTelp');
+      $alamat = $this->input->post('alamat');
+      $fotoKtp = $_FILES['fotoKtp']['name'];
+        if($fotoKtp = ''){
+
+        }else{
+            $config ['upload_path'] = 'assets/uploads/ktp/';
+            $config ['allowed_types'] = 'jpg|jpeg|png|gif';
+            
+            $this->load->library('upload', $config);
+            if(!$this->upload->do_upload('fotoKtp')){
+                echo "Upload Foto KTP Gagal";
+            }else{
+                $fotoKtp = $this->upload->data('file_name');
+            }
+        }
+        $data = array(
+          'idPelanggan' => $idPelanggan,
+          'nik' => $nik,
+          'namaPelanggan' => $namaPelanggan,
+          'noTelp' => $noTelp,
+          'alamat' => $alamat,
+          'fotoKtp' => $fotoKtp
+        );
+        $this->ModelPelanggan->tambahPelanggan($data, 'tb_pelanggan');
+        redirect('../Pelanggan');
+    }
 		// Tampilkan data layanan service
     public function index()
     {
-        $data['jaminan'] = $this->ModelJaminan->tampilkanData()->result();
+        $data['jaminan'] = $this->ModelJaminan->showData()->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/mobil", $data);
         $this->load->view("layout/footerTemplateAdmin");
