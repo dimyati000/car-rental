@@ -76,7 +76,6 @@ class Pelanggan extends CI_Controller
         $namaPelanggan = $this->input->post('namaPelanggan');
         $noTelp = $this->input->post('noTelp');
         $alamat = $this->input->post('alamat');
-        $alamat = $this->input->post('alamat');
         if($fotoKtp = $_FILES['fotoKtp']['name']){
           $config ['upload_path'] = 'assets/uploads/ktp/';
           $config ['allowed_types'] = 'jpg|jpeg|png|gif';
