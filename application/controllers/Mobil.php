@@ -134,7 +134,7 @@ class Mobil extends CI_Controller
       $where = array(
         'idMobil' => $idMobil
       );
-        $this->ModelMobil->updateData($where, $data, 'tb_mobil');
+        $this->ModelMobil->updateMobil($where, $data, 'tb_mobil');
         redirect('../Mobil');
     }
 		// ambil data booking service

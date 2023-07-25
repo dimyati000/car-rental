@@ -25,8 +25,8 @@
 							<div class="container-fluid">
 								<!-- Form Edit Layanan -->
 								<?php foreach ($mobil as $m) : ?>
-								<form action="<?php echo base_url() . 'Mobil/update' ?>" method="post" enctype="multipart/form-data" autocomplete="off">
-									<input type="hidden" name="idMobil" class="form-control" value="<?php echo $p->idMobil ?>">
+								<form action="<?php echo base_url() . 'Mobil/updateMobil' ?>" method="post" enctype="multipart/form-data" autocomplete="off">
+									<input type="hidden" name="idMobil" class="form-control" value="<?php echo $m->idMobil ?>">
 									<div class="form-group">
 										<label>Jenis Mobil</label>
 										<input type="text" name="jenisMobil" class="form-control"
