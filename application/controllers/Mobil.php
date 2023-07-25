@@ -137,27 +137,13 @@ class Mobil extends CI_Controller
         $this->ModelMobil->updateMobil($where, $data, 'tb_mobil');
         redirect('../Mobil');
     }
-		// ambil data booking service
-    public function BookingService()
+	
+		// Hapus data mobil
+    public function delete($idMobil)
     {
-        $data['pelayanan'] = $this->ModelService->showDataBooking()->result();
-        $this->load->view("layout/templateAdmin");
-        $this->load->view("admin/bookingService", $data);
-    }
-		// Ambil detail booking service
-    public function detailBooking($idLayanan)
-    {
-      $where = array('idLayanan' => $idLayanan);  
-      $data['booking'] = $this->ModelService->detailBooking($where, 'tb_layanan')->result();
-      $this->load->view("layout/templateAdmin");
-      $this->load->view("admin/detailBooking", $data);
-    }
-		// Hapus data layanan
-    public function delete($idLayanan)
-    {
-        $where = array('idLayanan' => $idLayanan);
-        $this->ModelService->hapusData($where, 'tb_layanan');
-        redirect('../Service/BookingService');
+        $where = array('idMobil' => $idMobil);
+        $this->ModelMobil->hapusMobil($where, 'tb_mobil');
+        redirect('../Mobil');
     }  
 		// Proses layanan  
 		public function proses($idLayanan)
