@@ -1,45 +1,45 @@
 <?php
-class ModelJaminan extends CI_Model
+class ModelMobil extends CI_Model
 {
 	public function showData($keyword = null)
 	{
 		if($keyword){
-			$this->db->like('namaJaminan', $keyword);
+			$this->db->like('jenisMobil', $keyword);
 		}
-		return $this->db->get('tb_jaminan', $keyword);
+		return $this->db->get('tb_mobil', $keyword);
 	}
-	public function tambahJaminan($data, $table)
+	public function tambahMobil($data, $table)
 	{
 		return $this->db->insert($table, $data);
 	}
-	public function editJaminan($where, $table)
+	public function editMobil($where, $table)
 	{
 		return $this->db->get_where($table, $where);
 	}
-	public function updateData($where, $data, $table)
+	public function updateMobil($where, $data, $table)
 	{
 		$this->db->where($where);
 		$this->db->update($table, $data);
 	}
-	public function hapusJaminan($where, $table)
+	public function hapusMobil($where, $table)
 	{
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
-	public function find($idJaminan)
+	public function find($idMobil)
 	{
-		$result = $this->db->where('idJaminan', $idJaminan)
+		$result = $this->db->where('idMobil', $idMobil)
 			->limit(1)
-			->get('tb_jaminan');
+			->get('tb_mobil');
 		if ($result->num_rows() > 0) {
 			return $result->row();
 		} else {
 			return array();
 		}
 	}
-	public function detailJaminan($idJaminan)
+	public function detailMobil($idMobil)
 	{
-		$result = $this->db->where('idJaminan', $idJaminan)->get('tb_jaminan');
+		$result = $this->db->where('idMobil', $idMobil)->get('tb_mobil');
 		if ($result->num_rows() > 0) {
 			return $result->result();
 		} else {

@@ -21,9 +21,9 @@
 									<table class="table table-bordered">
 										<tr>
 											<th>No</th>
-											<th>Nama Mobil</th>
+											<th>Jenis Mobil</th>
 											<th>Merk</th>
-											<th>No Plat</th>
+											<th>Nopol</th>
 											<th>Tahun</th>
 											<th>Harga</th>
 											<th>Bahan Bakar</th>
@@ -31,17 +31,30 @@
 											<th>Denda</th>
 											<th>Seat</th>
 											<th>Status Tersedia</th>
-											<th class="text-center" colspan="2">Aksi</th>
+											<th>gambarMobil</th>
+											<th class="text-center" colspan="9">Aksi</th>
 										</tr>
 										<?php
 										$no = 1;
-										foreach ($jaminan as $j) : ?>
+										foreach ($mobil as $m) : ?>
 											<tr>
-												<td><?php echo $no++ ?></td>
-												<td><?php echo $j->namaJaminan ?></td>
-												<td><?php echo anchor('Jaminan/edit/' . $j->idJaminan, ' <div class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit Data</div>') ?>
+												<td class="text-center"><?php echo $no++ ?></td>
+												<td><?php echo $m->jenisMobil ?></td>
+												<td><?php echo $m->merkMobil ?></td>
+												<td class="text-center"><?php echo $m->nopol ?></td>
+												<td><?php echo $m->tahun ?></td>
+												<td><?php echo $m->harga ?></td>
+												<td><?php echo $m->bahanBakar ?></td>
+												<td><?php echo $m->warna ?></td>
+												<td><?php echo $m->denda ?></td>
+												<td><?php echo $m->seat ?></td>
+												<td><?php echo $m->statusTersedia ?></td>
+												<td class="text-center"><img style="width: 5rem;" src="<?php echo base_url() . 'assets/uploads/mobil/' . $m->gambarMobil ?>"></td>
+												<td class="text-center">
+													<?php echo anchor('Mobil/edit/' . $m->idMobil, ' <div class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" data-original-title="Edit Data"><i class="fa fa-edit"></i></div>') ?>
 												</td>
-												<td><?php echo anchor('Jaminan/delete/' . $j->idJaminan, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>Hapus Data</div>') ?>
+												<td  class="text-center">
+													<?php echo anchor('Mobil/delete/' . $m->idMobil, '<div class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" data-original-title="Hapus Data"><i class="fa fa-trash"></i></div>') ?>
 												</td>
 											</tr>
 										<?php endforeach; ?>
@@ -57,7 +70,7 @@
 </div>
 
 <!-- Tambah Data Mobil -->
-<div class="modal fade" id="tambahPelanggan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="tambahMobil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 	aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -72,48 +85,52 @@
 					use Ramsey\Uuid\Uuid;
 					$uuid = Uuid::uuid4();
 					?>
-				<form method="POST" action="<?php echo base_url() . 'Pelanggan/tambahData'; ?>"
+				<form method="POST" action="<?php echo base_url() . 'Mobil/tambahMobil'; ?>"
 					enctype="multipart/form-data" autocomplete="off">
-					<input type="hidden" class="form-control" name="idPelanggan" value="<?= $uuid ?>"></input>
+					<input type="hidden" class="form-control" name="idMobil" value="<?= $uuid ?>"></input>
 					<div class="form-group">
-						<label>Nama Mobil</label>
-						<input type="text" name="nik" class="form-control">
+						<label>Jenis Mobil</label>
+						<input type="text" name="jenisMobil" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Merk Mobil</label>
-						<input type="text" name="namaPelanggan" class="form-control">
+						<input type="text" name="merkMobil" class="form-control">
 					</div>
 					<div class="form-group">
-						<label>No Plat</label>
-						<input type="text" name="noTelp" class="form-control">
+						<label>Nopol</label>
+						<input type="text" name="nopol" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Tahun</label>
-						<input type="text" name="alamat" class="form-control">
+						<input type="text" name="tahun" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Harga</label>
-						<input type="text" name="alamat" class="form-control">
+						<input type="text" name="harga" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Bahan Bakar</label>
-						<input type="text" name="alamat" class="form-control">
+						<input type="text" name="bahanBakar" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Warna</label>
-						<input type="text" name="alamat" class="form-control">
+						<input type="text" name="warna" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Denda</label>
-						<input type="text" name="alamat" class="form-control">
+						<input type="text" name="denda" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Seat</label>
-						<input type="text" name="alamat" class="form-control">
+						<input type="text" name="seat" class="form-control">
 					</div>
 					<div class="form-group">
 						<label>Status Tersedia</label>
-						<input type="text" name="alamat" class="form-control">
+						<input type="text" name="statusTersedia" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>Gambar Mobil</label>
+						<input type="file" name="gambarMobil" class="form-control">
 					</div>
 			</div>
 			<div class="modal-footer">

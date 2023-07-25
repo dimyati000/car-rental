@@ -7,7 +7,7 @@ class Mobil extends CI_Controller
     public function __construct()
     {
        parent::__construct();
-       $this->load->model('ModelJaminan');
+       $this->load->model('ModelMobil');
        if($this->session->userdata('roleId') != 1){
            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
            <strong>Anda Harus Login Terlebih Dahulu !</strong>
@@ -20,81 +20,122 @@ class Mobil extends CI_Controller
     }
 
     // Tambah Data Mobil
-    public function tambahData()
+    public function tambahMobil()
     {
-      $idPelanggan = $this->input->post('idPelanggan');
-      $nik = $this->input->post('nik');
-      $namaPelanggan = $this->input->post('namaPelanggan');
-      $noTelp = $this->input->post('noTelp');
-      $alamat = $this->input->post('alamat');
-      $fotoKtp = $_FILES['fotoKtp']['name'];
-        if($fotoKtp = ''){
+      $idMobil = $this->input->post('idMobil');
+      $jenisMobil = $this->input->post('jenisMobil');
+      $merkMobil = $this->input->post('merkMobil');
+      $nopol = $this->input->post('nopol');
+      $tahun = $this->input->post('tahun');
+      $harga = $this->input->post('harga');
+      $bahanBakar = $this->input->post('bahanBakar');
+      $warna = $this->input->post('warna');
+      $denda = $this->input->post('denda');
+      $seat = $this->input->post('seat');
+      $statusTersedia = $this->input->post('statusTersedia');
+      $gambarMobil = $_FILES['gambarMobil']['name'];
+        if($gambarMobil = ''){
 
         }else{
-            $config ['upload_path'] = 'assets/uploads/ktp/';
+            $config ['upload_path'] = 'assets/uploads/mobil/';
             $config ['allowed_types'] = 'jpg|jpeg|png|gif';
             
             $this->load->library('upload', $config);
-            if(!$this->upload->do_upload('fotoKtp')){
-                echo "Upload Foto KTP Gagal";
+            if(!$this->upload->do_upload('gambarMobil')){
+                echo "Upload Foto Mobil Gagal";
             }else{
-                $fotoKtp = $this->upload->data('file_name');
+                $gambarMobil = $this->upload->data('file_name');
             }
         }
         $data = array(
-          'idPelanggan' => $idPelanggan,
-          'nik' => $nik,
-          'namaPelanggan' => $namaPelanggan,
-          'noTelp' => $noTelp,
-          'alamat' => $alamat,
-          'fotoKtp' => $fotoKtp
+          'idMobil' => $idMobil,
+          'jenisMobil' => $jenisMobil,
+          'merkMobil' => $merkMobil,
+          'nopol' => $nopol,
+          'tahun' => $tahun,
+          'harga' => $harga,
+          'bahanBakar' => $bahanBakar,
+          'warna' => $warna,
+          'denda' => $denda,
+          'seat' => $seat,
+          'statusTersedia' => $statusTersedia,
+          'gambarMobil' => $gambarMobil
         );
-        $this->ModelPelanggan->tambahPelanggan($data, 'tb_pelanggan');
-        redirect('../Pelanggan');
+        $this->ModelMobil->tambahMobil($data, 'tb_mobil');
+        redirect('../Mobil');
     }
-		// Tampilkan data layanan service
+		// Tampilkan data mobil
     public function index()
     {
-        $data['jaminan'] = $this->ModelJaminan->showData()->result();
+        $data['mobil'] = $this->ModelMobil->showData()->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/mobil", $data);
         $this->load->view("layout/footerTemplateAdmin");
     }
-		// edit layanan service
-    public function edit($idLayanan)
+		// edit data mobil
+    public function editMobil($idMobil)
     {
-      $where = array('idLayanan' => $idLayanan);
-      $data['pelayanan'] = $this->ModelService->editLayanan($where, 'tb_layanan')->result();
+      $where = array('idMobil' => $idMobil);
+      $data['mobil'] = $this->ModelMobil->editMobil($where, 'tb_mobil')->result();
       $this->load->view("layout/templateAdmin");
-      $this->load->view("admin/editLayanan", $data); 
+      $this->load->view("admin/editMobil", $data); 
     }
 		// update layanan service
-    public function update()
+    public function updateMobil()
     {
-        $idLayanan = $this->input->post('idLayanan');
-        $namaPelanggan = $this->input->post('namaPelanggan');
-        $tipeKendaraan = $this->input->post('tipeKendaraan');
-        $merk = $this->input->post('merkKendaraan');
-        $nama = $this->input->post('namaKendaraan');
-        $transmisi = $this->input->post('transmisi');
-        $jenisBensin = $this->input->post('jenisBensin');
-        $platNomor = $this->input->post('platNomor');
-
+        $idMobil = $this->input->post('idMobil');
+        $jenisMobil = $this->input->post('jenisMobil');
+        $merkMobil = $this->input->post('merkMobil');
+        $nopol = $this->input->post('nopol');
+        $tahun = $this->input->post('tahun');
+        $harga = $this->input->post('harga');
+        $bahanBakar = $this->input->post('bahanBakar');
+        $warna = $this->input->post('warna');
+        $denda = $this->input->post('denda');
+        $seat = $this->input->post('seat');
+        $statusTersedia = $this->input->post('statusTersedia');
+        if($gambarMobil = $_FILES['gambarMobil']['name']){
+          $config ['upload_path'] = 'assets/uploads/mobil/';
+          $config ['allowed_types'] = 'jpg|jpeg|png|gif';
+          
+          $this->load->library('upload', $config);
+          if(!$this->upload->do_upload('gambarMobil')){
+              echo "Upload Foto Mobil Gagal";
+          }else{
+              $gambarMobil = $this->upload->data('file_name');
+          }
         $data = array(
-            'namaPelanggan' => $namaPelanggan,
-            'tipeKendaraan' => $tipeKendaraan,
-            'namaKendaraan' => $nama,
-            'merkKendaraan' => $merk,
-            'transmisi' => $transmisi,
-            'jenisBensin' => $jenisBensin,
-            'platNomor' => $platNomor
+            'jenisMobil' => $jenisMobil,
+            'merkMobil' => $merkMobil,
+            'nopol' => $nopol,
+            'tahun' => $tahun,
+            'harga' => $harga,
+            'bahanBakar' => $bahanBakar,
+            'warna' => $warna,
+            'denda' => $denda,
+            'seat' => $seat,
+            'statusTersedia' => $statusTersedia,
+            'gambarMobil' => $gambarMobil
         );
-        $where = array(
-            'idLayanan' => $idLayanan
+      }else{
+        $data = array(
+          'jenisMobil' => $jenisMobil,
+          'merkMobil' => $merkMobil,
+          'nopol' => $nopol,
+          'tahun' => $tahun,
+          'harga' => $harga,
+          'bahanBakar' => $bahanBakar,
+          'warna' => $warna,
+          'denda' => $denda,
+          'seat' => $seat,
+          'statusTersedia' => $statusTersedia
         );
-        
-        $this->ModelService->updateData($where, $data, 'tb_layanan');
-        redirect('../Service');
+      }
+      $where = array(
+        'idMobil' => $idMobil
+      );
+        $this->ModelMobil->updateData($where, $data, 'tb_mobil');
+        redirect('../Mobil');
     }
 		// ambil data booking service
     public function BookingService()
