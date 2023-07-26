@@ -4,9 +4,12 @@ class Home extends CI_Controller
 	// Memuat view home
     public function index()
     {
-        $this->load->view('homeHeader');
-        $this->load->view('homeFooter');
-        $this->load->view('Home');
+        // $this->load->view('homeHeader');
+        // $this->load->view('homeFooter');
+        // $this->load->view('Home');
+        $this->load->view('homeCarHeader');
+        $this->load->view('homeCar');
+        $this->load->view('homeCarFooter');
     }
 
 	// Memuat view profil
