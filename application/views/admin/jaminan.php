@@ -39,9 +39,6 @@
 														<td class="text-center"><?php echo $no++ ?></td>
 														<td><?php echo $j->namaJaminan ?></td>
 														<td class="text-center">
-														<button class="btn btn-success btn-sm ml-2 mt-2" data-id="<?= $j->idJaminan ?>" data-toggle="modal"
-																			data-target="#ubahJaminan"><i class="fas fa-edit"> Ubah
-																				Data</i></button>
 															<?php echo anchor('Jaminan/edit/' . $j->idJaminan, ' <div class="btn btn-warning btn-sm"><i class="fa fa-edit"></i> Edit Data</div>') ?>
 														</td>
 														<td class="text-center">
@@ -81,33 +78,6 @@
 					<div class="form-group">
 						<label>Nama Jaminan</label>
 						<input type="text" name="namaJaminan" class="form-control">
-					</div>
-			</div>
-			<div class="modal-footer bg-whitesmoke br">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="submit" class="btn btn-primary">Simpan</button>
-			</div>
-			</form>
-		</div>
-	</div>
-</div>
-
-<!-- Ubah Data Jaminan -->
-<div class="modal fade" id="ubahJaminan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-	aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Form Ubah Data</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-			<form action="<?php echo base_url() . 'Jaminan/update' ?>" method="post" enctype="multipart/form-data" autocomplete="off">
-					<div class="form-group">
-						<label>Nama Jaminan</label>
-						<input type="text" name="namaJaminan" class="form-control" 	value="<?php echo $j->idJaminan ?>">
 					</div>
 			</div>
 			<div class="modal-footer bg-whitesmoke br">

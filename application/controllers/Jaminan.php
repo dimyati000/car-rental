@@ -41,7 +41,7 @@ class Jaminan extends CI_Controller
         $where = array('idJaminan' => $idJaminan);
         $data['jaminan'] = $this->ModelJaminan->editJaminan($where, 'tb_jaminan')->result();
         $this->load->view('layout/templateAdmin');
-        $this->load->view('admin/jaminan', $data);
+        $this->load->view('admin/editJaminan', $data);
     }
 	// Update jaminan 
     public function update()
