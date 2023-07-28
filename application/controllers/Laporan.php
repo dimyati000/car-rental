@@ -4,9 +4,26 @@ class Laporan extends CI_Controller{
     public function __construct()
 	{
 			parent::__construct();
-			$this->load->model('ModelLaporan');
-			$this->load->model('ModelBarang');
+			// $this->load->model('ModelLaporan');
+			// $this->load->model('ModelBarang');
+            if($this->session->userdata('roleId') != 1){
+                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Anda Harus Login Terlebih Dahulu !</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>');
+              redirect('Auth/login');
+            } 
 	}
+
+    // Tampilkan data mobil
+    public function index()
+    {
+        // $data['laporan'] = $this->ModelLaporan->showData()->result();
+        $this->load->view("layout/templateAdmin");
+        $this->load->view("admin/laporan");
+    }
 
     public function laporan_pelayanan()
     {

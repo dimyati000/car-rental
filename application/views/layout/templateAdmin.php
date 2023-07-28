@@ -102,7 +102,7 @@
             <li><a class="nav-link" href="<?php echo base_url('FormSewa') ?>"><i class="far fa-file-alt"></i> <span>Form Sewa</span></a></li>
             <li><a class="nav-link" href="<?php echo base_url('DaftarSewa') ?>"><i class="fas fa-car"></i> <span>Daftar Sewa</span></a></li>
             <li class="menu-header">Laporan</li>
-            <li><a class="nav-link" href="<?php echo base_url('Dashboard') ?>"><i class="fas fa-file"></i> <span>Laporan Transaksi</span></a></li>
+            <li><a class="nav-link" href="<?php echo base_url('Laporan') ?>"><i class="fas fa-file"></i> <span>Laporan Transaksi</span></a></li>
             <!-- <li><a href="<?php echo base_url() . 'Tentang'?>"><i class="fas fa-cog"></i><span>Setting</span></a></li> -->
           </ul>
         </aside>
