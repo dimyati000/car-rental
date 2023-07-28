@@ -84,7 +84,7 @@
 <!-- Tambah Data Mobil -->
 <div class="modal fade" id="tambahMobil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 	aria-hidden="true">
-	<div class="modal-dialog" role="document">
+	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLabel">Form Tambah Data</h5>
@@ -100,52 +100,54 @@
 				<form method="POST" action="<?php echo base_url() . 'Mobil/tambahMobil'; ?>"
 					enctype="multipart/form-data" autocomplete="off">
 					<input type="hidden" class="form-control" name="idMobil" value="<?= $uuid ?>"></input>
-					<div class="form-group">
-						<label>Jenis Mobil</label>
-						<input type="text" name="jenisMobil" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Merk Mobil</label>
-						<input type="text" name="merkMobil" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Nopol</label>
-						<input type="text" name="nopol" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Tahun</label>
-						<input type="text" name="tahun" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Harga</label>
-						<input type="text" name="harga" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Bahan Bakar</label>
-						<input type="text" name="bahanBakar" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Warna</label>
-						<input type="text" name="warna" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Denda</label>
-						<input type="text" name="denda" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Seat</label>
-						<input type="text" name="seat" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Status Tersedia</label>
-						<input type="text" name="statusTersedia" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Gambar Mobil</label>
-						<input type="file" name="gambarMobil" class="form-control">
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label>Jenis Mobil</label>
+							<input type="text" name="jenisMobil" class="form-control">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Merk Mobil</label>
+							<input type="text" name="merkMobil" class="form-control">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Nopol</label>
+							<input type="text" name="nopol" class="form-control">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Tahun</label>
+							<input type="text" name="tahun" class="form-control">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Harga</label>
+							<input type="text" name="harga" class="form-control">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Bahan Bakar</label>
+							<input type="text" name="bahanBakar" class="form-control">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Warna</label>
+							<input type="text" name="warna" class="form-control">
+						</div>
+						<div class="form-group  col-md-6">
+							<label>Denda</label>
+							<input type="text" name="denda" class="form-control">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Kursi</label>
+							<input type="text" name="seat" class="form-control">
+						</div>
+						<div class="form-group col-md-6">
+							<label>Status Tersedia</label>
+							<input type="text" name="statusTersedia" class="form-control">
+						</div>
+						<div class="form-group col-md-12">
+							<label>Gambar Mobil</label>
+							<input type="file" name="gambarMobil" class="form-control">
+						</div>
 					</div>
 			</div>
-			<div class="modal-footer">
+			<div class="modal-footer bg-whitesmoke">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
 				<button type="submit" class="btn btn-success">Simpan</button>
 			</div>
