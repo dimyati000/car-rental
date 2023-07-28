@@ -16,7 +16,7 @@
 							</div>
 							<div class="section-body">
 								<div class="container-fluid">
-									<button class="btn btn-success btn-sm ml-2 mt-2" data-toggle="modal"
+									<button class="btn btn-success btn-sm ml-2 mt-3" data-toggle="modal"
 										data-target="#tambahJaminan"><i class="fas fa-plus fa-sm"> Tambah
 											Data</i></button>
 									</div>

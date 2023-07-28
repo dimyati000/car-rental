@@ -1,20 +1,23 @@
 
-<body>
-	<div class="main-wrapper main-wrapper-1">
-		<!-- Main Content -->
-		<div class="main-content">
-			<section class="section">
-				<div class="section-header">
-					<h1>Master Data Mobil</h1>
-				</div>
-			<div class="card shadow-lg border-0 rounded-lg mt-50">
-				<div class="section-body">
-					<div class="card-header">
-						<h5>Data Mobil</h5>
-					</div>
-					<div class="section-body">
-						<div class="container-fluid">
-							<button class="btn btn-success btn-sm ml-2" data-toggle="modal" data-target="#tambahMobil"><i class="fas fa-plus fa-sm"> Tambah Data</i></button>
+<div class="main-wrapper main-wrapper-1">
+	<!-- Main Content -->
+	<div class="main-content">
+		<section class="section">
+			<div class="section-header">
+				<h1>Master Data Mobil</h1>
+			</div>
+			<div class="section-body">
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-header">
+								<h5>Data Mobil</h5>
+							</div>
+							<div class="section-body">
+								<div class="container-fluid">
+									<button class="btn btn-success btn-sm ml-2 mt-3" data-toggle="modal" data-target="#tambahMobil"><i class="fas fa-plus fa-sm"> Tambah Data</i></button>
+								</div>
+							</div>
 							<div class="card-body">
 								<div class="table-responsive">
 									<!-- Tabel Data Mobil -->
@@ -54,7 +57,7 @@
 														<div class="chocolat-parent">
 														<a href="<?php echo base_url() . 'assets/uploads/mobil/' . $m->gambarMobil ?>" class="chocolat-image" title="Gambar Mobil">
 															<div>
-																<img class="img-fluid" alt="gambar mobil" style="width: 5rem;" src="<?php echo base_url() . 'assets/uploads/mobil/' . $m->gambarMobil ?>"></td>
+																<img class="img-fluid" alt="gambar mobil" style="width: 15rem;" src="<?php echo base_url() . 'assets/uploads/mobil/' . $m->gambarMobil ?>"></td>
 															</div>
 														</a>
 														</div>
@@ -74,7 +77,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	</div>
 </div>
 

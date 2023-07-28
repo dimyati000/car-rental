@@ -16,55 +16,55 @@
 							</div>
 							<div class="section-body">
 								<div class="container-fluid">
-									<button class="btn btn-success btn-sm ml-2 mt-2" data-toggle="modal"
+									<button class="btn btn-success btn-sm ml-2 mt-3" data-toggle="modal"
 										data-target="#tambahPelanggan"><i class="fas fa-plus fa-sm"> Tambah
 										Data</i></button>
 								</div>
 							</div>
-								<div class="card-body">
-									<div class="table-responsive">
-										<table class="table table-bordered">
-											<tbody>
-												<tr>
-													<th width="3%" class="text-center">No</th>
-													<th width="10%">NIK</th>
-													<th width="20%">Nama Pelanggan</th>
-													<th width="10%" class="text-center">No Telp</th>
-													<th width="25%">Alamat</th>
-													<th width="15%">Foto KTP</th>
-													<th width="5%" class="text-center" colspan="2">Aksi</th>
-												</tr>
-												<?php
-												$no = 1;
-												foreach ($pelanggan as $pelanggan) : ?>
-												<tr>
-													<td class="text-center"><?php echo $no++ ?></td>
-													<td><?php echo $pelanggan->nik ?></td>
-													<td><?php echo $pelanggan->namaPelanggan ?></td>
-													<td class="text-center"><?php echo $pelanggan->noTelp ?></td>
-													<td><?php echo $pelanggan->alamat ?></td>
-													<td class="text-center">
-														<!-- <div class="mb-2 text-muted">Klik Foto Untuk Perbesar!</div> -->
-															<div class="chocolat-parent">
-															<a href="<?php echo base_url() . 'assets/uploads/ktp/' . $pelanggan->fotoKtp ?>" class="chocolat-image" title="Foto KTP">
-																<div>
-																	<img class="img-fluid" alt="foto ktp" style="width: 11rem;" src="<?php echo base_url() . 'assets/uploads/ktp/' . $pelanggan->fotoKtp ?>"></td>
-																</div>
-															</a>
+							<div class="card-body">
+								<div class="table-responsive">
+									<table class="table table-bordered">
+										<tbody>
+											<tr>
+												<th width="3%" class="text-center">No</th>
+												<th width="10%">NIK</th>
+												<th width="20%">Nama Pelanggan</th>
+												<th width="10%" class="text-center">No Telp</th>
+												<th width="25%">Alamat</th>
+												<th width="15%">Foto KTP</th>
+												<th width="5%" class="text-center" colspan="2">Aksi</th>
+											</tr>
+											<?php
+											$no = 1;
+											foreach ($pelanggan as $pelanggan) : ?>
+											<tr>
+												<td class="text-center"><?php echo $no++ ?></td>
+												<td><?php echo $pelanggan->nik ?></td>
+												<td><?php echo $pelanggan->namaPelanggan ?></td>
+												<td class="text-center"><?php echo $pelanggan->noTelp ?></td>
+												<td><?php echo $pelanggan->alamat ?></td>
+												<td class="text-center">
+													<!-- <div class="mb-2 text-muted">Klik Foto Untuk Perbesar!</div> -->
+														<div class="chocolat-parent">
+														<a href="<?php echo base_url() . 'assets/uploads/ktp/' . $pelanggan->fotoKtp ?>" class="chocolat-image" title="Foto KTP">
+															<div>
+																<img class="img-fluid" alt="foto ktp" style="width: 11rem;" src="<?php echo base_url() . 'assets/uploads/ktp/' . $pelanggan->fotoKtp ?>"></td>
 															</div>
+														</a>
 														</div>
-													<td class="text-center">
-														<?php echo anchor('Pelanggan/edit/' . $pelanggan->idPelanggan, ' <div class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" data-original-title="Edit Data"><i class="fa fa-edit"></i></div>') ?>
-													</td>
-													<td  class="text-center">
-														<?php echo anchor('Pelanggan/delete/' . $pelanggan->idPelanggan, '<div class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" data-original-title="Hapus Data"><i class="fa fa-trash"></i></div>') ?>
-													</td>
-												</tr>
-												<?php endforeach; ?>
-											</tbody>
-										</table>
-									</div>
+													</div>
+												<td class="text-center">
+													<?php echo anchor('Pelanggan/edit/' . $pelanggan->idPelanggan, ' <div class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" data-original-title="Edit Data"><i class="fa fa-edit"></i></div>') ?>
+												</td>
+												<td  class="text-center">
+													<?php echo anchor('Pelanggan/delete/' . $pelanggan->idPelanggan, '<div class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" data-original-title="Hapus Data"><i class="fa fa-trash"></i></div>') ?>
+												</td>
+											</tr>
+											<?php endforeach; ?>
+										</tbody>
+									</table>
 								</div>
+							</div>
 							</div>
 						</div>
 					</div>
