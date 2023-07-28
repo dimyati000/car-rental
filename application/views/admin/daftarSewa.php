@@ -4,14 +4,14 @@
 	<div class="main-content">
 		<section class="section">
 			<div class="section-header">
-				<h1>Laporan Transaksi</h1>
+				<h1>Daftar Sewa</h1>
 			</div>
 			<div class="section-body">
 				<div class="row">
 					<div class="col-12">
 						<div class="card">
 							<div class="card-header">
-								<h5>Data Laporan</h5>
+								<h5>Data Sewa</h5>
 							</div>
 							<div class="section-body">
 								<div class="container-fluid">
@@ -27,8 +27,7 @@
 											<th>Tanggal Sewa</th>
 											<th>Tanggal Kembali</th>
 											<th>Nama Pelanggan</th>
-											<th>Mobil Sewa</th>
-											<th>Lama Sewa</th>
+											<th>Status</th>
 											<th class="text-center" colspan="9">Aksi</th>
 										</tr>
 									</table>
