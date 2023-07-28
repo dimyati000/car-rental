@@ -110,7 +110,7 @@
     				<div class="carousel-car owl-carousel">
     					<div class="item">
     						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/car-1.jpg);">
+		    					<div class="img rounded d-flex align-items-end" style="background-image: url(assets/img/pajero.png);">
 		    					</div>
 		    					<div class="text">
 		    						<h2 class="mb-0"><a href="#">Pajero Sport Dakar</a></h2>
@@ -118,13 +118,13 @@
 			    						<span class="cat">Mitsubishi</span>
 			    						<p class="price ml-auto">Rp700.000 <span>/24 Jam</span></p>
 		    						</div>
-		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Booking</a> <a href="#" class="btn btn-secondary py-2 ml-1">Detail</a></p>
+		    						<p class="d-flex mb-0 d-block"><a href="https://api.whatsapp.com/send?phone=6285730148874&text=Halo%20admin%20Evano%20Trans,%20saya%20mau%20tanya%20....." class="btn btn-primary py-2 mr-1">Booking</a> <a href="#" class="btn btn-secondary py-2 ml-1">Detail</a></p>
 		    					</div>
 		    				</div>
     					</div>
     					<div class="item">
     						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/car-2.jpg);">
+		    					<div class="img rounded d-flex align-items-end" style="background-image: url(assets/img/fortuner.png);">
 		    					</div>
 		    					<div class="text">
 		    						<h2 class="mb-0"><a href="#">Fortuner VRZ</a></h2>
@@ -132,35 +132,35 @@
 			    						<span class="cat">Toyota</span>
 			    						<p class="price ml-auto">Rp700.000 <span>/24 Jam</span></p>
 		    						</div>
-		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Booking</a> <a href="#" class="btn btn-secondary py-2 ml-1">Detail</a></p>
+		    						<p class="d-flex mb-0 d-block"><a href="https://api.whatsapp.com/send?phone=6285730148874&text=Halo%20admin%20Evano%20Trans,%20saya%20mau%20tanya%20....." class="btn btn-primary py-2 mr-1">Booking</a> <a href="#" class="btn btn-secondary py-2 ml-1">Detail</a></p>
 		    					</div>
 		    				</div>
     					</div>
     					<div class="item">
     						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/car-3.jpg);">
+		    					<div class="img rounded d-flex align-items-end" style="background-image: url(assets/img/inova.png);">
 		    					</div>
 		    					<div class="text">
-		    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
+		    						<h2 class="mb-0"><a href="#">Inova Venturer</a></h2>
 		    						<div class="d-flex mb-3">
-			    						<span class="cat">Cheverolet</span>
-			    						<p class="price ml-auto">$500 <span>/day</span></p>
+			    						<span class="cat">Toyota</span>
+			    						<p class="price ml-auto">Rp550.000 <span>/24 Jam</span></p>
 		    						</div>
-		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
+		    						<p class="d-flex mb-0 d-block"><a href="https://api.whatsapp.com/send?phone=6285730148874&text=Halo%20admin%20Evano%20Trans,%20saya%20mau%20tanya%20....." class="btn btn-primary py-2 mr-1">Booking</a> <a href="#" class="btn btn-secondary py-2 ml-1">Detail</a></p>
 		    					</div>
 		    				</div>
     					</div>
     					<div class="item">
     						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(images/car-4.jpg);">
+		    					<div class="img rounded d-flex align-items-end" style="background-image: url(assets/img/stargazer.png);">
 		    					</div>
 		    					<div class="text">
-		    						<h2 class="mb-0"><a href="#">Mercedes Grand Sedan</a></h2>
+		    						<h2 class="mb-0"><a href="#">Stargazer</a></h2>
 		    						<div class="d-flex mb-3">
-			    						<span class="cat">Cheverolet</span>
-			    						<p class="price ml-auto">$500 <span>/day</span></p>
+			    						<span class="cat">Hyundai</span>
+			    						<p class="price ml-auto">Rp700.000 <span>/24 Jam</span></p>
 		    						</div>
-		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
+		    						<p class="d-flex mb-0 d-block"><a href="https://api.whatsapp.com/send?phone=6285730148874&text=Halo%20admin%20Evano%20Trans,%20saya%20mau%20tanya%20....." class="btn btn-primary py-2 mr-1">Booking</a> <a href="#" class="btn btn-secondary py-2 ml-1">Detail</a></p>
 		    					</div>
 		    				</div>
     					</div>
@@ -177,12 +177,12 @@
 					</div>
 					<div class="col-md-6 wrap-about ftco-animate">
 	          <div class="heading-section heading-section-white pl-md-5">
-	          	<span class="subheading">About us</span>
-	            <h2 class="mb-4">Welcome to Carbook</h2>
+	          	<span class="subheading">Tentang Kami</span>
+	            <h2 class="mb-4">Rental Mobil Lepas Kunci</h2>
 
-	            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	            <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	            <p><a href="#" class="btn btn-primary py-3 px-4">Search Vehicle</a></p>
+	            <p>Evano Trans adalah jenis usaha yang bergerak di bidang jasa transportasi serta biro jasa perjalanan wisata yang menyediakan berbagai fasilitas yang berhubungan dengan perjalanan dan mobilitas.</p>
+	            <p>Semakin pesatnya perkembangan dunia usaha baik di bidang jasa maupun perdagangan, menjadi latar belakang semangat kami sebagai pelaku usaha di bidang jasa transportasi untuk selalu meningkatkan pelayanan dari waktu ke waktu.</p>
+	            <p><a href="#" class="btn btn-primary py-3 px-4">Selengkapnya</a></p>
 	          </div>
 					</div>
 				</div>
