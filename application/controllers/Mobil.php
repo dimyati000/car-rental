@@ -70,7 +70,6 @@ class Mobil extends CI_Controller
         $data['mobil'] = $this->ModelMobil->showData()->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/mobil", $data);
-        $this->load->view("layout/footerTemplateAdmin");
     }
 		// edit data mobil
     public function editMobil($idMobil)

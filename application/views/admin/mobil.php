@@ -49,7 +49,16 @@
 												<td><?php echo $m->denda ?></td>
 												<td><?php echo $m->seat ?></td>
 												<td><?php echo $m->statusTersedia ?></td>
-												<td class="text-center"><img style="width: 5rem;" src="<?php echo base_url() . 'assets/uploads/mobil/' . $m->gambarMobil ?>"></td>
+												<td class="text-center">
+													<!-- <div class="mb-2 text-muted">Klik Gambar Untuk Perbesar!</div> -->
+														<div class="chocolat-parent">
+														<a href="<?php echo base_url() . 'assets/uploads/mobil/' . $m->gambarMobil ?>" class="chocolat-image" title="Gambar Mobil">
+															<div>
+																<img class="img-fluid" alt="gambar mobil" style="width: 5rem;" src="<?php echo base_url() . 'assets/uploads/mobil/' . $m->gambarMobil ?>"></td>
+															</div>
+														</a>
+														</div>
+													</div>
 												<td class="text-center">
 													<?php echo anchor('Mobil/editMobil/' . $m->idMobil, ' <div class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" data-original-title="Edit Data"><i class="fa fa-edit"></i></div>') ?>
 												</td>

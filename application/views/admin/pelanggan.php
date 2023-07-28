@@ -43,7 +43,16 @@
 													<td><?php echo $pelanggan->namaPelanggan ?></td>
 													<td class="text-center"><?php echo $pelanggan->noTelp ?></td>
 													<td><?php echo $pelanggan->alamat ?></td>
-													<td class="text-center"><img style="width: 15rem;" src="<?php echo base_url() . 'assets/uploads/ktp/' . $pelanggan->fotoKtp ?>"></td>
+													<td class="text-center">
+														<!-- <div class="mb-2 text-muted">Klik Foto Untuk Perbesar!</div> -->
+															<div class="chocolat-parent">
+															<a href="<?php echo base_url() . 'assets/uploads/ktp/' . $pelanggan->fotoKtp ?>" class="chocolat-image" title="Foto KTP">
+																<div>
+																	<img class="img-fluid" alt="foto ktp" style="width: 11rem;" src="<?php echo base_url() . 'assets/uploads/ktp/' . $pelanggan->fotoKtp ?>"></td>
+																</div>
+															</a>
+															</div>
+														</div>
 													<td class="text-center">
 														<?php echo anchor('Pelanggan/edit/' . $pelanggan->idPelanggan, ' <div class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" data-original-title="Edit Data"><i class="fa fa-edit"></i></div>') ?>
 													</td>
