@@ -102,7 +102,7 @@
     		<div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
           	<span class="subheading">Top Mobil Rental</span>
-            <h2 class="mb-2">Armada Terbaru</h2>
+            <h2 class="mb-2">Berbagai Jenis Armada Siap Menemani Perjalanan Anda</h2>
           </div>
         </div>
     		<div class="row">
@@ -193,8 +193,8 @@
 			<div class="container">
 				<div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
-          	<span class="subheading">Services</span>
-            <h2 class="mb-3">Our Latest Services</h2>
+          	<span class="subheading">Kenapa Harus Evano Trans?</span>
+            <h2 class="mb-3">Kepuasan Pelanggan adalah Prioritas Kami</h2>
           </div>
         </div>
 				<div class="row">
@@ -202,8 +202,8 @@
 						<div class="services services-2 w-100 text-center">
             	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-wedding-car"></span></div>
             	<div class="text w-100">
-                <h3 class="heading mb-2">Wedding Ceremony</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <h3 class="heading mb-2">Our Vechicles</h3>
+                <p>Semua unit kendaraan kami merupakan keluaran terbaru dan terawat dengan baik serta staff ang terlatih, ramah, dan profesional untuk memberikan pelayanan terbaik.</p>
               </div>
             </div>
 					</div>
@@ -211,8 +211,8 @@
 						<div class="services services-2 w-100 text-center">
             	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
             	<div class="text w-100">
-                <h3 class="heading mb-2">City Transfer</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <h3 class="heading mb-2">Low Cost</h3>
+                <p>Harga persewaan yang diberikan sangat kompetitif dengan tetap mengutamakan kualitas.</p>
               </div>
             </div>
 					</div>
@@ -220,8 +220,8 @@
 						<div class="services services-2 w-100 text-center">
             	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car"></span></div>
             	<div class="text w-100">
-                <h3 class="heading mb-2">Airport Transfer</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <h3 class="heading mb-2">Network Area</h3>
+                <p>Jaringan Evano Trans yang luas di beberapa kota sehingga dapat memenuhi kebutuhan pelanggan.</p>
               </div>
             </div>
 					</div>
@@ -229,8 +229,8 @@
 						<div class="services services-2 w-100 text-center">
             	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
             	<div class="text w-100">
-                <h3 class="heading mb-2">Whole City Tour</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <h3 class="heading mb-2">Our Customer</h3>
+                <p>Seluruh pelanggan Evano Trans meliputi instansi Pemerintahan, Perkantoran, Perusahaan, hingga individu.</p>
               </div>
             </div>
 					</div>
@@ -243,15 +243,16 @@
 			<div class="container">
 				<div class="row justify-content-end">
 					<div class="col-md-6 heading-section heading-section-white ftco-animate">
-            <h2 class="mb-3">Do You Want To Earn With Us? So Don't Be Late.</h2>
-            <a href="#" class="btn btn-primary btn-lg">Become A Driver</a>
+            <h2 class="mb-3">Booking Jadwal Perjalanan Anda Sekarang!</h2>
+			<h5>Hubungi sekarang untuk keep unit dan mendapatkan prioritas menikmati fasilitas menarik yang kami tawarkan.</h5>
+            <a href="https://api.whatsapp.com/send?phone=6285730148874&text=Halo%20admin%20Evano%20Trans,%20saya%20mau%20tanya%20....." class="btn btn-primary btn-lg">Pesan Sekarang</a>
           </div>
 				</div>
 			</div>
 		</section>
 
 
-    <section class="ftco-section testimony-section bg-light">
+    <!-- <section class="ftco-section testimony-section bg-light">
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
@@ -419,4 +420,4 @@
           </div>
         </div>
     	</div>
-    </section>	
+    </section>	 -->
