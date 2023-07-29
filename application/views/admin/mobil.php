@@ -81,10 +81,28 @@
 	</div>
 </div>
 
+<style>
+   .fileUpload {
+    position: relative;
+    overflow: hidden;
+    }
+     .fileUpload input.upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        /* filter: alpha(opacity=0); */
+    }
+</style>
+
 <!-- Tambah Data Mobil -->
 <div class="modal fade" id="tambahMobil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 	aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLabel">Form Tambah Data</h5>
@@ -98,54 +116,81 @@
 					$uuid = Uuid::uuid4();
 					?>
 				<form method="POST" action="<?php echo base_url() . 'Mobil/tambahMobil'; ?>"
-					enctype="multipart/form-data" autocomplete="off">
-					<input type="hidden" class="form-control" name="idMobil" value="<?= $uuid ?>"></input>
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label>Jenis Mobil</label>
-							<input type="text" name="jenisMobil" class="form-control">
-						</div>
-						<div class="form-group col-md-6">
-							<label>Merk Mobil</label>
-							<input type="text" name="merkMobil" class="form-control">
-						</div>
-						<div class="form-group col-md-6">
-							<label>Nopol</label>
-							<input type="text" name="nopol" class="form-control">
-						</div>
-						<div class="form-group col-md-6">
-							<label>Tahun</label>
-							<input type="text" name="tahun" class="form-control">
-						</div>
-						<div class="form-group col-md-6">
-							<label>Harga</label>
-							<input type="text" name="harga" class="form-control">
-						</div>
-						<div class="form-group col-md-6">
-							<label>Bahan Bakar</label>
-							<input type="text" name="bahanBakar" class="form-control">
-						</div>
-						<div class="form-group col-md-6">
-							<label>Warna</label>
-							<input type="text" name="warna" class="form-control">
-						</div>
-						<div class="form-group  col-md-6">
-							<label>Denda</label>
-							<input type="text" name="denda" class="form-control">
-						</div>
-						<div class="form-group col-md-6">
-							<label>Kursi</label>
-							<input type="text" name="seat" class="form-control">
-						</div>
-						<div class="form-group col-md-6">
-							<label>Status Tersedia</label>
-							<input type="text" name="statusTersedia" class="form-control">
-						</div>
-						<div class="form-group col-md-12">
-							<label>Gambar Mobil</label>
-							<input type="file" name="gambarMobil" class="form-control">
+				enctype="multipart/form-data" autocomplete="off">
+				<input type="hidden" class="form-control" name="idMobil" value="<?= $uuid ?>"></input>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label>Jenis Mobil</label>
+						<input type="text" name="jenisMobil" class="form-control">
+					</div>
+					<div class="form-group col-md-6">
+						<label>Merk Mobil</label>
+						<input type="text" name="merkMobil" class="form-control">
+					</div>
+					<div class="form-group col-md-6">
+                      <label>Harga</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            Rp.
+                          </div>
+                        </div>
+						<input type="text" name="harga" class="form-control">
+                      </div>
+                    </div>
+					<div class="form-group col-md-6">
+                      <label>Denda</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            Rp.
+                          </div>
+                        </div>
+						<input type="text" name="denda" class="form-control">
+                      </div>
+                    </div>
+					<div class="form-group col-md-6">
+						<label>Bahan Bakar</label>
+						<input type="text" name="bahanBakar" class="form-control">
+					</div>
+					<div class="form-group col-md-6">
+						<label>Warna</label>
+						<input type="text" name="warna" class="form-control">
+					</div>
+					<div class="form-group col-md-2">
+						<label>Nopol</label>
+						<input type="text" name="nopol" class="form-control">
+					</div>
+					<div class="form-group col-md-2">
+						<label>Tahun</label>
+						<input type="number" name="tahun" class="form-control">
+					</div>
+					<div class="form-group col-md-2">
+						<label>Kursi</label>
+						<input type="number" name="seat" class="form-control">
+					</div>
+					<div class="form-group col-md-5">
+						<label>Gambar Mobil</label>
+						<input type="text" id="uploadFile" readonly name="gambarMobil" class="form-control" placeholder="Pilih File...">
+						<!-- <input type="file" name="gambarMobil" class="form-control"> -->
+					</div>
+					<div class="form-group col-md-1 mt-4">
+						<div class="row">
+							<div class="fileUpload btn btn-info" style="padding: 0.7rem 0.7rem;">			
+								<span>Upload</span>
+								<input id="uploadBtn"  name="gambarMobil" type="file" class="upload" />
+							</div>					
 						</div>
 					</div>
+					<div class="form-group col-md-12">
+						<div class="control-label">Status Tersedia</div>
+						<label class="custom-switch mt-2">
+							<input type="checkbox" name="statusTersedia" class="custom-switch-input">
+							<span class="custom-switch-indicator"></span>
+							<span class="custom-switch-description">Tidak / Ya</span>
+						</label>
+					</div>
+				</div>
 			</div>
 			<div class="modal-footer bg-whitesmoke">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -156,5 +201,10 @@
 	</div>
 </div>
 
+<script>
+  document.getElementById("uploadBtn").onchange = function () {
+	document.getElementById("uploadFile").value = this.files[0].name;
+};
+</script>
 
 </html>

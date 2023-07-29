@@ -168,7 +168,7 @@ p, ul:not(.list-unstyled), ol {
 select.form-control:not([size]):not([multiple]),
 .form-control:not(.form-control-sm):not(.form-control-lg) {
   font-size: 14px;
-  padding: 10px 15px;
+  /* padding: 10px 15px; */
   height: 42px; }
 
 textarea.form-control {
@@ -969,6 +969,9 @@ table tr:hover .table-links {
 
 .modal-body {
   padding-top: 15px; }
+  
+.modal-body {
+  padding-bottom: 5px; }
 
 .modal-footer {
   padding-top: 15px;
