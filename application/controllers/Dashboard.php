@@ -33,6 +33,5 @@ class Dashboard extends CI_Controller
 		$data['totalSt'] = $this->ModelDashboard->getStok();
 		$this->load->view("layout/templateAdmin");
 		$this->load->view("admin/index", $data);
-		$this->load->view("layout/footerTemplateAdmin");
 	}
 }
