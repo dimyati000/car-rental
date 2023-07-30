@@ -7,7 +7,7 @@ class FormSewa extends CI_Controller
     public function __construct()
     {
        parent::__construct();
-       $this->load->model('ModelBarang');
+       $this->load->model('ModelFormSewa');
        if($this->session->userdata('roleId') != 1){
            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
            <strong>Anda Harus Login Terlebih Dahulu !</strong>
@@ -24,6 +24,13 @@ class FormSewa extends CI_Controller
         // $data['barang'] = $this->ModelBarang->showData()->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/formSewa");
+    }
+    // Mengarahkan ke halaman form penumpang
+    public function sewaPenumpang()
+    {   
+        // $data['barang'] = $this->ModelBarang->showData()->result();
+        $this->load->view("layout/templateAdmin");
+        $this->load->view("admin/sewaPenumpang");
     }
 	// Tambah Data barang
     public function tambahData()

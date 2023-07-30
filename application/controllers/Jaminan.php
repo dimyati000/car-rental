@@ -39,15 +39,23 @@ class Jaminan extends CI_Controller
     public function edit($idJaminan)
     {
         $where = array('idJaminan' => $idJaminan);
-        $data['jaminan'] = $this->ModelJaminan->editJaminan($where, 'tb_jaminan')->result();
+        $data['jaminan'] = $this->ModelJaminan->editJaminan($where, 'tb_jaminan')->row_array();
         $this->load->view('layout/templateAdmin');
         $this->load->view('admin/editJaminan', $data);
+    }
+    public function getById($idJaminan)
+    {
+        $where = array('idJaminan' => $idJaminan);
+        $data['data'] = $this->ModelJaminan->editJaminan($where, 'tb_jaminan')->row_array();
+        // $this->load->view('layout/templateAdmin');
+        // $this->load->view('admin/editJaminan', $data);
+        echo json_encode($data);
     }
 	// Update jaminan 
     public function update()
     {
         $idJaminan = $this->input->post('idJaminan');
-        $namaJaminan = $this->input->post('namaJaminan');
+        $namaJaminan = $this->input->post('editNamaJaminan');
      
         $data = array(
             'namaJaminan' => $namaJaminan,
