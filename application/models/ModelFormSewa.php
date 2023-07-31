@@ -6,31 +6,31 @@ class ModelFormSewa extends CI_Model
 		if($keyword){
 			$this->db->like('jenisMobil', $keyword);
 		}
-		return $this->db->get('tb_mobil', $keyword);
+		return $this->db->get('tb_formsewa', $keyword);
 	}
-	public function tambahMobil($data, $table)
+	public function tambahSewa($data, $table)
 	{
 		return $this->db->insert($table, $data);
 	}
-	public function editMobil($where, $table)
+	public function editSewa($where, $table)
 	{
 		return $this->db->get_where($table, $where);
 	}
-	public function updateMobil($where, $data, $table)
+	public function updateSewa($where, $data, $table)
 	{
 		$this->db->where($where);
 		$this->db->update($table, $data);
 	}
-	public function hapusMobil($where, $table)
+	public function hapusSewa($where, $table)
 	{
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
 	public function find($idMobil)
 	{
-		$result = $this->db->where('idMobil', $idMobil)
+		$result = $this->db->where('idSewa', $idMobil)
 			->limit(1)
-			->get('tb_mobil');
+			->get('tb_formsewa');
 		if ($result->num_rows() > 0) {
 			return $result->row();
 		} else {
@@ -39,7 +39,7 @@ class ModelFormSewa extends CI_Model
 	}
 	public function detailMobil($idMobil)
 	{
-		$result = $this->db->where('idMobil', $idMobil)->get('tb_mobil');
+		$result = $this->db->where('idSewa', $idMobil)->get('tb_formsewa');
 		if ($result->num_rows() > 0) {
 			return $result->result();
 		} else {

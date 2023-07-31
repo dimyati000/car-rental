@@ -7,7 +7,7 @@ class DaftarSewa extends CI_Controller
     public function __construct()
     {
        parent::__construct();
-       $this->load->model('ModelBarang');
+       $this->load->model('ModelFormSewa');
        if($this->session->userdata('roleId') != 1){
            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
            <strong>Anda Harus Login Terlebih Dahulu !</strong>
@@ -21,9 +21,9 @@ class DaftarSewa extends CI_Controller
 	// Tampilkan data barang
     public function index()
     {   
-        // $data['barang'] = $this->ModelBarang->showData()->result();
+        $data['dataSewa'] = $this->ModelFormSewa->showData()->result();
         $this->load->view("layout/templateAdmin");
-        $this->load->view("admin/daftarSewa");
+        $this->load->view("admin/daftarSewa", $data);
     }
 	// Tambah Data barang
     public function tambahData()
@@ -56,6 +56,17 @@ class DaftarSewa extends CI_Controller
         $this->ModelBarang->tambahBarang($data, 'tb_product');
         redirect('../DataBarang');
     }
+    
+	public function cetak_form_sewa()
+	{
+        $data['dataSewa'] = $this->ModelFormSewa->showData()->result();
+		$data['title'] = "Form Sewa Penumpang"; 
+
+		$this->load->library('pdf');
+		$this->pdf->setPaper('A4', 'landscape');
+		$this->pdf->filename = "Form Sewa Penumpang.pdf";
+		$this->pdf->load_view('admin/sewaPenumpangCetak.php', $data);
+	}
 	// Edit Data Barang
     public function edit($idBarang)
     {

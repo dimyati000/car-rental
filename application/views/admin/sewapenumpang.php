@@ -16,47 +16,61 @@
 							</div>
 							<div class="section-body">
 								<div class="card-body">
-									<!-- Form Tambah Penumpang -->
-									<form action="<?php echo base_url() . 'Pelanggan/update' ?>" method="post" enctype="multipart/form-data" autocomplete="off">
+									<!-- Form Tambah Sewa Penumpang -->
+									<form action="<?php echo base_url() . 'FormSewa/tambahData' ?>" method="post"
+										enctype="multipart/form-data" autocomplete="off">
 										<input type="hidden" name="idPelanggan" class="form-control">
-										<div class="form-group">
-											<label>Nomor</label>
-											<input type="text" name="nik" class="form-control" valu="01/ET/01/VII/2023"
-												>
+										<div class="form-row">
+											<div class="form-group col-md-6">
+												<label>Nomor Sewa</label>
+												<input type="text" name="noSewa" class="form-control">
+											</div>
+											<div class="form-group col-md-6">
+												<label>Jaminan</label>
+												<select name="idJaminan"
+													class="form-control select2 select2-hidden-accessible"
+													id="idJaminan">
+													<option value="">Pilih Jaminan</option>
+													<?php foreach ($jaminan as $j)  :  ?>
+													<option value="<?= $j->idJaminan ?>"><?= $j->namaJaminan; ?>
+													</option>
+													<?php endforeach; ?>
+												</select>
+											</div>
+											<div class="form-group col-md-6">
+												<label>Nama Pelanggan</label>
+												<select name="idPelanggan"
+													class="form-control select2 select2-hidden-accessible"
+													id="idPelanggan">
+													<option value="">Pilih Pelanggan</option>
+													<?php foreach ($pelanggan as $p)  :  ?>
+													<option value="<?= $p->idPelanggan ?>"><?= $p->namaPelanggan; ?>
+													</option>
+													<?php endforeach; ?>
+												</select>
+											</div>
+											<div class="form-group col-md-6">
+												<label>Mobil</label>
+												<select name="idMobil"
+													class="form-control select2 select2-hidden-accessible" id="idMobil">
+													<option value="">Pilih Mobil</option>
+													<?php foreach ($mobil as $m)  :  ?>
+													<option value="<?= $m->idMobil ?>"><?= $m->jenisMobil; ?></option>
+													<?php endforeach; ?>
+												</select>
+											</div>
+											<div class="form-group col-md-6">
+												<label>Rute</label>
+												<input type="text" name="rute" class="form-control">
+											</div>
 										</div>
-										<div class="form-group">
-											<label>Nama Pelanggan</label>
-											<input type="text" name="namaPelanggan" class="form-control"
-												>
-										</div>
-										<div class="form-group">
-											<label>No Telp</label>
-											<input type="text" name="noTelp" class="form-control"
-												>
-										</div>
-										<div class="form-group">
-											<label>Alamat</label>
-											<input type="text" name="alamat" class="form-control"
-												>
-										</div>
-										<div class="form-group">
-											<label>Foto KTP</label>
-											<br>
-											<input type="file" name="fotoKtp" class="form-control">
-											<p style="font-size: 11px;color: red">Abaikan jika tidak merubah foto ktp</p>
-										</div>
-										<button type="submit" class="btn btn-primary btn-sm">Simpan Data</button>
-										<br>
-										<br>
-										<br>
+										<!-- <div class="modal-footer"> -->
+											<div style="text-align:right">
+												<?php echo anchor('FormSewa', '<div class="btn btn-secondary"> Batal</div>') ?>
+												<button type="submit" class="btn btn-primary">Simpan Data</button>
+											</div>
+										<!-- </div> -->
 									</form>
-								</div>
-							</div>
-						</div>
-					</section>
-				</div>
-		</div>
-	</div>
 								</div>
 							</div>
 						</div>
@@ -95,3 +109,7 @@
 		</div>
 	</div>
 </div>
+
+<script>
+
+</script>

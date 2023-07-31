@@ -15,7 +15,7 @@
 							</div>
 							<div class="section-body">
 								<div class="container-fluid">
-									<button class="btn btn-success btn-sm ml-2 mt-3" data-toggle="modal" data-target="#tambahMobil"><i class="fas fa-plus fa-sm"> Tambah Data</i></button>
+								<?php echo anchor('FormSewa', '<div class="btn btn-success btn-sm ml-2 mt-3"><i class="fas fa-plus fa-sm"></i> Tambah Data</div>') ?>
 								</div>
 							</div>
 							<div class="card-body">
@@ -24,12 +24,31 @@
 									<table class="table table-bordered">
 										<tr>
 											<th>No</th>
-											<th>Tanggal Sewa</th>
-											<th>Tanggal Kembali</th>
-											<th>Nama Pelanggan</th>
-											<th>Status</th>
+											<th>No Sewa</th>
+											<th>Pelanggan</th>
+											<th>Jaminan</th>
+											<th>Mobil</th>
+											<th>Rute</th>
 											<th class="text-center" colspan="9">Aksi</th>
 										</tr>
+										<?php
+											$no = 1;
+											foreach ($dataSewa as $ds) : ?>
+											<tr>
+												<td class="text-center"><?php echo $no++ ?></td>
+												<td><?php echo $ds->noSewa ?></td>
+												<td><?php echo $ds->pelangganId ?></td>
+												<td><?php echo $ds->jaminanId ?></td>
+												<td><?php echo $ds->mobilId ?></td>
+												<td><?php echo $ds->rute ?></td>
+												<td class="text-center">
+													<a href="javascript:;" onclick="printFormSewa()" class="btn btn-success"><i class="fas fa-print"> Print</i></a>
+												</td>
+												<td class="text-center">
+													<?php echo anchor('Jaminan/delete/' . $ds->idSewa, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus Data</div>') ?>
+												</td>
+											</tr>
+										<?php endforeach; ?>
 									</table>
 								</div>
 							</div>
@@ -41,78 +60,14 @@
 	</div>
 </div>
 
-<!-- Tambah Data Mobil -->
-<div class="modal fade" id="tambahMobil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-	aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Form Tambah Data</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<?php
-					use Ramsey\Uuid\Uuid;
-					$uuid = Uuid::uuid4();
-					?>
-				<form method="POST" action="<?php echo base_url() . 'Mobil/tambahMobil'; ?>"
-					enctype="multipart/form-data" autocomplete="off">
-					<input type="hidden" class="form-control" name="idMobil" value="<?= $uuid ?>"></input>
-					<div class="form-group">
-						<label>Jenis Mobil</label>
-						<input type="text" name="jenisMobil" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Merk Mobil</label>
-						<input type="text" name="merkMobil" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Nopol</label>
-						<input type="text" name="nopol" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Tahun</label>
-						<input type="text" name="tahun" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Harga</label>
-						<input type="text" name="harga" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Bahan Bakar</label>
-						<input type="text" name="bahanBakar" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Warna</label>
-						<input type="text" name="warna" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Denda</label>
-						<input type="text" name="denda" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Seat</label>
-						<input type="text" name="seat" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Status Tersedia</label>
-						<input type="text" name="statusTersedia" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Gambar Mobil</label>
-						<input type="file" name="gambarMobil" class="form-control">
-					</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-				<button type="submit" class="btn btn-success">Simpan</button>
-			</div>
-			</form>
-		</div>
-	</div>
-</div>
-
+<script>
+	function printFormSewa() {
+			// var tgl_awal = $('#tgl_awal').val();
+			// var tgl_akhir = $('#tgl_akhir').val();
+			// var link = "<?= site_url() ?>" + "/Laporan/cetak_data_kasir?tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
+			var link = "<?= site_url() ?>" + "/DaftarSewa/cetak_form_sewa";
+			window.open(link, '_blank', 'width=1024, height=768')
+		}
+</script>
 
 </html>

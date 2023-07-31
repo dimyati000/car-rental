@@ -8,6 +8,9 @@ class FormSewa extends CI_Controller
     {
        parent::__construct();
        $this->load->model('ModelFormSewa');
+       $this->load->model('ModelJaminan');
+       $this->load->model('ModelPelanggan');
+       $this->load->model('ModelMobil');
        if($this->session->userdata('roleId') != 1){
            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
            <strong>Anda Harus Login Terlebih Dahulu !</strong>
@@ -28,40 +31,29 @@ class FormSewa extends CI_Controller
     // Mengarahkan ke halaman form penumpang
     public function sewaPenumpang()
     {   
-        // $data['barang'] = $this->ModelBarang->showData()->result();
+        $data['jaminan'] = $this->ModelJaminan->showData()->result();
+        $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
+        $data['mobil'] = $this->ModelMobil->showData()->result();
         $this->load->view("layout/templateAdmin");
-        $this->load->view("admin/sewaPenumpang");
+        $this->load->view("admin/sewaPenumpang", $data);
     }
 	// Tambah Data barang
     public function tambahData()
     {
-        $namaBarang = $this->input->post('namaBarang');
-        $kategori = $this->input->post('kategori');
-        $harga = $this->input->post('harga');
-        $keterangan = $this->input->post('keterangan');
-        $stok = $this->input->post('stok');
-        $gambar = $_FILES['gambar']['name'];
-        if($gambar = ''){}else{
-            $config ['upload_path'] = './uploads';
-            $config ['allowed_types'] = 'jpg|jpeg|png|gif';
-            
-            $this->load->library('upload', $config);
-            if(!$this->upload->do_upload('gambar')){
-                echo "Upload Gambar Gagal";
-            }else{
-                $gambar = $this->upload->data('file_name');
-            }
-        }
+        $noSewa = $this->input->post('noSewa');
+        $idPelanggan = $this->input->post('idPelanggan');
+        $idJaminan = $this->input->post('idJaminan');
+        $idMobil = $this->input->post('idMobil');
+        $rute = $this->input->post('rute');
         $data = array(
-            'namaBarang' => $namaBarang,
-            'kategori'   => $kategori,
-            'harga'      => $harga,
-            'keterangan' => $keterangan,
-            'stok'       => $stok,
-            'gambar'     => $gambar
+            'noSewa' => $noSewa,
+            'pelangganId' => $idPelanggan,
+            'mobilId' => $idMobil,
+            'jaminanId' => $idJaminan,
+            'rute' => $rute
         );
-        $this->ModelBarang->tambahBarang($data, 'tb_product');
-        redirect('../DataBarang');
+        $this->ModelFormSewa->tambahSewa($data, 'tb_formsewa');
+        redirect('../DaftarSewa');
     }
 	// Edit Data Barang
     public function edit($idBarang)

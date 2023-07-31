@@ -110,7 +110,6 @@
 					</div>
 			</div>
 			<div class="modal-footer bg-whitesmoke">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 				<button type="submit" class="btn btn-success">Simpan</button>
 			</div>
 			</form>
