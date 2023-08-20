@@ -59,11 +59,11 @@ class DaftarSewa extends CI_Controller
     
 	public function cetak_form_sewa()
 	{
-        $data['dataSewa'] = $this->ModelFormSewa->showData()->result();
+        $data['dataSewa'] = $this->ModelFormSewa->getData();
 		$data['title'] = "Form Sewa Penumpang"; 
 
 		$this->load->library('pdf');
-		$this->pdf->setPaper('F4', 'landscape');
+		$this->pdf->setPaper('A4', 'landscape');
 		$this->pdf->filename = "Form Sewa Penumpang.pdf";
 		$this->pdf->load_view('admin/sewaPenumpangCetak.php', $data);
 	}
