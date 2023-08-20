@@ -10,57 +10,69 @@
 <html>
 
 <head>
-  <title><?=$title?></title>
-  <style>
-  .table {
-    /* border-collapse: collapse; */
-    border-color: black;
-    font-family: TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;
-    width: 100%; 
-  }
-
-  </style>
+    <title><?=$title?></title>
+    <style>
+    .table {
+        /* border-collapse: collapse; */
+        border-color: black;
+        font-family: TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;
+        width: 100%;
+    }
+    </style>
 </head>
 
 <body>
-  <div style="margin:-25px;">
-    <!-- <p style="margin-top:35px;" class="kata-pengantar">Laporan Pelayanan Periode Tanggal :
-      <?= format_date($tanggal_awal, 'd/m/Y') ?> s/d <?= format_date($tanggal_akhir, 'd/m/Y') ?></p> -->
-    <table class="table"  style="border: 1px solid;">
-      <thead class="head-table">
-				<tr>
-          <th>
-              <div style="width:200px;">
-                <img style="width:100%;" src="<?= $image_base64 ?>" alt="">
-              </div>            
-          </th>
-          <th colspan="2" style="border: 1px solid; width: 50%;">
-              Persyaratan dan Ketentuan :s
-          </th>
-				</tr>
-      <tr>
-        <td>Nama Penyewa : ..................</td>
-        <td>1</td>
-        <td;">Sewa mobil minimal 24 jam untuk hari Jum’at, Sabtu, Minggu atau Hari Libur Nasional.
-        </td>
-      </tr>
-      </thead>
-      <!-- <tbody class="body-table">
-				<?php
-					$no = 1;
-					foreach ($dataSewa as $ds) : ?>
-						<tr>
-            <td><?php echo $ds->noSewa ?></td>
-            <td><?php echo $ds->pelangganId ?></td>
-            <td><?php echo $ds->jaminanId ?></td>
-            <td><?php echo $ds->mobilId ?></td>
-            <td><?php echo $ds->rute ?></td>
-						<td><?php echo anchor('Kasir/delete/' . $ksr->id, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?></td>
-						</tr>
-					<?php endforeach; ?>
-      </tbody> -->
-    </table>
-  </div>
+    <div style="margin:-25px;">
+        <table style="width:100%;border:1px solid black;">
+            <tbody>
+                <tr>
+                    <td style="width:50%;">
+                        <table class="table" style="text-align:left;">
+                            <tbody class="head-lap">
+                                <tr>
+                                    <td width="20%">
+                                        <div style="width:200px;">
+                                            <img style="width:100%;" src="<?= $image_base64 ?>" alt="">
+                                        </div>
+                                    </td>
+                                    <td width="70%" class="text-center" colspan="2">
+                                        <span style="font-size:15px">LAPORAN DATA KASIR CAR RENTAL</span> <br>
+                                        <span style="font-size:12px">Jl.Semeru No.36 Ajung Pancakarya, Kabupaten Jember,
+                                            Jawa Timur</span> <br>
+                                        <span style="font-size:12px">Email : rahmahtiyas@gmail.com</a></span>
+                                        <span style="font-size:12px">Telepon : 082 221 337 795</span>
+                                    </td>
+                                    <td width="10%"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table style="">
+                            <tr>
+                                <td>Nama Penyewa</td>
+                                <td>: …………………………</td>
+                                <td>No. Telp</td>
+                                <td>: ………………….</td>
+                            </tr>
+                           
+                        </table>
+                    </td>
+                    <td style="width:50%;">
+                        <!-- persyaratan -->
+                        <table style="border:1px solid black;">
+                            <tr>
+                                <td>1. Sewa mobil minimal 24 jam untuk hari Jum’at, Sabtu, Minggu atau Hari Libur
+                                    Nasional.</td>
+                            </tr>
+                            <tr>
+                                <td>2. Harus ada jaminan motor legal, Tahun pembuatan diatas 2015 yang dilampiri STNK,
+                                    KTP, KK, atau SIM dan rekening listrik atas nama penyewa.</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>
