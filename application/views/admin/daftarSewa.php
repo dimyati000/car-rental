@@ -42,7 +42,7 @@
 												<td><?php echo $ds->mobilId ?></td>
 												<td><?php echo $ds->rute ?></td>
 												<td class="text-center">
-													<a href="javascript:;" onclick="printFormSewa()" class="btn btn-success"><i class="fas fa-print"> Print</i></a>
+													<a href="javascript:;" onclick="printFormSewa('<?= $ds->idSewa ?>')" class="btn btn-success"><i class="fas fa-print"> Print</i></a>
 												</td>
 												<td class="text-center">
 													<?php echo anchor('Jaminan/delete/' . $ds->idSewa, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus Data</div>') ?>
@@ -61,11 +61,11 @@
 </div>
 
 <script>
-	function printFormSewa() {
+	function printFormSewa(idSewa) {
 			// var tgl_awal = $('#tgl_awal').val();
 			// var tgl_akhir = $('#tgl_akhir').val();
 			// var link = "<?= site_url() ?>" + "/Laporan/cetak_data_kasir?tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
-			var link = "<?= site_url() ?>" + "/DaftarSewa/cetak_form_sewa";
+			var link = "<?= site_url() ?>" + "/DaftarSewa/cetak_form_sewa?idSewa=" + idSewa;
 			window.open(link, '_blank', 'width=1024, height=768')
 		}
 </script>

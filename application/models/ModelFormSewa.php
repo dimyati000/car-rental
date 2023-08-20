@@ -1,10 +1,11 @@
 <?php
 class ModelFormSewa extends CI_Model
 {
-	function getData($key=""){
+	function getData($idSewa=""){
 		$query = $this->db->query("
 		SELECT p.namaPelanggan, p.alamat, p.noTelp FROM `tb_formsewa` fs
-		LEFT JOIN tb_pelanggan p ON fs.pelangganId = p.idPelanggan like '%$key%'
+		LEFT JOIN tb_pelanggan p ON fs.pelangganId = p.idPelanggan 
+		where idSewa = '$idSewa'
 		")->row_array();
 		return $query;
 	}
