@@ -37,6 +37,15 @@ class FormSewa extends CI_Controller
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/sewaPenumpang", $data);
     }
+    // Mengarahkan ke halaman form barang
+    public function sewaBarang()
+    {   
+        $data['jaminan'] = $this->ModelJaminan->showData()->result();
+        $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
+        $data['mobil'] = $this->ModelMobil->showData()->result();
+        $this->load->view("layout/templateAdmin");
+        $this->load->view("admin/sewaBarang", $data);
+    }
 	// Tambah Data barang
     public function tambahData()
     {

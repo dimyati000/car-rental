@@ -36,9 +36,7 @@
 											foreach ($dataSewa as $ds) : ?>
 											<tr>
 												<td class="text-center"><?php echo $no++ ?></td>
-												<td><?php echo $ds->noSewa ?></td>
-												<td><?php echo $ds->pelangganId ?></td>
-												<td><?php echo $ds->jaminanId ?></td>
+												<td><?php echo $ds->jaminanId ?></d>
 												<td><?php echo $ds->mobilId ?></td>
 												<td><?php echo $ds->rute ?></td>
 												<td class="text-center">
