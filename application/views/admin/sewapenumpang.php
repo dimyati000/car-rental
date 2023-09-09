@@ -23,13 +23,13 @@
 										<div class="form-row">
 											<div class="form-group col-md-6">
 												<label>Nomor Sewa</label>
-												<input type="text" name="noSewa" class="form-control">
+												<input type="text" name="noSewa" class="form-control" required>
 											</div>
 											<div class="form-group col-md-6">
 												<label>Jaminan</label>
 												<select name="idJaminan"
 													class="form-control select2 select2-hidden-accessible"
-													id="idJaminan">
+													id="idJaminan" required>
 													<option value="">Pilih Jaminan</option>
 													<?php foreach ($jaminan as $j)  :  ?>
 													<option value="<?= $j->idJaminan ?>"><?= $j->namaJaminan; ?>
@@ -41,7 +41,8 @@
 												<label>Nama Pelanggan</label>
 												<select name="idPelanggan"
 													class="form-control select2 select2-hidden-accessible"
-													id="idPelanggan">
+													id="idJaminan" required>
+													id="idPelanggan" >
 													<option value="">Pilih Pelanggan</option>
 													<?php foreach ($pelanggan as $p)  :  ?>
 													<option value="<?= $p->idPelanggan ?>"><?= $p->namaPelanggan; ?>
@@ -52,7 +53,7 @@
 											<div class="form-group col-md-6">
 												<label>Mobil</label>
 												<select name="idMobil"
-													class="form-control select2 select2-hidden-accessible" id="idMobil">
+													class="form-control select2 select2-hidden-accessible" id="idMobil" required>
 													<option value="">Pilih Mobil</option>
 													<?php foreach ($mobil as $m)  :  ?>
 													<option value="<?= $m->idMobil ?>"><?= $m->jenisMobil; ?></option>
@@ -61,7 +62,7 @@
 											</div>
 											<div class="form-group col-md-6">
 												<label>Rute</label>
-												<input type="text" name="rute" class="form-control">
+												<input type="text" name="rute" class="form-control" required>
 											</div>
 										</div>
 										<!-- <div class="modal-footer"> -->

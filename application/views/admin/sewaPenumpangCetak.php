@@ -32,25 +32,28 @@
             <tbody>
                 <tr>
                     <td style="width:50%;">
-                        <table class="table" style="text-align:left;">
+                        <div style="margin:10px">
+                        <table class="table" style="text-align:center;">
                             <tbody class="head-lap">
                                 <tr>
                                     <td width="20%">
-                                        <div style="width:200px;">
+                                        <div>
                                             <img style="width:100%;" src="<?= $image_base64 ?>" alt="">
                                         </div>
                                     </td>
-                                    <td width="70%" class="text-center" colspan="2">
-                                        <span style="font-size:15px">LAPORAN DATA KASIR CAR RENTAL</span> <br>
-                                        <span style="font-size:12px">Jl.Semeru No.36 Ajung Pancakarya, Kabupaten Jember,
-                                            Jawa Timur</span> <br>
-                                        <span style="font-size:12px">Email : rahmahtiyas@gmail.com</a></span>
-                                        <span style="font-size:12px">Telepon : 082 221 337 795</span>
+                                    <td width="80%" style="text-align:center;">
+                                        <span style="font-size:20px; font-weight:bold;">EVANO TRANS</span>
+                                        <br>
+                                        <span style="font-weight:bold;">Persewaan Mobil Lepas Kunci, Melayani Sewa Harian/Mingguan/Bulanan</span>
+                                        <br>
+                                        <span style="font-weight:bold;">Taman Dhika Cluster Bromo B-17 Sidokerto, Buduran – Sidoarjo</a></span>
+                                        <br>
+                                        <span style="font-weight:bold;">WA : 0857 9575 1979</span>
                                     </td>
-                                    <td width="10%"></td>
                                 </tr>
                             </tbody>
                         </table>
+                        <hr style="border:1px solid black;"><hr style="border:1px solid black;">
                         <table style="">
                             <tr>
                                 <td>Nama Penyewa</td>
@@ -58,13 +61,15 @@
                                 <td>No. Telp</td>
                                 <td>: ………………….</td>
                             </tr>
-                           
                         </table>
+                        </div>
                     </td>
                     <td style="width:50%;">
                         <!-- persyaratan -->
-                        <div style="border:1px solid black;">
-                        <span style="padding-left: 10px; padding-top: 10px;">Persyaratan dan Ketentuan :</span>
+                        <div style="border:1px solid black;margin:5px;">
+                        <div style="padding-left: 10px;padding-top:5xpx;">
+                            <span style="font-weight:bold;">Persyaratan dan Ketentuan :</span>
+                        </div>
                           <table>
                               <tr>
                                   <td width="2%" style="vertical-align:top; padding-left:10px;">1.</td>

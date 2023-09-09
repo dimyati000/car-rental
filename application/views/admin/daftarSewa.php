@@ -28,7 +28,6 @@
 											<th>Pelanggan</th>
 											<th>Jaminan</th>
 											<th>Mobil</th>
-											<th>Rute</th>
 											<th class="text-center" colspan="9">Aksi</th>
 										</tr>
 										<?php
@@ -36,9 +35,10 @@
 											foreach ($dataSewa as $ds) : ?>
 											<tr>
 												<td class="text-center"><?php echo $no++ ?></td>
-												<td><?php echo $ds->jaminanId ?></d>
-												<td><?php echo $ds->mobilId ?></td>
-												<td><?php echo $ds->rute ?></td>
+												<td><?php echo $ds->namaPelanggan ?></d>
+												<td><?php echo $ds->alamat ?></d>
+												<td><?php echo $ds->noTelp ?></td>
+												<td><?php echo $ds->jenisMobil ?></td>
 												<td class="text-center">
 													<a href="javascript:;" onclick="printFormSewa('<?= $ds->idSewa ?>')" class="btn btn-success"><i class="fas fa-print"> Print</i></a>
 												</td>

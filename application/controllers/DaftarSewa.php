@@ -21,7 +21,7 @@ class DaftarSewa extends CI_Controller
 	// Tampilkan data barang
     public function index()
     {   
-        $data['dataSewa'] = $this->ModelFormSewa->showData()->result();
+        $data['dataSewa'] = $this->ModelFormSewa->getData()->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/daftarSewa", $data);
     }
@@ -60,7 +60,7 @@ class DaftarSewa extends CI_Controller
 	public function cetak_form_sewa()
 	{
         $idSewa = $this->input->get('idSewa');
-        $data['dataSewa'] = $this->ModelFormSewa->getData($idSewa);
+        $data['dataSewa'] = $this->ModelFormSewa->getData($idSewa)->row_array();
 		$data['title'] = "Form Sewa Penumpang"; 
 
 		$this->load->library('pdf');

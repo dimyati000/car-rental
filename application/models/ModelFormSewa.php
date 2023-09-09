@@ -2,11 +2,13 @@
 class ModelFormSewa extends CI_Model
 {
 	function getData($idSewa=""){
-		$query = $this->db->query("
-		SELECT p.namaPelanggan, p.alamat, p.noTelp FROM `tb_formsewa` fs
-		LEFT JOIN tb_pelanggan p ON fs.pelangganId = p.idPelanggan 
-		where idSewa = '$idSewa'
-		")->row_array();
+		$q = "SELECT fs.idSewa, p.namaPelanggan, m.jenisMobil, p.alamat, p.noTelp FROM `tb_formsewa` fs
+		LEFT JOIN tb_pelanggan p ON fs.pelangganId = p.idPelanggan
+		LEFT JOIN tb_mobil m ON fs.mobilId = m.idMobil";
+		if ($idSewa != ""){
+			$q .= " where idSewa = '$idSewa'";
+		}
+		$query = $this->db->query($q);
 		return $query;
 	}
 	public function showData($keyword = null)
