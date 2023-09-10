@@ -34,7 +34,6 @@
                     <td style="width:50%;">
                         <div style="margin:10px">
                         <table class="table" style="text-align:center;">
-                            <tbody class="head-lap">
                                 <tr>
                                     <td width="20%">
                                         <div>
@@ -51,16 +50,39 @@
                                         <span style="font-weight:bold;">WA : 0857 9575 1979</span>
                                     </td>
                                 </tr>
-                            </tbody>
                         </table>
-                        <hr style="border:1px solid black;"><hr style="border:1px solid black;">
-                        <table style="">
+                        <hr style="border:1px solid black;">
+                        <hr style="border:1px solid black;">
+                        <table class="table">
                             <tr>
-                                <td>Nama Penyewa</td>
-                                <td>: <?= isset($dataSewa) ? $dataSewa['namaPelanggan'] : '' ?></td>
-                                <td>No. Telp</td>
-                                <td>: ………………….</td>
+                                <td style="text-align:center;font-size:15px; font-weight:bold;">EVANO TRANS</td>
                             </tr>
+                            <tr>
+                                <td style="text-align:right;">NO : <?= isset($dataSewa) ? $dataSewa['noSewa'] : '' ?></td>
+                            </tr>
+                        </table>
+                        <table class="table">
+                                <tr>
+                                    <td width="20%">Nama Penyewa</td>
+                                    <td width="1%">:</td>
+                                    <td width="29%"><?= isset($dataSewa) ? $dataSewa['namaPelanggan'] : '' ?></td>
+                                    <td width="10%">No. Telp</td>
+                                    <td width="1%">:</td>
+                                    <td width="39%"><?= isset($dataSewa) ? $dataSewa['noTelp'] : '' ?></td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align:top;">Alamat</td>
+                                    <td style="vertical-align:top;">:</td>
+                                    <td colspan="4" style="text-align:left;"><?= isset($dataSewa) ? $dataSewa['alamat'] : '' ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Jenis Mobil</td>
+                                    <td>:</td>
+                                    <td><?= isset($dataSewa) ? $dataSewa['namaPelanggan'] : '' ?></td>
+                                    <td>NOPOL</td>
+                                    <td>:</td>
+                                    <td><?= isset($dataSewa) ? $dataSewa['noTelp'] : '' ?></td>
+                                </tr>
                         </table>
                         </div>
                     </td>
