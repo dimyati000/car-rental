@@ -23,19 +23,19 @@
 									<!-- Tabel Data Mobil -->
 									<table class="table table-bordered">
 										<tr>
-											<th>No</th>
-											<th>Jenis Mobil</th>
-											<th>Merk</th>
-											<th>Nopol</th>
-											<th>Tahun</th>
-											<th>Harga</th>
-											<th>Bahan Bakar</th>
-											<th>Warna</th>
-											<th>Denda</th>
-											<th>Seat</th>
-											<th>Status Tersedia</th>
-											<th>gambarMobil</th>
-											<th class="text-center" colspan="9">Aksi</th>
+											<th width="2%">No</th>
+											<th width="2%">Jenis Mobil</th>
+											<th width="2%">Merk</th>
+											<th width="5%">Nopol</th>
+											<th width="2%">Tahun</th>
+											<th width="2%">Harga</th>
+											<th width="2%">Bahan Bakar</th>
+											<th width="2%">Warna</th>
+											<th width="2%">Denda</th>
+											<th width="2%">Seat</th>
+											<th width="2%">Status Tersedia</th>
+											<th width="10%" class="text-center">Gambar Mobil</th>
+											<th width="2%" class="text-center" colspan="9">Aksi</th>
 										</tr>
 										<?php
 										$no = 1;
@@ -50,16 +50,25 @@
 												<td><?php echo $m->bahanBakar ?></td>
 												<td><?php echo $m->warna ?></td>
 												<td><?php echo $m->denda ?></td>
-												<td><?php echo $m->seat ?></td>
-												<td><?php echo $m->statusTersedia ?></td>
+												<td class="text-center"><?php echo $m->seat ?></td>
+												<td class="text-center">
+													<?php if ($m->statusTersedia == "1") {?>
+														tersedia
+													<?php } else { ?>
+														tidak tersedia
+													<?php } ?>
+												</td>
 												<td class="text-center">
 													<!-- <div class="mb-2 text-muted">Klik Gambar Untuk Perbesar!</div> -->
 														<div class="chocolat-parent">
-														<a href="<?php echo base_url() . 'assets/uploads/mobil/' . $m->gambarMobil ?>" class="chocolat-image" title="Gambar Mobil">
 															<div>
-																<img class="img-fluid" alt="gambar mobil" style="width: 15rem;" src="<?php echo base_url() . 'assets/uploads/mobil/' . $m->gambarMobil ?>"></td>
+																<?php  
+																if ($m->gambarMobil) { ?>
+																	<a href="<?php echo base_url() . 'assets/uploads/mobil/' . $m->gambarMobil ?>" class="chocolat-image" title="Gambar Mobil">
+																	<img class="img-fluid" alt="gambar mobil" style="width: 15rem;" src="<?php echo base_url() . 'assets/uploads/mobil/' . $m->gambarMobil ?>"></td>
+																	</a>
+																<?php } ?>
 															</div>
-														</a>
 														</div>
 													</div>
 												<td class="text-center">
@@ -185,7 +194,7 @@
 					<div class="form-group col-md-12">
 						<div class="control-label">Status Tersedia</div>
 						<label class="custom-switch mt-2">
-							<input type="checkbox" name="statusTersedia" class="custom-switch-input">
+							<input type="checkbox" name="statusTersedia" class="custom-switch-input" value="1">
 							<span class="custom-switch-indicator"></span>
 							<span class="custom-switch-description">Tidak / Ya</span>
 						</label>

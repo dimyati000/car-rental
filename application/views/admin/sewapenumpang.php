@@ -28,7 +28,7 @@
 										<div class="form-row">
 											<div class="form-group col-md-6">
 												<label>Nomor Sewa</label>
-												<input type="text" name="noSewa" class="form-control" required>
+												<input type="text" name="noSewa" class="form-control" value="001/ET-SP/10/IX/2023" required>
 											</div>
 											<div class="form-group col-md-6">
 												<label>Jaminan</label>

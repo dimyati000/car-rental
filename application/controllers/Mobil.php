@@ -32,7 +32,11 @@ class Mobil extends CI_Controller
       $warna = $this->input->post('warna');
       $denda = $this->input->post('denda');
       $seat = $this->input->post('seat');
-      $statusTersedia = $this->input->post('statusTersedia');
+      if ($statusTersedia = $this->input->post('statusTersedia')){
+        $statusTersedia;
+      } else {
+        $statusTersedia = ($this->input->post('statusTersedia' != "") ? $this->input->post('statusTersedia') : "0");
+      }
       $gambarMobil = $_FILES['gambarMobil']['name'];
         if($gambarMobil = ''){
 

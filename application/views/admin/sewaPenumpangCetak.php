@@ -61,6 +61,8 @@
                                 <td style="text-align:right;">NO : <?= isset($dataSewa) ? $dataSewa['noSewa'] : '' ?></td>
                             </tr>
                         </table>
+                        <br>
+                        <!-- <table class="table"></table> -->
                         <table class="table">
                                 <tr>
                                     <td width="20%">Nama Penyewa</td>
@@ -73,15 +75,15 @@
                                 <tr>
                                     <td style="vertical-align:top;">Alamat</td>
                                     <td style="vertical-align:top;">:</td>
-                                    <td colspan="4" style="text-align:left;"><?= isset($dataSewa) ? $dataSewa['alamat'] : '' ?></td>
+                                    <td colspan="4"><?= isset($dataSewa) ? $dataSewa['alamat'] : '' ?></td>
                                 </tr>
                                 <tr>
                                     <td>Jenis Mobil</td>
                                     <td>:</td>
-                                    <td><?= isset($dataSewa) ? $dataSewa['namaPelanggan'] : '' ?></td>
+                                    <td><?= isset($dataSewa) ? $dataSewa['jenisMobil'] : '' ?></td>
                                     <td>NOPOL</td>
                                     <td>:</td>
-                                    <td><?= isset($dataSewa) ? $dataSewa['noTelp'] : '' ?></td>
+                                    <td><?= isset($dataSewa) ? $dataSewa['nopol'] : '' ?></td>
                                 </tr>
                         </table>
                         </div>
