@@ -49,12 +49,14 @@ class FormSewa extends CI_Controller
 	// Tambah Data barang
     public function tambahData()
     {
+        $idSewa = $this->input->post('idSewa');
         $noSewa = $this->input->post('noSewa');
         $idPelanggan = $this->input->post('idPelanggan');
         $idJaminan = $this->input->post('idJaminan');
         $idMobil = $this->input->post('idMobil');
         $rute = $this->input->post('rute');
         $data = array(
+            'idSewa' => $idSewa,
             'noSewa' => $noSewa,
             'pelangganId' => $idPelanggan,
             'mobilId' => $idMobil,

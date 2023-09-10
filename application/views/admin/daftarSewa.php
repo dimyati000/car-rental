@@ -43,7 +43,7 @@
 													<a href="javascript:;" onclick="printFormSewa('<?= $ds->idSewa ?>')" class="btn btn-success"><i class="fas fa-print"> Print</i></a>
 												</td>
 												<td class="text-center">
-													<?php echo anchor('Jaminan/delete/' . $ds->idSewa, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus Data</div>') ?>
+													<?php echo anchor('DaftarSewa/delete/' . $ds->idSewa, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus Data</div>') ?>
 												</td>
 											</tr>
 										<?php endforeach; ?>
