@@ -22,7 +22,7 @@
 								<div class="table-responsive">
 									<!-- Tabel Data Mobil -->
 									<table class="table table-bordered">
-										<tr>
+										<tr class="text-center">
 											<th width="2%">No</th>
 											<th width="2%">Jenis Mobil</th>
 											<th width="2%">Merk</th>

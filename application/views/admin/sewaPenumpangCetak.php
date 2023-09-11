@@ -67,7 +67,7 @@
                                 <tr>
                                     <td width="20%">Nama Penyewa</td>
                                     <td width="1%">:</td>
-                                    <td width="29%"><?= isset($dataSewa) ? $dataSewa['namaPelanggan'] : '' ?></td>
+                                    <td width="29%" style="text-transform: capitalize;"><?= isset($dataSewa) ? $dataSewa['namaPelanggan'] : '' ?></td>
                                     <td width="10%">No. Telp</td>
                                     <td width="1%">:</td>
                                     <td width="39%"><?= isset($dataSewa) ? $dataSewa['noTelp'] : '' ?></td>
@@ -83,7 +83,7 @@
                                     <td><?= isset($dataSewa) ? $dataSewa['jenisMobil'] : '' ?></td>
                                     <td>NOPOL</td>
                                     <td>:</td>
-                                    <td><?= isset($dataSewa) ? $dataSewa['nopol'] : '' ?></td>
+                                    <td style="text-transform: uppercase;"><?= isset($dataSewa) ? $dataSewa['nopol'] : '' ?></td>
                                 </tr>
                         </table>
                         </div>
@@ -151,7 +151,7 @@
                               </tr>
                               <tr>
                                   <td style="vertical-align:top; padding-left:10px; ">14.</td>
-                                  <td>Pihak EVANO TRANS menyediakan jasa sopir, tetapi jika terjadi kerusakan ( Contoh : Kecelakaan ) maka biaya yang dikeluarkan untuk perbaikan ditanggung PENYEWA.</td>
+                                  <td>Pihak EVANO TRANS menyediakan jasa sopir, tetapi jika terjadi kerusakan (Contoh : Kecelakaan) maka biaya yang dikeluarkan untuk perbaikan ditanggung PENYEWA.</td>
                               </tr>
                               <tr>
                                   <td style="vertical-align:top; padding-left:10px; ">15.</td>

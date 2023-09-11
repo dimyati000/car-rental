@@ -22,9 +22,9 @@
 								<div class="table-responsive">
 									<!-- Tabel Data Mobil -->
 									<table class="table table-bordered">
-										<tr>
-											<th>No</th>
-											<th>No Sewa</th>
+										<tr class="text-center">
+											<th width="2%">No</th>
+											<th width="15%">No Sewa</th>
 											<th>Pelanggan</th>
 											<th>Alamat</th>
 											<th>Jaminan</th>

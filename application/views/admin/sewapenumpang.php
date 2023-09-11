@@ -25,6 +25,7 @@
 										enctype="multipart/form-data" autocomplete="off">
 										<input type="hidden" class="form-control" name="idSewa" value="<?= $uuid ?>"></input>
 										<input type="hidden" name="idPelanggan" class="form-control">
+										<input type="hidden" name="tipeSewa" class="form-control" value="SP">
 										<div class="form-row">
 											<div class="form-group col-md-6">
 												<label>Nomor Sewa</label>

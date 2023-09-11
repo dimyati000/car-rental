@@ -46,11 +46,12 @@ class FormSewa extends CI_Controller
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/sewaBarang", $data);
     }
-	// Tambah Data barang
+	// Tambah Data Sewa
     public function tambahData()
     {
         $idSewa = $this->input->post('idSewa');
         $noSewa = $this->input->post('noSewa');
+        $tipeSewa = $this->input->post('tipeSewa');
         $idPelanggan = $this->input->post('idPelanggan');
         $idJaminan = $this->input->post('idJaminan');
         $idMobil = $this->input->post('idMobil');
@@ -58,6 +59,7 @@ class FormSewa extends CI_Controller
         $data = array(
             'idSewa' => $idSewa,
             'noSewa' => $noSewa,
+            'tipeSewa' => $tipeSewa,
             'pelangganId' => $idPelanggan,
             'mobilId' => $idMobil,
             'jaminanId' => $idJaminan,
