@@ -66,9 +66,48 @@
 													<?php endforeach; ?>
 												</select>
 											</div>
-											<div class="form-group col-md-6">
+											<div class="form-group col-md-3">
+												<label>Tanggal Berangkat</label>
+												<input type="date" name="jadwalBooking" class="form-control" required>
+											</div>
+											<div class="form-group col-md-3">
+											<label>Jam Berangkat</label>
+											<div class="input-group">
+												<div class="input-group-prepend">
+												<div class="input-group-text">
+													<i class="fas fa-clock"></i>
+												</div>
+												</div>
+												<input type="text" class="form-control timepicker">
+											</div>
+											</div>
+											<div class="form-group col-md-3">
+												<label>Tanggal Pengembalian</label>
+												<input type="date" name="jadwalBooking" class="form-control" required>
+											</div>
+											<div class="form-group col-md-3">
+											<label>Jam Pengembalian</label>
+											<div class="input-group">
+												<div class="input-group-prepend">
+												<div class="input-group-text">
+													<i class="fas fa-clock"></i>
+												</div>
+												</div>
+												<input type="text" class="form-control timepicker">
+											</div>
+											</div>
+											<div class="form-group col-md-12">
 												<label>Rute</label>
 												<input type="text" name="rute" class="form-control" required>
+											</div>
+											<div class="form-group col-md-3">
+											<label>Tipe Tarif</label>
+												<select class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" name="tipeTarif" id="tipeTarif">
+													<option>Pilih Tipe Tarif</option>
+													<option value="12">12 Jam</option>
+													<option value="24">24 Jam</option>
+												</select>
+												
 											</div>
 										</div>
 										<!-- <div class="modal-footer"> -->

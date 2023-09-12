@@ -55,14 +55,16 @@ class FormSewa extends CI_Controller
         $idPelanggan = $this->input->post('idPelanggan');
         $idJaminan = $this->input->post('idJaminan');
         $idMobil = $this->input->post('idMobil');
+        $tipeTarif = $this->input->post('tipeTarif');
         $rute = $this->input->post('rute');
         $data = array(
             'idSewa' => $idSewa,
             'noSewa' => $noSewa,
             'tipeSewa' => $tipeSewa,
             'pelangganId' => $idPelanggan,
-            'mobilId' => $idMobil,
             'jaminanId' => $idJaminan,
+            'mobilId' => $idMobil,
+            'tipeTarif' => $tipeTarif,
             'rute' => $rute
         );
         $this->ModelFormSewa->tambahSewa($data, 'tb_formsewa');
