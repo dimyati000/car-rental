@@ -67,10 +67,10 @@
                                 <tr>
                                     <td width="20%">Nama Penyewa</td>
                                     <td width="1%">:</td>
-                                    <td width="29%" style="text-transform: capitalize;"><?= isset($dataSewa) ? $dataSewa['namaPelanggan'] : '' ?></td>
-                                    <td width="16%">No. Telp</td>
+                                    <td width="30%" style="text-transform: capitalize;"><?= isset($dataSewa) ? $dataSewa['namaPelanggan'] : '' ?></td>
+                                    <td width="29%">No. Telp</td>
                                     <td width="1%">:</td>
-                                    <td width="33%"><?= isset($dataSewa) ? $dataSewa['noTelp'] : '' ?></td>
+                                    <td width="29%"><?= isset($dataSewa) ? $dataSewa['noTelp'] : '' ?></td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align:top;">Alamat</td>
@@ -99,12 +99,57 @@
                                     <td><?= isset($dataSewa) ? $dataSewa['tglKembali'] : '' ?></td>
                                     <td>Jam Kembali</td>
                                     <td>:</td>
-                                    <td><?= isset($dataSewa) ? $dataSewa['jamKembali'] : '' ?></td>
+                                    <td colspan="2"><?= isset($dataSewa) ? $dataSewa['jamKembali'] : '' ?></td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align:top;">Rute</td>
                                     <td style="vertical-align:top;">:</td>
-                                    <td colspan="4"><?= isset($dataSewa) ? $dataSewa['rute'] : '' ?></td>
+                                    <td colspan="6"><?= isset($dataSewa) ? $dataSewa['rute'] : '' ?></td>
+                                </tr>
+                                <tr>
+                                    <td width="30%"d>Tipe Tarif</td>
+                                    <td width="1%">:</td>
+                                    <td width="2%"><?= isset($dataSewa) ? $dataSewa['tipeTarif'] : '' ?> Jam</td>
+                                    <td width="30%">Total Tarif</td>
+                                    <td width="1%">:</td>
+                                    <td width="3%"><?= isset($dataSewa) ? $dataSewa['totalTarif'] : '' ?></td>
+                                    <td width="30%">Uang Muka (DP)</td>
+                                    <td width="1%">:</td>
+                                    <td width="3%"><?= isset($dataSewa) ? $dataSewa['dp'] : '' ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Jasa Sopir</td>
+                                    <td>:</td>
+                                    <td><?= isset($dataSewa) ? $dataSewa['jasaSopir'] : '' ?></td>
+                                    <td>Jasa Antar</td>
+                                    <td>:</td>
+                                    <td><?= isset($dataSewa) ? $dataSewa['jasaAntar'] : '' ?></td>
+                                </tr>
+                                    <tr>
+                                    <td>Overtime</td>
+                                    <td>:</td>
+                                    <td><?= isset($dataSewa) ? $dataSewa['overtime'] : '' ?></td>
+                                    <td>Klaim</td>
+                                    <td>:</td>
+                                    <td><?= isset($dataSewa) ? $dataSewa['klaim'] : '' ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Total Bayar</td>
+                                    <td>:</td>
+                                    <td><?= isset($dataSewa) ? $dataSewa['totalBayar'] : '' ?></td>
+                                    <td>Kurang Bayar</td>
+                                    <td>:</td>
+                                    <td><?= isset($dataSewa) ? $dataSewa['kurangBayar'] : '' ?></td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align:top;">Keterangan</td>
+                                    <td style="vertical-align:top;">:</td>
+                                    <td colspan="5"><?= isset($dataSewa) ? $dataSewa['keterangan'] : '' ?></td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align:top;">Jaminan</td>
+                                    <td style="vertical-align:top;">:</td>
+                                    <td colspan="4"><?= isset($dataSewa) ? $dataSewa['namaJaminan'] : '' ?></td>
                                 </tr>
                         </table>
                         </div>

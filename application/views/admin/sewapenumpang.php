@@ -114,14 +114,14 @@
 												<input type="hidden" name="hargaSewa" id="hargaSewa" class="form-control" value="0">
 											</div>
 											<div class="form-group col-md-2">
-											<label>Tarif Total</label>
+											<label>Total tarif</label>
 											<div class="input-group">
 												<div class="input-group-prepend">
 												<div class="input-group-text">
 													Rp.
 												</div>
 												</div>
-												<input type="text" name="tarifTotal" id="tarifTotal" class="form-control" value="" >
+												<input type="text" name="totalTarif" id="totalTarif" class="form-control" value="" >
 											</div>
 											</div>
 											<div class="form-group col-md-2">
@@ -136,14 +136,14 @@
 											</div>
 											</div>
 											<div class="form-group col-md-2">
-											<label>Total Bayar</label>
+											<label>Kurang Bayar</label>
 											<div class="input-group">
 												<div class="input-group-prepend">
 												<div class="input-group-text">
 													Rp.
 												</div>
 												</div>
-												<input type="text" name="totalBayar" id="totalBayar" class="form-control">
+												<input type="text" name="kurangBayar" id="kurangBayar" class="form-control">
 											</div>
 											</div>
 											<div class="form-group col-md-2">
@@ -191,12 +191,12 @@
 		var tipeTarif= $('#tipeTarif').val();
 		if (tipeTarif == '12') {
 			$('#hargaSewa').val(result.data.harga12);
-			var tarifTotal = lamaSewa*$('#hargaSewa').val();
+			var totalTarif = lamaSewa*$('#hargaSewa').val();
 		} else if (tipeTarif == '24'){
 			$('#hargaSewa').val(result.data.harga24);
-			var tarifTotal = lamaSewa*$('#hargaSewa').val();
+			var totalTarif = lamaSewa*$('#hargaSewa').val();
 		}
-		$('#tarifTotal').val(tarifTotal);
+		$('#totalTarif').val(totalTarif);
 	  }
     });
   }
@@ -214,14 +214,14 @@
 	$('#lamaSewa').on("input", function() {
 		var dInput = this.value;
 		var tarifTotal = dInput*$('#hargaSewa').val();
-		$('#tarifTotal').val(tarifTotal);
+		$('#totalTarif').val(tarifTotal);
 	});
 
 	$('#dp').on("input", function() {
 		var dInput = this.value;
-		var tarifTotal = $('#tarifTotal').val();
-		var totalBayar = tarifTotal-dInput;
-		$('#totalBayar').val(totalBayar);
+		var totalTarif = $('#totalTarif').val();
+		var kurangBayar = totalTarif-dInput;
+		$('#kurangBayar').val(kurangBayar);
 	});
 	
 </script>
