@@ -1,6 +1,6 @@
 <?php
 
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') or exit ('No direct script access allowed');
 
 class FormSewa extends CI_Controller
 {   
@@ -108,4 +108,13 @@ class FormSewa extends CI_Controller
         $this->ModelBarang->hapusBarang($where, 'tb_product');
         redirect('../DataBarang');
     }    
+
+    public function load_mobil(){
+        $idMobil = $this->input->post('idMobil');
+        $where = array('idMobil' => $idMobil);
+        $mobil = $this->ModelMobil->editMobil($where, 'tb_mobil')->row_array();
+        $response['success'] = TRUE;
+        $response['data'] = $mobil;
+        echo json_encode($response);  
+    }
 }

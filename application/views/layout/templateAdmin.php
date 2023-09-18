@@ -66,3 +66,4 @@
 </body>
 
 <?php $this->load->view('layout/jsTemplateAdmin.php'); ?>
+

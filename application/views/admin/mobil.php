@@ -28,7 +28,8 @@
 											<th width="2%">Merk</th>
 											<th width="5%">Nopol</th>
 											<th width="2%">Tahun</th>
-											<th width="2%">Harga</th>
+											<th width="2%">Harga 12 Jam</th>
+											<th width="2%">Harga 24 Jam</th>
 											<th width="2%">Bahan Bakar</th>
 											<th width="2%">Warna</th>
 											<th width="2%">Denda</th>
@@ -46,7 +47,8 @@
 												<td><?php echo $m->merkMobil ?></td>
 												<td class="text-center"><?php echo $m->nopol ?></td>
 												<td><?php echo $m->tahun ?></td>
-												<td><?php echo $m->harga ?></td>
+												<td><?php echo $m->harga12 ?></td>
+												<td><?php echo $m->harga24 ?></td>
 												<td><?php echo $m->bahanBakar ?></td>
 												<td><?php echo $m->warna ?></td>
 												<td><?php echo $m->denda ?></td>
@@ -136,18 +138,29 @@
 						<label>Merk Mobil</label>
 						<input type="text" name="merkMobil" class="form-control">
 					</div>
-					<div class="form-group col-md-6">
-                      <label>Harga</label>
+					<div class="form-group col-md-4">
+                      <label>Harga 12 jam</label>
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
                             Rp.
                           </div>
                         </div>
-						<input type="text" name="harga" class="form-control">
+						<input type="text" name="harga12" class="form-control">
                       </div>
                     </div>
-					<div class="form-group col-md-6">
+					<div class="form-group col-md-4">
+                      <label>Harga 24 jam</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            Rp.
+                          </div>
+                        </div>
+						<input type="text" name="harga24" class="form-control">
+                      </div>
+                    </div>
+					<div class="form-group col-md-4">
                       <label>Denda</label>
                       <div class="input-group">
                         <div class="input-group-prepend">

@@ -27,7 +27,8 @@ class Mobil extends CI_Controller
       $merkMobil = $this->input->post('merkMobil');
       $nopol = $this->input->post('nopol');
       $tahun = $this->input->post('tahun');
-      $harga = $this->input->post('harga');
+      $harga12 = $this->input->post('harga12');
+      $harga24 = $this->input->post('harga24');
       $bahanBakar = $this->input->post('bahanBakar');
       $warna = $this->input->post('warna');
       $denda = $this->input->post('denda');
@@ -57,7 +58,8 @@ class Mobil extends CI_Controller
           'merkMobil' => $merkMobil,
           'nopol' => $nopol,
           'tahun' => $tahun,
-          'harga' => $harga,
+          'harga12' => $harga12,
+          'harga24' => $harga24,
           'bahanBakar' => $bahanBakar,
           'warna' => $warna,
           'denda' => $denda,
@@ -91,7 +93,8 @@ class Mobil extends CI_Controller
         $merkMobil = $this->input->post('merkMobil');
         $nopol = $this->input->post('nopol');
         $tahun = $this->input->post('tahun');
-        $harga = $this->input->post('harga');
+        $harga12 = $this->input->post('harga12');
+        $harga24 = $this->input->post('harga24');
         $bahanBakar = $this->input->post('bahanBakar');
         $warna = $this->input->post('warna');
         $denda = $this->input->post('denda');
@@ -112,7 +115,8 @@ class Mobil extends CI_Controller
             'merkMobil' => $merkMobil,
             'nopol' => $nopol,
             'tahun' => $tahun,
-            'harga' => $harga,
+            'harga12' => $harga12,
+            'harga24' => $harga24,
             'bahanBakar' => $bahanBakar,
             'warna' => $warna,
             'denda' => $denda,
@@ -126,7 +130,8 @@ class Mobil extends CI_Controller
           'merkMobil' => $merkMobil,
           'nopol' => $nopol,
           'tahun' => $tahun,
-          'harga' => $harga,
+          'harga12' => $harga12,
+          'harga24' => $harga24,
           'bahanBakar' => $bahanBakar,
           'warna' => $warna,
           'denda' => $denda,

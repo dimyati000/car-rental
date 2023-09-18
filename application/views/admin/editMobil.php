@@ -48,9 +48,14 @@
 											value="<?php echo $m->tahun ?>">
 									</div>
 									<div class="form-group">
-										<label>Harga</label>
-										<input type="text" name="harga" class="form-control"
-											value="<?php echo $m->harga ?>">
+										<label>Harga 12 Jam</label>
+										<input type="text" name="harga12" class="form-control"
+											value="<?php echo $m->harga12 ?>">
+									</div>
+									<div class="form-group">
+										<label>Harga 24 jam</label>
+										<input type="text" name="harga24" class="form-control"
+											value="<?php echo $m->harga24 ?>">
 									</div>
 									<div class="form-group">
 										<label>Bahan Bakar</label>

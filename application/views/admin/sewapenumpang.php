@@ -100,14 +100,62 @@
 												<label>Rute</label>
 												<input type="text" name="rute" class="form-control" required>
 											</div>
-											<div class="form-group col-md-3">
+											<div class="form-group col-md-2">
 											<label>Tipe Tarif</label>
 												<select class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" name="tipeTarif" id="tipeTarif">
 													<option>Pilih Tipe Tarif</option>
 													<option value="12">12 Jam</option>
 													<option value="24">24 Jam</option>
 												</select>
-												
+											</div>
+											<div class="form-group col-md-1">
+												<label>Lama Sewa</label>
+												<input type="text" name="lamaSewa" id="lamaSewa" class="form-control" value="1" required>
+												<input type="hidden" name="hargaSewa" id="hargaSewa" class="form-control" value="0">
+											</div>
+											<div class="form-group col-md-2">
+											<label>Tarif Total</label>
+											<div class="input-group">
+												<div class="input-group-prepend">
+												<div class="input-group-text">
+													Rp.
+												</div>
+												</div>
+												<input type="text" name="tarifTotal" id="tarifTotal" class="form-control" value="" >
+											</div>
+											</div>
+											<div class="form-group col-md-2">
+											<label>Uang Muka (DP)</label>
+											<div class="input-group">
+												<div class="input-group-prepend">
+												<div class="input-group-text">
+													Rp.
+												</div>
+												</div>
+												<input type="text" name="dp" id="dp" class="form-control">
+											</div>
+											</div>
+											<div class="form-group col-md-2">
+											<label>Total Bayar</label>
+											<div class="input-group">
+												<div class="input-group-prepend">
+												<div class="input-group-text">
+													Rp.
+												</div>
+												</div>
+												<input type="text" name="totalBayar" id="totalBayar" class="form-control">
+											</div>
+											</div>
+											<div class="form-group col-md-2">
+											<label>Denda</label>
+											<div class="input-group">
+												<div class="input-group-prepend">
+												<div class="input-group-text">
+													Rp.
+												</div>
+												</div>
+												<input type="text" name="denda" class="form-control">
+											</div>
 											</div>
 										</div>
 										<!-- <div class="modal-footer"> -->
@@ -126,3 +174,54 @@
 		</section>
 	</div>
 </div>
+
+
+<script>
+	function getMobil(idMobil) {
+    $.ajax({
+      url: base_url + "/FormSewa/load_mobil",
+      type: 'POST',
+      dataType: 'JSON',
+      data: {
+        idMobil: idMobil,
+      },
+      beforeSend: function() {},
+      success: function(result) {
+		var lamaSewa = $('#lamaSewa').val();
+		var tipeTarif= $('#tipeTarif').val();
+		if (tipeTarif == '12') {
+			$('#hargaSewa').val(result.data.harga12);
+			var tarifTotal = lamaSewa*$('#hargaSewa').val();
+		} else if (tipeTarif == '24'){
+			$('#hargaSewa').val(result.data.harga24);
+			var tarifTotal = lamaSewa*$('#hargaSewa').val();
+		}
+		$('#tarifTotal').val(tarifTotal);
+	  }
+    });
+  }
+
+//   $("#idMobil").on("change", function (e) {
+// 		var idMobil = e.target.value;
+// 		getMobil(idMobil);
+// 	});
+
+  $("#tipeTarif").on("change", function (e) {
+		var idMobil = $('#idMobil').val();
+		getMobil(idMobil)
+	});
+
+	$('#lamaSewa').on("input", function() {
+		var dInput = this.value;
+		var tarifTotal = dInput*$('#hargaSewa').val();
+		$('#tarifTotal').val(tarifTotal);
+	});
+
+	$('#dp').on("input", function() {
+		var dInput = this.value;
+		var tarifTotal = $('#tarifTotal').val();
+		var totalBayar = tarifTotal-dInput;
+		$('#totalBayar').val(totalBayar);
+	});
+	
+</script>
