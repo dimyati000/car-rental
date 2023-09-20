@@ -68,7 +68,7 @@
 											</div>
 											<div class="form-group col-md-3">
 												<label>Tanggal Berangkat</label>
-												<input type="date" name="jadwalBooking" class="form-control" required>
+												<input type="date" name="tglBerangkat" id="tglBerangkat" class="form-control" required>
 											</div>
 											<div class="form-group col-md-3">
 											<label>Jam Berangkat</label>
@@ -78,12 +78,12 @@
 													<i class="fas fa-clock"></i>
 												</div>
 												</div>
-												<input type="text" class="form-control timepicker">
+												<input type="text" name="jamBerangkat" class="form-control timepicker">
 											</div>
 											</div>
 											<div class="form-group col-md-3">
 												<label>Tanggal Pengembalian</label>
-												<input type="date" name="jadwalBooking" class="form-control" required>
+												<input type="date" name="tglKembali" id="tglKembali" class="form-control" required>
 											</div>
 											<div class="form-group col-md-3">
 											<label>Jam Pengembalian</label>
@@ -93,14 +93,14 @@
 													<i class="fas fa-clock"></i>
 												</div>
 												</div>
-												<input type="text" class="form-control timepicker">
+												<input type="text" name="jamKembali" class="form-control timepicker">
 											</div>
 											</div>
 											<div class="form-group col-md-12">
 												<label>Rute</label>
 												<input type="text" name="rute" class="form-control" required>
 											</div>
-											<div class="form-group col-md-2">
+											<div class="form-group col-md-3">
 											<label>Tipe Tarif</label>
 												<select class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" name="tipeTarif" id="tipeTarif">
 													<option>Pilih Tipe Tarif</option>
@@ -114,7 +114,7 @@
 												<input type="hidden" name="hargaSewa" id="hargaSewa" class="form-control" value="0">
 											</div>
 											<div class="form-group col-md-2">
-											<label>Total tarif</label>
+											<label>Total Tarif</label>
 											<div class="input-group">
 												<div class="input-group-prepend">
 												<div class="input-group-text">
@@ -155,6 +155,50 @@
 												</div>
 												</div>
 												<input type="text" name="denda" class="form-control">
+											</div>
+											</div>
+											<div class="form-group col-md-2">
+											<label>Jasa Antar</label>
+											<div class="input-group">
+												<div class="input-group-prepend">
+												<div class="input-group-text">
+													Rp.
+												</div>
+												</div>
+												<input type="text" name="jasaAntar" class="form-control">
+											</div>
+											</div>
+											<div class="form-group col-md-2">
+											<label>Jasa Sopir</label>
+											<div class="input-group">
+												<div class="input-group-prepend">
+												<div class="input-group-text">
+													Rp.
+												</div>
+												</div>
+												<input type="text" name="jasaSopir" class="form-control">
+											</div>
+											</div>
+											<div class="form-group col-md-2">
+											<label>Overtime</label>
+											<div class="input-group">
+												<div class="input-group-prepend">
+												<div class="input-group-text">
+													Rp.
+												</div>
+												</div>
+												<input type="text" name="overtime" class="form-control">
+											</div>
+											</div>
+											<div class="form-group col-md-2">
+											<label>Total Bayar</label>
+											<div class="input-group">
+												<div class="input-group-prepend">
+												<div class="input-group-text">
+													Rp.
+												</div>
+												</div>
+												<input type="text" name="totalBayar" id="totalBayar" class="form-control" value="" >
 											</div>
 											</div>
 										</div>
@@ -223,5 +267,12 @@
 		var kurangBayar = totalTarif-dInput;
 		$('#kurangBayar').val(kurangBayar);
 	});
-	
+
+	$('#totalBayar'), function(){
+		var totalTarif = $('#totalTarif').val();
+		var jasaSopir = $('#jasaSopir').val();
+		var jasaAntar = $('#jasaAntar').val();
+		var totalBayar = totalTarif+$('#jasaSopir').val()+$('#jasaAntar').val();
+		$('#totalBayar').val(totalBayar);	
+	};
 </script>

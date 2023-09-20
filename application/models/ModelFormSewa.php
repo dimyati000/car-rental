@@ -2,7 +2,7 @@
 class ModelFormSewa extends CI_Model
 {
 	function getData($idSewa=""){
-		$q = "SELECT fs.idSewa, fs.noSewa, fs.tglBerangkat, fs.jamBerangkat, fs.tglKembali, fs.jamKembali, fs.rute, fs.tipeTarif,
+		$q = "SELECT fs.idSewa, fs.noSewa, fs.tglBerangkat, fs.jamBerangkat, fs.tglKembali, fs.jamKembali, fs.rute, fs.tipeTarif, fs.lamaSewa,
 		fs.totalTarif, fs.dp, fs.overtime, fs.kurangBayar, fs.jasaSopir, fs.jasaAntar, fs.totalBayar, fs.klaim, fs.keterangan, p.namaPelanggan,
 		p.noTelp, p.alamat, m.jenisMobil, m.nopol, j.namaJaminan FROM `tb_formsewa` fs
 		LEFT JOIN tb_pelanggan p ON fs.pelangganId = p.idPelanggan

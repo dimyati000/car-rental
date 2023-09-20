@@ -55,7 +55,17 @@ class FormSewa extends CI_Controller
         $idPelanggan = $this->input->post('idPelanggan');
         $idJaminan = $this->input->post('idJaminan');
         $idMobil = $this->input->post('idMobil');
+        $tglBerangkat = $this->input->post('tglBerangkat');
+        $tglKembali = $this->input->post('tglKembali');
         $tipeTarif = $this->input->post('tipeTarif');
+        $lamaSewa = $this->input->post('lamaSewa');
+        $totalTarif = $this->input->post('totalTarif');
+        $dp = $this->input->post('dp');
+        $jasaAntar = $this->input->post('jasaAntar');
+        $jasaSopir = $this->input->post('jasaSopir');
+        $kurangBayar = $this->input->post('kurangBayar');
+        $totalBayar = $this->input->post('totalBayar');
+        $overtime = $this->input->post('overtime');
         $rute = $this->input->post('rute');
         $data = array(
             'idSewa' => $idSewa,
@@ -64,7 +74,17 @@ class FormSewa extends CI_Controller
             'pelangganId' => $idPelanggan,
             'jaminanId' => $idJaminan,
             'mobilId' => $idMobil,
+            'tglBerangkat' => $tglBerangkat,
+            'tglKembali' => $tglKembali,
             'tipeTarif' => $tipeTarif,
+            'lamaSewa' => $lamaSewa,
+            'totalTarif' => $totalTarif,
+            'dp' => $dp,
+            'jasaAntar' => $jasaAntar,
+            'jasaSopir' => $jasaSopir,
+            'kurangBayar' => $kurangBayar,
+            'totalBayar' => $totalBayar,
+            'overtime' => $overtime,
             'rute' => $rute
         );
         $this->ModelFormSewa->tambahSewa($data, 'tb_formsewa');
