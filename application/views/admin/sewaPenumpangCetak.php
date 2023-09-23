@@ -2,7 +2,12 @@
   $path_logo = base_url('assets/img/logo-evano.png');
   $type = pathinfo($path_logo, PATHINFO_EXTENSION);
   $data = file_get_contents($path_logo);
-  $image_base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+  $logo_evano = 'data:image/' . $type . ';base64,' . base64_encode($data);
+
+  $path_checklist = base_url('assets/img/checklist-mobil.png');
+  $type = pathinfo($path_checklist, PATHINFO_EXTENSION);
+  $data = file_get_contents($path_checklist);
+  $checklist_mobil = 'data:image/' . $type . ';base64,' . base64_encode($data);
 ?>
 
 
@@ -37,7 +42,7 @@
                                 <tr>
                                     <td width="20%">
                                         <div>
-                                            <img style="width:100%;" src="<?= $image_base64 ?>" alt="">
+                                            <img style="width:100%;" src="<?= $logo_evano ?>" alt="">
                                         </div>
                                     </td>
                                     <td width="80%" style="text-align:center;">
@@ -62,7 +67,6 @@
                             </tr>
                         </table>
                         <br>
-                        <!-- <table class="table"></table> -->
                         <table class="table">
                                 <tr>
                                     <td width="21%">Nama Penyewa</td>
@@ -117,26 +121,26 @@
                                 <tr>
                                     <td>Uang Muka (DP)</td>
                                     <td>:</td>
-                                    <td><?= isset($dataSewa) ? $dataSewa['dp'] : '' ?></td>
+                                    <td>Rp. <?= isset($dataSewa) ? $dataSewa['dp'] : '' ?></td>
                                     <td>Jasa Antar</td>
                                     <td>:</td>
-                                    <td><?= isset($dataSewa) ? $dataSewa['jasaAntar'] : '' ?></td>
+                                    <td>Rp. <?= isset($dataSewa) ? $dataSewa['jasaAntar'] : '' ?></td>
                                 </tr>
                                 <tr>
                                     <td>Kurang Bayar</td>
                                     <td>:</td>
-                                    <td><?= isset($dataSewa) ? $dataSewa['kurangBayar'] : '' ?></td>
+                                    <td>Rp. <?= isset($dataSewa) ? $dataSewa['kurangBayar'] : '' ?></td>
                                     <td>Jasa Sopir</td>
                                     <td>:</td>
-                                    <td><?= isset($dataSewa) ? $dataSewa['jasaSopir'] : '' ?></td>
+                                    <td>Rp. <?= isset($dataSewa) ? $dataSewa['jasaSopir'] : '' ?></td>
                                 </tr>
                                 <tr>
                                     <td>Total Bayar</td>
                                     <td>:</td>
-                                    <td><?= isset($dataSewa) ? $dataSewa['totalBayar'] : '' ?></td>
+                                    <td>Rp. <?= isset($dataSewa) ? $dataSewa['totalBayar'] : '' ?></td>
                                     <td>Overtime</td>
                                     <td>:</td>
-                                    <td><?= isset($dataSewa) ? $dataSewa['overtime'] : '' ?></td>
+                                    <td>Rp. <?= isset($dataSewa) ? $dataSewa['overtime'] : '' ?></td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align:top;">Jaminan</td>
@@ -146,8 +150,19 @@
                                 <tr>
                                     <td style="vertical-align:top;">Keterangan</td>
                                     <td style="vertical-align:top;">:</td>
-                                    <td colspan="5"><?= isset($dataSewa) ? $dataSewa['keterangan'] : '' ?></td>
+                                    <td colspan="4"><?= isset($dataSewa) ? $dataSewa['keterangan'] : '' ?></td>
                                 </tr>
+                                <tr>
+                                    <td colspan="6"></td>
+                                </tr>
+                               
+                        </table>
+                        <table class="table">
+                            <tr>
+                                <td colspan="6">
+                                    <img style="width:90%;" src="<?= $checklist_mobil ?>" alt="">
+                                </td>
+                            </tr>
                         </table>
                         </div>
                     </td>
@@ -157,7 +172,7 @@
                         <div style="padding-left: 10px;padding-top:5xpx;">
                             <span style="font-weight:bold;">Persyaratan dan Ketentuan :</span>
                         </div>
-                          <table>
+                          <table class="table">
                               <tr>
                                   <td width="2%" style="vertical-align:top; padding-left:10px;">1.</td>
                                   <td width="98%">Sewa mobil minimal 24 jam untuk hari Jum’at, Sabtu, Minggu atau Hari Libur
@@ -222,10 +237,10 @@
                               </tr>
                           </table>
                         </div>
-                        <table style="width:100%">
+                        <table class="table">
                             <tr>
                                 <td width="60%">EVANO TRANS</td>
-                                <td width="40%">Sidoarjo, </td>
+                                <td width="40%">Sidoarjo, <?= isset($dataSewa) ? date('d F Y', strtotime($dataSewa['tglBerangkat'])) : '' ?></td>
                             </tr>
                             <tr>
                                 <td> </td>
