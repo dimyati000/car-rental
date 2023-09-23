@@ -37,7 +37,7 @@
             <tbody>
                 <tr>
                     <td style="width:50%;">
-                        <div style="margin:10px">
+                        <div style="margin:5px">
                         <table class="table" style="text-align:center;">
                                 <tr>
                                     <td width="20%">
@@ -58,9 +58,13 @@
                         </table>
                         <hr style="border:1px solid black;">
                         <hr style="border:1px solid black;">
+                        <br>
                         <table class="table">
                             <tr>
-                                <td style="text-align:center;font-size:15px; font-weight:bold;">EVANO TRANS</td>
+                                <td style="text-align:center;font-size:15px; font-weight:bold;">FORM ORDER</td>
+                            </tr>
+                            <tr>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td style="text-align:right;">NO : <?= isset($dataSewa) ? $dataSewa['noSewa'] : '' ?></td>
@@ -72,7 +76,7 @@
                                     <td width="21%">Nama Penyewa</td>
                                     <td width="1%">:</td>
                                     <td width="29%" style="text-transform: capitalize;"><?= isset($dataSewa) ? $dataSewa['namaPelanggan'] : '' ?></td>
-                                    <td width="29%">No. Telp</td>
+                                    <td width="18%">No. Telp</td>
                                     <td width="1%">:</td>
                                     <td width="29%"><?= isset($dataSewa) ? $dataSewa['noTelp'] : '' ?></td>
                                 </tr>
@@ -155,15 +159,27 @@
                                 <tr>
                                     <td colspan="6"></td>
                                 </tr>
-                               
                         </table>
                         <table class="table">
                             <tr>
                                 <td colspan="6">
-                                    <img style="width:90%;" src="<?= $checklist_mobil ?>" alt="">
+                                    <img style="width:80%;" src="<?= $checklist_mobil ?>" alt="">
                                 </td>
                             </tr>
                         </table>
+                        <hr style="border:1px solid black;">
+
+                        <table class="table">
+                            <tr>
+                                <td width="60%">EVANO TRANS</td>
+                                <td width="40%">Sidoarjo, <?= isset($dataSewa) ? date('d F Y', strtotime($dataSewa['tglBerangkat'])) : '' ?></td>
+                            </tr>
+                            <tr>
+                                <td> </td>
+                                <td>PENYEWA, </td>
+                            </tr>
+                        </table>
+                        <br><br><br>
                         </div>
                     </td>
                     <td style="width:50%;">
@@ -237,16 +253,6 @@
                               </tr>
                           </table>
                         </div>
-                        <table class="table">
-                            <tr>
-                                <td width="60%">EVANO TRANS</td>
-                                <td width="40%">Sidoarjo, <?= isset($dataSewa) ? date('d F Y', strtotime($dataSewa['tglBerangkat'])) : '' ?></td>
-                            </tr>
-                            <tr>
-                                <td> </td>
-                                <td>PENYEWA, </td>
-                            </tr>
-                        </table>
                     </td>
                 </tr>
             </tbody>
