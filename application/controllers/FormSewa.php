@@ -68,6 +68,29 @@ class FormSewa extends CI_Controller
         $overtime = $this->input->post('overtime');
         $rute = $this->input->post('rute');
         $keterangan = $this->input->post('keterangan');
+
+        // Pisahkan data ID menjadi array
+        $idsArray = explode(',', $rawIds);
+
+        // Validasi setiap ID
+        $validIds = [];
+        foreach ($idsArray as $rawId) {
+            $id = intval(trim($rawId)); // Konversi ke integer
+            if ($id > 0) {
+                $validIds[] = $id; // Hanya ID yang valid yang akan disimpan
+            }
+        }
+
+        // Sekarang $validIds berisi ID-ID yang valid dengan tipe data integer
+        // Anda dapat melakukan operasi apa pun dengan ID-ID ini, misalnya menyimpannya ke database
+        // atau melakukan tindakan lain sesuai kebutuhan aplikasi Anda.
+
+        // Tampilkan ID yang valid sebagai contoh
+        echo "ID yang valid: ";
+        foreach ($validIds as $validId) {
+            echo $validId . " ";
+        }
+        
         $data = array(
             'idSewa' => $idSewa,
             'noSewa' => $noSewa,
