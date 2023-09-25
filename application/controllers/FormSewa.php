@@ -53,7 +53,7 @@ class FormSewa extends CI_Controller
         $noSewa = $this->input->post('noSewa');
         $tipeSewa = $this->input->post('tipeSewa');
         $idPelanggan = $this->input->post('idPelanggan');
-        $idJaminan = $this->input->post('idJaminan');
+        $idJaminan = $this->input->post('idJaminan[]');
         $idMobil = $this->input->post('idMobil');
         $tglBerangkat = $this->input->post('tglBerangkat');
         $tglKembali = $this->input->post('tglKembali');
@@ -67,6 +67,7 @@ class FormSewa extends CI_Controller
         $totalBayar = $this->input->post('totalBayar');
         $overtime = $this->input->post('overtime');
         $rute = $this->input->post('rute');
+        $keterangan = $this->input->post('keterangan');
         $data = array(
             'idSewa' => $idSewa,
             'noSewa' => $noSewa,
@@ -85,7 +86,8 @@ class FormSewa extends CI_Controller
             'kurangBayar' => $kurangBayar,
             'totalBayar' => $totalBayar,
             'overtime' => $overtime,
-            'rute' => $rute
+            'rute' => $rute,
+            'keterangan' => $keterangan
         );
         $this->ModelFormSewa->tambahSewa($data, 'tb_formsewa');
         redirect('../DaftarSewa');

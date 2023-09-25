@@ -35,7 +35,7 @@
 												<label>Jaminan</label>
 												<select name="idJaminan"
 													class="form-control select2 select2-hidden-accessible"
-													id="idJaminan" required>
+													id="idJaminan" multiple="multiple" required>
 													<option value="">Pilih Jaminan</option>
 													<?php foreach ($jaminan as $j)  :  ?>
 													<option value="<?= $j->idJaminan ?>"><?= $j->namaJaminan; ?>
@@ -154,7 +154,7 @@
 													Rp.
 												</div>
 												</div>
-												<input type="text" name="denda" class="form-control">
+												<input type="text" name="denda" class="form-control" value="0" required>
 											</div>
 											</div>
 											<div class="form-group col-md-2">
@@ -165,7 +165,7 @@
 													Rp.
 												</div>
 												</div>
-												<input type="text" name="jasaAntar" class="form-control">
+												<input type="text" name="jasaAntar" class="form-control" value="0" required>
 											</div>
 											</div>
 											<div class="form-group col-md-2">
@@ -176,7 +176,7 @@
 													Rp.
 												</div>
 												</div>
-												<input type="text" name="jasaSopir" class="form-control">
+												<input type="text" name="jasaSopir" class="form-control" value="0" required>
 											</div>
 											</div>
 											<div class="form-group col-md-2">
@@ -187,7 +187,7 @@
 													Rp.
 												</div>
 												</div>
-												<input type="text" name="overtime" class="form-control">
+												<input type="text" name="overtime" class="form-control" value="0" required>
 											</div>
 											</div>
 											<div class="form-group col-md-2">
@@ -198,8 +198,12 @@
 													Rp.
 												</div>
 												</div>
-												<input type="text" name="totalBayar" id="totalBayar" class="form-control" value="" >
+												<input type="text" name="totalBayar" id="totalBayar" class="form-control" value="">
 											</div>
+											</div>
+											<div class="form-group col-md-12">
+												<label>Keterangan</label>
+												<input type="text" name="keterangan" class="form-control" value="-" required>
 											</div>
 										</div>
 										<!-- <div class="modal-footer"> -->
@@ -275,4 +279,9 @@
 		var totalBayar = totalTarif+$('#jasaSopir').val()+$('#jasaAntar').val();
 		$('#totalBayar').val(totalBayar);	
 	};
+
+	$(document).ready(function () {
+			$(".select2").select2({
+			});
+	});
 </script>
