@@ -2,6 +2,7 @@
 
 defined('BASEPATH') or exit ('No direct script access allowed');
 
+use Ramsey\Uuid\Uuid;
 class FormSewa extends CI_Controller
 {   
     public function __construct()
@@ -49,14 +50,16 @@ class FormSewa extends CI_Controller
 	// Tambah Data Sewa
     public function tambahData()
     {
-        $idSewa = $this->input->post('idSewa');
+        $idSewa = Uuid::uuid4();
         $noSewa = $this->input->post('noSewa');
         $tipeSewa = $this->input->post('tipeSewa');
         $idPelanggan = $this->input->post('idPelanggan');
-        $idJaminan = $this->input->post('idJaminan[]');
+        $idJaminan = $this->input->post('idJaminan');
         $idMobil = $this->input->post('idMobil');
         $tglBerangkat = $this->input->post('tglBerangkat');
+        $jamBerangkat = $this->input->post('jamBerangkat');
         $tglKembali = $this->input->post('tglKembali');
+        $jamKembali = $this->input->post('jamKembali');
         $tipeTarif = $this->input->post('tipeTarif');
         $lamaSewa = $this->input->post('lamaSewa');
         $totalTarif = $this->input->post('totalTarif');
@@ -69,37 +72,27 @@ class FormSewa extends CI_Controller
         $rute = $this->input->post('rute');
         $keterangan = $this->input->post('keterangan');
 
-        // Pisahkan data ID menjadi array
-        $idsArray = explode(',', $rawIds);
-
-        // Validasi setiap ID
-        $validIds = [];
-        foreach ($idsArray as $rawId) {
-            $id = intval(trim($rawId)); // Konversi ke integer
-            if ($id > 0) {
-                $validIds[] = $id; // Hanya ID yang valid yang akan disimpan
-            }
-        }
-
-        // Sekarang $validIds berisi ID-ID yang valid dengan tipe data integer
-        // Anda dapat melakukan operasi apa pun dengan ID-ID ini, misalnya menyimpannya ke database
-        // atau melakukan tindakan lain sesuai kebutuhan aplikasi Anda.
-
-        // Tampilkan ID yang valid sebagai contoh
-        echo "ID yang valid: ";
-        foreach ($validIds as $validId) {
-            echo $validId . " ";
-        }
-        
+        // $countJaminan = count($idJaminan);
+        // for ($i=0; $i < $countJaminan; $i++) { 
+            // $jaminans .= $idJaminan[$i];
+            // if ($i==$countJaminan-1) {
+            //     $jaminans .= '';
+            // }else{
+            //     $jaminans .= ',';
+            // }
+        // }
+    
         $data = array(
             'idSewa' => $idSewa,
             'noSewa' => $noSewa,
             'tipeSewa' => $tipeSewa,
             'pelangganId' => $idPelanggan,
-            'jaminanId' => $idJaminan,
+            // 'jaminanId' => $idJaminan,
             'mobilId' => $idMobil,
             'tglBerangkat' => $tglBerangkat,
+            'jamBerangkat' => $jamBerangkat,
             'tglKembali' => $tglKembali,
+            'jamKembali' => $jamKembali,
             'tipeTarif' => $tipeTarif,
             'lamaSewa' => $lamaSewa,
             'totalTarif' => $totalTarif,
@@ -113,6 +106,18 @@ class FormSewa extends CI_Controller
             'keterangan' => $keterangan
         );
         $this->ModelFormSewa->tambahSewa($data, 'tb_formsewa');
+
+        // insert jaminan sewa
+        $jaminans = array();  
+        foreach($idJaminan AS $key => $val){
+            $uuidJaminan = Uuid::uuid4();
+            $jaminans[] = array(
+                'id'        => $uuidJaminan,
+                'idSewa'    => $idSewa,
+                'idJaminan' => $val,
+            );
+        }
+        $this->ModelFormSewa->insertBatch('tb_jaminansewa', $jaminans);
         redirect('../DaftarSewa');
     }
 	// Edit Data Barang

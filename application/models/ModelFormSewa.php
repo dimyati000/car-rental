@@ -4,10 +4,16 @@ class ModelFormSewa extends CI_Model
 	function getData($idSewa=""){
 		$q = "SELECT fs.idSewa, fs.noSewa, fs.tglBerangkat, fs.jamBerangkat, fs.tglKembali, fs.jamKembali, fs.rute, fs.tipeTarif, fs.lamaSewa,
 		fs.totalTarif, fs.dp, fs.overtime, fs.kurangBayar, fs.jasaSopir, fs.jasaAntar, fs.totalBayar, fs.klaim, fs.keterangan, p.namaPelanggan,
-		p.noTelp, p.alamat, m.jenisMobil, m.nopol, j.namaJaminan FROM `tb_formsewa` fs
+		p.noTelp, p.alamat, m.jenisMobil, m.nopol,
+		(
+			SELECT GROUP_CONCAT(j.namaJaminan SEPARATOR ', ') jaminan
+			FROM tb_jaminansewa s 
+			left join tb_jaminan j on j.idJaminan = s.idJaminan 
+			WHERE s.idSewa = fs.idSewa
+		) namaJaminan
+		FROM `tb_formsewa` fs
 		LEFT JOIN tb_pelanggan p ON fs.pelangganId = p.idPelanggan
-		LEFT JOIN tb_mobil m ON fs.mobilId = m.idMobil
-		LEFT JOIN tb_jaminan j ON fs.jaminanId = j.idJaminan";
+		LEFT JOIN tb_mobil m ON fs.mobilId = m.idMobil ";
 		if ($idSewa != ""){
 			$q .= " where idSewa = '$idSewa'";
 		}
@@ -58,5 +64,10 @@ class ModelFormSewa extends CI_Model
 		} else {
 			return false;
 		}
+	}
+
+	public function insertBatch($table, $data)
+	{
+		return $this->db->insert_batch($table, $data);
 	}
 }
