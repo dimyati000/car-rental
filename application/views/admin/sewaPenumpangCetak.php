@@ -40,6 +40,7 @@
                 <tr>
                     <td style="width:50%;">
                         <div style="margin:5px">
+                        <!--  tabel header atau kop nota -->
                         <table class="table" style="text-align:center;">
                                 <tr>
                                     <td width="20%">
@@ -61,6 +62,7 @@
                         <hr style="border:1px solid black;">
                         <hr style="border:1px solid black;">
                         <br>
+                        <!-- judul nota dan nomor -->
                         <table class="table">
                             <tr>
                                 <td style="text-align:center;font-size:15px; font-weight:bold;">FORM ORDER</td>
@@ -73,6 +75,7 @@
                             </tr>
                         </table>
                         <br>
+                        <!-- tabel isi sewa -->
                         <table class="table">
                                 <tr>
                                     <td width="21%">Nama Penyewa</td>
@@ -162,6 +165,7 @@
                                     <td colspan="6"></td>
                                 </tr>
                         </table>
+                        <!-- tabel checklist kondisi mobil -->
                         <table class="table">
                             <tr>
                                 <td colspan="6">
@@ -170,7 +174,7 @@
                             </tr>
                         </table>
                         <hr style="border:1px solid black;">
-
+                        <!-- tabel ttd -->
                         <table class="table">
                             <tr>
                                 <td width="60%">EVANO TRANS</td>
