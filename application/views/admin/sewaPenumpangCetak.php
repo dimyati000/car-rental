@@ -20,7 +20,7 @@
     .table {
       /* border-collapse: collapse; */
       border-color: black;
-      font-family: TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;
+      font-family:  Baskerville, Georgia, serif;
       width: 100%;
     }
     td {
@@ -32,8 +32,10 @@
 </head>
 
 <body>
-    <div style="margin:-25px;">
-        <table style="width:100%;border:1px solid black;">
+    <div style="margin: bottom -5px; margin: -25px;">
+    <div style="justify-content: center;align-items: center;position: absolute;">
+
+        <table style="border:1px solid black; ">
             <tbody>
                 <tr>
                     <td style="width:50%;">
@@ -46,7 +48,7 @@
                                         </div>
                                     </td>
                                     <td width="80%" style="text-align:center;">
-                                        <span style="font-size:20px; font-weight:bold;">EVANO TRANS</span>
+                                        <span style="font-size:22px; font-weight:bold;">EVANO TRANS</span>
                                         <br>
                                         <span style="font-weight:bold;">Persewaan Mobil Lepas Kunci, Melayani Sewa Harian/Mingguan/Bulanan</span>
                                         <br>
@@ -178,10 +180,14 @@
                                 <td> </td>
                                 <td>PENYEWA, </td>
                             </tr>
+                                <tr><td><br></td></tr>
+                                <tr><td><br></td></tr>
+                                <tr><td><br></td></tr>
+                                <tr><td><br></td></tr>
                         </table>
-                        <br><br><br>
                         </div>
                     </td>
+                    <!-- tabel persyaratan -->
                     <td style="width:50%;">
                         <!-- persyaratan -->
                         <div style="border:1px solid black;margin:5px;">
@@ -255,8 +261,11 @@
                         </div>
                     </td>
                 </tr>
+                <!-- <tr><td><br></td></tr> -->
             </tbody>
         </table>
+        
+    </div>
     </div>
 </body>
 
