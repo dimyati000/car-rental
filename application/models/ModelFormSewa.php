@@ -70,4 +70,77 @@ class ModelFormSewa extends CI_Model
 	{
 		return $this->db->insert_batch($table, $data);
 	}
+
+	function generateKodeSiswa()
+	{
+		 // FORMAT SMA/TAHUN SEKARANG/0001
+		 // EX : SMA/2020/0001
+ 
+		 $this->db->select('RIGHT(kode,4) as kode', false);
+		 $this->db->order_by("kode", "DESC");
+		 $this->db->limit(1);
+		 $query = $this->db->get('tb_siswa');
+ 
+		 // SQL QUERY
+		 // SELECT RIGHT(kode, 4) AS kode FROM tb_siswa
+		 // ORDER BY kode
+		 // LIMIT 1
+ 
+		 // CEK JIKA DATA ADA
+		 if($query->num_rows() <> 0)
+		 {
+			 $data       = $query->row(); // ambil satu baris data
+			 $kodeSiswa  = intval($data->kode) + 1; // tambah 1
+		 }else{
+			 $kodeSiswa  = 1; // isi dengan 1
+		 }
+ 
+		 $lastKode = str_pad($kodeSiswa, 4, "0", STR_PAD_LEFT);
+		 $tahun    = date("Y");
+		 $SMA      = "SMA";
+ 
+		 $newKode  = $SMA."/".$tahun."/".$lastKode;
+ 
+		 return $newKode;  // return kode baru
+ 
+	}
+
+	
+	// public function get_kode_sewa($awal,$clm,$table){
+    //     $q = $this->db->query("SELECT MAX(LEFT($clm,3)) AS idmax FROM $table");
+    //     $kd = "";
+    //     if($q->num_rows()>0){
+    //         foreach($q->result() as $k){
+    //             $tmp = ((int)$k->idmax)+1;
+    //         	$kd = sprintf("%03s", $tmp);
+    //         }
+    //     }else{
+    //         $kd = "001";
+    //     }
+    //     $kodemax =  ."/".$kd."/".$awal;
+    //     return $kodemax;
+	// }
+	
+	// perbulan mulai dari 001 lagi
+	function get_kode_sewa($tbl,$kolom,$awal){
+		$tgl = date('Y-m-d');
+		$q = $this->db->query("SELECT MAX(LEFT($kolom,3)) AS kd_max FROM $tbl 
+			WHERE MONTH(tglSewa)=MONTH('$tgl')
+			AND YEAR(tglSewa)=YEAR('$tgl')
+		");
+		$kd = "";
+		if($q->num_rows()>0){
+			$data = $q->row_array();
+			foreach($q->result() as $k){
+				$tmp = intval($k->kd_max)+1;
+				$kd = sprintf("%03s", $tmp);
+			}
+		}else{
+			$kd = "001";
+		}
+		date_default_timezone_set('Asia/Jakarta');
+		$newDate = date("dmY", strtotime($tgl));
+		return $kd."/".$awal."/".$newDate;
+	  }
+	
 }

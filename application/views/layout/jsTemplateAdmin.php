@@ -114,6 +114,7 @@
   <script src="<?php echo base_url(); ?>assets/js/page/features-posts.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/features-setting-detail.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/utilities-contact.js"></script>
+  <script src="<?php echo base_url(); ?>assets/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
   
   <!-- Template JS File -->
   <script src="<?php echo base_url() ?>assets/js/scripts.js"></script>

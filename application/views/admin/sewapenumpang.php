@@ -25,7 +25,7 @@
 										<div class="form-row">
 											<div class="form-group col-md-6">
 												<label>Nomor Sewa</label>
-												<input type="text" name="noSewa" class="form-control" value="001/ET-SP/10/IX/2023" required>
+												<input type="text" name="noSewa" class="form-control" value="<?= $kodeSewa ?>" required>
 											</div>
 											<div class="form-group col-md-6">
 												<label>Jaminan</label>
@@ -66,7 +66,7 @@
 												<label>Tanggal Berangkat</label>
 												<input type="date" name="tglBerangkat" id="tglBerangkat" class="form-control" required>
 											</div>
-											<div class="form-group col-md-3">
+											<!-- <div class="form-group col-md-3">
 											<label>Jam Berangkat</label>
 											<div class="input-group">
 												<div class="input-group-prepend">
@@ -76,12 +76,23 @@
 												</div>
 												<input type="text" name="jamBerangkat" class="form-control timepicker">
 											</div>
+											</div> -->
+											<div class="form-group">
+												<label for="id_end_time">24hr Time:</label>
+												<div class="input-group date" id="jamBerangkat">
+													<input type="text" name="jamBerangkat" class="form-control" placeholder="End time" title="" required id="id_end_time"/>
+													<div class="input-group-addon input-group-append">
+														<div class="input-group-text">
+															<i class="fas fa-clock"></i>
+														</div>
+													</div>
+												</div>
 											</div>
 											<div class="form-group col-md-3">
 												<label>Tanggal Pengembalian</label>
 												<input type="date" name="tglKembali" id="tglKembali" class="form-control" required>
 											</div>
-											<div class="form-group col-md-3">
+											<!-- <div class="form-group col-md-3">
 											<label>Jam Pengembalian</label>
 											<div class="input-group">
 												<div class="input-group-prepend">
@@ -91,6 +102,17 @@
 												</div>
 												<input type="text" name="jamKembali" class="form-control timepicker">
 											</div>
+											</div> -->
+											<div class="form-group">
+												<label for="id_end_time">24hr Time:</label>
+												<div class="input-group date" id="jamKembali">
+													<input type="text" name="jamKembali" class="form-control" placeholder="End time" title="" required id="id_end_time"/>
+													<div class="input-group-addon input-group-append">
+														<div class="input-group-text">
+															<i class="fas fa-clock"></i>
+														</div>
+													</div>
+												</div>
 											</div>
 											<div class="form-group col-md-12">
 												<label>Rute</label>
@@ -221,6 +243,22 @@
 
 
 <script>
+      
+        $('#jamBerangkat').datetimepicker({
+            "allowInputToggle": true,
+            "showClose": true,
+            "showClear": true,
+            "showTodayButton": true,
+            "format": "HH:mm:ss",
+        });
+        $('#jamKembali').datetimepicker({
+            "allowInputToggle": true,
+            "showClose": true,
+            "showClear": true,
+            "showTodayButton": true,
+            "format": "HH:mm:ss",
+        });
+       
 	function getMobil(idMobil) {
     $.ajax({
       url: base_url + "/FormSewa/load_mobil",

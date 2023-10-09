@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/ionicons/css/ionicons.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/izitoast/css/iziToast.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/datetimepicker/css/bootstrap-datetimepicker.min.css">
   
 	<!-- Favicon  -->
   <link rel="icon" href="<?php echo base_url('/assets/img/favicon-carrental.png') ?>">

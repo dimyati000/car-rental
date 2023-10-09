@@ -12,6 +12,7 @@ class FormSewa extends CI_Controller
        $this->load->model('ModelJaminan');
        $this->load->model('ModelPelanggan');
        $this->load->model('ModelMobil');
+    //    $this->load->model("ModelFormSewa", "kodee"); // load model
        if($this->session->userdata('roleId') != 1){
            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
            <strong>Anda Harus Login Terlebih Dahulu !</strong>
@@ -22,6 +23,7 @@ class FormSewa extends CI_Controller
          redirect('Auth/login');
        } 
     }
+
 	// Tampilkan data barang
     public function index()
     {   
@@ -29,15 +31,18 @@ class FormSewa extends CI_Controller
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/formSewa");
     }
+
     // Mengarahkan ke halaman form penumpang
     public function sewaPenumpang()
     {   
         $data['jaminan'] = $this->ModelJaminan->showData()->result();
         $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
         $data['mobil'] = $this->ModelMobil->showData()->result();
+        $data['kodeSewa']  = $this->ModelFormSewa->get_kode_sewa("tb_formSewa","noSewa","ET-SP"); // ambil data dari method generateKodeSiswa masukan ke dalam variable kodeSiswa
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/sewaPenumpang", $data);
     }
+
     // Mengarahkan ke halaman form barang
     public function sewaBarang()
     {   
@@ -47,11 +52,13 @@ class FormSewa extends CI_Controller
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/sewaBarang", $data);
     }
+
 	// Tambah Data Sewa
     public function tambahData()
     {
         $idSewa = Uuid::uuid4();
         $noSewa = $this->input->post('noSewa');
+        $tglSewa = date('Y-m-d H:i:s');
         $tipeSewa = $this->input->post('tipeSewa');
         $idPelanggan = $this->input->post('idPelanggan');
         $idJaminan = $this->input->post('idJaminan');
@@ -71,28 +78,21 @@ class FormSewa extends CI_Controller
         $overtime = $this->input->post('overtime');
         $rute = $this->input->post('rute');
         $keterangan = $this->input->post('keterangan');
-
-        // $countJaminan = count($idJaminan);
-        // for ($i=0; $i < $countJaminan; $i++) { 
-            // $jaminans .= $idJaminan[$i];
-            // if ($i==$countJaminan-1) {
-            //     $jaminans .= '';
-            // }else{
-            //     $jaminans .= ',';
-            // }
-        // }
-    
+        $jam1 = date("H:i:s", strtotime($jamBerangkat));
+        $jam2 = date("H:i:s", strtotime($jamKembali));
+		
         $data = array(
             'idSewa' => $idSewa,
             'noSewa' => $noSewa,
+            'tglSewa' => $tglSewa,
             'tipeSewa' => $tipeSewa,
             'pelangganId' => $idPelanggan,
             // 'jaminanId' => $idJaminan,
             'mobilId' => $idMobil,
             'tglBerangkat' => $tglBerangkat,
-            'jamBerangkat' => $jamBerangkat,
+            'jamBerangkat' => $jam1,
             'tglKembali' => $tglKembali,
-            'jamKembali' => $jamKembali,
+            'jamKembali' => $jam2,
             'tipeTarif' => $tipeTarif,
             'lamaSewa' => $lamaSewa,
             'totalTarif' => $totalTarif,
