@@ -122,13 +122,9 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<?php
-					use Ramsey\Uuid\Uuid;
-					$uuid = Uuid::uuid4();
-					?>
 				<form method="POST" action="<?php echo base_url() . 'Mobil/tambahMobil'; ?>"
 				enctype="multipart/form-data" autocomplete="off">
-				<input type="hidden" class="form-control" name="idMobil" value="<?= $uuid ?>"></input>
+				<input type="hidden" class="form-control" name="idMobil"></input>
 				<div class="form-row">
 					<div class="form-group col-md-6">
 						<label>Jenis Mobil</label>

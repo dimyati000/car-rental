@@ -2,6 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
+use Ramsey\Uuid\Uuid;
 class Mobil extends CI_Controller
 {
     public function __construct()
@@ -22,7 +23,7 @@ class Mobil extends CI_Controller
     // Tambah Data Mobil
     public function tambahMobil()
     {
-      $idMobil = $this->input->post('idMobil');
+      $idMobil = Uuid::uuid4();
       $jenisMobil = $this->input->post('jenisMobil');
       $merkMobil = $this->input->post('merkMobil');
       $nopol = $this->input->post('nopol');

@@ -2,6 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
+use Ramsey\Uuid\Uuid;
 class Jaminan extends CI_Controller
 {   
     public function __construct()
@@ -28,8 +29,10 @@ class Jaminan extends CI_Controller
 	// Tambah jaminan
     public function tambahData()
     {
+        $idJaminan = Uuid::uuid4();
         $namaJaminan = $this->input->post('namaJaminan');
         $data = array(
+                'idJaminan' => $idJaminan,
                 'namaJaminan' => $namaJaminan
             );
         $this->ModelJaminan->tambahJaminan($data, 'tb_jaminan');

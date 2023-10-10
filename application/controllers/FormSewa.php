@@ -38,7 +38,7 @@ class FormSewa extends CI_Controller
         $data['jaminan'] = $this->ModelJaminan->showData()->result();
         $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
         $data['mobil'] = $this->ModelMobil->showData()->result();
-        $data['kodeSewa']  = $this->ModelFormSewa->get_kode_sewa("tb_formSewa","noSewa","ET-SP"); // ambil data dari method generateKodeSiswa masukan ke dalam variable kodeSiswa
+        $data['kodeSewa']  = $this->ModelFormSewa->get_kode_penumpang("tb_formSewa","noSewa","ET-SP"); 
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/sewaPenumpang", $data);
     }
@@ -49,12 +49,13 @@ class FormSewa extends CI_Controller
         $data['jaminan'] = $this->ModelJaminan->showData()->result();
         $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
         $data['mobil'] = $this->ModelMobil->showData()->result();
+        $data['kodeSewa']  = $this->ModelFormSewa->get_kode_barang("tb_formSewa","noSewa","ET-SB"); 
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/sewaBarang", $data);
     }
 
 	// Tambah Data Sewa
-    public function tambahData()
+    public function tambahDataPenumpang()
     {
         $idSewa = Uuid::uuid4();
         $noSewa = $this->input->post('noSewa');
@@ -87,7 +88,7 @@ class FormSewa extends CI_Controller
             'tglSewa' => $tglSewa,
             'tipeSewa' => $tipeSewa,
             'pelangganId' => $idPelanggan,
-            // 'jaminanId' => $idJaminan,
+            // 'jaminanId' => $idJaminan, (sudah dibawah)
             'mobilId' => $idMobil,
             'tglBerangkat' => $tglBerangkat,
             'jamBerangkat' => $jam1,
@@ -120,6 +121,7 @@ class FormSewa extends CI_Controller
         $this->ModelFormSewa->insertBatch('tb_jaminansewa', $jaminans);
         redirect('../DaftarSewa');
     }
+    
 	// Edit Data Barang
     public function edit($idBarang)
     {
@@ -128,6 +130,7 @@ class FormSewa extends CI_Controller
         $this->load->view('layout/templateAdmin');
         $this->load->view('admin/editBarang', $data);
     }
+
 	// Update data barang 
     public function update()
     {

@@ -17,7 +17,7 @@
 							<div class="section-body">
 								<div class="card-body">
 									<!-- Form Tambah Sewa Penumpang -->
-									<form action="<?php echo base_url() . 'FormSewa/tambahData' ?>" method="post"
+									<form action="<?php echo base_url() . 'FormSewa/tambahDataPenumpang' ?>" method="post"
 										enctype="multipart/form-data" autocomplete="off">
 										<input type="hidden" class="form-control" name="idSewa" value=""></input>
 										<input type="hidden" name="idPelanggan" class="form-control">
