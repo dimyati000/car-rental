@@ -19,12 +19,20 @@ class DaftarSewa extends CI_Controller
        } 
     }
 	// Tampilkan data barang
-    public function index()
+    public function penumpang()
     {   
         $data['dataSewa'] = $this->ModelFormSewa->getData()->result();
         $this->load->view("layout/templateAdmin");
-        $this->load->view("admin/daftarSewa", $data);
+        $this->load->view("admin/daftarSewaPenumpang", $data);
     }
+
+    public function barang()
+    {   
+        $data['dataSewa'] = $this->ModelFormSewa->getData()->result();
+        $this->load->view("layout/templateAdmin");
+        $this->load->view("admin/daftarSewaBarang", $data);
+    }
+
 	// Cetak Nota Sewa
 	public function cetak_form_sewa()
 	{
