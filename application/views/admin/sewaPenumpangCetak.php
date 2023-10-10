@@ -104,7 +104,7 @@
                                     <td><?= isset($dataSewa) ? date('d F Y', strtotime($dataSewa['tglBerangkat'])) : '' ?></td>
                                     <td>Jam Berangkat</td>
                                     <td>:</td>
-                                    <td><?= isset($dataSewa) ? date('H:i', strtotime($dataSewa['jamBerangkat'])) : '' ?></td>
+                                    <td><?= isset($dataSewa) ? date('H:i', strtotime($dataSewa['jamBerangkat'])) : '' ?> WIB</td>
                                 </tr>
                                 <tr>
                                     <td>Tanggal Kembali</td>
@@ -112,7 +112,7 @@
                                     <td><?= isset($dataSewa) ? date('d F Y', strtotime($dataSewa['tglKembali'])) : '' ?></td>
                                     <td>Jam Kembali</td>
                                     <td>:</td>
-                                    <td><?= isset($dataSewa) ? date('H:i', strtotime($dataSewa['jamKembali'])) : '' ?></td>
+                                    <td><?= isset($dataSewa) ? date('H:i', strtotime($dataSewa['jamKembali'])) : '' ?> WIB</td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align:top;">Rute</td>
