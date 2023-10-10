@@ -61,7 +61,7 @@
 			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
 				<div class="card card-statistic-1">
 					<div class="card-icon bg-success">
-						<i class="fas fa-car-side"></i>
+						<i class="fas fa-check"></i>
 					</div>
 					<a href="<?php echo base_url('DataBarang') ?>" class="text-decoration-none">
 						<div class="card-wrap">

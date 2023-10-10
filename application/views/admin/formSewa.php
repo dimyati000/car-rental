@@ -21,7 +21,7 @@
 					<div class="col-12 col-md-6 col-lg-6">
 						<div class="card">
 						<div class="card-header" style="justify-content: center;">
-							<h5>Form SEWA Barang</h5>
+							<h5>Form Sewa Barang</h5>
 						</div>
 						<div class="card-body">
 						<a href="<?php echo('FormSewa/sewaBarang')?>"><img class="img-fluid" alt="gambar mobil" style="width: 100%;" src="<?php echo base_url() ?>assets/img/icon-formbarang.png"></a>

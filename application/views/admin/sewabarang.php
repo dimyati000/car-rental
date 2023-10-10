@@ -66,19 +66,8 @@
 												<label>Tanggal Berangkat</label>
 												<input type="date" name="tglBerangkat" id="tglBerangkat" class="form-control" required>
 											</div>
-											<!-- <div class="form-group col-md-3">
-											<label>Jam Berangkat</label>
-											<div class="input-group">
-												<div class="input-group-prepend">
-												<div class="input-group-text">
-													<i class="fas fa-clock"></i>
-												</div>
-												</div>
-												<input type="text" name="jamBerangkat" class="form-control timepicker">
-											</div>
-											</div> -->
-											<div class="form-group">
-												<label for="id_end_time">24hr Time:</label>
+											<div class="form-group col-md-3">
+												<label for="id_end_time">Jam Berangkat</label>
 												<div class="input-group date" id="jamBerangkat">
 													<input type="text" name="jamBerangkat" class="form-control" placeholder="End time" title="" required id="id_end_time"/>
 													<div class="input-group-addon input-group-append">
@@ -92,19 +81,8 @@
 												<label>Tanggal Pengembalian</label>
 												<input type="date" name="tglKembali" id="tglKembali" class="form-control" required>
 											</div>
-											<!-- <div class="form-group col-md-3">
-											<label>Jam Pengembalian</label>
-											<div class="input-group">
-												<div class="input-group-prepend">
-												<div class="input-group-text">
-													<i class="fas fa-clock"></i>
-												</div>
-												</div>
-												<input type="text" name="jamKembali" class="form-control timepicker">
-											</div>
-											</div> -->
-											<div class="form-group">
-												<label for="id_end_time">24hr Time:</label>
+											<div class="form-group col-md-3">
+												<label for="id_end_time">Jam Pengembalian</label>
 												<div class="input-group date" id="jamKembali">
 													<input type="text" name="jamKembali" class="form-control" placeholder="End time" title="" required id="id_end_time"/>
 													<div class="input-group-addon input-group-append">
@@ -114,9 +92,13 @@
 													</div>
 												</div>
 											</div>
-											<div class="form-group col-md-12">
+											<div class="form-group col-md-6">
 												<label>Rute</label>
 												<input type="text" name="rute" class="form-control" required>
+											</div>
+											<div class="form-group col-md-6">
+												<label>Muatan</label>
+												<input type="text" name="muatan" class="form-control" required>
 											</div>
 											<div class="form-group col-md-3">
 											<label>Tipe Tarif</label>

@@ -54,7 +54,7 @@ class FormSewa extends CI_Controller
         $this->load->view("admin/sewaBarang", $data);
     }
 
-	// Tambah Data Sewa
+	// Tambah Data Sewa Penumpang
     public function tambahDataPenumpang()
     {
         $idSewa = Uuid::uuid4();
@@ -121,39 +121,78 @@ class FormSewa extends CI_Controller
         $this->ModelFormSewa->insertBatch('tb_jaminansewa', $jaminans);
         redirect('../DaftarSewa');
     }
+
     
-	// Edit Data Barang
-    public function edit($idBarang)
+	// Tambah Data Sewa Barang
+    public function tambahDataBarang()
     {
-        $where = array('idBarang' => $idBarang);
-        $data['barang'] = $this->ModelBarang->editBarang($where, 'tb_product')->result();
-        $this->load->view('layout/templateAdmin');
-        $this->load->view('admin/editBarang', $data);
-    }
-
-	// Update data barang 
-    public function update()
-    {
-        $idBarang = $this->input->post('idBarang');
-        $namaBarang = $this->input->post('namaBarang');
-        $kategori = $this->input->post('kategori');
-        $harga = $this->input->post('harga');
+        $idSewa = Uuid::uuid4();
+        $noSewa = $this->input->post('noSewa');
+        $tglSewa = date('Y-m-d H:i:s');
+        $tipeSewa = $this->input->post('tipeSewa');
+        $idPelanggan = $this->input->post('idPelanggan');
+        $idJaminan = $this->input->post('idJaminan');
+        $idMobil = $this->input->post('idMobil');
+        $tglBerangkat = $this->input->post('tglBerangkat');
+        $jamBerangkat = $this->input->post('jamBerangkat');
+        $tglKembali = $this->input->post('tglKembali');
+        $jamKembali = $this->input->post('jamKembali');
+        $tipeTarif = $this->input->post('tipeTarif');
+        $lamaSewa = $this->input->post('lamaSewa');
+        $totalTarif = $this->input->post('totalTarif');
+        $dp = $this->input->post('dp');
+        $jasaAntar = $this->input->post('jasaAntar');
+        $jasaSopir = $this->input->post('jasaSopir');
+        $kurangBayar = $this->input->post('kurangBayar');
+        $totalBayar = $this->input->post('totalBayar');
+        $overtime = $this->input->post('overtime');
+        $rute = $this->input->post('rute');
+        $muatan = $this->input->post('muatan');
         $keterangan = $this->input->post('keterangan');
-        $stok = $this->input->post('stok');
-
+        $jam1 = date("H:i:s", strtotime($jamBerangkat));
+        $jam2 = date("H:i:s", strtotime($jamKembali));
+		
         $data = array(
-            'namaBarang' => $namaBarang,
-            'kategori'   => $kategori,
-            'harga'      => $harga,
-            'keterangan' => $keterangan,
-            'stok'       => $stok
+            'idSewa' => $idSewa,
+            'noSewa' => $noSewa,
+            'tglSewa' => $tglSewa,
+            'tipeSewa' => $tipeSewa,
+            'pelangganId' => $idPelanggan,
+            // 'jaminanId' => $idJaminan, (sudah dibawah)
+            'mobilId' => $idMobil,
+            'tglBerangkat' => $tglBerangkat,
+            'jamBerangkat' => $jam1,
+            'tglKembali' => $tglKembali,
+            'jamKembali' => $jam2,
+            'tipeTarif' => $tipeTarif,
+            'lamaSewa' => $lamaSewa,
+            'totalTarif' => $totalTarif,
+            'dp' => $dp,
+            'jasaAntar' => $jasaAntar,
+            'jasaSopir' => $jasaSopir,
+            'kurangBayar' => $kurangBayar,
+            'totalBayar' => $totalBayar,
+            'overtime' => $overtime,
+            'rute' => $rute,
+            'muatan' => $muatan,
+            'keterangan' => $keterangan
         );
-        $where = array(
-            'idBarang' => $idBarang
-        );
-        $this->ModelBarang->updateData($where, $data, 'tb_product');
-        redirect('../DataBarang');
+        $this->ModelFormSewa->tambahSewa($data, 'tb_formsewa');
+
+        // insert jaminan sewa
+        $jaminans = array();  
+        foreach($idJaminan AS $key => $val){
+            $uuidJaminan = Uuid::uuid4();
+            $jaminans[] = array(
+                'id'        => $uuidJaminan,
+                'idSewa'    => $idSewa,
+                'idJaminan' => $val,
+            );
+        }
+        $this->ModelFormSewa->insertBatch('tb_jaminansewa', $jaminans);
+        redirect('../DaftarSewa');
     }
+
 	// Delete data barang
     public function delete($idBarang)
     {
