@@ -37,13 +37,22 @@ class DaftarSewa extends CI_Controller
 	public function cetak_form_sewa()
 	{
         $idSewa = $this->input->get('idSewa');
+        $tipeSewa = $this->input->get('tipeSewa');
         $data['dataSewa'] = $this->ModelFormSewa->getData($idSewa)->row_array();
-		$data['title'] = "Form Sewa"; 
 
-		$this->load->library('pdf');
-		$this->pdf->setPaper('A4', 'landscape');
-		$this->pdf->filename = "Form Sewa.pdf";
-		$this->pdf->load_view('admin/sewaPenumpangCetak.php', $data);
+        if ($tipeSewa = $this->input->post('tipeSewa' == "SP")){
+            $data['title'] = "Form Sewa Penumpang"; 
+            $this->load->library('pdf');
+            $this->pdf->setPaper('A4', 'landscape');
+            $this->pdf->filename = "Form Sewa Penumpang.pdf";
+            $this->pdf->load_view('admin/sewaPenumpangCetak.php', $data);
+        } else {
+            $data['title'] = "Form Sewa Barang"; 
+            $this->load->library('pdf');
+            $this->pdf->setPaper('A4', 'landscape');
+            $this->pdf->filename = "Form Sewa Barang.pdf";
+            $this->pdf->load_view('admin/sewaBarangCetak.php', $data);
+        }
 	}
 	// Delete data sewa
     public function delete($idSewa)

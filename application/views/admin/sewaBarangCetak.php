@@ -117,7 +117,10 @@
                                 <tr>
                                     <td style="vertical-align:top;">Rute</td>
                                     <td style="vertical-align:top;">:</td>
-                                    <td colspan="6"><?= isset($dataSewa) ? $dataSewa['rute'] : '' ?></td>
+                                    <td><?= isset($dataSewa) ? $dataSewa['rute'] : '' ?></td>
+                                    <td style="vertical-align:top;">Muatan</td>
+                                    <td style="vertical-align:top;">:</td>
+                                    <td><?= isset($dataSewa) ? $dataSewa['muatan'] : '' ?></td>
                                 </tr>
                                 <tr>
                                     <td>Tipe Tarif</td>

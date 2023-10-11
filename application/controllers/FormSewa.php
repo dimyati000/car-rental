@@ -119,7 +119,7 @@ class FormSewa extends CI_Controller
             );
         }
         $this->ModelFormSewa->insertBatch('tb_jaminansewa', $jaminans);
-        redirect('../DaftarSewa');
+        redirect('../DaftarSewa/penumpang');
     }
 
     
@@ -190,7 +190,7 @@ class FormSewa extends CI_Controller
             );
         }
         $this->ModelFormSewa->insertBatch('tb_jaminansewa', $jaminans);
-        redirect('../DaftarSewa');
+        redirect('../DaftarSewa/barang');
     }
 
 	// Delete data barang
