@@ -21,14 +21,14 @@ class DaftarSewa extends CI_Controller
 	// Tampilkan data barang
     public function penumpang()
     {   
-        $data['dataSewa'] = $this->ModelFormSewa->getData()->result();
+        $data['dataSewa'] = $this->ModelFormSewa->getDataPenumpang()->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/daftarSewaPenumpang", $data);
     }
 
     public function barang()
     {   
-        $data['dataSewa'] = $this->ModelFormSewa->getData()->result();
+        $data['dataSewa'] = $this->ModelFormSewa->getDataBarang()->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/daftarSewaBarang", $data);
     }
@@ -38,15 +38,16 @@ class DaftarSewa extends CI_Controller
 	{
         $idSewa = $this->input->get('idSewa');
         $tipeSewa = $this->input->get('tipeSewa');
-        $data['dataSewa'] = $this->ModelFormSewa->getData($idSewa)->row_array();
 
         if ($tipeSewa = $this->input->post('tipeSewa' == "SP")){
+            $data['dataSewa'] = $this->ModelFormSewa->getDataPenumpang($idSewa)->row_array();
             $data['title'] = "Form Sewa Penumpang"; 
             $this->load->library('pdf');
             $this->pdf->setPaper('A4', 'landscape');
             $this->pdf->filename = "Form Sewa Penumpang.pdf";
             $this->pdf->load_view('admin/sewaPenumpangCetak.php', $data);
         } else {
+            $data['dataSewa'] = $this->ModelFormSewa->getDataBarang($idSewa)->row_array();
             $data['title'] = "Form Sewa Barang"; 
             $this->load->library('pdf');
             $this->pdf->setPaper('A4', 'landscape');
