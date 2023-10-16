@@ -22,6 +22,9 @@ class Dashboard extends CI_Controller
 	public function index()
 	{
 		$data['totalL'] = $this->ModelDashboard->getService();
+		$data['totalP'] = $this->ModelDashboard->getPelanggan();
+		$data['totalM'] = $this->ModelDashboard->getMobil();
+		$data['totalSewa'] = $this->ModelDashboard->getSewa();
 		$data['totalS'] = $this->ModelDashboard->getSpareJual();
 		$inv = $this->ModelDashboard->getsum();
 		$kml = $this->ModelDashboard->getKasir() . "000";

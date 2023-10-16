@@ -12,6 +12,24 @@ class modelDashboard extends CI_Model{
 		$result = $this->db->query($data);
 		return $result->row()->totalL;	
 	}
+	public function getSewa()
+	{
+		$data = "SELECT count(idSewa) as totalSewa FROM tb_formsewa";
+		$result = $this->db->query($data);
+		return $result->row()->totalSewa;	
+	}
+	public function getPelanggan()
+	{
+		$data = "SELECT count(idPelanggan) as totalP FROM tb_pelanggan";
+		$result = $this->db->query($data);
+		return $result->row()->totalP;	
+	}
+	public function getMobil()
+	{
+		$data = "SELECT count(idMobil) as totalM FROM tb_mobil";
+		$result = $this->db->query($data);
+		return $result->row()->totalM;	
+	}
 	public function getSpareJual()
 	{
 		$data = "SELECT sum(jumlah) as totalS FROM tb_pesanan";

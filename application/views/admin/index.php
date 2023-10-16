@@ -12,13 +12,13 @@
 						<i class="far fa-user"></i>
 					</div>
 					<!-- Data Dashboard -->
-					<a href="<?php echo base_url('Kasir/data') ?>" class="text-decoration-none">
+					<a href="<?php echo base_url('Pelanggan') ?>" class="text-decoration-none">
 						<div class="card-wrap">
 							<div class="card-header">
 								<h4>Total Pelanggan</h4>
 							</div>
 							<div class="card-body">
-								<?php echo number_format($totalK);?>
+								<?php echo number_format($totalP);?>
 							</div>
 						</div>
 					</a>
@@ -29,13 +29,13 @@
 					<div class="card-icon bg-danger">
 						<i class="far fa-newspaper"></i>
 					</div>
-					<a href="<?php echo base_url('Service') ?>" class="text-decoration-none">
+					<a href="<?php echo base_url('FormSewa') ?>" class="text-decoration-none">
 						<div class="card-wrap">
 							<div class="card-header">
 								<h4>Total Transaski</h4>
 							</div>
 							<div class="card-body">
-								<?php echo $totalL;?>
+								<?php echo $totalSewa;?>
 							</div>
 						</div>
 					</a>
@@ -46,13 +46,13 @@
 					<div class="card-icon bg-warning">
 						<i class="fas fa-car"></i>
 					</div>
-					<a href="<?php echo base_url('Transaksi') ?>" class="text-decoration-none">
+					<a href="<?php echo base_url('Mobil') ?>" class="text-decoration-none">
 						<div class="card-wrap">
 							<div class="card-header">
 								<h4>Total Mobil</h4>
 							</div>
 							<div class="card-body">
-								<?php echo $totalS;?>
+								<?php echo $totalM;?>
 							</div>
 						</div>
 					</a>
