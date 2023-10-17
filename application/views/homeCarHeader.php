@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>aset/css/flaticon.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>aset/css/icomoon.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>aset/css/style.css">
+    
+	<!-- Favicon  -->
+  <link rel="icon" href="<?php echo base_url('/assets/img/favicon-carrental.png') ?>">
   </head>
   <body>
     

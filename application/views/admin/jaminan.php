@@ -1,4 +1,4 @@
-<title>Jaminan</title>
+<title>Master Data Jaminan</title>
 
 <div class="main-wrapper main-wrapper-1">
 	<!-- Main Content -->
