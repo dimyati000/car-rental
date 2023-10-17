@@ -38,7 +38,7 @@ class FormSewa extends CI_Controller
         $data['jaminan'] = $this->ModelJaminan->showData()->result();
         $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
         $data['mobil'] = $this->ModelMobil->showData()->result();
-        $data['kodeSewa']  = $this->ModelFormSewa->get_kode_penumpang("tb_formSewa","noSewa","ET-SP"); 
+        $data['kodeSewa']  = $this->ModelFormSewa->get_kode_penumpang("tb_formsewa","noSewa","ET-SP"); 
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/sewaPenumpang", $data);
     }
@@ -49,7 +49,7 @@ class FormSewa extends CI_Controller
         $data['jaminan'] = $this->ModelJaminan->showData()->result();
         $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
         $data['mobil'] = $this->ModelMobil->showData()->result();
-        $data['kodeSewa']  = $this->ModelFormSewa->get_kode_barang("tb_formSewa","noSewa","ET-SB"); 
+        $data['kodeSewa']  = $this->ModelFormSewa->get_kode_barang("tb_formsewa","noSewa","ET-SB"); 
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/sewaBarang", $data);
     }
