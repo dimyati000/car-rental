@@ -1,4 +1,4 @@
-<title>Jaminan</title>
+<title>Sewa barang</title>
 
 <div class="main-wrapper main-wrapper-1">
 	<!-- Main Content -->
