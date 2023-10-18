@@ -66,7 +66,7 @@
 			// var tgl_awal = $('#tgl_awal').val();
 			// var tgl_akhir = $('#tgl_akhir').val();
 			// var link = "<?= site_url() ?>" + "/Laporan/cetak_data_kasir?tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
-			var link = "<?= site_url() ?>" + "/DaftarSewa/cetak_form_sewa?idSewa=" + idSewa;
+			var link = "<?= site_url() ?>" + "/DaftarSewa/cetak_sewa_penumpang?idSewa=" + idSewa;
 			window.open(link, '_blank', 'width=1024, height=768')
 		}
 </script>

@@ -33,27 +33,47 @@ class DaftarSewa extends CI_Controller
         $this->load->view("admin/daftarSewaBarang", $data);
     }
 
-	// Cetak Nota Sewa
-	public function cetak_form_sewa()
+	// Cetak Nota Sewa Penumpang
+
+	public function cetak_sewa_penumpang()
 	{
         $idSewa = $this->input->get('idSewa');
         $tipeSewa = $this->input->get('tipeSewa');
+        $data['dataSewa'] = $this->ModelFormSewa->getDataPenumpang($idSewa)->row_array();
+        $data['title'] = "Form Sewa Penumpang"; 
+        $this->load->library('pdf');
+        $this->pdf->setPaper('A4', 'landscape');
+        $this->pdf->filename = "Form Sewa Penumpang.pdf";
+        $this->pdf->load_view('admin/sewaPenumpangCetak.php', $data);
+    }
 
-        if ($tipeSewa = $this->input->post('tipeSewa' == "SP")){
-            $data['dataSewa'] = $this->ModelFormSewa->getDataPenumpang($idSewa)->row_array();
-            $data['title'] = "Form Sewa Penumpang"; 
-            $this->load->library('pdf');
-            $this->pdf->setPaper('A4', 'landscape');
-            $this->pdf->filename = "Form Sewa Penumpang.pdf";
-            $this->pdf->load_view('admin/sewaPenumpangCetak.php', $data);
-        } else {
-            $data['dataSewa'] = $this->ModelFormSewa->getDataBarang($idSewa)->row_array();
-            $data['title'] = "Form Sewa Barang"; 
-            $this->load->library('pdf');
-            $this->pdf->setPaper('A4', 'landscape');
-            $this->pdf->filename = "Form Sewa Barang.pdf";
-            $this->pdf->load_view('admin/sewaBarangCetak.php', $data);
-        }
+	// Cetak Nota Sewa Barang
+	public function cetak_sewa_barang()
+	{
+        $idSewa = $this->input->get('idSewa');
+        $tipeSewa = $this->input->get('tipeSewa');
+        $data['dataSewa'] = $this->ModelFormSewa->getDataBarang($idSewa)->row_array();
+        $data['title'] = "Form Sewa Barang"; 
+        $this->load->library('pdf');
+        $this->pdf->setPaper('A4', 'landscape');
+        $this->pdf->filename = "Form Sewa Barang.pdf";
+        $this->pdf->load_view('admin/sewaBarangCetak.php', $data);
+
+        // if ($tipeSewa = $this->input->post('tipeSewa' == "SP")){
+        //     $data['dataSewa'] = $this->ModelFormSewa->getDataPenumpang($idSewa)->row_array();
+        //     $data['title'] = "Form Sewa Penumpang"; 
+        //     $this->load->library('pdf');
+        //     $this->pdf->setPaper('A4', 'landscape');
+        //     $this->pdf->filename = "Form Sewa Penumpang.pdf";
+        //     $this->pdf->load_view('admin/sewaPenumpangCetak.php', $data);
+        // } else {
+        //     $data['dataSewa'] = $this->ModelFormSewa->getDataBarang($idSewa)->row_array();
+        //     $data['title'] = "Form Sewa Barang"; 
+        //     $this->load->library('pdf');
+        //     $this->pdf->setPaper('A4', 'landscape');
+        //     $this->pdf->filename = "Form Sewa Barang.pdf";
+        //     $this->pdf->load_view('admin/sewaBarangCetak.php', $data);
+        // }
 	}
 	// Delete data sewa
     public function delete($idSewa)
