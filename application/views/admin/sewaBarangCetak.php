@@ -4,10 +4,10 @@
   $data = file_get_contents($path_logo);
   $logo_evano = 'data:image/' . $type . ';base64,' . base64_encode($data);
 
-  $path_checklist = base_url('assets/img/checklist-mobil.png');
+  $path_checklist = base_url('assets/img/checklist-pickup.png');
   $type = pathinfo($path_checklist, PATHINFO_EXTENSION);
   $data = file_get_contents($path_checklist);
-  $checklist_mobil = 'data:image/' . $type . ';base64,' . base64_encode($data);
+  $checklist_pickup = 'data:image/' . $type . ';base64,' . base64_encode($data);
 ?>
 
 
@@ -168,11 +168,11 @@
                                     <td colspan="6"></td>
                                 </tr>
                         </table>
-                        <!-- tabel checklist kondisi mobil -->
+                        <!-- tabel checklist kondisi pickup -->
                         <table class="table">
                             <tr>
                                 <td colspan="6">
-                                    <img style="width:80%;" src="<?= $checklist_mobil ?>" alt="">
+                                    <img style="width:80%;" src="<?= $checklist_pickup ?>" alt="">
                                 </td>
                             </tr>
                         </table>
