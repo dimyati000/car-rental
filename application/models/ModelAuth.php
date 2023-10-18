@@ -3,6 +3,7 @@ class ModelAuth extends CI_Model
 {
 	public function cekLogin()
 	{
+		$namaUser = set_value('namaUser');
 		$username = set_value('username');
 		$password = set_value('password');
 		$result = $this->db->where('username', $username)
@@ -14,6 +15,12 @@ class ModelAuth extends CI_Model
 		} else {
 			return array();
 		}
+	}
+
+	public function getUser()
+	{
+		$data = "SELECT namaUser FROM tb_user";
+		$result = $this->db->query($data);	
 	}
 	
 }

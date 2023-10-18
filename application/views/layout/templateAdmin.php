@@ -12,11 +12,11 @@
         </form>
         <ul class="nav navbar-nav navbar-right">
           <?php
-          if ($this->session->userdata('username')) { ?>
+          if ($this->session->userdata('namaUser')) { ?>
             <ul class="navbar-nav navbar-right">
               <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                   <img alt="image" src="<?php echo base_url() ?>assets/img/avatar/avatar-3.png" class="rounded-circle mr-1">
-                  <div class="d-sm-none d-lg-inline-block">Hi, <?php echo $this->session->userdata('username') ?></div>
+                  <div class="d-sm-none d-lg-inline-block">Hi, <?php echo $this->session->userdata('namaUser') ?></div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                  <!-- <div class="dropdown-title">Logged in 5 min ago</div> -->
@@ -61,8 +61,8 @@
                 <li><a class="nav-link" href="<?php echo base_url('DaftarSewa/barang') ?>"><i class="fas fa-truck"></i> <span>Sewa Barang</span></a></li>
               </ul>
             </li>
-            <li class="menu-header">Laporan</li>
-            <li><a class="nav-link" href="<?php echo base_url('Laporan/laporan_pelayanan') ?>"><i class="fas fa-archive"></i> <span>Laporan Transaksi</span></a></li>
+            <!-- <li class="menu-header">Laporan</li>
+            <li><a class="nav-link" href="<?php echo base_url('Laporan/laporan_pelayanan') ?>"><i class="fas fa-archive"></i> <span>Laporan Transaksi</span></a></li> -->
             <!-- <li><a href="<?php echo base_url() . 'Tentang'?>"><i class="fas fa-cog"></i><span>Setting</span></a></li> -->
           </ul>
         </aside>

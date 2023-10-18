@@ -32,12 +32,13 @@
                   redirect('auth/login');
                 }else{
 					$this->session->set_userdata('idUser', $auth->idUser);
+					$this->session->set_userdata('namaUser', $auth->namaUser);
                     $this->session->set_userdata('username', $auth->username);                   
                     $this->session->set_userdata('roleId', $auth->roleId);
                     switch($auth->roleId){
                         case 1 : redirect('../Dashboard');
                         break;
-                        case 2 : redirect('../Home');
+                        case 2 : redirect('../Dashboard');
                         break;
                         default: break; 
                     }

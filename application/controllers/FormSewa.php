@@ -13,7 +13,7 @@ class FormSewa extends CI_Controller
        $this->load->model('ModelPelanggan');
        $this->load->model('ModelMobil');
     //    $this->load->model("ModelFormSewa", "kodee"); // load model
-       if($this->session->userdata('roleId') != 1){
+       if($this->session->userdata('roleId') != 1 && $this->session->userdata('roleId') != 2){
            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
            <strong>Anda Harus Login Terlebih Dahulu !</strong>
            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
