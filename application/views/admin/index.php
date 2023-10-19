@@ -52,7 +52,7 @@
 						</div>
 						<div class="card-wrap">
 							<div class="card-body">
-								<h1><?php echo $totalM;?></h1>
+								<h1><?php echo $totalSewaP;?></h1>
 							</div>
 						</div>
 					</div>
@@ -69,7 +69,7 @@
 								<h4>Sewa Barang</h4>
 							</div>
 							<div class="card-body">
-								<h1><?php echo $totalSt;?></h1>
+								<h1><?php echo $totalSewaB;?></h1>
 							</div>
 						</div>
 					</div>

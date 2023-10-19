@@ -7,6 +7,7 @@ class Dashboard extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('ModelAuth');
 		$this->load->model('ModelDashboard');
 		if ($this->session->userdata('roleId') != 1 && $this->session->userdata('roleId') != 2) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -21,10 +22,12 @@ class Dashboard extends CI_Controller
 	// Mengambil Data Dashboard Dari Model Dashboard
 	public function index()
 	{
+		$created_by = $this->session->userdata('idUser');
 		$data['totalL'] = $this->ModelDashboard->getService();
 		$data['totalP'] = $this->ModelDashboard->getPelanggan();
 		$data['totalM'] = $this->ModelDashboard->getMobil();
-		$data['totalSewa'] = $this->ModelDashboard->getSewa();
+		$data['totalSewaP'] = $this->ModelDashboard->getSewaPenumpang($created_by);
+		$data['totalSewaB'] = $this->ModelDashboard->getSewaBarang($created_by);
 		$data['totalS'] = $this->ModelDashboard->getSpareJual();
 		$inv = $this->ModelDashboard->getsum();
 		$kml = $this->ModelDashboard->getKasir() . "000";
