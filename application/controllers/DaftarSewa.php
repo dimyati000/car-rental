@@ -7,6 +7,7 @@ class DaftarSewa extends CI_Controller
     public function __construct()
     {
        parent::__construct();
+       $this->load->model('ModelAuth');
        $this->load->model('ModelFormSewa');
        if($this->session->userdata('roleId') != 1 && $this->session->userdata('roleId') != 2){
            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -21,14 +22,18 @@ class DaftarSewa extends CI_Controller
 	// Tampilkan data barang
     public function penumpang()
     {   
-        $data['dataSewa'] = $this->ModelFormSewa->getDataPenumpang()->result();
+        $idSewa = '';
+        $created_by = $this->session->userdata('idUser');
+        $data['dataSewa'] = $this->ModelFormSewa->getDataPenumpang($idSewa, $created_by)->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/daftarSewaPenumpang", $data);
     }
 
     public function barang()
     {   
-        $data['dataSewa'] = $this->ModelFormSewa->getDataBarang()->result();
+        $idSewa = '';
+        $created_by = $this->session->userdata('idUser');
+        $data['dataSewa'] = $this->ModelFormSewa->getDataBarang($idSewa, $created_by)->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/daftarSewaBarang", $data);
     }

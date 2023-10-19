@@ -1,10 +1,10 @@
 <?php
 class ModelFormSewa extends CI_Model
 {
-	function getDataPenumpang($idSewa="", $tipeSewa="SP"){
+	function getDataPenumpang($idSewa="", $created_by="", $tipeSewa="SP"){
 		$q = "SELECT fs.idSewa, fs.noSewa, fs.tipeSewa, fs.tglBerangkat, fs.jamBerangkat, fs.tglKembali, fs.jamKembali, fs.rute, fs.muatan, fs.tipeTarif,
-		fs.lamaSewa, fs.totalTarif, fs.dp, fs.overtime, fs.kurangBayar, fs.jasaSopir, fs.jasaAntar, fs.totalBayar, fs.klaim, fs.keterangan, p.namaPelanggan,
-		p.noTelp, p.alamat, m.jenisMobil, m.nopol,
+		fs.lamaSewa, fs.totalTarif, fs.dp, fs.overtime, fs.kurangBayar, fs.jasaSopir, fs.jasaAntar, fs.totalBayar, fs.klaim, fs.keterangan, fs.created_by, 
+		p.namaPelanggan, p.noTelp, p.alamat, m.jenisMobil, m.nopol,
 		(
 			SELECT GROUP_CONCAT(j.namaJaminan SEPARATOR ', ') jaminan
 			FROM tb_jaminansewa s 
@@ -18,14 +18,17 @@ class ModelFormSewa extends CI_Model
 		if ($idSewa != ""){
 			$q .= " and idSewa = '$idSewa'";
 		}
+		if ($created_by != ""){
+			$q .= " and created_by = '$created_by'";
+		}
 		$query = $this->db->query($q);
 		return $query;
 	}
 
-	function getDataBarang($idSewa="", $tipeSewa="SB"){
+	function getDataBarang($idSewa="", $created_by="", $tipeSewa="SB"){
 		$q = "SELECT fs.idSewa, fs.noSewa, fs.tipeSewa, fs.tglBerangkat, fs.jamBerangkat, fs.tglKembali, fs.jamKembali, fs.rute, fs.muatan, fs.tipeTarif,
-		fs.lamaSewa, fs.totalTarif, fs.dp, fs.overtime, fs.kurangBayar, fs.jasaSopir, fs.jasaAntar, fs.totalBayar, fs.klaim, fs.keterangan, p.namaPelanggan,
-		p.noTelp, p.alamat, m.jenisMobil, m.nopol,
+		fs.lamaSewa, fs.totalTarif, fs.dp, fs.overtime, fs.kurangBayar, fs.jasaSopir, fs.jasaAntar, fs.totalBayar, fs.klaim, fs.keterangan, fs.created_by, 
+		p.namaPelanggan, p.noTelp, p.alamat, m.jenisMobil, m.nopol,
 		(
 			SELECT GROUP_CONCAT(j.namaJaminan SEPARATOR ', ') jaminan
 			FROM tb_jaminansewa s 
@@ -35,9 +38,13 @@ class ModelFormSewa extends CI_Model
 		FROM `tb_formsewa` fs
 		LEFT JOIN tb_pelanggan p ON fs.pelangganId = p.idPelanggan
 		LEFT JOIN tb_mobil m ON fs.mobilId = m.idMobil
-		WHERE fs.tipeSewa = '$tipeSewa' ";
+		WHERE fs.tipeSewa = '$tipeSewa'
+		AND fs.created_by = '$created_by' ";
 		if ($idSewa != ""){
 			$q .= " and idSewa = '$idSewa'";
+		}
+		if ($created_by != ""){
+			$q .= " and created_by = '$created_by'";
 		}
 		$query = $this->db->query($q);
 		return $query;

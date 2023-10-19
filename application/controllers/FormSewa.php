@@ -8,6 +8,7 @@ class FormSewa extends CI_Controller
     public function __construct()
     {
        parent::__construct();
+       $this->load->model('ModelAuth');
        $this->load->model('ModelFormSewa');
        $this->load->model('ModelJaminan');
        $this->load->model('ModelPelanggan');
@@ -79,6 +80,8 @@ class FormSewa extends CI_Controller
         $overtime = $this->input->post('overtime');
         $rute = $this->input->post('rute');
         $keterangan = $this->input->post('keterangan');
+        $created_by = $this->session->userdata('idUser');
+        $created_at = date('Y-m-d H:i:s');
         $jam1 = date("H:i:s", strtotime($jamBerangkat));
         $jam2 = date("H:i:s", strtotime($jamKembali));
 		
@@ -104,7 +107,9 @@ class FormSewa extends CI_Controller
             'totalBayar' => $totalBayar,
             'overtime' => $overtime,
             'rute' => $rute,
-            'keterangan' => $keterangan
+            'keterangan' => $keterangan,
+            'created_by' => $created_by,
+            'created_at' => $created_at
         );
         $this->ModelFormSewa->tambahSewa($data, 'tb_formsewa');
 
@@ -149,6 +154,8 @@ class FormSewa extends CI_Controller
         $rute = $this->input->post('rute');
         $muatan = $this->input->post('muatan');
         $keterangan = $this->input->post('keterangan');
+        $created_by = $this->session->userdata('idUser');
+        $created_at = date('Y-m-d H:i:s');
         $jam1 = date("H:i:s", strtotime($jamBerangkat));
         $jam2 = date("H:i:s", strtotime($jamKembali));
 		
@@ -175,7 +182,9 @@ class FormSewa extends CI_Controller
             'overtime' => $overtime,
             'rute' => $rute,
             'muatan' => $muatan,
-            'keterangan' => $keterangan
+            'keterangan' => $keterangan,
+            'created_by' => $created_by,
+            'created_at' => $created_at
         );
         $this->ModelFormSewa->tambahSewa($data, 'tb_formsewa');
 
