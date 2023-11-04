@@ -2,6 +2,9 @@
 class ModelPelanggan extends CI_Model
 {
     public function showData(){
+         // Menambahkan klausa ORDER BY ke query
+        $this->db->order_by('namaPelanggan', 'ASC');
+        
         return $this->db->get('tb_pelanggan');
     }
     public function tambahPelanggan($data, $table)

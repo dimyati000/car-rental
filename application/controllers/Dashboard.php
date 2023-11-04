@@ -22,10 +22,14 @@ class Dashboard extends CI_Controller
 	// Mengambil Data Dashboard Dari Model Dashboard
 	public function index()
 	{
-		$created_by = $this->session->userdata('idUser');
 		$data['totalL'] = $this->ModelDashboard->getService();
 		$data['totalP'] = $this->ModelDashboard->getPelanggan();
 		$data['totalM'] = $this->ModelDashboard->getMobil();
+		if($this->session->userdata('roleId') == 1){
+            $created_by = '';
+        }else{
+            $created_by = $this->session->userdata('idUser');
+        }
 		$data['totalSewaP'] = $this->ModelDashboard->getSewaPenumpang($created_by);
 		$data['totalSewaB'] = $this->ModelDashboard->getSewaBarang($created_by);
 		$data['totalS'] = $this->ModelDashboard->getSpareJual();

@@ -221,22 +221,21 @@
 
 
 <script>
-      
-        $('#jamBerangkat').datetimepicker({
-            "allowInputToggle": true,
-            "showClose": true,
-            "showClear": true,
-            "showTodayButton": true,
-            "format": "HH:mm:ss",
-        });
-        $('#jamKembali').datetimepicker({
-            "allowInputToggle": true,
-            "showClose": true,
-            "showClear": true,
-            "showTodayButton": true,
-            "format": "HH:mm:ss",
-        });
-       
+    $('#jamBerangkat').datetimepicker({
+        "allowInputToggle": true,
+        "showClose": true,
+        "showClear": true,
+        "showTodayButton": true,
+        "format": "HH:mm:ss",
+    });
+    $('#jamKembali').datetimepicker({
+        "allowInputToggle": true,
+        "showClose": true,
+        "showClear": true,
+        "showTodayButton": true,
+        "format": "HH:mm:ss",
+    });
+   
 	function getMobil(idMobil) {
     $.ajax({
       url: base_url + "/FormSewa/load_mobil",

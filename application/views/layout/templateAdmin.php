@@ -19,14 +19,14 @@
                   <div class="d-sm-none d-lg-inline-block">Hi, <?php echo $this->session->userdata('namaUser') ?></div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                 <!-- <div class="dropdown-title">Logged in 5 min ago</div> -->
-									<a href="<?= site_url('Profile') ?>" class="dropdown-item has-icon">
-                    <i class="far fa-user"></i> Profile
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <?php echo anchor('auth/logout', '<div class="dropdown-item has-icon">
-                          <i class="fas fa-sign-out-alt"></i> Logout
-                      </div>'); ?>
+                 <!-- <div class="dropdown-title">Logged in 5 min ago</div>
+				    <a href="<?= site_url('Profile') ?>" class="dropdown-item has-icon">
+                        <i class="far fa-user"></i> Profile
+                    </a>
+                  <div class="dropdown-divider"></div>  -->
+                  <?php echo anchor('auth/logout', '<div class="dropdown-item">
+                        <i class="fas fa-sign-out-alt">&nbsp&nbspLogout</i>
+                    </div>'); ?>
                 </div>
               </li>
             </ul>

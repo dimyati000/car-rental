@@ -264,6 +264,14 @@
                                   <td style="vertical-align:top; padding-left:10px; ">15.</td>
                                   <td>Apabila penyewa melanggar / mengingkari perjanjian sewa, maka penyewa dikenakan ganti rugi pada EVANO TRANS dan siap diproses secara hukum.</td>
                               </tr>
+                              <tr>
+                                  <td style="vertical-align:top; padding-left:10px; ">16.</td>
+                                  <td>Sewa pick up kapasitas muatan maksimal 800 kg.</td>
+                              </tr>
+                              <tr>
+                                  <td style="vertical-align:top; padding-left:10px; ">17.</td>
+                                  <td>Mohon tidak memuat batu kali, pasir dan gragal serta menjaga bagian dalam bak agar tidak pesok. Bagian kabin/kepala dan bagian luar tidak boleh baret, belang, bintik mapun pesok.</td>
+                              </tr>
                           </table>
                         </div>
                     </td>

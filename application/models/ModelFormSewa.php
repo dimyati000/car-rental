@@ -21,6 +21,7 @@ class ModelFormSewa extends CI_Model
 		if ($created_by != ""){
 			$q .= " and created_by = '$created_by'";
 		}
+		$q .= " ORDER BY fs.tglBerangkat DESC, fs.noSewa DESC";
 		$query = $this->db->query($q);
 		return $query;
 	}
@@ -38,14 +39,14 @@ class ModelFormSewa extends CI_Model
 		FROM `tb_formsewa` fs
 		LEFT JOIN tb_pelanggan p ON fs.pelangganId = p.idPelanggan
 		LEFT JOIN tb_mobil m ON fs.mobilId = m.idMobil
-		WHERE fs.tipeSewa = '$tipeSewa'
-		AND fs.created_by = '$created_by' ";
+		WHERE fs.tipeSewa = '$tipeSewa' ";
 		if ($idSewa != ""){
 			$q .= " and idSewa = '$idSewa'";
 		}
 		if ($created_by != ""){
 			$q .= " and created_by = '$created_by'";
 		}
+		$q .= " ORDER BY fs.tglBerangkat DESC, fs.noSewa DESC";
 		$query = $this->db->query($q);
 		return $query;
 	}

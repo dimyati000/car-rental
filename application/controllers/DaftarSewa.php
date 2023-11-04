@@ -19,11 +19,15 @@ class DaftarSewa extends CI_Controller
          redirect('Auth/login');
        } 
     }
-	// Tampilkan data barang
+	// Tampilkan data penumpang
     public function penumpang()
     {   
         $idSewa = '';
-        $created_by = $this->session->userdata('idUser');
+        if($this->session->userdata('roleId') == 1){
+            $created_by = '';
+        }else{
+            $created_by = $this->session->userdata('idUser');
+        }
         $data['dataSewa'] = $this->ModelFormSewa->getDataPenumpang($idSewa, $created_by)->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/daftarSewaPenumpang", $data);
@@ -32,7 +36,11 @@ class DaftarSewa extends CI_Controller
     public function barang()
     {   
         $idSewa = '';
-        $created_by = $this->session->userdata('idUser');
+        if($this->session->userdata('roleId') == 1){
+            $created_by = '';
+        }else{
+            $created_by = $this->session->userdata('idUser');
+        }
         $data['dataSewa'] = $this->ModelFormSewa->getDataBarang($idSewa, $created_by)->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/daftarSewaBarang", $data);
@@ -80,11 +88,20 @@ class DaftarSewa extends CI_Controller
         //     $this->pdf->load_view('admin/sewaBarangCetak.php', $data);
         // }
 	}
-	// Delete data sewa
-    public function delete($idSewa)
+	
+	// Delete data sewa Penumpang
+    public function delete_penumpang($idSewa)
     {
         $where = array('idSewa' => $idSewa);
         $this->ModelFormSewa->hapusSewa($where, 'tb_formsewa');
-        redirect('../DaftarSewa');
-    }     
+        redirect('../DaftarSewa/Penumpang');
+    }
+    
+	// Delete data sewa Barang
+    public function delete_barang($idSewa)
+    {
+        $where = array('idSewa' => $idSewa);
+        $this->ModelFormSewa->hapusSewa($where, 'tb_formsewa');
+        redirect('../DaftarSewa/Barang');
+    }  
 }
