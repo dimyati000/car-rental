@@ -18,7 +18,7 @@
 								<h4>Pelanggan</h4>
 							</div>
 							<div class="card-body">
-								<h1><?php echo number_format($totalP);?></h1>
+								<h3><?php echo number_format($totalP);?></h3>
 							</div>
 						</div>
 					</div>
@@ -35,7 +35,7 @@
 								<h4>Mobil</h4>
 							</div>
 							<div class="card-body">
-								<h1><?php echo $totalM;?></h1>
+								<h3><?php echo $totalM;?></h3>
 							</div>
 						</div>
 					</div>
@@ -52,7 +52,7 @@
 						</div>
 						<div class="card-wrap">
 							<div class="card-body">
-								<h1><?php echo $totalSewaP;?></h1>
+								<h3><?php echo $totalSewaP;?></h3>
 							</div>
 						</div>
 					</div>
@@ -69,7 +69,7 @@
 								<h4>Sewa Barang</h4>
 							</div>
 							<div class="card-body">
-								<h1><?php echo $totalSewaB;?></h1>
+								<h3><?php echo $totalSewaB;?></h3>
 							</div>
 						</div>
 					</div>

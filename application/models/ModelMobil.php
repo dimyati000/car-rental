@@ -6,6 +6,9 @@ class ModelMobil extends CI_Model
 		if($keyword){
 			$this->db->like('jenisMobil', $keyword);
 		}
+		 // Menambahkan klausa ORDER BY ke query
+        $this->db->order_by('jenisMobil', 'ASC');
+
 		return $this->db->get('tb_mobil', $keyword);
 	}
 	public function tambahMobil($data, $table)
