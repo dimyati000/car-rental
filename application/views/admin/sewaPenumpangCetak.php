@@ -125,31 +125,31 @@
                                     <td><?= isset($dataSewa) ? $dataSewa['tipeTarif'] : '' ?> Jam x <?= isset($dataSewa) ? $dataSewa['lamaSewa'] : '' ?> Hari</td>
                                     <td>Total Tarif</td>
                                     <td>:</td>
-                                    <td><?= isset($dataSewa) ? $dataSewa['totalTarif'] : '' ?></td>
+                                    <td><?= isset($dataSewa) ? rupiah($dataSewa['totalTarif']) : '' ?></td>
                                 </tr>
                                 <tr>
                                     <td>Uang Muka (DP)</td>
                                     <td>:</td>
-                                    <td>Rp. <?= isset($dataSewa) ? $dataSewa['dp'] : '' ?></td>
+                                    <td>Rp. <?= isset($dataSewa) ? rupiah($dataSewa['dp']) : '' ?></td>
                                     <td>Jasa Antar</td>
                                     <td>:</td>
-                                    <td>Rp. <?= isset($dataSewa) ? $dataSewa['jasaAntar'] : '' ?></td>
+                                    <td>Rp. <?= isset($dataSewa) ? rupiah($dataSewa['jasaAntar']) : '' ?></td>
                                 </tr>
                                 <tr>
                                     <td>Kurang Bayar</td>
                                     <td>:</td>
-                                    <td>Rp. <?= isset($dataSewa) ? $dataSewa['kurangBayar'] : '' ?></td>
+                                    <td>Rp. <?= isset($dataSewa) ? rupiah($dataSewa['kurangBayar']) : '' ?></td>
                                     <td>Jasa Sopir</td>
                                     <td>:</td>
-                                    <td>Rp. <?= isset($dataSewa) ? $dataSewa['jasaSopir'] : '' ?></td>
+                                    <td>Rp. <?= isset($dataSewa) ? rupiah($dataSewa['jasaSopir']) : '' ?></td>
                                 </tr>
                                 <tr>
                                     <td>Total Bayar</td>
                                     <td>:</td>
-                                    <td>Rp. <?= isset($dataSewa) ? $dataSewa['totalBayar'] : '' ?></td>
+                                    <td>Rp. <?= isset($dataSewa) ? rupiah($dataSewa['totalBayar']) : '' ?></td>
                                     <td>Overtime</td>
                                     <td>:</td>
-                                    <td>Rp. <?= isset($dataSewa) ? $dataSewa['overtime'] : '' ?></td>
+                                    <td>Rp. <?= isset($dataSewa) ? rupiah($dataSewa['overtime']) : '' ?></td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align:top;">Jaminan</td>
