@@ -721,6 +721,8 @@ select.form-control:not([size]):not([multiple]) {
     background-size: 80px;
     background-repeat: no-repeat;
     background-position: center; }
+  .card.card-red {
+    border-top: 2px solid #842424; }
   .card.card-primary {
     border-top: 2px solid #6777ef; }
   .card.card-secondary {

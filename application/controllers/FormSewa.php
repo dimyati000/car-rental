@@ -25,10 +25,9 @@ class FormSewa extends CI_Controller
        } 
     }
 
-	// Tampilkan data barang
+	// Tampilkan data form sewa
     public function index()
     {   
-        // $data['barang'] = $this->ModelBarang->showData()->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/formSewa");
     }
@@ -201,14 +200,6 @@ class FormSewa extends CI_Controller
         $this->ModelFormSewa->insertBatch('tb_jaminansewa', $jaminans);
         redirect('../DaftarSewa/barang');
     }
-
-	// Delete data barang
-    public function delete($idBarang)
-    {
-        $where = array('idBarang' => $idBarang);
-        $this->ModelBarang->hapusBarang($where, 'tb_product');
-        redirect('../DataBarang');
-    }    
 
     public function load_mobil(){
         $idMobil = $this->input->post('idMobil');

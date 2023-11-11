@@ -4,6 +4,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller
 {
+	private $nama_menu  = "Dashboard";     
+	private $nama_sistem  = "Evano Trans System";     
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -22,6 +25,7 @@ class Dashboard extends CI_Controller
 	// Mengambil Data Dashboard Dari Model Dashboard
 	public function index()
 	{
+		$data['title'] = $this->nama_menu." | ".$this->nama_sistem;
 		$data['totalL'] = $this->ModelDashboard->getService();
 		$data['totalP'] = $this->ModelDashboard->getPelanggan();
 		$data['totalM'] = $this->ModelDashboard->getMobil();

@@ -94,7 +94,32 @@ class DaftarSewa extends CI_Controller
     {
         $where = array('idSewa' => $idSewa);
         $this->ModelFormSewa->hapusSewa($where, 'tb_formsewa');
+
+        // Dapatkan ID dari tb_jaminansewa berdasarkan idSewa
+        $idSewas = $this->db->select('id')->from('tb_jaminansewa')->where('idSewa', $idSewa)->get()->result_array();
+
+        // Buat array dari hasil query
+        $idSewaArray = array();
+        foreach ($idSewas as $row) {
+            $idSewaArray[] = $row['id'];
+        }    
+        
+        // Hapus data dari tb_jaminansewa menggunakan fungsi deleteBatch
+        $this->ModelFormSewa->deleteBatch($idSewaArray);
+
         redirect('../DaftarSewa/Penumpang');
+    }
+
+    // Contoh di dalam model atau controller
+    public function getDynamicIds($idSewa) {
+        // Implementasi logika untuk mengembalikan ID secara dinamis
+        // Misalnya, dapatkan ID dari database atau sumber data lainnya
+        $dynamicIds = $this->db->select('id')->from('tb_jaminansewa')->where('condition', 'value')->get()->result_array();
+        
+        // Ambil hanya nilai ID dari hasil query
+        $ids = array_column($dynamicIds, 'id');
+
+        return $ids;
     }
     
 	// Delete data sewa Barang

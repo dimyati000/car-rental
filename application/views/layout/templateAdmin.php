@@ -40,7 +40,7 @@
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="<?php echo base_url('/') ?>">EVANO TRANS</a>
+            <a href="<?php echo base_url('/') ?>">EVANO TRANS SYSTEM</a>
           </div>
           <!-- <div class="sidebar-brand sidebar-brand-sm">
             <a href="<?php echo base_url('/') ?>">BAM</a>

@@ -107,6 +107,14 @@ class ModelFormSewa extends CI_Model
 		return $this->db->insert_batch($table, $data);
 	}
 
+	public function deleteBatch($idSewas) {
+		// Pastikan $idSewas tidak kosong sebelum mencoba menghapus
+		if (!empty($idSewas)) {
+			$this->db->where_in('id', $idSewas);
+			$this->db->delete('tb_jaminansewa');
+		}
+	}
+
 	// perbulan mulai dari 001 lagi
 	function get_kode_penumpang($tbl,$kolom,$awal){
 		$tgl = date('Y-m-d');

@@ -24,7 +24,7 @@ class User extends CI_Controller {
 			$data['keyword'] = null;
 		}
 
-		$data['barang'] = $this->ModelBarang->showData($data['keyword'])->result();
+		// $data['barang'] = $this->ModelBarang->showData($data['keyword'])->result();
 		$this->load->view("layout/template");
 		$this->load->view("index", $data);
 	}

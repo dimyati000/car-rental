@@ -1,4 +1,4 @@
-<title>Dashboard</title>
+<title><?= $title ?></title>
 
 <div class="main-content">
 	<section class="section">

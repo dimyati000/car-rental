@@ -38,11 +38,53 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/datetimepicker/css/bootstrap-datetimepicker.min.css">
   
 	<!-- Favicon  -->
-  <link rel="icon" href="<?php echo base_url('/assets/img/favicon-carrental.png') ?>">
+  <link rel="icon" href="<?php echo base_url('/assets/img/logo-evano.png') ?>">
   
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/components.css">
   <?php require "vendor/autoload.php"; 
   ?>
+</head>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Register &mdash; CAR RENTAL</title>
+
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>node_modules/selectric/public/selectric.css">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/components.css">
+    
+	<!-- Favicon  -->
+    <link rel="icon" href="<?php echo base_url('/assets/img/favicon-carrental.png') ?>">
+</head>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title><?= $title ?></title>
+
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/modules/bootstrap-social/bootstrap-social.css">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/components.css">
+    
+	<!-- Favicon  -->
+    <link rel="icon" href="<?php echo base_url('/assets/img/logo-evano.png') ?>">
 </head>

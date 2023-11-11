@@ -148,7 +148,7 @@ class Laporan extends CI_Controller{
         $where = array(
             'idLaporan' => $idLaporan
         );
-        $this->ModelBarang->updateData($where, $data, 'tb_laporan');
+        // $this->ModelBarang->updateData($where, $data, 'tb_laporan');
         redirect('../Laporan');
     }
 	
