@@ -29,12 +29,12 @@
     </div>
 
 
-    <section class="ftco-section ftco-no-pt bg-light">
+    <section class="ftco-section ftco-no-pt bg-light" id="fleet">
     	<div class="container">
     		<div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-          	<span class="subheading">Top Mobil Rental</span>
-            <h2 class="mb-2">Berbagai Jenis Armada Siap Menemani Perjalanan Anda</h2>
+          	<span class="subheading">Yang Kami Tawarkan</span>
+            <h3 class="mb-2">Berbagai Armada Unggulan Siap Menemani Perjalanan Yang Berkesan Bersama Orang-Orang Tercinta.</h3>
           </div>
         </div>
     		<div class="row">
@@ -101,8 +101,8 @@
     		</div>
     	</div>
     </section>
-
-    <section class="ftco-section ftco-about">
+ 
+    <section class="ftco-section ftco-about"  id="about">
 			<div class="container">
 				<div class="row no-gutters">
 					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(aset/images/about.jpg);">
@@ -114,14 +114,14 @@
 
 	            <p>Evano Trans adalah jenis usaha yang bergerak di bidang jasa transportasi serta biro jasa perjalanan wisata yang menyediakan berbagai fasilitas yang berhubungan dengan perjalanan dan mobilitas.</p>
 	            <p>Semakin pesatnya perkembangan dunia usaha baik di bidang jasa maupun perdagangan, menjadi latar belakang semangat kami sebagai pelaku usaha di bidang jasa transportasi untuk selalu meningkatkan pelayanan dari waktu ke waktu.</p>
-	            <p><a href="#" class="btn btn-primary py-3 px-4">Selengkapnya</a></p>
+	            <p><a href="#" class="btn btn-primary btn-lg">Selengkapnya</a></p>
 	          </div>
 					</div>
 				</div>
 			</div>
 		</section>
-
-		<section class="ftco-section">
+    
+		<section class="ftco-section" id="service">
 			<div class="container">
 				<div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
@@ -135,16 +135,7 @@
             	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car"></span></div>
             	<div class="text w-100">
                 <h3 class="heading mb-2">Our Vechicles</h3>
-                <p>Semua unit kendaraan kami merupakan keluaran terbaru dan terawat dengan baik serta staff ang terlatih, ramah, dan profesional untuk memberikan pelayanan terbaik.</p>
-              </div>
-            </div>
-					</div>
-					<div class="col-md-3">
-						<div class="services services-2 w-100 text-center">
-            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-dollar"></span></div>
-            	<div class="text w-100">
-                <h3 class="heading mb-2">Low Cost</h3>
-                <p>Harga persewaan yang diberikan sangat kompetitif dengan tetap mengutamakan kualitas.</p>
+                <p>Semua unit kendaraan kami merupakan keluaran terbaru, dan terawat dengan serta staff yang ramah, terlatih, dan profesional untuk memberikan pelayanan terbaik.</p>
               </div>
             </div>
 					</div>
@@ -155,6 +146,15 @@
             	<div class="text w-100">
                 <h3 class="heading mb-2">Network Area</h3>
                 <p>Jaringan Evano Trans yang luas di beberapa kota sehingga dapat memenuhi kebutuhan pelanggan.</p>
+              </div>
+            </div>
+					</div>
+					<div class="col-md-3">
+						<div class="services services-2 w-100 text-center">
+            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
+            	<div class="text w-100">
+                <h3 class="heading mb-2">Low Cost</h3>
+                <p>Harga persewaan yang diberikan sangat kompetitif dengan tetap mengutamakan kualitas.</p>
               </div>
             </div>
 					</div>
@@ -171,13 +171,13 @@
 			</div>
 		</section>
 
-		<section class="ftco-section ftco-intro" style="background-image: url(aset/images/bg_3.jpg);">
+		<section class="ftco-section ftco-intro" style="background-image: url(aset/images/bg_3.jpg);" id="contact">
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="row justify-content-end">
 					<div class="col-md-6 heading-section heading-section-white ftco-animate">
             <h2 class="mb-3">Booking Jadwal Perjalanan Anda Sekarang!</h2>
-			<h5>Hubungi sekarang untuk keep unit dan mendapatkan prioritas menikmati fasilitas menarik yang kami tawarkan.</h5>
+			      <p>Hubungi sekarang untuk keep unit dan mendapatkan prioritas menikmati fasilitas menarik yang kami tawarkan.</p>
             <a href="https://api.whatsapp.com/send?phone=6285730148874&text=Halo%20admin%20Evano%20Trans,%20saya%20mau%20tanya%20....." class="btn btn-primary btn-lg">Pesan Sekarang</a>
           </div>
 				</div>
@@ -353,4 +353,4 @@
           </div>
         </div>
     	</div>
-    </section>	 -->
+</section> -->

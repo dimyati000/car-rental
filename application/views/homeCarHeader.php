@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>aset/css/style.css">
     
 	<!-- Favicon  -->
-  <link rel="icon" href="<?php echo base_url('/assets/img/favicon-carrental.png') ?>">
+  <link rel="icon" href="<?php echo base_url('/assets/img/logo-evano.png') ?>">
   </head>
   <body>
     
@@ -41,10 +41,10 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">Tentang Kami</a></li>
-	          <li class="nav-item"><a href="services.html" class="nav-link">Layanan Kami</a></li>
-	          <li class="nav-item"><a href="pricing.html" class="nav-link">Armada</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Hubungi Kami</a></li>
+	          <li class="nav-item"><a href="#fleet" class="nav-link">The Best Fleet</a></li>
+	          <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+	          <li class="nav-item"><a href="#service" class="nav-link">Service Us</a></li>
+	          <li class="nav-item"><a href="#contact" class="nav-link">Contact Us</a></li>
 	        </ul>
 	      </div>
 	    </div>

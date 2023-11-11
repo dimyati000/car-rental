@@ -7,12 +7,7 @@ class Home extends CI_Controller
 	// Memuat view home
     public function index()
     {
-        $this->load->view("layout/headTemplateAdmin");
-        $this->load->view("layout/jsTemplateAdmin");
         $data['title'] = $this->nama_menu." | ".$this->nama_sistem;
-        // $this->load->view('homeHeader');
-        // $this->load->view('homeFooter');
-        // $this->load->view('Home');
         $this->load->view('homeCarHeader', $data);
         $this->load->view('homeCar');
         $this->load->view('homeCarFooter');
