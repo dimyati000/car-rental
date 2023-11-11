@@ -260,7 +260,9 @@
 			$('#hargaSewa').val(result.data.harga24);
 			var totalTarif = lamaSewa*$('#hargaSewa').val();
 		}
-		$('#totalTarif').val(totalTarif);
+		$('#dp').val('0');
+		$('#kurangBayar').val('0');
+		$('#totalTarif').val(formatRupiah(totalTarif));
 	  }
     });
   }
@@ -270,6 +272,11 @@
 // 		getMobil(idMobil);
 // 	});
 
+	$(document).ready(function () {
+		$(".select2").select2({
+		});
+	});
+
   $("#tipeTarif").on("change", function (e) {
 		var idMobil = $('#idMobil').val();
 		getMobil(idMobil)
@@ -278,15 +285,25 @@
 	$('#lamaSewa').on("input", function() {
 		var dInput = this.value;
 		var tarifTotal = dInput*$('#hargaSewa').val();
-		$('#totalTarif').val(tarifTotal);
+		$('#totalTarif').val(formatRupiah(tarifTotal));
 	});
-
+		
+	$('#totalBayar').mask('#.##0', {reverse: true});
+	$('#denda').mask('#.##0', {reverse: true});
+	$('#overtime').mask('#.##0', {reverse: true});
+	$('#jasaAntar').mask('#.##0', {reverse: true});
+	$('#jasaSopir').mask('#.##0', {reverse: true});
 	$('#dp').on("input", function() {
-		var dInput = this.value;
-		var totalTarif = $('#totalTarif').val();
-		var kurangBayar = totalTarif-dInput;
-		$('#kurangBayar').val(kurangBayar);
-	});
+		var dInput = parseFloat(replaceRupiah(this.value));
+		var totalTarifRupiahValue = $('#totalTarif').val().replace(/\./g, ''); // Menghapus semua titik dari javascript
+		// var totalTarifRupiahValue = replaceRupiah($('#totalTarif').val()); // Menghapus semua titik dengan fungsi manual
+		var totalTarif = parseFloat(totalTarifRupiahValue);
+		var kurangBayar = totalTarif - dInput;
+		console.log("Nilai dInput: " + dInput);
+		console.log("Nilai totalTarif: " + totalTarif);
+		console.log("Nilai kurangBayar: " + kurangBayar);
+		$('#kurangBayar').val(formatRupiah(kurangBayar));
+	});	
 
 	$('#totalBayar'), function(){
 		var totalTarif = $('#totalTarif').val();
@@ -295,9 +312,27 @@
 		var totalBayar = totalTarif+$('#jasaSopir').val()+$('#jasaAntar').val();
 		$('#totalBayar').val(totalBayar);	
 	};
+		
+	function formatRupiah(angka, prefix) {
+		var number_string = angka.toString(),
+			split = number_string.split(","),
+			sisa = number_string.length % 6,
+			rupiah = number_string.substr(0, sisa),
+			ribuan = number_string.substr(sisa).match(/\d{3}/g);
 
-	$(document).ready(function () {
-			$(".select2").select2({
-			});
-	});
+		if (ribuan) {
+			separator = sisa ? '.' : '';
+			rupiah += separator + ribuan.join('.');
+		}
+
+		rupiah = split[1] != undefined ? rupiah + "," + split[1] : rupiah;
+		return prefix == undefined ? rupiah : rupiah ? "Rp. " + rupiah : "";
+	}
+
+	function replaceRupiah(val) {
+		if (!val) {
+			return 0
+		}
+		return val.replace(".", "");
+	}
 </script>

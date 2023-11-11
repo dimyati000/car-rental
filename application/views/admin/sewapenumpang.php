@@ -149,7 +149,7 @@
                                                         </div>
                                                     </div>
                                                     <input type="text" name="kurangBayar" id="kurangBayar"
-                                                        class="form-control">
+                                                        class="form-control" readonly>
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-2">
@@ -271,6 +271,8 @@ function getMobil(idMobil) {
                 $('#hargaSewa').val(result.data.harga24);
                 var totalTarif = lamaSewa * $('#hargaSewa').val();
             }
+            $('#dp').val('0');
+            $('#kurangBayar').val('0');
             $('#totalTarif').val(formatRupiah(totalTarif));
         }
     });
@@ -280,6 +282,7 @@ function getMobil(idMobil) {
 // 		var idMobil = e.target.value;
 // 		getMobil(idMobil);
 // 	});
+
 $(document).ready(function() {
 	// var dpinput = $('#dpRuppiah').val();
     $(".select2").select2({});
@@ -294,8 +297,7 @@ $("#tipeTarif").on("change", function(e) {
 $('#lamaSewa').on("input", function() {
     var dInput = this.value;
     var tarifTotal = dInput * $('#hargaSewa').val();
-    $('#totalTarifRupiah').val(formatRupiah(tarifTotal));
-    $('#totalTarif').val(tarifTotal);
+    $('#totalTarif').val(formatRupiah(tarifTotal));
 });
 
 $('#totalBayar').mask('#.##0', {reverse: true});
@@ -303,7 +305,6 @@ $('#denda').mask('#.##0', {reverse: true});
 $('#overtime').mask('#.##0', {reverse: true});
 $('#jasaAntar').mask('#.##0', {reverse: true});
 $('#jasaSopir').mask('#.##0', {reverse: true});
-$('#dp').mask('#.##0', {reverse: true});
 $('#dp').on("input", function() {
 	var dInput = parseFloat(replaceRupiah(this.value));
     var totalTarifRupiahValue = $('#totalTarif').val().replace(/\./g, ''); // Menghapus semua titik dari javascript
@@ -317,19 +318,18 @@ $('#dp').on("input", function() {
 });	
 
 $('#totalBayar'),
-    function() {
-        var totalTarif = $('#totalTarif').val();
-        var jasaSopir = $('#jasaSopir').val();
-        var jasaAntar = $('#jasaAntar').val();
-        var totalBayar = totalTarif + $('#jasaSopir').val() + $('#jasaAntar').val();
-        $('#totalBayar').val(totalBayar);
-    };
-
+function() {
+    var totalTarif = $('#totalTarif').val();
+    var jasaSopir = $('#jasaSopir').val();
+    var jasaAntar = $('#jasaAntar').val();
+    var totalBayar = totalTarif + $('#jasaSopir').val() + $('#jasaAntar').val();
+    $('#totalBayar').val(totalBayar);
+};
 
 function formatRupiah(angka, prefix) {
     var number_string = angka.toString(),
         split = number_string.split(","),
-        sisa = number_string.length % 3,
+        sisa = number_string.length % 6,
         rupiah = number_string.substr(0, sisa),
         ribuan = number_string.substr(sisa).match(/\d{3}/g);
 
