@@ -46,7 +46,7 @@ class Register extends CI_Controller
                 'roleId' => 2
             );
             $this->db->insert('tb_user', $data);
-            redirect('Login');
+            redirect('../Login');
         }
     }
 }

@@ -12,7 +12,7 @@ class User extends CI_Controller {
              <span aria-hidden="true">&times;</span>
            </button>
          </div>');
-         redirect('Login');
+         redirect('../Login');
        } 
     }
 	// tampilkan data barang dan fitur cari barang

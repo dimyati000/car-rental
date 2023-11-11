@@ -27,7 +27,7 @@ class Login extends CI_Controller
             'required' => 'Password Wajib Di isi'
         ]);
         if($this->form_validation->run() == FALSE){
-            $this->load->view('Login', $data);
+            $this->load->view('auth/login', $data);
         }else{
             $auth = $this->ModelAuth->cekLogin();
             if($auth == FALSE)
@@ -38,7 +38,7 @@ class Login extends CI_Controller
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>');
-                redirect('Login');
+                redirect('../Login');
             }else{
                 $this->session->set_userdata('idUser', $auth->idUser);
                 $this->session->set_userdata('namaUser', $auth->namaUser);
@@ -57,7 +57,7 @@ class Login extends CI_Controller
     public function logout()
     {
         $this->session->sess_destroy();
-        redirect('Login');
+        redirect('../Login');
     }
 }
 

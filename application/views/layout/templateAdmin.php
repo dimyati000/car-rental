@@ -24,7 +24,7 @@
                         <i class="far fa-user"></i> Profile
                     </a>
                   <div class="dropdown-divider"></div>  -->
-                  <?php echo anchor('Login/logout', '<div class="dropdown-item">
+                  <?php echo anchor('../Login/logout', '<div class="dropdown-item">
                         <i class="fas fa-sign-out-alt">&nbsp&nbspLogout</i>
                     </div>'); ?>
                 </div>
@@ -32,7 +32,7 @@
             </ul>
 
           <?php } else { ?>
-            <li><?php echo anchor('Login', '<div class="btn btn-md-3 btn-success ml-5">Login</div>') ?></li>
+            <li><?php echo anchor('../Login', '<div class="btn btn-md-3 btn-success ml-5">Login</div>') ?></li>
           <?php } ?>
 
         </ul>

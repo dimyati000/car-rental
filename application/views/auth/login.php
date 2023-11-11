@@ -6,6 +6,8 @@ position: relative;
 -webkit-animation: floatBubble 0.60s infinite;
     -webkit-animation-direction:alternate;
     border-radius:50%;
+    margin-top:25px;
+    margin-bottom: 25px;
   }
 
 @-webkit-keyframes floatBubble{
@@ -27,7 +29,7 @@ position: relative;
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-                    <div style="padding: 10px;">
+                    <div data-toggle="tooltip" data-placement="right" title="Logo Evano Trans">
                         <img id="mentul-mentul" src="<?php echo base_url('/assets/img/logo-evano.png') ?>"  style="border-radius:5px" alt="logo" width="100%" class="shadow-light">
                     </div>
                     <br>
@@ -61,8 +63,8 @@ position: relative;
                                         <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                                             Login
                                         </button>
-                                        <div class="mt-5 text-muted text-center">
-                                            <a href="<?php echo base_url('Home') ?>">Home</a>
+                                        <div style="margin-bottom:-25px" class="mt-3 text-muted text-center">
+                                            Kembali ke Halaman <a href="<?php echo base_url('Home') ?>">Home</a>
                                             <!-- |
                                             Belum Punya Akun ? <a href="<?php echo base_url('Register') ?>">Buat Disini</a> -->
                                         </div>

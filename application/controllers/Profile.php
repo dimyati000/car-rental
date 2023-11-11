@@ -14,7 +14,7 @@ class Profile extends CI_Controller {
              <span aria-hidden="true">&times;</span>
            </button>
          </div>');
-			redirect('Login');
+			redirect('../Login');
 		}
   }
   public function index()

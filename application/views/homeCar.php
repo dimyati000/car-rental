@@ -6,10 +6,14 @@
         <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
           <div class="col-lg-8 ftco-animate">
           	<div class="text w-100 text-center mb-md-5 pb-md-5">
-	            <h1 class="mb-4">Sewa Mobil Lepas Kunci Sidoarjo</h1>
-	            <p style="font-size: 18px;">Kami melayani sewa mobil harian/ mingguan/ bulanan. Tersedia berbagai pilihan armada. 
+	            <h1 class="mb-4">Evano Trans Sidoarjo</h1>
+              <p>Penyedia Jasa Sewa Mobil Dengan Cepat Melalui Sistem Booking Online.
+              <br>Kami menyediakan sewa mobil lepas kunci serta Mobil yang telah anda sewa bisa kami kirim ke rumah sekarang juga!</p>
+              <!-- <p class="card-text"><small class="text-muted">Salam Sewa Sejahtera :D</small></p> -->
+
+	            <!-- <p style="font-size: 18px;">Kami melayani sewa mobil harian/ mingguan/ bulanan. Tersedia berbagai pilihan armada. 
 				Unit : Pajero, Fortuner, Stargazer, Inova Venturer, New Avanza, BRV, Ertiga Hybrid, Scross, Juke, Sigra, Ayla, 
-				Pick Up New Carry AC/PS, Pick Up Granmax AC/PS</P>
+				Pick Up New Carry AC/PS, Pick Up Granmax AC/PS</P> -->
 	            <a href="https://vimeo.com/45830194" class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center">
 	            	<!-- <div class="icon d-flex align-items-center justify-content-center">
 	            		<span class="ion-ios-play"></span>
@@ -23,78 +27,6 @@
         </div>
       </div>
     </div>
-
-     <!-- <section class="ftco-section ftco-no-pt bg-light">
-    	<div class="container">
-    		<div class="row no-gutters">
-    			<div class="col-md-12	featured-top">
-    				<div class="row no-gutters">
-	  					<div class="col-md-4 d-flex align-items-center">
-	  						<form action="#" class="request-form ftco-animate bg-primary">
-		          		<h2>Make your trip</h2>
-			    				<div class="form-group">
-			    					<label for="" class="label">Pick-up location</label>
-			    					<input type="text" class="form-control" placeholder="City, Airport, Station, etc">
-			    				</div>
-			    				<div class="form-group">
-			    					<label for="" class="label">Drop-off location</label>
-			    					<input type="text" class="form-control" placeholder="City, Airport, Station, etc">
-			    				</div>
-			    				<div class="d-flex">
-			    					<div class="form-group mr-2">
-			                <label for="" class="label">Pick-up date</label>
-			                <input type="text" class="form-control" id="book_pick_date" placeholder="Date">
-			              </div>
-			              <div class="form-group ml-2">
-			                <label for="" class="label">Drop-off date</label>
-			                <input type="text" class="form-control" id="book_off_date" placeholder="Date">
-			              </div>
-		              </div>
-		              <div class="form-group">
-		                <label for="" class="label">Pick-up time</label>
-		                <input type="text" class="form-control" id="time_pick" placeholder="Time">
-		              </div>
-			            <div class="form-group">
-			              <input type="submit" value="Rent A Car Now" class="btn btn-secondary py-3 px-4">
-			            </div>
-			    			</form>
-	  					</div>
-	  					<div class="col-md-8 d-flex align-items-center">
-	  						<div class="services-wrap rounded-right w-100">
-	  							<h3 class="heading-section mb-4">Better Way to Rent Your Perfect Cars</h3>
-	  							<div class="row d-flex mb-4">
-					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-					            <div class="services w-100 text-center">
-				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
-				              	<div class="text w-100">
-					                <h3 class="heading mb-2">Choose Your Pickup Location</h3>
-				                </div>
-					            </div>      
-					          </div>
-					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-					            <div class="services w-100 text-center">
-				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-handshake"></span></div>
-				              	<div class="text w-100">
-					                <h3 class="heading mb-2">Select the Best Deal</h3>
-					              </div>
-					            </div>      
-					          </div>
-					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-					            <div class="services w-100 text-center">
-				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
-				              	<div class="text w-100">
-					                <h3 class="heading mb-2">Reserve Your Rental Car</h3>
-					              </div>
-					            </div>      
-					          </div>
-					        </div>
-					        <p><a href="#" class="btn btn-primary py-3 px-4">Reserve Your Perfect Car</a></p>
-	  						</div>
-	  					</div>
-	  				</div>
-				</div>
-  		</div>
-    </section> -->
 
 
     <section class="ftco-section ftco-no-pt bg-light">
@@ -110,7 +42,7 @@
     				<div class="carousel-car owl-carousel">
     					<div class="item">
     						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(assets/img/pajero.png);">
+		    					<div class="img rounded d-flex align-items-end" style="background-image: url(assets/img/carhomepage/pajero.png);">
 		    					</div>
 		    					<div class="text">
 		    						<h2 class="mb-0"><a href="#">Pajero Sport Dakar</a></h2>
@@ -124,7 +56,7 @@
     					</div>
     					<div class="item">
     						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(assets/img/fortuner.png);">
+		    					<div class="img rounded d-flex align-items-end" style="background-image: url(assets/img/carhomepage/fortuner.png);">
 		    					</div>
 		    					<div class="text">
 		    						<h2 class="mb-0"><a href="#">Fortuner VRZ</a></h2>
@@ -138,7 +70,7 @@
     					</div>
     					<div class="item">
     						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(assets/img/inova.png);">
+		    					<div class="img rounded d-flex align-items-end" style="background-image: url(assets/img/carhomepage/inova.png);">
 		    					</div>
 		    					<div class="text">
 		    						<h2 class="mb-0"><a href="#">Inova Venturer</a></h2>
@@ -152,7 +84,7 @@
     					</div>
     					<div class="item">
     						<div class="car-wrap rounded ftco-animate">
-		    					<div class="img rounded d-flex align-items-end" style="background-image: url(assets/img/stargazer.png);">
+		    					<div class="img rounded d-flex align-items-end" style="background-image: url(assets/img/carhomepage/stargazer.png);">
 		    					</div>
 		    					<div class="text">
 		    						<h2 class="mb-0"><a href="#">Stargazer</a></h2>
@@ -200,7 +132,7 @@
 				<div class="row">
 					<div class="col-md-3">
 						<div class="services services-2 w-100 text-center">
-            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-wedding-car"></span></div>
+            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car"></span></div>
             	<div class="text w-100">
                 <h3 class="heading mb-2">Our Vechicles</h3>
                 <p>Semua unit kendaraan kami merupakan keluaran terbaru dan terawat dengan baik serta staff ang terlatih, ramah, dan profesional untuk memberikan pelayanan terbaik.</p>
@@ -209,7 +141,7 @@
 					</div>
 					<div class="col-md-3">
 						<div class="services services-2 w-100 text-center">
-            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
+            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-dollar"></span></div>
             	<div class="text w-100">
                 <h3 class="heading mb-2">Low Cost</h3>
                 <p>Harga persewaan yang diberikan sangat kompetitif dengan tetap mengutamakan kualitas.</p>
@@ -218,7 +150,8 @@
 					</div>
 					<div class="col-md-3">
 						<div class="services services-2 w-100 text-center">
-            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car"></span></div>
+            	<!-- <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div> -->
+            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
             	<div class="text w-100">
                 <h3 class="heading mb-2">Network Area</h3>
                 <p>Jaringan Evano Trans yang luas di beberapa kota sehingga dapat memenuhi kebutuhan pelanggan.</p>
@@ -227,7 +160,7 @@
 					</div>
 					<div class="col-md-3">
 						<div class="services services-2 w-100 text-center">
-            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
+            	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-handshake"></span></div>
             	<div class="text w-100">
                 <h3 class="heading mb-2">Our Customer</h3>
                 <p>Seluruh pelanggan Evano Trans meliputi instansi Pemerintahan, Perkantoran, Perusahaan, hingga individu.</p>
