@@ -173,7 +173,7 @@
     <section class="ftco-section ftco-about">
 			<div class="container">
 				<div class="row no-gutters">
-					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/about.jpg);">
+					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(aset/images/about.jpg);">
 					</div>
 					<div class="col-md-6 wrap-about ftco-animate">
 	          <div class="heading-section heading-section-white pl-md-5">
@@ -238,7 +238,7 @@
 			</div>
 		</section>
 
-		<section class="ftco-section ftco-intro" style="background-image: url(images/bg_3.jpg);">
+		<section class="ftco-section ftco-intro" style="background-image: url(aset/images/bg_3.jpg);">
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="row justify-content-end">

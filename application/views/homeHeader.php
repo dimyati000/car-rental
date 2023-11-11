@@ -105,7 +105,7 @@
                 if ($this->session->userdata('username')) { ?>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle page-scroll">
-                                <img width="25px" alt="image" src="<?php echo base_url() ?>assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+                                <img width="25px" alt="image" src="<?php echo base_url('assets/img/avatar/avatar-1.png') ?>" class="rounded-circle mr-1">
                                 <div class="d-sm-none d-lg-inline-block">Hi, <?php echo $this->session->userdata('username') ?></div>
                             </a>
                             <div class="dropdown-menu">
