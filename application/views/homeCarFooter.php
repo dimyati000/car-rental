@@ -1,6 +1,6 @@
 <footer class="ftco-footer ftco-bg-grey ftco-section">
     <div class="container">
-        <div class="row mb-5">
+        <div class="row">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
                     <!-- <h2 class="ftco-heading-2"><a href="#" class="logo">Evano<span>Trans</span></a></h2> -->
@@ -10,7 +10,7 @@
                     <p>Bisa sewa mobil dengan cepat, mudah, nyaman & aman, Evano Trans Saja !!!</p>
                     <p>Mau sewa mobil berkualitas tanpa perlu was-was, pilih Evano Trans !!!</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
-                        <li class="ftco-animate"><a target="_blank" href="https://instagram.com/evano.trans"><span
+                        <li class="ftco-animate" width="50%"><a target="_blank" href="https://instagram.com/evano.trans"><span
                                     class="icon-instagram"></span></a></li>
                         <li class="ftco-animate"><a target="_blank"
                                 href="https://www.facebook.com/profile.php?id=100090627395123"><span
@@ -65,7 +65,6 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-
                 <p>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;<script>
