@@ -101,7 +101,7 @@
                         <h3>Anda Bingung Mau servis Motor?</h3>
                         <p">Sibuk atau tidak sempat? Mau servis motor tapi malas keluar rumah? Sekarang servis motor bisa dari rumah lhooo.</p>
                         <h5>Yuk booking servis sekarang!</h5>
-                        <a class="btn-solid-reg" href="<?php echo site_url('auth/login')?>">Booking</a>
+                        <a class="btn-solid-reg" href="<?php echo site_url('Login')?>">Booking</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6">

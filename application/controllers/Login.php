@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Auth extends CI_Controller
+class Login extends CI_Controller
 {
     private $nama_menu  = "Login";     
     private $nama_sistem  = "Evano Trans System";     
@@ -15,7 +15,7 @@ class Auth extends CI_Controller
     }
 
     // Jika role 1 berarti admin , jika role 2 berarti user
-    public function login()
+    public function index()
     {
         $this->load->view("layout/headTemplateAdmin");
         $this->load->view("layout/jsTemplateAdmin");
@@ -27,7 +27,7 @@ class Auth extends CI_Controller
             'required' => 'Password Wajib Di isi'
         ]);
         if($this->form_validation->run() == FALSE){
-            $this->load->view('login', $data);
+            $this->load->view('Login', $data);
         }else{
             $auth = $this->ModelAuth->cekLogin();
             if($auth == FALSE)
@@ -38,7 +38,7 @@ class Auth extends CI_Controller
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>');
-                redirect('auth/login');
+                redirect('Login');
             }else{
                 $this->session->set_userdata('idUser', $auth->idUser);
                 $this->session->set_userdata('namaUser', $auth->namaUser);
@@ -57,7 +57,7 @@ class Auth extends CI_Controller
     public function logout()
     {
         $this->session->sess_destroy();
-        redirect('auth/login');
+        redirect('Login');
     }
 }
 

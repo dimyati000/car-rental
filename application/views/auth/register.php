@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<title><?= $title ?></title>
 
 <body>
     <div id="app">
@@ -67,7 +66,7 @@
                                         </button>
                                     </div>
                                     <div class="mt-5 text-muted text-center">
-                                            Sudah Punya Akun? <a href="<?php echo base_url('Auth/login')?>">Login Disini</a>
+                                            Sudah Punya Akun? <a href="<?php echo base_url('Login')?>">Login Disini</a>
                                         </div>
                                 </form>
                             </div>

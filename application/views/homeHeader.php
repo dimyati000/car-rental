@@ -123,7 +123,7 @@
                     </ul>
 
                 <?php } else { ?>
-                    <li><?php echo anchor('auth/login', '<div class="btn-solid-reg">Login</div>') ?></li>
+                    <li><?php echo anchor('Login', '<div class="btn-solid-reg">Login</div>') ?></li>
                 <?php } ?>
             </ul>
             <!-- <span class="nav-item social-icons">

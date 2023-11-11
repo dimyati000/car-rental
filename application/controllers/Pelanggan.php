@@ -15,7 +15,7 @@ class Pelanggan extends CI_Controller
              <span aria-hidden="true">&times;</span>
            </button>
          </div>');
-         redirect('Auth/login');
+         redirect('Login');
        } 
     }
 		// Tampilkan data pelanggan  

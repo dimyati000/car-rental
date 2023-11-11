@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<title><?= $title ?></title>
 
 <style>
 #mentul-mentul{
@@ -39,7 +38,7 @@ position: relative;
                             </div>
                             <div class="card-body">
                                 <?php echo $this->session->flashdata('pesan') ?>
-                                <form method="POST" action="<?php echo base_url('Auth/login') ?>" class="needs-validation" novalidate="">
+                                <form method="POST" action="<?php echo base_url('Login') ?>" class="needs-validation" novalidate="">
                                     <div class="form-group">
                                         <label for="username">Username</label>
                                         <input id="username" type="text" class="form-control" name="username" tabindex="1" required autofocus>
@@ -64,8 +63,8 @@ position: relative;
                                         </button>
                                         <div class="mt-5 text-muted text-center">
                                             <a href="<?php echo base_url('Home') ?>">Home</a>
-                                            |
-                                            Belum Punya Akun ? <a href="<?php echo base_url('Register') ?>">Buat Disini</a>
+                                            <!-- |
+                                            Belum Punya Akun ? <a href="<?php echo base_url('Register') ?>">Buat Disini</a> -->
                                         </div>
                                     </div>
                                 </form>

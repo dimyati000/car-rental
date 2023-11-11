@@ -52,7 +52,7 @@
 						</ul>
 
 					<?php } else { ?>
-						<li><?php echo anchor('auth/login', '<div class="btn btn-md-3 btn-success ml-5">Login</div>') ?></li>
+						<li><?php echo anchor('Login', '<div class="btn btn-md-3 btn-success ml-5">Login</div>') ?></li>
 					<?php } ?>
 				</ul>
 			</nav>

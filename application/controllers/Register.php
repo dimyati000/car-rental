@@ -33,7 +33,7 @@ class Register extends CI_Controller
         $this->form_validation->set_rules('password2', 'Password', 'required|matches[password]');
 
         if($this->form_validation->run() == FALSE){
-            $this->load->view('layout/register');
+            $this->load->view('auth/register', $data);
         }else{
             $idUser = Uuid::uuid4();
             $data = array(
@@ -46,7 +46,7 @@ class Register extends CI_Controller
                 'roleId' => 2
             );
             $this->db->insert('tb_user', $data);
-            redirect('Auth/login');
+            redirect('Login');
         }
     }
 }
