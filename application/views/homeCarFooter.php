@@ -1,12 +1,15 @@
-<footer class="ftco-footer ftco-bg-dark ftco-section">
+<footer class="ftco-footer ftco-bg-grey ftco-section">
     <div class="container">
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2"><a href="#" class="logo">Evano<span>Trans</span></a></h2>
+                    <!-- <h2 class="ftco-heading-2"><a href="#" class="logo">Evano<span>Trans</span></a></h2> -->
+                    <div class="mb-2">
+                        <img id="mentul-mentul" src="<?php echo base_url('/assets/img/logo-evano.png') ?>"  style="border-radius:5px" alt="logo" width="50%">
+                    </div>
                     <p>Bisa sewa mobil dengan cepat, mudah, nyaman & aman, Evano Trans Saja !!!</p>
                     <p>Mau sewa mobil berkualitas tanpa perlu was-was, pilih Evano Trans !!!</p>
-                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-4">
+                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
                         <li class="ftco-animate"><a target="_blank" href="https://instagram.com/evano.trans"><span
                                     class="icon-instagram"></span></a></li>
                         <li class="ftco-animate"><a target="_blank"
@@ -67,8 +70,9 @@
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;<script>
                     document.write(new Date().getFullYear());
-                    </script> All rights reserved | Evano Trans made with
-                    <i class="icon-heart color-danger" aria-hidden="true"></i>
+                    </script> All rights reserved | Evano Trans made with ❤️
+                    <!-- <i class="icon-heart"></i> -->
+                    <!-- <i class="icon-heart color-red" aria-hidden="true"></i> -->
                     <!-- by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
@@ -79,12 +83,12 @@
 
 
 
-<!-- loader -->
+<!-- loader
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-            stroke="#F96D00" />
-    </svg></div>
+    <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+    <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+    stroke="#F96D00" />
+</svg></div> -->
 
 
 <script src="<?php echo base_url(); ?>aset/js/jquery.min.js"></script>

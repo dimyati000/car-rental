@@ -1,6 +1,7 @@
 
     
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url('assets/img/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('aset/images/car-6.jpg');" data-stellar-background-ratio="0.5">
+      <!-- <div class="hero-wrap ftco-degree-bg" style="background-image: url('assets/img/bg_1.jpg');" data-stellar-background-ratio="0.5"> -->
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">

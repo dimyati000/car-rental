@@ -40,7 +40,7 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item active"><a href="" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="#fleet" class="nav-link">The Best Fleet</a></li>
 	          <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
 	          <li class="nav-item"><a href="#service" class="nav-link">Service Us</a></li>
