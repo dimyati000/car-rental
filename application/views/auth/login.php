@@ -38,8 +38,8 @@ position: relative;
                     <br>
                         <div class="card card-red">
                             <div class="card-header">
-                                <h3>Login ETS</h3>&nbsp;&nbsp;&nbsp;
-                                <p>EVANO TRANS SYSTEM</p>
+                                <h3>Login ETS</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <p><small>[ EVANO TRANS SYSTEM ]</small></p>
                             </div>
                             <div class="card-body">
                                 <?php echo $this->session->flashdata('pesan') ?>
@@ -80,7 +80,13 @@ position: relative;
             </div>
         </section>
     </div>
-
+    <footer class="main-footer">
+  <div class="footer-left">
+    Copyright &copy; <script>
+	document.write(new Date().getFullYear());
+	</script> All rights reserved | Evano Trans.
+  </div>
+</footer>
 </body>
 
 </html>

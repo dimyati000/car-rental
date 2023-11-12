@@ -5,6 +5,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 use Ramsey\Uuid\Uuid;
 class Jaminan extends CI_Controller
 {   
+    private $nama_menu  = "Jaminan";     
+    private $nama_sistem  = "Evano Trans System";     
+  
     public function __construct()
     {
        parent::__construct();
@@ -22,9 +25,11 @@ class Jaminan extends CI_Controller
 	// Tampilkan jaminan
     public function index()
     {   
+        $data['title'] = $this->nama_menu." | ".$this->nama_sistem; 
         $data['jaminan'] = $this->ModelJaminan->showData()->result();
         $this->load->view("layout/templateAdmin");
         $this->load->view("admin/jaminan", $data);
+        $this->load->view("layout/footerTemplateAdmin");
     }
 	// Tambah jaminan
     public function tambahData()
@@ -45,6 +50,7 @@ class Jaminan extends CI_Controller
         $data['jaminan'] = $this->ModelJaminan->editJaminan($where, 'tb_jaminan')->row_array();
         $this->load->view('layout/templateAdmin');
         $this->load->view('admin/editJaminan', $data);
+        $this->load->view("layout/footerTemplateAdmin");
     }
     public function getById($idJaminan)
     {

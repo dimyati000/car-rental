@@ -9135,11 +9135,11 @@ textarea.form-control {
   font-size: 24px; }
 
 .ftco-section {
-  padding: 6em 0;
+  padding: 5em 0;
   position: relative; }
   @media (max-width: 767.98px) {
     .ftco-section {
-      padding: 6em 0; } }
+      padding: 5em 0; } }
 
 .ftco-no-pt {
   padding-top: 0; }
@@ -9148,12 +9148,14 @@ textarea.form-control {
   padding-bottom: 0; }
 
 .ftco-bg-grey {
-  /* background: #87CEEB; } Biru Langit */
-  /* background: #45b3e0; } */
   /* background: #2484C2; } Biru Muda */
-  /* background: #006994; } Biru Peacock */
-  background: #1F3A4D; } Biru Laut Tua
+  /* background: #0000CC; } Biru Biasa */
+  /* background: #45b3e0; } Biru Puyeh*/
+  /* background: #87CEEB; } Biru Langit */
   /* background: #51859C; } Biru ke Abu */
+  /* background: #006994; } Biru Peacock */
+  /* background: #1E63B5; } Biru Sedikit Gelap Dari Primary */
+  background: #1F3A4D; } Biru Laut Tua
 
 .ftco-bg-black{
   background: #000000; }

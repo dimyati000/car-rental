@@ -15,7 +15,7 @@
 							<h5 class="text-center">Form Sewa Penumpang</h5>
 						</div>
 						<div class="card-body">
- 							<a href="<?php echo('FormSewa/sewaPenumpang')?>"><img class="img-fluid" alt="gambar mobil" style="width: 100%;" src="<?php echo base_url() ?>assets/img/icon-formpenumpang.png"></a>
+ 							<a href="<?php echo('FormSewa/sewaPenumpang')?>"><img class="img-fluid" alt="gambar mobil" style="width: 100%;" src="<?php echo base_url() ?>assets/img/icon-sewapenumpang.png"></a>
 						</div>
 						</div>
 					</div>
@@ -25,7 +25,7 @@
 							<h5>Form Sewa Barang</h5>
 						</div>
 						<div class="card-body">
-						<a href="<?php echo('FormSewa/sewaBarang')?>"><img class="img-fluid" alt="gambar mobil" style="width: 100%;" src="<?php echo base_url() ?>assets/img/icon-formbarang.png"></a>
+						<a href="<?php echo('FormSewa/sewaBarang')?>"><img class="img-fluid" alt="gambar mobil" style="width: 100%;" src="<?php echo base_url() ?>assets/img/icon-sewabarang.png"></a>
 						</div>
 						</div>
 					</div>

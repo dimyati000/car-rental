@@ -1,5 +1,7 @@
 <?php $this->load->view('layout/headTemplateAdmin.php'); ?>
 
+<?php $this->load->view('layout/jsTemplateAdmin.php'); ?>
+
 <body>
   <div id="app">
     <div class="main-wrapper main-wrapper-1">
@@ -19,8 +21,8 @@
                   <div class="d-sm-none d-lg-inline-block">Hi, <?php echo $this->session->userdata('namaUser') ?></div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                 <!-- <div class="dropdown-title">Logged in 5 min ago</div>
-				    <a href="<?= site_url('Profile') ?>" class="dropdown-item has-icon">
+                <!-- <div class="dropdown-title">Logged in 5 min ago</div>
+            <a href="<?= site_url('Profile') ?>" class="dropdown-item has-icon">
                         <i class="far fa-user"></i> Profile
                     </a>
                   <div class="dropdown-divider"></div>  -->
@@ -69,9 +71,3 @@
           </ul>
         </aside>
       </div>
-    </div>
-  </div>
-</body>
-
-
-<?php $this->load->view('layout/jsTemplateAdmin.php'); ?>

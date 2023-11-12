@@ -300,11 +300,11 @@ $('#lamaSewa').on("input", function() {
     $('#totalTarif').val(formatRupiah(tarifTotal));
 });
 
-$('#totalBayar').mask('#.##0', {reverse: true});
-$('#denda').mask('#.##0', {reverse: true});
-$('#overtime').mask('#.##0', {reverse: true});
-$('#jasaAntar').mask('#.##0', {reverse: true});
-$('#jasaSopir').mask('#.##0', {reverse: true});
+// $('#totalBayar').mask('#.##0', {reverse: true});
+// $('#denda').mask('#.##0', {reverse: true});
+// $('#overtime').mask('#.##0', {reverse: true});
+// $('#jasaAntar').mask('#.##0', {reverse: true});
+// $('#jasaSopir').mask('#.##0', {reverse: true});
 $('#dp').on("input", function() {
 	var dInput = parseFloat(replaceRupiah(this.value));
     var totalTarifRupiahValue = $('#totalTarif').val().replace(/\./g, ''); // Menghapus semua titik dari javascript

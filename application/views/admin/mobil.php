@@ -1,96 +1,94 @@
-<title>Master Data Mobil</title>
+<title><?= $title ?></title>
 
-<div class="main-wrapper main-wrapper-1">
-	<!-- Main Content -->
-	<div class="main-content">
-		<section class="section">
-			<div class="section-header">
-				<h1>Master Data Mobil</h1>
-			</div>
-			<div class="section-body">
-				<div class="row">
-					<div class="col-12">
-						<div class="card">
-							<div class="card-header">
-								<h5>Data Mobil</h5>
+<!-- Main Content -->
+<div class="main-content">
+	<section class="section">
+		<div class="section-header">
+			<h1>Master Data Mobil</h1>
+		</div>
+		<div class="section-body">
+			<div class="row">
+				<div class="col-12">
+					<div class="card">
+						<div class="card-header">
+							<h5>Data Mobil</h5>
+						</div>
+						<div class="section-body">
+							<div class="container-fluid">
+								<button class="btn btn-success btn-sm ml-2 mt-3" data-toggle="modal" data-target="#tambahMobil"><i class="fas fa-plus fa-sm"> Tambah Data</i></button>
 							</div>
-							<div class="section-body">
-								<div class="container-fluid">
-									<button class="btn btn-success btn-sm ml-2 mt-3" data-toggle="modal" data-target="#tambahMobil"><i class="fas fa-plus fa-sm"> Tambah Data</i></button>
-								</div>
-							</div>
-							<div class="card-body">
-								<div class="table-responsive">
-									<!-- Tabel Data Mobil -->
-									<table class="table table-bordered">
-										<tr class="text-center">
-											<th width="2%">No</th>
-											<th width="2%">Jenis Mobil</th>
-											<th width="2%">Merk</th>
-											<th width="5%">Nopol</th>
-											<th width="2%">Tahun</th>
-											<th width="2%">Harga 12 Jam</th>
-											<th width="2%">Harga 24 Jam</th>
-											<th width="2%">Bahan Bakar</th>
-											<th width="2%">Warna</th>
-											<th width="2%">Denda</th>
-											<th width="2%">Seat</th>
-											<th width="2%">Status Tersedia</th>
-											<th width="10%" class="text-center">Gambar Mobil</th>
-											<th width="2%" class="text-center" colspan="9">Aksi</th>
-										</tr>
-										<?php
-										$no = 1;
-										foreach ($mobil as $m) : ?>
-											<tr>
-												<td class="text-center"><?php echo $no++ ?></td>
-												<td><?php echo $m->jenisMobil ?></td>
-												<td><?php echo $m->merkMobil ?></td>
-												<td class="text-center"><?php echo $m->nopol ?></td>
-												<td><?php echo $m->tahun ?></td>
-												<td><?php echo $m->harga12 ?></td>
-												<td><?php echo $m->harga24 ?></td>
-												<td><?php echo $m->bahanBakar ?></td>
-												<td><?php echo $m->warna ?></td>
-												<td><?php echo $m->denda ?></td>
-												<td class="text-center"><?php echo $m->seat ?></td>
-												<td class="text-center">
-													<?php if ($m->statusTersedia == "1") {?>
-														tersedia
-													<?php } else { ?>
-														tidak tersedia
-													<?php } ?>
-												</td>
-												<td class="text-center">
-													<!-- <div class="mb-2 text-muted">Klik Gambar Untuk Perbesar!</div> -->
-														<div class="chocolat-parent">
-															<div>
-																<?php  
-																if ($m->gambarMobil) { ?>
-																	<a href="<?php echo base_url() . 'assets/uploads/mobil/' . $m->gambarMobil ?>" class="chocolat-image" title="Gambar Mobil">
-																	<img class="img-fluid" alt="gambar mobil" style="width: 15rem;" src="<?php echo base_url() . 'assets/uploads/mobil/' . $m->gambarMobil ?>"></td>
-																	</a>
-																<?php } ?>
-															</div>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<!-- Tabel Data Mobil -->
+								<table class="table table-bordered">
+									<tr class="text-center">
+										<th width="2%">No</th>
+										<th width="2%">Jenis Mobil</th>
+										<th width="2%">Merk</th>
+										<th width="5%">Nopol</th>
+										<th width="2%">Tahun</th>
+										<th width="2%">Harga 12 Jam</th>
+										<th width="2%">Harga 24 Jam</th>
+										<th width="2%">Bahan Bakar</th>
+										<th width="2%">Warna</th>
+										<th width="2%">Denda</th>
+										<th width="2%">Seat</th>
+										<th width="2%">Status Tersedia</th>
+										<th width="10%" class="text-center">Gambar Mobil</th>
+										<th width="2%" class="text-center" colspan="9">Aksi</th>
+									</tr>
+									<?php
+									$no = 1;
+									foreach ($mobil as $m) : ?>
+										<tr>
+											<td class="text-center"><?php echo $no++ ?></td>
+											<td><?php echo $m->jenisMobil ?></td>
+											<td><?php echo $m->merkMobil ?></td>
+											<td class="text-center"><?php echo $m->nopol ?></td>
+											<td><?php echo $m->tahun ?></td>
+											<td><?php echo $m->harga12 ?></td>
+											<td><?php echo $m->harga24 ?></td>
+											<td><?php echo $m->bahanBakar ?></td>
+											<td><?php echo $m->warna ?></td>
+											<td><?php echo $m->denda ?></td>
+											<td class="text-center"><?php echo $m->seat ?></td>
+											<td class="text-center">
+												<?php if ($m->statusTersedia == "1") {?>
+													tersedia
+												<?php } else { ?>
+													tidak tersedia
+												<?php } ?>
+											</td>
+											<td class="text-center">
+												<!-- <div class="mb-2 text-muted">Klik Gambar Untuk Perbesar!</div> -->
+													<div class="chocolat-parent">
+														<div>
+															<?php  
+															if ($m->gambarMobil) { ?>
+																<a href="<?php echo base_url() . 'assets/uploads/mobil/' . $m->gambarMobil ?>" class="chocolat-image" title="Gambar Mobil">
+																<img class="img-fluid" alt="gambar mobil" style="width: 15rem;" src="<?php echo base_url() . 'assets/uploads/mobil/' . $m->gambarMobil ?>"></td>
+																</a>
+															<?php } ?>
 														</div>
 													</div>
-												<td class="text-center">
-													<?php echo anchor('Mobil/editMobil/' . $m->idMobil, ' <div class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" data-original-title="Edit Data"><i class="fa fa-edit"></i></div>') ?>
-												</td>
-												<td  class="text-center">
-													<?php echo anchor('Mobil/delete/' . $m->idMobil, '<div class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" data-original-title="Hapus Data"><i class="fa fa-trash"></i></div>') ?>
-												</td>
-											</tr>
-										<?php endforeach; ?>
-									</table>
-								</div>
+												</div>
+											<td class="text-center">
+												<?php echo anchor('Mobil/editMobil/' . $m->idMobil, ' <div class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" data-original-title="Edit Data"><i class="fa fa-edit"></i></div>') ?>
+											</td>
+											<td  class="text-center">
+												<?php echo anchor('Mobil/delete/' . $m->idMobil, '<div class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" data-original-title="Hapus Data"><i class="fa fa-trash"></i></div>') ?>
+											</td>
+										</tr>
+									<?php endforeach; ?>
+								</table>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-	</div>
+		</div>
+	</section>
 </div>
 
 <style>

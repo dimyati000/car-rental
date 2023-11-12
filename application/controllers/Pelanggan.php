@@ -3,7 +3,10 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Pelanggan extends CI_Controller
-{
+{ 
+	private $nama_menu  = "Pelanggan";     
+  private $nama_sistem  = "Evano Trans System";     
+  
     public function __construct()
     {
        parent::__construct();
@@ -21,9 +24,11 @@ class Pelanggan extends CI_Controller
 		// Tampilkan data pelanggan  
     public function index()
     {
-        $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
-        $this->load->view("layout/templateAdmin");
-        $this->load->view("admin/pelanggan", $data);
+      $data['title'] = $this->nama_menu." | ".$this->nama_sistem; 
+      $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
+      $this->load->view("layout/templateAdmin");
+      $this->load->view("admin/pelanggan", $data);
+      $this->load->view("layout/footerTemplateAdmin");
     }
     
     // Tambah Data pelanggan
@@ -66,6 +71,7 @@ class Pelanggan extends CI_Controller
       $data['pelanggan'] = $this->ModelPelanggan->editPelanggan($where, 'tb_pelanggan')->result();
       $this->load->view("layout/templateAdmin");
       $this->load->view("admin/editPelanggan", $data); 
+      $this->load->view("layout/footerTemplateAdmin");
     }
 		// update pelanggan  
     public function update()

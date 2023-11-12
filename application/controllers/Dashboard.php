@@ -37,5 +37,6 @@ class Dashboard extends CI_Controller
 		$data['totalSewaB'] = $this->ModelDashboard->getSewaBarang($created_by);
 		$this->load->view("layout/templateAdmin");
 		$this->load->view("admin/index", $data);
+		$this->load->view("layout/footerTemplateAdmin");
 	}
 }

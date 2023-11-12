@@ -76,36 +76,5 @@
 				</a>
 			</div>
 		</div>
-
-		<!-- Dashboard Bawah -->
-		<!-- <div class="card">
-			<div class="card-body">
-				<h5>Penjualan Sparepart</h5>
-				<h6>Bulan Ini</h6>
-				<div class="progress mb-3">
-					<div class="progress-bar" role="progressbar" data-width="<?php echo $totalS?>%" aria-valuenow="<?php echo $totalS?>" aria-valuemin="0" aria-valuemax="100"><?php echo $totalS;?> Terjual</div>
-				</div>
-				<h6>Tahun Ini</h6>
-				<div class="progress mb-3">
-					<div class="progress-bar" role="progressbar" data-width="<?php echo $totalS?>%" aria-valuenow="<?php echo $totalS?>" aria-valuemin="0" aria-valuemax="100"><?php echo $totalS?> Terjual</div>
-				</div>
-				
-				<h5>Jasa Servis</h5>
-				<h6>Bulan Ini</h6>
-				<div class="progress mb-3">
-					<div class="progress-bar" role="progressbar" data-width="<?php echo $totalL ?>%" aria-valuenow="<?php echo $totalL ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $totalL ?> Servis</div>
-				</div>
-				<h6>Tahun Ini</h6>
-				<div class="progress mb-3">
-					<div class="progress-bar" role="progressbar" data-width="<?php echo $totalL?>%" aria-valuenow="<?php echo $totalL?>" aria-valuemin="0" aria-valuemax="100"><?php echo $totalL?> Servis</div>
-				</div>
-			</div>
-		</div> -->
+	</section>
 </div>
-<footer class="main-footer">
-  <div class="footer-left">
-    Copyright &copy; <script>
-                    document.write(new Date().getFullYear());
-                    </script> All rights reserved | Evano Trans System.
-  </div>
-</footer>

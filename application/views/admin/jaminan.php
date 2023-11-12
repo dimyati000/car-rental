@@ -1,4 +1,4 @@
-<title>Master Data Jaminan</title>
+<title><?= $title ?></title>
 
 <div class="main-wrapper main-wrapper-1">
 	<!-- Main Content -->
@@ -90,12 +90,12 @@
 </div>
 
 <!-- Tambah Data Jaminan -->
-<div class="modal fade" id="editJaminan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="editJaminan" tabindex="-1" role="dialog" aria-labelledby="editJaminan"
 	aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Form Edit Data</h5>
+				<h5 class="modal-title" id="editJaminan">Form Edit Data</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -128,9 +128,9 @@ $(document).on('click', '.btn-edit', function(event) {
     data:{},
     beforeSend: function () {},
     success: function (result) {  
+		$('#editJaminan').modal('show');
 		$('#idJaminan').val(result.data.idJaminan)  
 		$('#editNamaJaminan').val(result.data.namaJaminan)  
-      $('#editJaminan').modal('show');
     }
   });
 });
