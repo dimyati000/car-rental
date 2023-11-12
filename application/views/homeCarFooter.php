@@ -5,7 +5,7 @@
                 <div class="ftco-footer-widget mb-4">
                     <!-- <h2 class="ftco-heading-2"><a href="#" class="logo">Evano<span>Trans</span></a></h2> -->
                     <div class="mb-2">
-                        <img id="mentul-mentul" src="<?php echo base_url('/assets/img/logo-evano.png') ?>"  style="border-radius:5px" alt="logo" width="50%">
+                        <img id="mentul-mentul" src="<?php echo base_url('/assets/img/logo-evanotrans.png') ?>"  style="border-radius:5px" alt="logo" width="50%">
                     </div>
                     <p>Bisa sewa mobil dengan cepat, mudah, nyaman & aman, Evano Trans Saja !!!</p>
                     <p>Mau sewa mobil berkualitas tanpa perlu was-was, pilih Evano Trans !!!</p>

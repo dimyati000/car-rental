@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>aset/css/style.css">
     
 	<!-- Favicon  -->
-  <link rel="icon" href="<?php echo base_url('/assets/img/logo-evano.png') ?>">
+  <link rel="icon" href="<?php echo base_url('/assets/img/logo-favicon.png') ?>">
   </head>
   <body>
     

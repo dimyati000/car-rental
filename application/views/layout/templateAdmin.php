@@ -40,6 +40,9 @@
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
+            <div class="mt-3">
+                <img id="mentul-mentul" src="<?php echo base_url('/assets/img/logo-evanotrans.png') ?>"  style="border-radius:5px" alt="logo" width="80%">
+            </div>
             <a href="<?php echo base_url('/') ?>">EVANO TRANS SYSTEM</a>
           </div>
           <!-- <div class="sidebar-brand sidebar-brand-sm">
