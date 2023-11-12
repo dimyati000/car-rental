@@ -9,7 +9,8 @@
                     <h1>Jaminan</h1>
                     <div class="section-header-breadcrumb">
                         <div class="breadcrumb-item active"><a href="<?= site_url('Dashboard') ?>">Dashboard</a></div>
-                        <div class="breadcrumb-item">Jaminan</div>
+                        <div class="breadcrumb-item active"><a href="<?= site_url('Jaminan') ?>">Data Jaminan</a></div>
+                        <div class="breadcrumb-item">Edit Data Jaminan</div>
                     </div>
                 </div>
 

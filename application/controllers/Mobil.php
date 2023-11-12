@@ -114,21 +114,21 @@ class Mobil extends CI_Controller
           }else{
               $gambarMobil = $this->upload->data('file_name');
           }
-        $data = array(
-            'jenisMobil' => $jenisMobil,
-            'merkMobil' => $merkMobil,
-            'nopol' => $nopol,
-            'tahun' => $tahun,
-            'harga12' => $harga12,
-            'harga24' => $harga24,
-            'bahanBakar' => $bahanBakar,
-            'warna' => $warna,
-            'denda' => $denda,
-            'seat' => $seat,
-            'statusTersedia' => $statusTersedia,
-            'gambarMobil' => $gambarMobil
-        );
-      }else{
+          $data = array(
+              'jenisMobil' => $jenisMobil,
+              'merkMobil' => $merkMobil,
+              'nopol' => $nopol,
+              'tahun' => $tahun,
+              'harga12' => $harga12,
+              'harga24' => $harga24,
+              'bahanBakar' => $bahanBakar,
+              'warna' => $warna,
+              'denda' => $denda,
+              'seat' => $seat,
+              'statusTersedia' => $statusTersedia,
+              'gambarMobil' => $gambarMobil
+          );
+        }else{
         $data = array(
           'jenisMobil' => $jenisMobil,
           'merkMobil' => $merkMobil,

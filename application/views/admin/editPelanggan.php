@@ -9,7 +9,8 @@
                     <h1>Pelanggan</h1>
                     <div class="section-header-breadcrumb">
                         <div class="breadcrumb-item active"><a href="<?= site_url('Dashboard') ?>">Dashboard</a></div>
-                        <div class="breadcrumb-item">Pelanggan</div>
+                        <div class="breadcrumb-item active"><a href="<?= site_url('Pelanggan') ?>">Data Pelanggan</a></div>
+                        <div class="breadcrumb-item">Edit Data Pelanggan</div>
                     </div>
                 </div>
 

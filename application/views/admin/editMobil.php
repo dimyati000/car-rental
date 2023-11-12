@@ -9,7 +9,8 @@
                     <h1>Data Mobil</h1>
                     <div class="section-header-breadcrumb">
                         <div class="breadcrumb-item active"><a href="<?= site_url('Dashboard') ?>">Dashboard</a></div>
-                        <div class="breadcrumb-item">Data Mobil</div>
+                        <div class="breadcrumb-item active"><a href="<?= site_url('Mobil') ?>">Data Mobil</a></div>
+                        <div class="breadcrumb-item">Edit Data Mobil</div>
                     </div>
                 </div>
 

@@ -8,6 +8,7 @@
 
 <!-- General JS Scripts -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/page/bootstrap-modal.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -68,7 +69,6 @@
   <script src="<?php echo base_url(); ?>assets/modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
   
   <!-- Page Specific JS File -->
-  <script src="<?php echo base_url(); ?>assets/js/page/bootstrap-modal.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/components-table.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/components-user.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/modules-calendar.js"></script>
