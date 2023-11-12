@@ -26,7 +26,6 @@ class Dashboard extends CI_Controller
 	public function index()
 	{
 		$data['title'] = $this->nama_menu." | ".$this->nama_sistem;
-		$data['totalL'] = $this->ModelDashboard->getService();
 		$data['totalP'] = $this->ModelDashboard->getPelanggan();
 		$data['totalM'] = $this->ModelDashboard->getMobil();
 		if($this->session->userdata('roleId') == 1){
@@ -36,15 +35,6 @@ class Dashboard extends CI_Controller
         }
 		$data['totalSewaP'] = $this->ModelDashboard->getSewaPenumpang($created_by);
 		$data['totalSewaB'] = $this->ModelDashboard->getSewaBarang($created_by);
-		$data['totalS'] = $this->ModelDashboard->getSpareJual();
-		$inv = $this->ModelDashboard->getsum();
-		$kml = $this->ModelDashboard->getKasir() . "000";
-		$bry = $this->ModelDashboard->getBayar();
-		$smt = $bry - $kml;
-		$total = $inv + $smt;
-		$data['totalK'] = $total;
-		$data['totalB'] = $this->ModelDashboard->getKasir();
-		$data['totalSt'] = $this->ModelDashboard->getStok();
 		$this->load->view("layout/templateAdmin");
 		$this->load->view("admin/index", $data);
 	}
