@@ -1,6 +1,6 @@
 
     
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url('aset/images/car-6.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url('aset/images/bg-evano-10.jpg');" data-stellar-background-ratio="0.5">
       <!-- <div class="hero-wrap ftco-degree-bg" style="background-image: url('assets/img/bg_1.jpg');" data-stellar-background-ratio="0.5"> -->
       <div class="overlay"></div>
       <div class="container">
@@ -178,7 +178,7 @@
 			<div class="container">
 				<div class="row justify-content-end">
 					<div class="col-md-6 heading-section heading-section-white ftco-animate">
-            <h2 class="mb-3">Booking Jadwal Perjalanan Anda Sekarang!</h2>
+            <h2>Booking Jadwal Perjalanan Anda Sekarang!</h2>
 			      <p>Hubungi kami sekarang jugauntuk keep unit dan mendapatkan prioritas menikmati fasilitas menarik yang kami tawarkan.</p>
             <a href="https://api.whatsapp.com/send?phone=6285730148874&text=Halo%20admin%20Evano%20Trans,%20saya%20mau%20tanya%20....." class="btn btn-primary btn-lg">Pesan Sekarang</a>
           </div>
