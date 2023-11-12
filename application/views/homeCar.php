@@ -106,7 +106,8 @@
     <section class="ftco-section ftco-about"  id="about">
 			<div class="container">
 				<div class="row no-gutters">
-					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(aset/images/about.jpg);">
+					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(<?= ('aset/images/about.jpg') ?>);">
+           <!-- <img class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" src="<?php echo base_url('/aset/images/about.jpg') ?>" alt=""> -->
 					</div>
 					<div class="col-md-6 wrap-about ftco-animate">
 	          <div class="heading-section heading-section-white pl-md-5">
