@@ -21,7 +21,7 @@
     <!-- <title>Evolo - StartUp HTML Landing Page Template</title> -->
     
     <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,600,700,700i&amp;subset=latin-ext" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/evolo/css/webfonts/pxiByp8kv8JHgFVrLDD4Z1xlFQ.woff2" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/evolo/css/bootstrap.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/evolo/css/fontawesome-all.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/evolo/css/swiper.css" rel="stylesheet">

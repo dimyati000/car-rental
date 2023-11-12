@@ -133,8 +133,5 @@ $(document).on('click', '.btn-edit', function(event) {
       $('#editJaminan').modal('show');
     }
   });
-    //   $('#modalTitleEdit').show();
-    //   $('#editJaminan').modal('show');
-
 });
 </script>

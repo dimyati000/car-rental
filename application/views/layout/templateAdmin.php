@@ -40,14 +40,13 @@
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <div class="mt-3">
+            <div class="m-2">
+              <a href="<?php echo('Home')?>">
                 <img id="mentul-mentul" src="<?php echo base_url('/assets/img/logo-evanotrans.png') ?>"  style="border-radius:5px" alt="logo" width="80%">
+              </a>
             </div>
-            <a href="<?php echo base_url('/') ?>">EVANO TRANS SYSTEM</a>
+            <p>EVANO TRANS SYSTEM</p>
           </div>
-          <!-- <div class="sidebar-brand sidebar-brand-sm">
-            <a href="<?php echo base_url('/') ?>">BAM</a>
-          </div> -->
           <ul class="sidebar-menu">
             <li class="menu-header">MENU</li>
             <li class="active"><a class="nav-link" href="<?php echo base_url('Dashboard') ?>"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
@@ -74,5 +73,5 @@
   </div>
 </body>
 
-<?php $this->load->view('layout/jsTemplateAdmin.php'); ?>
 
+<?php $this->load->view('layout/jsTemplateAdmin.php'); ?>
