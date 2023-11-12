@@ -1,6 +1,4 @@
-<?php $this->load->view('layout/headTemplateAdmin.php'); ?>
-
-<?php $this->load->view('layout/jsTemplateAdmin.php'); ?>
+<?php include('layout/headTemplateAdmin.php'); ?>
 
 <body>
   <div id="app">
@@ -71,3 +69,13 @@
           </ul>
         </aside>
       </div>
+      <?php include($content) ?>
+    </div>
+  </div>
+  <?php include('layout/footerTemplateAdmin.php'); ?>
+
+</body>
+
+<?php include('layout/jsTemplateAdmin.php'); ?>
+
+</html><!-- Begin Page Content -->

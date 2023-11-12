@@ -12,13 +12,14 @@ class Login extends CI_Controller
     {
         parent::__construct();
         $this->load->model('ModelAuth');
+        $this->load->library('parser');
     }
 
     // Jika role 1 berarti admin , jika role 2 berarti user
     public function index()
     {
-        $this->load->view("layout/headTemplateAdmin");
-        $this->load->view("layout/jsTemplateAdmin");
+        $this->load->view("system/layout/headTemplateAdmin");
+        $this->load->view("system/layout/jsTemplateAdmin");
         $data['title'] = $this->nama_menu." | ".$this->nama_sistem;
         $this->form_validation->set_rules('username', 'Username', 'required', [
             'required' => 'Username Wajib Di isi'

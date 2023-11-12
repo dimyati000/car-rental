@@ -12,6 +12,7 @@ class Dashboard extends CI_Controller
 		parent::__construct();
 		$this->load->model('ModelAuth');
 		$this->load->model('ModelDashboard');
+		$this->load->library('parser');
 		if ($this->session->userdata('roleId') != 1 && $this->session->userdata('roleId') != 2) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
            <strong>Anda Harus Login Terlebih Dahulu !</strong>
@@ -35,8 +36,7 @@ class Dashboard extends CI_Controller
         }
 		$data['totalSewaP'] = $this->ModelDashboard->getSewaPenumpang($created_by);
 		$data['totalSewaB'] = $this->ModelDashboard->getSewaBarang($created_by);
-		$this->load->view("layout/templateAdmin");
-		$this->load->view("admin/index", $data);
-		$this->load->view("layout/footerTemplateAdmin");
+		$data['content'] = "dashboard/index.php";
+		$this->parser->parse('system/templateAdmin', $data);
 	}
 }
