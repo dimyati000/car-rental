@@ -11,8 +11,8 @@ class Register extends CI_Controller
     // Validasi Form Register dan menampilkan view register
     public function index()
     {
-        $this->load->view("layout/headTemplateAdmin");
-        $this->load->view("layout/jsTemplateAdmin");
+        $this->load->view("system/layout/headTemplateAdmin");
+        $this->load->view("system/layout/jsTemplateAdmin");
         $data['title'] = $this->nama_menu." | ".$this->nama_sistem;
         $this->form_validation->set_rules('namaUser', 'Nama', 'required', [
             'required' => 'Nama Wajib Di isi'

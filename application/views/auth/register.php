@@ -65,7 +65,7 @@
                                             Daftar
                                         </button>
                                     </div>
-                                    <div class="mt-5 text-muted text-center">
+                                    <div class="mt-3 text-muted text-center">
                                             Sudah Punya Akun? <a href="<?php echo base_url('Login')?>">Login Disini</a>
                                         </div>
                                 </form>
