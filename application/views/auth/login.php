@@ -32,7 +32,7 @@ position: relative;
                         <div>
                             <img id="mentul-mentul" src="<?php echo base_url('/assets/img/logo-evanotrans.png') ?>"  style="border-radius:5px" alt="logo" width="100%">
                         </div>
-                    <br>
+                        <br>
                         <div class="card card-red">
                             <div class="card-header">
                                 <h3>Login ETS</h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

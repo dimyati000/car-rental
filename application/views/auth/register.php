@@ -71,6 +71,9 @@
                                 </form>
                             </div>
                         </div>
+                        <div style="text-align: center;">
+                            Copyright &copy;2023 All rights reserved | Evano Trans.
+                        </div>
                     </div>
                 </div>
             </div>
