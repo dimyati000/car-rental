@@ -16,7 +16,21 @@
 							</div>
 							<div class="section-body">
 								<div class="container-fluid">
-								<?php echo anchor('FormSewa', '<div class="btn btn-success btn-sm ml-2 mt-3"><i class="fas fa-plus fa-sm"></i> Tambah Data</div>') ?>
+								<div class="row">
+									<div class="col-md-6">
+										<?php echo anchor('FormSewa', '<div class="btn btn-success btn-sm ml-2 mt-3"><i class="fas fa-plus fa-sm"></i> Tambah Data</div>') ?>
+									</div>
+									<div class="col-md-2">
+										<form>
+											<div class="input-group">
+											<input type="text" class="form-control" placeholder="Search">
+											<div class="input-group-btn">
+												<button class="btn btn-primary"><i class="fas fa-search"></i></button>
+											</div>
+											</div>
+										</form>
+									</div>
+									</div>
 								</div>
 							</div>
 							<div class="card-body">

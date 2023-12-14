@@ -29,8 +29,8 @@ class DaftarSewa extends CI_Controller
             $created_by = $this->session->userdata('idUser');
         }
         $data['dataSewa'] = $this->ModelFormSewa->getDataPenumpang($idSewa, $created_by)->result();
-        $this->load->view("layout/templateAdmin");
-        $this->load->view("admin/daftarSewaPenumpang", $data);
+        $data['content'] = "daftarSewa/penumpang.php";
+        $this->parser->parse('system/templateAdmin', $data);
     }
 
     public function barang()

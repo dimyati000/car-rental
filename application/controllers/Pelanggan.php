@@ -26,9 +26,8 @@ class Pelanggan extends CI_Controller
     {
       $data['title'] = $this->nama_menu." | ".$this->nama_sistem; 
       $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
-      $this->load->view("layout/templateAdmin");
-      $this->load->view("admin/pelanggan", $data);
-      $this->load->view("layout/footerTemplateAdmin");
+      $data['content'] = "pelanggan.php";
+      $this->parser->parse('system/templateAdmin', $data);
     }
     
     // Tambah Data pelanggan
