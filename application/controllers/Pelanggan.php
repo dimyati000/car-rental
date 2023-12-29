@@ -26,9 +26,30 @@ class Pelanggan extends CI_Controller
     {
       $data['title'] = $this->nama_menu." | ".$this->nama_sistem; 
       $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
-      $data['content'] = "pelanggan.php";
+      $data['content'] = "pelanggan/index.php";
       $this->parser->parse('system/templateAdmin', $data);
     }
+
+      
+    public function fetch_data(){
+      $pg     = ($this->input->get("page") != "") ? $this->input->get("page") : 1;
+      $key	  = ($this->input->get("search") != "") ? strtoupper(quotes_to_entities($this->input->get("search"))) : "";
+      $limit	= $this->input->get("limit");
+      $offset = ($limit*$pg)-$limit;
+      $column = $this->input->get("sortby");
+      $sort   = $this->input->get("sorttype");
+      
+      $page              = array();
+      $page['limit']     = $limit;
+      $page['count_row'] = $this->ModelPelanggan->get_list_count($key)['jml'];
+      $page['current']   = $pg;
+      $page['list']      = gen_paging($page);
+      $data['paging']    = $page;
+      $data['list']      = $this->ModelPelanggan->get_list_data($key, $limit, $offset, $column, $sort);
+
+      $this->load->view('sistem/kategori/list_data',$data);
+  }
+
     
     // Tambah Data pelanggan
     public function tambahData()

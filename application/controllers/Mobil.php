@@ -28,9 +28,8 @@ class Mobil extends CI_Controller
   {
       $data['title'] = $this->nama_menu." | ".$this->nama_sistem;
       $data['mobil'] = $this->ModelMobil->showData()->result();
-      $this->load->view("layout/templateAdmin");
-      $this->load->view("admin/mobil", $data);
-      $this->load->view("layout/footerTemplateAdmin");
+      $data['content'] = "mobil/index.php";
+      $this->parser->parse('system/templateAdmin', $data);
   }
   // Tambah Data Mobil
   public function tambahMobil()
@@ -91,8 +90,8 @@ class Mobil extends CI_Controller
   {
     $where = array('idMobil' => $idMobil);
     $data['mobil'] = $this->ModelMobil->editMobil($where, 'tb_mobil')->result();
-    $this->load->view("layout/templateAdmin");
-    $this->load->view("admin/editMobil", $data); 
+    $data['content'] = "mobil/edit.php";
+    $this->parser->parse('system/templateAdmin', $data);
   }
   
   // update layanan service
