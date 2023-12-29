@@ -1,4 +1,4 @@
-<title>Data Laporan Pelayanan</title>
+<title>Data Laporan</title>
 
 <body>
 	<div class="main-wrapper">
@@ -28,10 +28,10 @@
 								<div class="row">
 										<div class="col-12 col-md-12 col-lg-3">
 											<div class="form-group" col-md-4>
-												<select name="jenis_layanan" id="jenis_layanan" onchange="showPelayanan()"  class="form-control">
-													<option value="">Pilih Jenis Layanan</option>
-													<option <?php if(isset($_GET['jenis_layanan'])){ echo ($_GET['jenis_layanan']=='HomeService') ? ' selected' : ''; } ?> value="HomeService">Home Service</option>
-													<option <?php if(isset($_GET['jenis_layanan'])){ echo ($_GET['jenis_layanan']=='ServiceDibengkel') ? ' selected' : ''; } ?> value="ServiceDibengkel">Service Dibengkel</option>
+												<select name="jenis_sewa" id="jenis_sewa" onchange="showPelayanan()"  class="form-control">
+													<option value="">Pilih Jenis Sewa</option>
+													<option <?php if(isset($_GET['jenis_sewa'])){ echo ($_GET['jenis_sewa']=='SewaPenumpang') ? ' selected' : ''; } ?> value="SewaPenumpang">Sewa Penumpang</option>
+													<option <?php if(isset($_GET['jenis_sewa'])){ echo ($_GET['jenis_sewa']=='SewaBarang') ? ' selected' : ''; } ?> value="SewaBarang">Sewa Barang </option>
 												</select>
 											</div>
 										</div>
@@ -94,16 +94,16 @@
 	function printReport() {
 		var tgl_awal = $('#tgl_awal').val();
 		var tgl_akhir = $('#tgl_akhir').val();
-		var jenis_layanan = $('#jenis_layanan').val();
-		var link = "<?= site_url() ?>" + "/Laporan/cetak_laporan?jenis_layanan=" + jenis_layanan + "&tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
+		var jenis_sewa = $('#jenis_sewa').val();
+		var link = "<?= site_url() ?>" + "/Laporan/cetak_laporan?jenis_sewa=" + jenis_sewa + "&tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
 		window.open(link, '_blank', 'width=1024, height=768')
 	}
 
 	function showPelayanan() {
 			var tgl_awal = $('#tgl_awal').val();
 			var tgl_akhir = $('#tgl_akhir').val();
-			var jenis_layanan = $('#jenis_layanan').val();
-			var link = "<?= site_url() ?>" + "/Laporan/laporan?jenis_layanan=" + jenis_layanan + "&tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
+			var jenis_sewa = $('#jenis_sewa').val();
+			var link = "<?= site_url() ?>" + "/Laporan/laporan ?jenis_sewa=" + jenis_sewa + "&tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
 			location.replace(link);
 	}
 </script>
