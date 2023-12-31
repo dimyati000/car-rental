@@ -33,7 +33,7 @@ class Pelanggan extends CI_Controller
       
     public function fetch_data(){
       $pg     = ($this->input->get("page") != "") ? $this->input->get("page") : 1;
-      $key	  = ($this->input->get("search") != "") ? strtoupper(quotes_to_entities($this->input->get("search"))) : "";
+      $key	  = ($this->input->get("search") != "") ? $this->input->get("search") : "";
       $limit	= $this->input->get("limit");
       $offset = ($limit*$pg)-$limit;
       $column = $this->input->get("sortby");
@@ -47,7 +47,7 @@ class Pelanggan extends CI_Controller
       $data['paging']    = $page;
       $data['list']      = $this->ModelPelanggan->get_list_data($key, $limit, $offset, $column, $sort);
 
-      $this->load->view('sistem/kategori/list_data',$data);
+      $this->load->view('system/pelanggan/list_data',$data);
   }
 
     
