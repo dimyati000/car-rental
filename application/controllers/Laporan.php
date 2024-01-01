@@ -5,22 +5,7 @@ class Laporan extends CI_Controller{
 	{
 			parent::__construct();
 			$this->load->model('ModelLaporan');
-			$this->load->model('ModelTransaksi');
 	}
-
-    public function laporan_pelayanan()
-    {
-        $tanggal_awal = $this->input->get("tanggal_awal");
-        $tanggal_akhir = $this->input->get("tanggal_akhir");
-        $filter = array(
-            'jenis_layanan' => $this->input->get('jenis_layanan'),
-            'tanggal_awal' => ($this->input->get('tanggal_awal')) ? format_date($tanggal_awal, 'Y-m-d') : date("Y-m-d"),
-            'tanggal_akhir' => ($this->input->get('tanggal_akhir')) ? format_date($tanggal_akhir, 'Y-m-d') : date("Y-m-d"),
-        );
-        $data['laporan'] = $this->ModelLaporan->getDataPenumpang($filter)->result();
-        $this->load->view("layout/templateAdmin");
-        $this->load->view("laporan/laporan_pelayanan", $data);
-    }
 
     //cetak laporan pelayanan
     public function cetak_laporan() {
