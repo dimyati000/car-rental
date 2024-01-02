@@ -42,8 +42,8 @@ class DaftarSewa extends CI_Controller
             $created_by = $this->session->userdata('idUser');
         }
         $data['dataSewa'] = $this->ModelFormSewa->getDataBarang($idSewa, $created_by)->result();
-        $this->load->view("layout/templateAdmin");
-        $this->load->view("admin/daftarSewaBarang", $data);
+        $data['content'] = "daftarSewa/barang.php";
+        $this->parser->parse('system/templateAdmin', $data);
     }
 
 	// Cetak Nota Sewa Penumpang

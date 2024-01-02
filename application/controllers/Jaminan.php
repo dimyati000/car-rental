@@ -27,9 +27,8 @@ class Jaminan extends CI_Controller
     {   
         $data['title'] = $this->nama_menu." | ".$this->nama_sistem; 
         $data['jaminan'] = $this->ModelJaminan->showData()->result();
-        $this->load->view("layout/templateAdmin");
-        $this->load->view("admin/jaminan", $data);
-        $this->load->view("layout/footerTemplateAdmin");
+        $data['content'] = "jaminan/index.php";
+        $this->parser->parse('system/templateAdmin', $data);
     }
 	// Tambah jaminan
     public function tambahData()
