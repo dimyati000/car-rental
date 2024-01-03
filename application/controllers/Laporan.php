@@ -7,7 +7,20 @@ class Laporan extends CI_Controller{
 			$this->load->model('ModelLaporan');
 	}
 
-    //cetak laporan pelayanan
+    public function index()
+    {   
+        $idSewa = '';
+        if($this->session->userdata('roleId') == 1){
+            $created_by = '';
+        }else{
+            $created_by = $this->session->userdata('idUser');
+        }
+        $data['dataSewa'] = $this->ModelLaporan->getData($idSewa, $created_by)->result();
+        $data['content'] = "laporan/index.php";
+        $this->parser->parse('system/templateAdmin', $data);
+    }
+    
+    //cetak laporan
     public function cetak_laporan() {
         $tanggal_awal = $this->input->get("tanggal_awal");
         $tanggal_akhir = $this->input->get("tanggal_akhir");
@@ -17,36 +30,15 @@ class Laporan extends CI_Controller{
             'tanggal_akhir' => ($this->input->get('tanggal_akhir')) ? format_date($tanggal_akhir, 'Y-m-d') : date("Y-m-d"),
         );
 
-        $data['laporan'] = $this->ModelLaporan->getDataPenumpang($filter)->result();
+        $data['laporan'] = $this->ModelLaporan->getData($filter)->result();
         $data['tanggal_awal'] = $tanggal_awal;
         $data['tanggal_akhir'] = $tanggal_akhir;
-        $data['title'] = "Laporan Pelayanan"; 
+        $data['title'] = "Laporan"; 
 
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'potrait');
-        $this->pdf->filename = "Laporan Pelayanan.pdf";
-        $this->pdf->load_view('system/cetak_laporan.php', $data);
+        $this->pdf->filename = "Laporan.pdf";
+        $this->pdf->load_view('system/laporan/cetak_laporan.php', $data);
     }
 
-    public function index()
-    {
-        $tanggal_awal = $this->input->get("tanggal_awal");
-        $tanggal_akhir = $this->input->get("tanggal_akhir");
-        $filter = array(
-            'tanggal_awal' => ($this->input->get('tanggal_awal')) ? format_date($tanggal_awal, 'Y-m-d') : date("Y-m-d"),
-            'tanggal_akhir' => ($this->input->get('tanggal_akhir')) ? format_date($tanggal_akhir, 'Y-m-d') : date("Y-m-d"),
-        );
-
-        $data['laporan'] = $this->ModelLaporan->getDataPenumpang($filter)->result();
-        $data['content'] = "laporan/index.php";
-      $this->parser->parse('system/templateAdmin', $data);
-    }
-
-	// Delete data laporan
-    public function delete($idLaporan)
-    {
-        $where = array('idLaporan' => $idLaporan);
-        $this->ModelLaporan->hapusData($where, 'tb_laporan');
-        redirect('../Laporan');
-    }    
 }

@@ -26,6 +26,12 @@ class Pelanggan extends CI_Controller
     {
       $data['title'] = $this->nama_menu." | ".$this->nama_sistem; 
       $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
+      $tipeTarif = '';
+      if($this->session->userdata('roleId') == 1){
+          $created_by = '';
+      }else{
+          $created_by = $this->session->userdata('idUser');
+      }
       $data['content'] = "pelanggan/index.php";
       $this->parser->parse('system/templateAdmin', $data);
     }

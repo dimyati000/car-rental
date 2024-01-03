@@ -1,8 +1,8 @@
 <?php
-  $path_logo = base_url('assets/img/bengkel1.png');
-  $type = pathinfo($path_logo, PATHINFO_EXTENSION);
-  $data = file_get_contents($path_logo);
-  $image_base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+   $path_logo = base_url('assets/img/logo-evanotrans.png');
+   $type = pathinfo($path_logo, PATHINFO_EXTENSION);
+   $data = file_get_contents($path_logo);
+   $logo_evano = 'data:image/' . $type . ';base64,' . base64_encode($data); 
 ?>
 
 
@@ -86,10 +86,13 @@
             </div>
           </td>
           <td width="70%" class="text-center" colspan="2">
-            <span style="font-size:20px">LAPORAN PELAYANAN C-MASH</span> <br>
-            <span style="font-size:12px">Jl.Semeru No.36 Ajung Pancakarya, Kabupaten Jember, Jawa Timur</span> <br>
-            <span style="font-size:12px">Email : rahmahtiyas@gmail.com</a></span>
-            <span style="font-size:12px">Telepon : 082 221 337 795</span>
+            <span style="font-size:22px; font-weight:bold;">EVANO TRANS</span>
+            <br>
+            <span style="font-weight:bold;">Persewaan Mobil Lepas Kunci, Melayani Sewa Harian/Mingguan/Bulanan</span>
+            <br>
+            <span style="font-weight:bold;">Taman Dhika Cluster Bromo B-17 Sidokerto, Buduran – Sidoarjo</a></span>
+            <br>
+            <span style="font-weight:bold;">WA : 0857 9575 1979</span>
           </td>
           <td width="10%"></td>
         </tr>

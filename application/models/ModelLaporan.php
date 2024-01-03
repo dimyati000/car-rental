@@ -1,10 +1,10 @@
 <?php
 class ModelLaporan extends CI_Model{
     //ini adalah modal untuk mengambil data dari tb layanan demi kebutuhan laporan pelayanan
-    function getDataPenumpang($idSewa="", $created_by="", $tipeSewa="SP"){
+    function getData($idSewa="", $created_by=""){
 		$q = "SELECT fs.idSewa, fs.noSewa, fs.tipeSewa, fs.tglBerangkat, fs.jamBerangkat, fs.tglKembali, fs.jamKembali, fs.rute, fs.muatan, fs.tipeTarif,
 		fs.lamaSewa, fs.totalTarif, fs.dp, fs.overtime, fs.kurangBayar, fs.jasaSopir, fs.jasaAntar, fs.totalBayar, fs.klaim, fs.keterangan, fs.created_by, 
-		p.namaPelanggan, p.noTelp, p.alamat, m.jenisMobil, m.nopol
+		p.namaPelanggan, p.noTelp, p.alamat, m.jenisMobil, m.nopol, m.harga12, m.harga24
 		FROM `tb_formsewa` fs
 		LEFT JOIN tb_pelanggan p ON fs.pelangganId = p.idPelanggan
 		LEFT JOIN tb_mobil m ON fs.mobilId = m.idMobil";

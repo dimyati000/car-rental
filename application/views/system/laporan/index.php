@@ -1,92 +1,88 @@
-<title>Data Laporan</title>
+<title>Laporan</title>
 
-<body>
-	<div class="main-wrapper">
-		<!-- Main Content -->
-		<div class="main-content">
-			<section class="section">
-				<div class="section-header">
-					<h1>Laporan</h1>
-					<div class="section-header-breadcrumb">
-						<div class="breadcrumb-item active"><a href="<?= site_url('Dashboard') ?>">Dashboard</a></div>
-						<div class="breadcrumb-item">Laporan</div>
-					</div>
-				</div>
-
-				<!-- <div class="main-content">
-				<div class="container">
-		<div class="row justify-content-center"> -->
-				<div class="card shadow-lg border-0 rounded-lg mt-5">
-					<section class="section">
-						<div class="section-header">
-							<h1>Laporan Pelayanan</h1>
-						</div>
-						<div class="section-body">
-							<div class="container-fluid">
-							<!-- <form action="<?php echo base_url() . 'Laporan/laporan_pelayanan' ?>" method="post" class="needs-validation" novalidate=""> -->
-                 
+<div class="main-wrapper main-wrapper-1">
+	<!-- Main Content -->
+	<div class="main-content">
+		<section class="section">
+			<div class="section-header">
+				<h1>Laporan</h1>
+			</div>
+			<div class="section-body">
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-header">
+								<h5>Laporan Transaksi</h5>
+							</div>
+							<div class="section-body">
+								<div class="container-fluid">
+								<br>
 								<div class="row">
-										<div class="col-12 col-md-12 col-lg-3">
-											<div class="form-group" col-md-4>
+										<div class="col-md-3">
 												<select name="jenis_sewa" id="jenis_sewa" onchange="showPelayanan()"  class="form-control">
 													<option value="">Pilih Jenis Sewa</option>
 													<option <?php if(isset($_GET['jenis_sewa'])){ echo ($_GET['jenis_sewa']=='SewaPenumpang') ? ' selected' : ''; } ?> value="SewaPenumpang">Sewa Penumpang</option>
 													<option <?php if(isset($_GET['jenis_sewa'])){ echo ($_GET['jenis_sewa']=='SewaBarang') ? ' selected' : ''; } ?> value="SewaBarang">Sewa Barang </option>
 												</select>
-											</div>
 										</div>
-										<div class="col-12 col-md-12 col-lg-2">
-											<div class="form-group">
+										<div class="col-md-3">
+											<div>
 												<input placeholder="Tanggal Awal" id="tgl_awal" Tooltip="Tanggal Awal" type="date" name="tgl_awal" onchange="showPelayanan()"  class="form-control" value="<?= (isset($_GET['tanggal_awal'])) ? $_GET['tanggal_awal'] : date('Y-m-d') ?>"
 													required>
 											</div>
 										</div>
-										<div class="col-12 col-md-12 col-lg-2">
-											<div class="form-group">
+										<div class="col-md-3">
+											<div>
 												<input placeholder="Tanggal Akhir" id="tgl_akhir" Tooltip="Tanggal Akhir" type="date" name="tgl_akhir" onchange="showPelayanan()" class="form-control" value="<?= (isset($_GET['tanggal_akhir'])) ? $_GET['tanggal_akhir'] : date('Y-m-d') ?>"
 													required>
 											</div>
 										</div>
-										<div class="col-12 col-md-12 col-lg-5">
-											<!-- <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#tambahBarang"><i class="fas fa-plus fa-sm"> Tambah Data</i></button> -->
+										<div class=" col-md-3">
 											<a href="javascript:;" onclick="printReport()" class="btn btn-success">
 												<i class="fas fa-print"> Print</i></a>
 										</div>
 								</div>
-									<!-- <button class="btn" type="submit">Tes</button>
-							</form> -->
-								<div class="card-body">
-									<div class="table-responsive">
-										<!-- Tabel Laporan -->
-										<table class="table table-bordered">
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<!-- Tabel Data Mobil -->
+									<table class="table table-bordered">
+										<tr class="text-center">
+											<th width="2%">No</th>
+											<th width="15%">No Sewa</th>
+											<th width="15%">Tanggal Sewa</th>
+											<th>Nama Penyewa</th>
+											<th>Jenis Mobil</th>
+											<th>Tipe Tarif</th>
+											<th>Tarif Sewa</th>
+											<th>Lama Sewa</th>
+										</tr>
+										<?php
+											$no = 1;
+											foreach ($dataSewa as $ds) : ?>
 											<tr>
-												<th>No</th>
-												<th>Tanggal Pemesanan</th>
-												<th>Nama Pelanggan</th>
-												<th>Plat Nomor</th>
-												<th>Jenis Kendala</th>
-												<th>Verifikasi</th>
+												<td class="text-center"><?php echo $no++ ?></td>
+												<td><?php echo $ds->noSewa ?></d>
+												<td><?php echo $ds->tglBerangkat ?></d>
+												<td><?php echo $ds->namaPelanggan ?></d>
+												<td><?php echo $ds->jenisMobil ?></td>
+												<td class="text-center"><?php echo $ds->tipeTarif ?></td>
+												<?php  if($ds->tipeTarif == 12){ ?>
+													<td><?php echo $ds->harga12 ?></td>
+												<?php }else{ ?>
+													<td><?php echo $ds->harga24 ?></td>
+												<?php } ?>
+												<td class="text-center"><?php echo $ds->lamaSewa ?></td>
 											</tr>
-											<?php
-										$no = 1;
-										foreach ($laporan as $lpr) : ?>
-											<tr>
-												<td><?php echo $no++ ?></td>
-												<td><?php echo format_date($lpr->tanggalPemesanan, 'd-m-Y') ?></td>
-												<td><?php echo $lpr->namaPelanggan ?></td>
-												<td><?php echo $lpr->platNomor ?></td>
-												<td><?php echo $lpr->jenisKendala ?></td>
-												<td><?php echo $lpr->verifikasi ?></td>
-											</tr>
-											<?php endforeach; ?>
-										</table>
-									</div>
+										<?php endforeach; ?>
+									</table>
 								</div>
 							</div>
 						</div>
-					</section>
+					</div>
 				</div>
-		</div>
+			</div>
+		</section>
 	</div>
 </div>
 
@@ -107,3 +103,5 @@
 			location.replace(link);
 	}
 </script>
+
+</html>
