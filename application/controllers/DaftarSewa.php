@@ -108,6 +108,18 @@ class DaftarSewa extends CI_Controller
         $this->pdf->filename = "Form Sewa Penumpang.pdf";
         $this->pdf->load_view('system/sewaPenumpangLaporan.php', $data);
     }
+
+    public function cetak_laporan_barang()
+	{
+        $idSewa = $this->input->get('idSewa');
+        $tipeSewa = $this->input->get('tipeSewa');
+        $data['dataSewa'] = $this->ModelFormSewa->getDataBarang($idSewa)->row_array();
+        $data['title'] = "Form Sewa Barang"; 
+        $this->load->library('pdf');
+        $this->pdf->setPaper('A4', 'landscape');
+        $this->pdf->filename = "Form Sewa Barang.pdf";
+        $this->pdf->load_view('system/sewaBarangLaporan.php', $data);
+    }
 	
 	// Delete data sewa Penumpang
     public function delete_penumpang($idSewa)
