@@ -20,6 +20,10 @@ class Laporan extends CI_Controller{
     public function index()
     {   
         $idSewa = '';
+        $tanggal_awal = $this->input->get("tanggal_awal");
+        $tanggal_akhir = $this->input->get("tanggal_akhir");
+        $jenis_sewa = $this->input->get("jenis_sewa");
+        
         if($this->session->userdata('roleId') == 1){
             $created_by = '';
         }else{
@@ -35,7 +39,7 @@ class Laporan extends CI_Controller{
         $tanggal_awal = $this->input->get("tanggal_awal");
         $tanggal_akhir = $this->input->get("tanggal_akhir");
         $filter = array(
-            'jenis_layanan' => $this->input->get('jenis_layanan'),
+            'jenis_sewa' => $this->input->get('jenis_sewa'),
             'tanggal_awal' => ($this->input->get('tanggal_awal')) ? format_date($tanggal_awal, 'Y-m-d') : date("Y-m-d"),
             'tanggal_akhir' => ($this->input->get('tanggal_akhir')) ? format_date($tanggal_akhir, 'Y-m-d') : date("Y-m-d"),
         );

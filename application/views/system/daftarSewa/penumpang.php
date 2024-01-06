@@ -17,19 +17,20 @@
 							<div class="section-body">
 								<div class="container-fluid">
 								<div class="row">
-									<div class="col-md-6">
+									<div class="col-md-3">
 										<?php echo anchor('FormSewa', '<div class="btn btn-success btn-sm ml-2 mt-3"><i class="fas fa-plus fa-sm"></i> Tambah Data</div>') ?>
 									</div>
-									<div class="col-md-2">
-										<form>
-											<div class="input-group">
-											<input type="text" class="form-control" placeholder="Search">
-											<div class="input-group-btn">
-												<button class="btn btn-primary"><i class="fas fa-search"></i></button>
-											</div>
-											</div>
-										</form>
+									<div class="col-md-3">
+										<input placeholder="Tanggal Awal" id="tgl_awal" Tooltip="Tanggal Awal" type="date" name="tgl_awal" onchange="showLaporan()"  class="form-control" value="<?= (isset($_GET['tanggal_awal'])) ? $_GET['tanggal_awal'] : date('Y-m-d') ?>"
+												required>
 									</div>
+									<div class="col-md-3">
+										<input placeholder="Tanggal Akhir" id="tgl_akhir" Tooltip="Tanggal Akhir" type="date" name="tgl_akhir" onchange="showLaporan()" class="form-control" value="<?= (isset($_GET['tanggal_akhir'])) ? $_GET['tanggal_akhir'] : date('Y-m-d') ?>"
+												required>
+									</div>
+									<div class=" col-md-3">
+										<a href="javascript:;" onclick="printReport()" class="btn btn-success">
+											<i class="fas fa-print"> Print</i></a>
 									</div>
 								</div>
 							</div>
@@ -77,12 +78,26 @@
 
 <script>
 	function printFormSewa(idSewa) {
-			// var tgl_awal = $('#tgl_awal').val();
-			// var tgl_akhir = $('#tgl_akhir').val();
-			// var link = "<?= site_url() ?>" + "/Laporan/cetak_data_kasir?tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
-			var link = "<?= site_url() ?>" + "/DaftarSewa/cetak_sewa_penumpang?idSewa=" + idSewa;
-			window.open(link, '_blank', 'width=1024, height=768')
-		}
+		// var tgl_awal = $('#tgl_awal').val();
+		// var tgl_akhir = $('#tgl_akhir').val();
+		// var link = "<?= site_url() ?>" + "/Laporan/cetak_data_kasir?tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
+		var link = "<?= site_url() ?>" + "/DaftarSewa/cetak_sewa_penumpang?idSewa=" + idSewa;
+		window.open(link, '_blank', 'width=1024, height=768')
+	}
+
+	function printReport() {
+		var tgl_awal = $('#tgl_awal').val();
+		var tgl_akhir = $('#tgl_akhir').val();
+		var link = "<?= site_url() ?>" + "/DaftarSewa/cetak_laporan_penumpang?tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
+		window.open(link, '_blank', 'width=1024, height=768')
+	}
+
+	function showLaporan() {
+			var tgl_awal = $('#tgl_awal').val();
+			var tgl_akhir = $('#tgl_akhir').val();
+			var link = "<?= site_url() ?>" + "/DaftarSewa/penumpang/?tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
+			location.replace(link);
+	}
 </script>
 
 </html>

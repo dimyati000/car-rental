@@ -19,7 +19,7 @@
 								<br>
 								<div class="row">
 										<div class="col-md-3">
-												<select name="jenis_sewa" id="jenis_sewa" onchange="showPelayanan()"  class="form-control">
+												<select name="jenis_sewa" id="jenis_sewa" onchange="showLaporan()"  class="form-control">
 													<option value="">Pilih Jenis Sewa</option>
 													<option <?php if(isset($_GET['jenis_sewa'])){ echo ($_GET['jenis_sewa']=='SewaPenumpang') ? ' selected' : ''; } ?> value="SewaPenumpang">Sewa Penumpang</option>
 													<option <?php if(isset($_GET['jenis_sewa'])){ echo ($_GET['jenis_sewa']=='SewaBarang') ? ' selected' : ''; } ?> value="SewaBarang">Sewa Barang </option>
@@ -27,13 +27,13 @@
 										</div>
 										<div class="col-md-3">
 											<div>
-												<input placeholder="Tanggal Awal" id="tgl_awal" Tooltip="Tanggal Awal" type="date" name="tgl_awal" onchange="showPelayanan()"  class="form-control" value="<?= (isset($_GET['tanggal_awal'])) ? $_GET['tanggal_awal'] : date('Y-m-d') ?>"
+												<input placeholder="Tanggal Awal" id="tgl_awal" Tooltip="Tanggal Awal" type="date" name="tgl_awal" onchange="showLaporan()"  class="form-control" value="<?= (isset($_GET['tanggal_awal'])) ? $_GET['tanggal_awal'] : date('Y-m-d') ?>"
 													required>
 											</div>
 										</div>
 										<div class="col-md-3">
 											<div>
-												<input placeholder="Tanggal Akhir" id="tgl_akhir" Tooltip="Tanggal Akhir" type="date" name="tgl_akhir" onchange="showPelayanan()" class="form-control" value="<?= (isset($_GET['tanggal_akhir'])) ? $_GET['tanggal_akhir'] : date('Y-m-d') ?>"
+												<input placeholder="Tanggal Akhir" id="tgl_akhir" Tooltip="Tanggal Akhir" type="date" name="tgl_akhir" onchange="showLaporan()" class="form-control" value="<?= (isset($_GET['tanggal_akhir'])) ? $_GET['tanggal_akhir'] : date('Y-m-d') ?>"
 													required>
 											</div>
 										</div>
@@ -95,11 +95,11 @@
 		window.open(link, '_blank', 'width=1024, height=768')
 	}
 
-	function showPelayanan() {
+	function showLaporan() {
 			var tgl_awal = $('#tgl_awal').val();
 			var tgl_akhir = $('#tgl_akhir').val();
 			var jenis_sewa = $('#jenis_sewa').val();
-			var link = "<?= site_url() ?>" + "/Laporan/laporan ?jenis_sewa=" + jenis_sewa + "&tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
+			var link = "<?= site_url() ?>" + "/Laporan?jenis_sewa=" + jenis_sewa + "&tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
 			location.replace(link);
 	}
 </script>

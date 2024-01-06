@@ -54,9 +54,6 @@
             <li><a class="nav-link" href="<?php echo base_url('Pelanggan') ?>"><i class="fas fa-user"></i> <span>Pelanggan</span></a></li>
             <li><a class="nav-link" href="<?php echo base_url('Mobil') ?>"><i class="fas fa-car"></i> <span>Mobil</span></a></li>
             <li><a class="nav-link" href="<?php echo base_url('Jaminan') ?>"><i class="fas fa-thumbtack"></i> <span>Jaminan</span></a></li>
-            <li class="menu-header">Laporan</li>
-            <li><a class="nav-link" href="<?php echo base_url('Laporan') ?>"><i class="fas fa-archive"></i> <span>Laporan Transaksi</span></a></li>
-            <!-- <li><a href="<?php echo base_url() . 'Tentang'?>"><i class="fas fa-cog"></i><span>Setting</span></a></li> -->
             <li class="menu-header">Transaksi</li>
             <li><a class="nav-link" href="<?php echo base_url('FormSewa') ?>"><i class="fas fa-file"></i> <span>Form Sewa</span></a></li>
             <li class="nav-item dropdown">
@@ -66,6 +63,9 @@
                 <a class="nav-link" href="<?php echo base_url('DaftarSewa/barang') ?>"><i class="fas fa-truck"></i> <span>Sewa Barang</span></a>
               </ul>
             </li>
+            <!-- <li class="menu-header">Laporan</li>
+            <li><a class="nav-link" href="<?php echo base_url('Laporan') ?>"><i class="fas fa-archive"></i> <span>Laporan Transaksi</span></a></li> -->
+            <!-- <li><a href="<?php echo base_url() . 'Tentang'?>"><i class="fas fa-cog"></i><span>Setting</span></a></li> -->
           </ul>
         </aside>
       </div>

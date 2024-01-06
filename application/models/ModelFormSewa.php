@@ -1,7 +1,7 @@
 <?php
 class ModelFormSewa extends CI_Model
 {
-	function getDataPenumpang($idSewa="", $created_by="", $tipeSewa="SP"){
+	function getDataPenumpang($idSewa="", $created_by="", $tanggal_awal="", $tanggal_akhir="", $tipeSewa="SP"){
 		$q = "SELECT fs.idSewa, fs.noSewa, fs.tipeSewa, fs.tglBerangkat, fs.jamBerangkat, fs.tglKembali, fs.jamKembali, fs.rute, fs.muatan, fs.tipeTarif,
 		fs.lamaSewa, fs.totalTarif, fs.dp, fs.overtime, fs.kurangBayar, fs.jasaSopir, fs.jasaAntar, fs.totalBayar, fs.klaim, fs.keterangan, fs.created_by, 
 		p.namaPelanggan, p.noTelp, p.alamat, m.jenisMobil, m.nopol,
@@ -21,12 +21,18 @@ class ModelFormSewa extends CI_Model
 		if ($created_by != ""){
 			$q .= " and created_by = '$created_by'";
 		}
+		if ($tanggal_awal != ""){
+			$q .= " and tglBerangkat >= '$tanggal_awal'";
+		}
+		if ($tanggal_akhir != ""){
+			$q .= " and tglBerangkat <= '$tanggal_akhir'";
+		}
 		$q .= " ORDER BY fs.tglBerangkat DESC, fs.noSewa DESC";
 		$query = $this->db->query($q);
 		return $query;
 	}
 
-	function getDataBarang($idSewa="", $created_by="", $tipeSewa="SB"){
+	function getDataBarang($idSewa="", $created_by="", $tanggal_awal="", $tanggal_akhir="", $tipeSewa="SB"){
 		$q = "SELECT fs.idSewa, fs.noSewa, fs.tipeSewa, fs.tglBerangkat, fs.jamBerangkat, fs.tglKembali, fs.jamKembali, fs.rute, fs.muatan, fs.tipeTarif,
 		fs.lamaSewa, fs.totalTarif, fs.dp, fs.overtime, fs.kurangBayar, fs.jasaSopir, fs.jasaAntar, fs.totalBayar, fs.klaim, fs.keterangan, fs.created_by, 
 		p.namaPelanggan, p.noTelp, p.alamat, m.jenisMobil, m.nopol,
@@ -45,6 +51,12 @@ class ModelFormSewa extends CI_Model
 		}
 		if ($created_by != ""){
 			$q .= " and created_by = '$created_by'";
+		}
+		if ($tanggal_awal != ""){
+			$q .= " and tglBerangkat >= '$tanggal_awal'";
+		}
+		if ($tanggal_akhir != ""){
+			$q .= " and tglBerangkat <= '$tanggal_akhir'";
 		}
 		$q .= " ORDER BY fs.tglBerangkat DESC, fs.noSewa DESC";
 		$query = $this->db->query($q);

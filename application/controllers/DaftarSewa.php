@@ -31,7 +31,9 @@ class DaftarSewa extends CI_Controller
         }else{
             $created_by = $this->session->userdata('idUser');
         }
-        $data['dataSewa'] = $this->ModelFormSewa->getDataPenumpang($idSewa, $created_by)->result();
+        $tanggal_awal = $this->input->get("tanggal_awal");
+        $tanggal_akhir = $this->input->get("tanggal_akhir");
+        $data['dataSewa'] = $this->ModelFormSewa->getDataPenumpang($idSewa, $created_by, $tanggal_awal, $tanggal_akhir)->result();
         $data['content'] = "daftarSewa/penumpang.php";
         $this->parser->parse('system/templateAdmin', $data);
     }
@@ -45,7 +47,9 @@ class DaftarSewa extends CI_Controller
         }else{
             $created_by = $this->session->userdata('idUser');
         }
-        $data['dataSewa'] = $this->ModelFormSewa->getDataBarang($idSewa, $created_by)->result();
+        $tanggal_awal = $this->input->get("tanggal_awal");
+        $tanggal_akhir = $this->input->get("tanggal_akhir");
+        $data['dataSewa'] = $this->ModelFormSewa->getDataBarang($idSewa, $created_by, $tanggal_awal, $tanggal_akhir)->result();
         $data['content'] = "daftarSewa/barang.php";
         $this->parser->parse('system/templateAdmin', $data);
     }
@@ -61,7 +65,7 @@ class DaftarSewa extends CI_Controller
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'landscape');
         $this->pdf->filename = "Form Sewa Penumpang.pdf";
-        $this->pdf->load_view('admin/sewaPenumpangCetak.php', $data);
+        $this->pdf->load_view('system/sewaPenumpangCetak.php', $data);
     }
 
 	// Cetak Nota Sewa Barang
@@ -74,7 +78,7 @@ class DaftarSewa extends CI_Controller
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'landscape');
         $this->pdf->filename = "Form Sewa Barang.pdf";
-        $this->pdf->load_view('admin/sewaBarangCetak.php', $data);
+        $this->pdf->load_view('system/sewaBarangCetak.php', $data);
 
         // if ($tipeSewa = $this->input->post('tipeSewa' == "SP")){
         //     $data['dataSewa'] = $this->ModelFormSewa->getDataPenumpang($idSewa)->row_array();
@@ -92,6 +96,18 @@ class DaftarSewa extends CI_Controller
         //     $this->pdf->load_view('admin/sewaBarangCetak.php', $data);
         // }
 	}
+
+    public function cetak_laporan_penumpang()
+	{
+        $idSewa = $this->input->get('idSewa');
+        $tipeSewa = $this->input->get('tipeSewa');
+        $data['dataSewa'] = $this->ModelFormSewa->getDataPenumpang($idSewa)->row_array();
+        $data['title'] = "Form Sewa Penumpang"; 
+        $this->load->library('pdf');
+        $this->pdf->setPaper('A4', 'landscape');
+        $this->pdf->filename = "Form Sewa Penumpang.pdf";
+        $this->pdf->load_view('system/sewaPenumpangLaporan.php', $data);
+    }
 	
 	// Delete data sewa Penumpang
     public function delete_penumpang($idSewa)
