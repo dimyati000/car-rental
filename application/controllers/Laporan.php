@@ -5,6 +5,16 @@ class Laporan extends CI_Controller{
 	{
 			parent::__construct();
 			$this->load->model('ModelLaporan');
+            $this->load->model('ModelFormSewa');
+            if($this->session->userdata('roleId') != 1 && $this->session->userdata('roleId') != 2){
+                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Anda Harus Login Terlebih Dahulu !</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>');
+              redirect('../Login');
+            } 
 	}
 
     public function index()

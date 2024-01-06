@@ -4,6 +4,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class DaftarSewa extends CI_Controller
 {   
+    private $nama_sistem  = "Evano Trans System"; 
+
     public function __construct()
     {
        parent::__construct();
@@ -22,6 +24,7 @@ class DaftarSewa extends CI_Controller
 	// Tampilkan data penumpang
     public function penumpang()
     {   
+        $data['title'] = "Daftar Sewa Penumpang"." | ".$this->nama_sistem; 
         $idSewa = '';
         if($this->session->userdata('roleId') == 1){
             $created_by = '';
@@ -35,6 +38,7 @@ class DaftarSewa extends CI_Controller
 
     public function barang()
     {   
+        $data['title'] = "Daftar Sewa Barang"." | ".$this->nama_sistem; 
         $idSewa = '';
         if($this->session->userdata('roleId') == 1){
             $created_by = '';
