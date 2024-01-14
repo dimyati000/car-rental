@@ -16,6 +16,7 @@
 							</div>
 							<div class="section-body">
 								<div class="container-fluid">
+									<div class="row">
 									<div class="col-md-3">
 										<?php echo anchor('FormSewa', '<div class="btn btn-success btn-sm ml-2 mt-3"><i class="fas fa-plus fa-sm"></i> Tambah Data</div>') ?>
 									</div>
@@ -30,6 +31,7 @@
 									<div class=" col-md-3">
 										<a href="javascript:;" onclick="printReport()" class="btn btn-success">
 											<i class="fas fa-print"> Print</i></a>
+									</div>
 									</div>
 								</div>
 							</div>
