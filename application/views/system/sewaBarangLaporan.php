@@ -119,15 +119,19 @@
  						</tr>
  					</thead>
  					<tbody class="body-table">
- 						<tr>
- 							<td></td>
- 							<td></td>
- 							<td></td>
- 							<td></td>
- 							<td></td>
- 							<td></td>
- 							<td></td>
- 						</tr>
+                        <?php
+                        $no = 1;
+                        foreach ($dataSewa as $lpr) : ?>
+                            <tr>
+                                <td><?php echo $no++ ?></td>
+                                <td><?php echo format_date($lpr->tglSewa, 'd-m-Y') ?></td>
+                                <td><?php echo $lpr->namaPelanggan ?></td>
+                                <td><?php echo $lpr->platNomor ?></td>
+                                <td><?php echo $lpr->jenisKendala ?></td>
+                                <td><?php echo $lpr->verifikasi ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </table>
  					</tbody>
  				</table>
  		</tbody>

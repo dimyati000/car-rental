@@ -11,6 +11,7 @@ class DaftarSewa extends CI_Controller
        parent::__construct();
        $this->load->model('ModelAuth');
        $this->load->model('ModelFormSewa');
+       $this->load->model('ModelLaporan');
        if($this->session->userdata('roleId') != 1 && $this->session->userdata('roleId') != 2){
            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
            <strong>Anda Harus Login Terlebih Dahulu !</strong>
@@ -83,9 +84,9 @@ class DaftarSewa extends CI_Controller
 
     public function cetak_laporan_penumpang()
 	{
-        $idSewa = $this->input->get('idSewa');
-        $tipeSewa = $this->input->get('tipeSewa');
-        $data['dataSewa'] = $this->ModelFormSewa->getDataPenumpang($idSewa)->row_array();
+        $tanggal_awal = $this->input->get("tanggal_awal");
+        $tanggal_akhir = $this->input->get("tanggal_akhir");
+        $data['dataSewa'] = $this->ModelLaporan->getDataPenumpang($tanggal_awal, $tanggal_akhir)->result();
         $data['title'] = "Form Sewa Penumpang"; 
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'potrait');
@@ -95,9 +96,9 @@ class DaftarSewa extends CI_Controller
 
     public function cetak_laporan_barang()
 	{
-        $idSewa = $this->input->get('idSewa');
-        $tipeSewa = $this->input->get('tipeSewa');
-        $data['dataSewa'] = $this->ModelFormSewa->getDataBarang($idSewa)->row_array();
+        $tanggal_awal = $this->input->get("tanggal_awal");
+        $tanggal_akhir = $this->input->get("tanggal_akhir");
+        $data['dataSewa'] = $this->ModelLaporan->getDataBarang($tanggal_awal, $tanggal_akhir)->result();
         $data['title'] = "Form Sewa Barang"; 
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'potrait');
