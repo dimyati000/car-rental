@@ -86,8 +86,10 @@ class DaftarSewa extends CI_Controller
 	{
         $tanggal_awal = $this->input->get("tanggal_awal");
         $tanggal_akhir = $this->input->get("tanggal_akhir");
-        $data['dataSewa'] = $this->ModelLaporan->getDataPenumpang($tanggal_awal, $tanggal_akhir)->row_array();
-        $data['title'] = "Form Sewa Penumpang"; 
+        $data['dataSewa'] = $this->ModelLaporan->getDataPenumpang($tanggal_awal, $tanggal_akhir)->result();
+        $data['title'] = "Form Sewa Penumpang";
+        $data['tanggal_awal'] = $tanggal_awal;
+        $data['tanggal_akhir'] = $tanggal_akhir;
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'potrait');
         $this->pdf->filename = "Form Sewa Penumpang.pdf";
@@ -100,6 +102,8 @@ class DaftarSewa extends CI_Controller
         $tanggal_akhir = $this->input->get("tanggal_akhir");
         $data['dataSewa'] = $this->ModelLaporan->getDataBarang($tanggal_awal, $tanggal_akhir)->result();
         $data['title'] = "Form Sewa Barang"; 
+        $data['tanggal_awal'] = $tanggal_awal;
+        $data['tanggal_akhir'] = $tanggal_akhir;
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'potrait');
         $this->pdf->filename = "Form Sewa Barang.pdf";

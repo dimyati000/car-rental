@@ -1,5 +1,5 @@
  <?php
-  $path_logo = base_url('assets/img/logo-evanotrans.png');
+  $path_logo = base_url('assets/img/logo-evanotranshitam.png');
   $type = pathinfo($path_logo, PATHINFO_EXTENSION);
   $data = file_get_contents($path_logo);
   $logo_evano = 'data:image/' . $type . ';base64,' . base64_encode($data);
@@ -104,33 +104,41 @@
  					</tr>
  				</table>
  				<hr class="line-title">
- 				<p style="margin-top:35px;" class="kata-pengantar">Laporan Pelayanan Periode Tanggal :
- 					2024 s/d 2024</p>
+ 				<p style="margin-top:35px;" class="kata-pengantar">Laporan Sewa Penumpang Periode Tanggal :
+         <?= format_date($tanggal_awal, 'd-m-Y') ?> s/d <?= format_date($tanggal_akhir, 'd-m-Y') ?></p>
  				<table class="table">
  					<thead class="head-table">
  						<tr>
- 							<th>No</th>
+ 							<th width="2%">No</th>
+ 							<th>No Sewa</th>
  							<th>Tanggal Berangkat</th>
- 							<th>Nama Penyewa</th>
+              <th>Nama Penyewa</th>
  							<th>Jenis Mobil</th>
- 							<th>Tarif Sewa</th>
- 							<th>Lama Sewa</th>
+ 							<th width="2%">Lama Sewa</th>
  							<th>Harga Total</th>
  						</tr>
  					</thead>
  					<tbody class="body-table">
-                     <?php
-                        $no = 1;
-                        foreach ($dataSewa as $lpr) : ?>
-                            <tr>
-                                <td><?php echo $no++ ?></td>
-                                <td><?php echo format_date($lpr->tglSewa, 'd-m-Y') ?></td>
-                                <td><?php echo $lpr->namaPelanggan ?></td>
-                                <td><?php echo $lpr->platNomor ?></td>
-                                <td><?php echo $lpr->jenisKendala ?></td>
-                                <td><?php echo $lpr->verifikasi ?></td>
-                            </tr>
-                            <?php endforeach; ?>
+           <?php
+              $no = 1;
+              $total = 0;
+              foreach ($dataSewa as $ds) : ?>
+              <tr>
+                <td class="text-center"><?php echo $no++ ?></td>
+                <td class="text-center"><?php echo $ds->noSewa ?></td>
+                <td class="text-center"><?php echo format_date($ds->tglBerangkat, 'd/m/Y') ?></td>
+                <td class="text-center"><?php echo $ds->namaPelanggan ?></td>
+                <td class="text-center"><?php echo $ds->jenisMobil ?></td>
+                <td class="text-center"><?php echo $ds->lamaSewa ?></td>
+                <td class="text-center">Rp. <?php echo rupiah($ds->totalTarif) ?></td>
+              </tr>
+            <?php 
+          $total+=$ds->totalTarif;
+          endforeach; ?>
+            <tr>
+              <th colspan="6">Total Pendapatan</th>
+              <th>Rp. <?= rupiah($total) ?></th>
+            </tr>
  					</tbody>
  				</table>
  		</tbody>
