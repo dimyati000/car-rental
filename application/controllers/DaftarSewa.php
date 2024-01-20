@@ -86,7 +86,7 @@ class DaftarSewa extends CI_Controller
 	{
         $tanggal_awal = $this->input->get("tanggal_awal");
         $tanggal_akhir = $this->input->get("tanggal_akhir");
-        $data['dataSewa'] = $this->ModelLaporan->getDataPenumpang($tanggal_awal, $tanggal_akhir)->result();
+        $data['dataSewa'] = $this->ModelLaporan->getDataPenumpang($tanggal_awal, $tanggal_akhir)->row_array();
         $data['title'] = "Form Sewa Penumpang"; 
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'potrait');
