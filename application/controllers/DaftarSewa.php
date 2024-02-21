@@ -12,6 +12,9 @@ class DaftarSewa extends CI_Controller
        $this->load->model('ModelAuth');
        $this->load->model('ModelFormSewa');
        $this->load->model('ModelLaporan');
+       $this->load->model('ModelMobil');
+       $this->load->model('ModelJaminan');
+       $this->load->model('ModelPelanggan');
        if($this->session->userdata('roleId') != 1 && $this->session->userdata('roleId') != 2){
            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
            <strong>Anda Harus Login Terlebih Dahulu !</strong>
@@ -32,9 +35,12 @@ class DaftarSewa extends CI_Controller
         }else{
             $created_by = $this->session->userdata('idUser');
         }
+        $jenisMobil = $this->input->get("jenisMobil");
         $tanggal_awal = $this->input->get("tanggal_awal");
         $tanggal_akhir = $this->input->get("tanggal_akhir");
-        $data['dataSewa'] = $this->ModelFormSewa->getDataPenumpang($idSewa, $created_by, $tanggal_awal, $tanggal_akhir)->result();
+        $data['mobil'] = $this->ModelMobil->showData()->result();
+        $data['jenisMobil'] = $this->input->get("jenisMobil");
+        $data['dataSewa'] = $this->ModelFormSewa->getDataPenumpang($idSewa, $created_by, $jenisMobil, $tanggal_awal, $tanggal_akhir)->result();
         $data['content'] = "daftarSewa/penumpang.php";
         $this->parser->parse('system/templateAdmin', $data);
     }
@@ -56,7 +62,6 @@ class DaftarSewa extends CI_Controller
     }
 
 	// Cetak Nota Sewa Penumpang
-
 	public function cetak_sewa_penumpang()
 	{
         $idSewa = $this->input->get('idSewa');
@@ -82,33 +87,18 @@ class DaftarSewa extends CI_Controller
         $this->pdf->load_view('system/sewaBarangCetak.php', $data);
 	}
 
-    public function cetak_laporan_penumpang()
-	{
-        $tanggal_awal = $this->input->get("tanggal_awal");
-        $tanggal_akhir = $this->input->get("tanggal_akhir");
-        $data['dataSewa'] = $this->ModelLaporan->getDataPenumpang($tanggal_awal, $tanggal_akhir)->result();
-        $data['title'] = "Form Sewa Penumpang";
-        $data['tanggal_awal'] = $tanggal_awal;
-        $data['tanggal_akhir'] = $tanggal_akhir;
-        $this->load->library('pdf');
-        $this->pdf->setPaper('A4', 'potrait');
-        $this->pdf->filename = "Form Sewa Penumpang.pdf";
-        $this->pdf->load_view('system/sewaPenumpangLaporan.php', $data);
-    }
-
-    public function cetak_laporan_barang()
-	{
-        $tanggal_awal = $this->input->get("tanggal_awal");
-        $tanggal_akhir = $this->input->get("tanggal_akhir");
-        $data['dataSewa'] = $this->ModelLaporan->getDataBarang($tanggal_awal, $tanggal_akhir)->result();
-        $data['title'] = "Form Sewa Barang"; 
-        $data['tanggal_awal'] = $tanggal_awal;
-        $data['tanggal_akhir'] = $tanggal_akhir;
-        $this->load->library('pdf');
-        $this->pdf->setPaper('A4', 'potrait');
-        $this->pdf->filename = "Form Sewa Barang.pdf";
-        $this->pdf->load_view('system/sewaBarangLaporan.php', $data);
-    }
+    
+    // edit penumpang  
+    public function editPenumpang($idSewa)
+    {
+        $where = array('idSewa' => $idSewa);
+        $data['mobil'] = $this->ModelMobil->showData()->result();
+        $data['jaminan'] = $this->ModelJaminan->showData()->result();
+        $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
+        $data['dataSewa'] = $this->ModelFormSewa->editSewaPenumpang($idSewa)->result();
+        $data['content'] = "formSewa/editPenumpang.php";
+        $this->parser->parse('system/templateAdmin', $data);
+      }
 	
 	// Delete data sewa Penumpang
     public function delete_penumpang($idSewa)

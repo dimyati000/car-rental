@@ -35,9 +35,9 @@ class FormSewa extends CI_Controller
     // Mengarahkan ke halaman form penumpang
     public function sewaPenumpang()
     {   
+        $data['mobil'] = $this->ModelMobil->showData()->result();
         $data['jaminan'] = $this->ModelJaminan->showData()->result();
         $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
-        $data['mobil'] = $this->ModelMobil->showData()->result();
         $data['kodeSewa']  = $this->ModelFormSewa->get_kode_penumpang("tb_formsewa","noSewa","ET-SP"); 
         $data['content'] = "formSewa/penumpang.php";
         $this->parser->parse('system/templateAdmin', $data);
