@@ -28,13 +28,36 @@
 										<input placeholder="Tanggal Akhir" id="tgl_akhir" Tooltip="Tanggal Akhir" type="date" name="tgl_akhir" onchange="showLaporan()" class="form-control" value="<?= (isset($_GET['tanggal_akhir'])) ? $_GET['tanggal_akhir'] : date('Y-m-d') ?>"
 												required>
 									</div>
+									<div class="col-md-3">
+										<select name="idMobil"
+											class="form-control select2 select2-hidden-accessible" id="idMobil"
+											onchange="showLaporan()"  required>
+											<option value="">Pilih Mobil</option>
+											<?php foreach ($mobil as $m)  :  ?>
+											<option value="<?= $m->idMobil ?>"
+											><?= $m->jenisMobil; ?></option>
+											<?php endforeach; ?>
+										</select>
+									</div>
+											
 									<div class=" col-md-3">
 										<a href="javascript:;" onclick="printReport()" class="btn btn-success">
 											<i class="fas fa-print"> Print</i></a>
 									</div>
+								
+								<div class="section-body">
+									<div class="input-group">
+                                            
+
+                                    </div>
+								</div>
+								
+
 									</div>
 								</div>
 							</div>
+							
+							
 							<div class="card-body">
 								<div class="table-responsive">
 									<!-- Tabel Data Mobil -->
@@ -62,6 +85,9 @@
 													<a href="javascript:;" onclick="printFormSewa('<?= $ds->idSewa ?>')" class="btn btn-success btn-sm"><i class="fas fa-print"></i></a>
 												</td>
 												<td class="text-center">
+                									<?php echo anchor('DaftarSewa/editPenumpang/' . $ds->idSewa, ' <div class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" data-original-title="Edit Data"><i class="fa fa-edit"></i></div>') ?>
+              									</td>
+												<td class="text-center">
 													<?php echo anchor('DaftarSewa/delete_penumpang/' . $ds->idSewa, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?>
 												</td>
 											</tr>
@@ -87,16 +113,18 @@
 	}
 
 	function printReport() {
+		var jenisMobil = $('#idMobil').val();
 		var tgl_awal = $('#tgl_awal').val();
 		var tgl_akhir = $('#tgl_akhir').val();
-		var link = "<?= site_url() ?>" + "/DaftarSewa/cetak_laporan_penumpang?tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
+		var link = "<?= site_url() ?>" + "/Laporan/cetak_laporan_penumpang?jenisMobil=" + jenisMobil + "&tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
 		window.open(link, '_blank', 'width=1024, height=768')
 	}
 
 	function showLaporan() {
+			var jenisMobil = $('#idMobil').val();
 			var tgl_awal = $('#tgl_awal').val();
 			var tgl_akhir = $('#tgl_akhir').val();
-			var link = "<?= site_url() ?>" + "/DaftarSewa/penumpang/?tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
+			var link = "<?= site_url() ?>" + "/DaftarSewa/penumpang/?jenisMobil=" + jenisMobil + "&tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
 			location.replace(link);
 	}
 </script>
