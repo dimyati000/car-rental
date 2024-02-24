@@ -36,6 +36,7 @@ class Dashboard extends CI_Controller
         }
 		$data['totalSewaP'] = $this->ModelDashboard->getSewaPenumpang($created_by);
 		$data['totalSewaB'] = $this->ModelDashboard->getSewaBarang($created_by);
+		$data['dataSewa'] = $this->ModelDashboard->getDataSewaAktif()->result();
 		$data['content'] = "dashboard/index.php";
 		$this->parser->parse('system/templateAdmin', $data);
 	}

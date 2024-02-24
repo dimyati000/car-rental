@@ -3,7 +3,6 @@
 <script src="<?php echo base_url() ?>assets/modules/tooltip.js"></script>
 <script src="<?php echo base_url() ?>assets/modules/bootstrap/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url() ?>assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
-<script src="<?php echo base_url() ?>assets/modules/moment.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/stisla.js"></script>
 
 <!-- General JS Scripts -->
@@ -76,11 +75,9 @@
   <script src="<?php echo base_url(); ?>assets/js/page/modules-sweetalert.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/modules-toastr.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/auth-register.js"></script>
-  <script src="<?php echo base_url(); ?>assets/js/page/kategori.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/features-post-create.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/features-posts.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/features-setting-detail.js"></script>
-  <script src="<?php echo base_url(); ?>assets/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 
   <script>
      var base_url = "<?= site_url() ?>";

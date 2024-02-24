@@ -50,5 +50,8 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/components.css">
+
+  <script src="<?php echo base_url() ?>assets/modules/moment.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
   <?php require "vendor/autoload.php";  ?>
 </head>
