@@ -1,6 +1,34 @@
 <?php
 class ModelMobil extends CI_Model
 {
+    function get_list_count($key=""){
+        $query = $this->db->query("
+            select count(*) as jml from tb_mobil
+            where 
+                concat(jenisMobil) like '%$key%'
+        ")->row_array();
+        return $query;
+    }
+
+    function get_list_data($key="",  $limit="", $offset="", $column="", $sort=""){
+        $query = $this->db->query("
+            select * from tb_mobil
+            where 
+                concat(jenisMobil) like '%$key%' 
+            order by $column $sort
+            limit $limit offset $offset
+        ");
+        return $query;
+    }
+
+    function get_all(){
+      $query = $this->db->select('idMobil, jenisMobil')
+              ->where('status', '1')
+              ->order_by('jenisMobil', 'asc')
+              ->get('tb_mobil');
+      return $query;
+    }
+
 	public function showData($keyword = null)
 	{
 		if($keyword){

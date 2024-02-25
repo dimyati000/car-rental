@@ -31,6 +31,26 @@ class Mobil extends CI_Controller
       $data['content'] = "mobil/index.php";
       $this->parser->parse('system/templateAdmin', $data);
   }
+  
+  public function fetch_data(){
+    $pg     = ($this->input->get("page") != "") ? $this->input->get("page") : 1;
+    $key	  = ($this->input->get("search") != "") ? $this->input->get("search") : "";
+    $limit	= $this->input->get("limit");
+    $offset = ($limit*$pg)-$limit;
+    $column = $this->input->get("sortby");
+    $sort   = $this->input->get("sorttype");
+    
+    $page              = array();
+    $page['limit']     = $limit;
+    $page['count_row'] = $this->ModelMobil->get_list_count($key)['jml'];
+    $page['current']   = $pg;
+    $page['list']      = gen_paging($page);
+    $data['paging']    = $page;
+    $data['list']      = $this->ModelMobil->get_list_data($key, $limit, $offset, $column, $sort);
+
+    $this->load->view('system/mobil/list_data',$data);
+  }
+
   // Tambah Data Mobil
   public function tambahMobil()
   {

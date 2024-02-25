@@ -36,7 +36,6 @@ class Pelanggan extends CI_Controller
       $this->parser->parse('system/templateAdmin', $data);
     }
 
-      
     public function fetch_data(){
       $pg     = ($this->input->get("page") != "") ? $this->input->get("page") : 1;
       $key	  = ($this->input->get("search") != "") ? $this->input->get("search") : "";
@@ -54,8 +53,7 @@ class Pelanggan extends CI_Controller
       $data['list']      = $this->ModelPelanggan->get_list_data($key, $limit, $offset, $column, $sort);
 
       $this->load->view('system/pelanggan/list_data',$data);
-  }
-
+    }
     
     // Tambah Data pelanggan
     public function tambahData()
