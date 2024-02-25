@@ -16,7 +16,7 @@
 							</div>
 							<div class="section-body">
 							<div class="card-body">
-                                <div class="row" style="padding-top:12px;">
+                                <div class="row">
                                     <div class="col-md-6">
                                         <button class="btn btn-success" data-toggle="modal"
                                             data-target="#tambahPelanggan"><i class="fas fa-plus fa-sm"> Tambah

@@ -59,9 +59,9 @@
 </td>
 </tr>
 <?php 
-          }
-        }else{
-        ?>
+      }
+    }else{
+    ?>
 <tr>
 	<td colspan="7">Data tidak ditemukan!</td>
 </tr>
