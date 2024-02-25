@@ -4,6 +4,7 @@ class Laporan extends CI_Controller{
     public function __construct()
 	{
 			parent::__construct();
+            $this->load->model('ModelMobil');
 			$this->load->model('ModelLaporan');
             $this->load->model('ModelFormSewa');
             if($this->session->userdata('roleId') != 1 && $this->session->userdata('roleId') != 2){
@@ -22,8 +23,8 @@ class Laporan extends CI_Controller{
         $idSewa = '';
         $tanggal_awal = $this->input->get("tanggal_awal");
         $tanggal_akhir = $this->input->get("tanggal_akhir");
+        $namaPelanggan = $this->input->get("nama_pelanggan");
         $jenis_sewa = $this->input->get("jenis_sewa");
-        
         if($this->session->userdata('roleId') == 1){
             $created_by = '';
         }else{
@@ -34,25 +35,37 @@ class Laporan extends CI_Controller{
         $this->parser->parse('system/templateAdmin', $data);
     }
     
-    //cetak laporan
-    public function cetak_laporan() {
+    public function cetak_laporan_penumpang()
+	{
+        $jenisMobil = $this->input->get("jenisMobil");
         $tanggal_awal = $this->input->get("tanggal_awal");
         $tanggal_akhir = $this->input->get("tanggal_akhir");
-        $filter = array(
-            'jenis_sewa' => $this->input->get('jenis_sewa'),
-            'tanggal_awal' => ($this->input->get('tanggal_awal')) ? format_date($tanggal_awal, 'Y-m-d') : date("Y-m-d"),
-            'tanggal_akhir' => ($this->input->get('tanggal_akhir')) ? format_date($tanggal_akhir, 'Y-m-d') : date("Y-m-d"),
-        );
-
-        $data['laporan'] = $this->ModelLaporan->getData($filter)->result();
+        $data['dataSewa'] = $this->ModelLaporan->getDataPenumpang($jenisMobil, $tanggal_awal, $tanggal_akhir)->result();
+        $data['mobil'] = $this->ModelMobil->showData()->result();
+        $data['title'] = "Form Sewa Penumpang";
+        $data['jenisMobil'] = $jenisMobil;
         $data['tanggal_awal'] = $tanggal_awal;
         $data['tanggal_akhir'] = $tanggal_akhir;
-        $data['title'] = "Laporan"; 
-
         $this->load->library('pdf');
         $this->pdf->setPaper('A4', 'potrait');
-        $this->pdf->filename = "Laporan.pdf";
-        $this->pdf->load_view('system/laporan/cetak_laporan.php', $data);
+        $this->pdf->filename = "Form Sewa Penumpang.pdf";
+        $this->pdf->load_view('system/sewaPenumpangLaporan.php', $data);
     }
 
+    public function cetak_laporan_barang()
+	{
+        $jenisMobil = $this->input->get("jenisMobil");
+        $tanggal_awal = $this->input->get("tanggal_awal");
+        $tanggal_akhir = $this->input->get("tanggal_akhir");
+        $data['dataSewa'] = $this->ModelLaporan->getDataBarang($jenisMobil, $tanggal_awal, $tanggal_akhir)->result();
+        $data['mobil'] = $this->ModelMobil->showData()->result();
+        $data['title'] = "Form Sewa Barang"; 
+        $data['jenisMobil'] = $jenisMobil;
+        $data['tanggal_awal'] = $tanggal_awal;
+        $data['tanggal_akhir'] = $tanggal_akhir;
+        $this->load->library('pdf');
+        $this->pdf->setPaper('A4', 'potrait');
+        $this->pdf->filename = "Form Sewa Barang.pdf";
+        $this->pdf->load_view('system/sewaBarangLaporan.php', $data);
+    }
 }

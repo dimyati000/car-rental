@@ -54,9 +54,12 @@ class DaftarSewa extends CI_Controller
         }else{
             $created_by = $this->session->userdata('idUser');
         }
+        $jenisMobil = $this->input->get("jenisMobil");
         $tanggal_awal = $this->input->get("tanggal_awal");
         $tanggal_akhir = $this->input->get("tanggal_akhir");
-        $data['dataSewa'] = $this->ModelFormSewa->getDataBarang($idSewa, $created_by, $tanggal_awal, $tanggal_akhir)->result();
+        $data['mobil'] = $this->ModelMobil->showData()->result();
+        $data['jenisMobil'] = $this->input->get("jenisMobil");
+        $data['dataSewa'] = $this->ModelFormSewa->getDataBarang($idSewa, $created_by, $jenisMobil, $tanggal_awal, $tanggal_akhir)->result();
         $data['content'] = "daftarSewa/barang.php";
         $this->parser->parse('system/templateAdmin', $data);
     }

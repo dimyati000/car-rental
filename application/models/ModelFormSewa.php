@@ -35,10 +35,10 @@ class ModelFormSewa extends CI_Model
 		return $query;
 	}
 
-	function getDataBarang($idSewa="", $created_by="", $tanggal_awal="", $tanggal_akhir="", $tipeSewa="SB"){
+	function getDataBarang($idSewa="", $created_by="", $jenisMobil="", $tanggal_awal="", $tanggal_akhir="", $tipeSewa="SB"){
 		$q = "SELECT fs.idSewa, fs.noSewa, fs.tipeSewa, fs.tglBerangkat, fs.jamBerangkat, fs.tglKembali, fs.jamKembali, fs.rute, fs.muatan, fs.tipeTarif,
 		fs.lamaSewa, fs.totalTarif, fs.dp, fs.overtime, fs.kurangBayar, fs.jasaSopir, fs.jasaAntar, fs.totalBayar, fs.klaim, fs.keterangan, fs.created_by, 
-		p.namaPelanggan, p.noTelp, p.alamat, m.jenisMobil, m.nopol,
+		p.namaPelanggan, p.noTelp, p.alamat, m.idMobil, m.jenisMobil, m.nopol,
 		(
 			SELECT GROUP_CONCAT(j.namaJaminan SEPARATOR ', ') jaminan
 			FROM tb_jaminansewa s 
@@ -50,16 +50,19 @@ class ModelFormSewa extends CI_Model
 		LEFT JOIN tb_mobil m ON fs.mobilId = m.idMobil
 		WHERE fs.tipeSewa = '$tipeSewa' ";
 		if ($idSewa != ""){
-			$q .= " and idSewa = '$idSewa'";
+			$q .= " and fs.idSewa = '$idSewa'";
 		}
 		if ($created_by != ""){
-			$q .= " and created_by = '$created_by'";
+			$q .= " and fs.created_by = '$created_by'";
+		}
+		if ($jenisMobil != ""){
+			$q .= " and m.idMobil = '$jenisMobil'";
 		}
 		if ($tanggal_awal != ""){
-			$q .= " and tglBerangkat >= '$tanggal_awal'";
+			$q .= " and fs.tglBerangkat >= '$tanggal_awal'";
 		}
 		if ($tanggal_akhir != ""){
-			$q .= " and tglBerangkat <= '$tanggal_akhir'";
+			$q .= " and fs.tglBerangkat <= '$tanggal_akhir'";
 		}
 		$q .= " ORDER BY fs.tglBerangkat DESC, fs.noSewa DESC";
 		$query = $this->db->query($q);

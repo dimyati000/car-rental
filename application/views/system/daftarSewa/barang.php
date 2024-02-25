@@ -20,6 +20,9 @@
                                         <div class="col-md-3">
                                             <?php echo anchor('FormSewa', '<div class="btn btn-success btn-sm ml-2 mt-3"><i class="fas fa-plus fa-sm"></i> Tambah Data</div>') ?>
                                         </div>
+                                    </div>
+                                    <br>
+                                    <div class="row pl-2">
                                         <div class="col-md-3">
                                             <input placeholder="Tanggal Awal" id="tgl_awal" Tooltip="Tanggal Awal"
                                                 type="date" name="tgl_awal" onchange="showLaporan()"
@@ -34,6 +37,17 @@
                                                 value="<?= (isset($_GET['tanggal_akhir'])) ? $_GET['tanggal_akhir'] : date('Y-m-d') ?>"
                                                 required>
                                         </div>
+                                        <div class="col-md-3">
+											<select name="idMobil"
+												class="form-control select2 select2-hidden-accessible" id="idMobil"
+												onchange="showLaporan()"  required>
+												<option value="">Pilih Mobil</option>
+												<?php foreach ($mobil as $m)  :  ?>
+												<option value="<?= $m->idMobil ?>"
+												><?= $m->jenisMobil; ?></option>
+												<?php endforeach; ?>
+											</select>
+										</div>
                                         <div class=" col-md-3">
                                             <a href="javascript:;" onclick="printReport()" class="btn btn-success">
                                                 <i class="fas fa-print"> Print</i></a>
@@ -94,17 +108,19 @@ function printFormSewa(idSewa) {
     window.open(link, '_blank', 'width=1024, height=768')
 }
 function printReport() {
+        var jenisMobil = $('#idMobil').val();
 		var tgl_awal = $('#tgl_awal').val();
 		var tgl_akhir = $('#tgl_akhir').val();
-		var link = "<?= site_url() ?>" + "/Laporan/cetak_laporan_barang?tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
+		var link = "<?= site_url() ?>" + "/Laporan/cetak_laporan_barang?jenisMobil=" + jenisMobil + "&tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
 		window.open(link, '_blank', 'width=1024, height=768')
 	}
 
 	function showLaporan() {
-			var tgl_awal = $('#tgl_awal').val();
-			var tgl_akhir = $('#tgl_akhir').val();
-			var link = "<?= site_url() ?>" + "/DaftarSewa/barang/?tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
-			location.replace(link);
+        var jenisMobil = $('#idMobil').val();
+        var tgl_awal = $('#tgl_awal').val();
+        var tgl_akhir = $('#tgl_akhir').val();
+        var link = "<?= site_url() ?>" + "/DaftarSewa/barang/?jenisMobil=" + jenisMobil + "&tanggal_awal=" + tgl_awal + "&tanggal_akhir=" + tgl_akhir;
+        location.replace(link);
 	}
 </script>
 

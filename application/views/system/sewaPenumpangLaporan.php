@@ -130,14 +130,14 @@
                 <td class="text-center"><?php echo $ds->namaPelanggan ?></td>
                 <td class="text-center"><?php echo $ds->jenisMobil ?></td>
                 <td class="text-center"><?php echo $ds->lamaSewa ?></td>
-                <td class="text-center">Rp. <?php echo rupiah($ds->totalTarif) ?></td>
+                <td class="text-left">Rp. <?php echo rupiah($ds->totalTarif) ?></td>
               </tr>
             <?php 
           $total+=$ds->totalTarif;
           endforeach; ?>
             <tr>
               <th colspan="6">Total Pendapatan</th>
-              <th>Rp. <?= rupiah($total) ?></th>
+              <th class="text-left">Rp. <?= rupiah($total) ?></th>
             </tr>
  					</tbody>
  				</table>

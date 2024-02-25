@@ -17,46 +17,38 @@
 							<div class="section-body">
 								<div class="container-fluid">
 									<div class="row">
-									<div class="col-md-3">
-										<?php echo anchor('FormSewa', '<div class="btn btn-success btn-sm ml-2 mt-3"><i class="fas fa-plus fa-sm"></i> Tambah Data</div>') ?>
+										<div class="col-md-3">
+											<?php echo anchor('FormSewa', '<div class="btn btn-success btn-sm ml-2 mt-3"><i class="fas fa-plus fa-sm"></i> Tambah Data</div>') ?>
+										</div>
 									</div>
-									<div class="col-md-3">
-										<input placeholder="Tanggal Awal" id="tgl_awal" Tooltip="Tanggal Awal" type="date" name="tgl_awal" onchange="showLaporan()"  class="form-control" value="<?= (isset($_GET['tanggal_awal'])) ? $_GET['tanggal_awal'] : date('Y-m-d') ?>"
-												required>
+									<br>
+									<div class="row pl-2">
+										<div class="col-md-3">
+											<input placeholder="Tanggal Awal" id="tgl_awal" Tooltip="Tanggal Awal" type="date" name="tgl_awal" onchange="showLaporan()"  class="form-control" value="<?= (isset($_GET['tanggal_awal'])) ? $_GET['tanggal_awal'] : date('Y-m-d') ?>"
+													required>
+										</div>
+										<div class="col-md-3">
+											<input placeholder="Tanggal Akhir" id="tgl_akhir" Tooltip="Tanggal Akhir" type="date" name="tgl_akhir" onchange="showLaporan()" class="form-control" value="<?= (isset($_GET['tanggal_akhir'])) ? $_GET['tanggal_akhir'] : date('Y-m-d') ?>"
+													required>
+										</div>
+										<div class="col-md-3">
+											<select name="idMobil"
+												class="form-control select2 select2-hidden-accessible" id="idMobil"
+												onchange="showLaporan()"  required>
+												<option value="">Pilih Mobil</option>
+												<?php foreach ($mobil as $m)  :  ?>
+												<option value="<?= $m->idMobil ?>"
+												><?= $m->jenisMobil; ?></option>
+												<?php endforeach; ?>
+											</select>
+										</div>
+										<div class=" col-md-3">
+											<a href="javascript:;" onclick="printReport()" class="btn btn-success">
+												<i class="fas fa-print"> Print</i></a>
+										</div>
 									</div>
-									<div class="col-md-3">
-										<input placeholder="Tanggal Akhir" id="tgl_akhir" Tooltip="Tanggal Akhir" type="date" name="tgl_akhir" onchange="showLaporan()" class="form-control" value="<?= (isset($_GET['tanggal_akhir'])) ? $_GET['tanggal_akhir'] : date('Y-m-d') ?>"
-												required>
-									</div>
-									<div class="col-md-3">
-										<select name="idMobil"
-											class="form-control select2 select2-hidden-accessible" id="idMobil"
-											onchange="showLaporan()"  required>
-											<option value="">Pilih Mobil</option>
-											<?php foreach ($mobil as $m)  :  ?>
-											<option value="<?= $m->idMobil ?>"
-											><?= $m->jenisMobil; ?></option>
-											<?php endforeach; ?>
-										</select>
-									</div>
-											
-									<div class=" col-md-3">
-										<a href="javascript:;" onclick="printReport()" class="btn btn-success">
-											<i class="fas fa-print"> Print</i></a>
-									</div>
-								
-								<div class="section-body">
-									<div class="input-group">
-                                            
-
-                                    </div>
-								</div>
-								
-
-									</div>
-								</div>
+								</div>								
 							</div>
-							
 							
 							<div class="card-body">
 								<div class="table-responsive">

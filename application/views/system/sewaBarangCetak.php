@@ -1,5 +1,5 @@
 <?php
-  $path_logo = base_url('assets/img/logo-evanotrans.png');
+  $path_logo = base_url('assets/img/logo-evanotranshitam.png');
   $type = pathinfo($path_logo, PATHINFO_EXTENSION);
   $data = file_get_contents($path_logo);
   $logo_evano = 'data:image/' . $type . ';base64,' . base64_encode($data);
