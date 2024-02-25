@@ -15,42 +15,35 @@
 								<h5>Data Jaminan</h5>
 							</div>
 							<div class="section-body">
-								<div class="container-fluid">
-									<button class="btn btn-success btn-sm ml-2 mt-3" data-toggle="modal"
-										data-target="#tambahJaminan"><i class="fas fa-plus fa-sm"> Tambah
-											Data</i></button>
-									</div>
-								</div>
-								<div class="card-body">
-									<div class="table-responsive">
-										<!-- Tabel Data Jaminan -->
-										<table class="table table-bordered">
-											<tbody>
-												<tr>
-													<th width="3%" class="text-center">No</th>
-													<th width="92%">Nama Jaminan</th>
-													<th width="5%" class="text-center" class="text-center"
-														colspan="2">Aksi</th>
-												</tr>
-												<?php
-												$no = 1;
-												foreach ($jaminan as $j) : ?>
-												<tr>
-													<td class="text-center"><?php echo $no++ ?></td>
-													<td><?php echo $j->namaJaminan ?></td>
-													<td class="text-center">
-														<a href="javascript:;" data-id="<?= $j->idJaminan ?>" class="btn btn-warning btn-sm btn-edit"><i class="fa fa-edit"></i> Edit Data</a>
-													</td>
-													<td class="text-center">
-														<?php echo anchor('Jaminan/delete/' . $j->idJaminan, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus Data</div>') ?>
-													</td>
-												</tr>
-												<?php endforeach; ?>
-											</tbody>
-										</table>
-									</div>
-								</div>
-								</div>
+							<div class="card-body">
+                                <div class="row" style="padding-top:12px;">
+                                    <div class="col-md-6">
+                                        <button class="btn btn-success" data-toggle="modal"
+                                            data-target="#tambahPelanggan"><i class="fas fa-plus fa-sm"> Tambah
+                                                Data</i></button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <select class="form-control" name="limit" id="limit" onchange="pageLoad(1)">
+                                            <option value="10" selected>10 Baris</option>
+                                            <option value="25">25 Baris</option>
+                                            <option value="50">50 Baris</option>
+                                            <option value="100">100 Baris</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <input type="text" id="search" name="search" class="form-control"
+                                                placeholder="Cari <Tekan Enter>">
+                                            <div class="input-group-append cursor-pointer" onclick="pageLoad(1)">
+                                                <span class="input-group-text">
+                                                    <i class="fas fa-search"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div id="list"></div>
 							</div>
 						</div>
 					</div>
@@ -135,3 +128,10 @@ $(document).on('click', '.btn-edit', function(event) {
   });
 });
 </script>
+<!-- DATA SORT -->
+<input type="hidden" name="hidden_id_th" id="hidden_id_th" value="#column_created">
+<input type="hidden" name="hidden_page" id="hidden_page" value="1">
+<input type="hidden" name="hidden_column_name" id="hidden_column_name" value="idJaminan">
+<input type="hidden" name="hidden_sort_type" id="hidden_sort_type" value="desc">
+<div id="div_modal"></div>
+<script src="<?= base_url('assets/js/page/jaminan.js') ?>"></script>

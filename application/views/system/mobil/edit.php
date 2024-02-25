@@ -91,7 +91,7 @@
                                             <img style="width: 5rem;"
                                                 src="<?php echo base_url() . 'assets/uploads/mobil/' . $m->gambarMobil ?>">
                                             <input type="file" name="gambarMobil" class="form-control">
-                                            <p style="font-size: 11px;color: red">Abaikan jika tidak merubah foto ktp
+                                            <p style="font-size: 11px;color: red">Abaikan jika tidak merubah gambar mobil
                                             </p>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-sm">Simpan Data</button>

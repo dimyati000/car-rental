@@ -22,6 +22,7 @@ class Jaminan extends CI_Controller
          redirect('../Login');
        } 
     }
+
 	// Tampilkan jaminan
     public function index()
     {   
@@ -30,6 +31,26 @@ class Jaminan extends CI_Controller
         $data['content'] = "jaminan/index.php";
         $this->parser->parse('system/templateAdmin', $data);
     }
+
+    public function fetch_data(){
+        $pg     = ($this->input->get("page") != "") ? $this->input->get("page") : 1;
+        $key	  = ($this->input->get("search") != "") ? $this->input->get("search") : "";
+        $limit	= $this->input->get("limit");
+        $offset = ($limit*$pg)-$limit;
+        $column = $this->input->get("sortby");
+        $sort   = $this->input->get("sorttype");
+        
+        $page              = array();
+        $page['limit']     = $limit;
+        $page['count_row'] = $this->ModelJaminan->get_list_count($key)['jml'];
+        $page['current']   = $pg;
+        $page['list']      = gen_paging($page);
+        $data['paging']    = $page;
+        $data['list']      = $this->ModelJaminan->get_list_data($key, $limit, $offset, $column, $sort);
+  
+        $this->load->view('system/jaminan/list_data',$data);
+    }
+
 	// Tambah jaminan
     public function tambahData()
     {
