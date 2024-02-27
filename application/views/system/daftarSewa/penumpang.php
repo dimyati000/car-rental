@@ -70,6 +70,7 @@
 												<i class="fas fa-print"></i> Print Laporan Sewa</a>
 										</div>
 									</div>
+									<br>
 	                                <div id="list"></div>
 								</div>								
 							</div>
