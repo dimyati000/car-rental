@@ -27,11 +27,11 @@
                                 <div class="container-fluid">
                                     <!-- Form Edit Sewa Penumpang -->
                                     <?php foreach ($dataSewa as $p) : ?>
-                                    <form action="<?php echo base_url() . 'FormSewa/tambahDataPenumpang' ?>"
+                                    <form action="<?php echo base_url() . 'FormSewa/updateDataPenumpang' ?>"
                                         method="post" enctype="multipart/form-data" autocomplete="off">
                                         <input type="hidden" class="form-control" name="idSewa"
                                             value="<?php echo $p->idSewa ?>"></input>
-                                        <input type="hidden" name="idPelanggan" value="<?php echo $p->pelangganId ?>"
+                                        <input type="hidden" name="idSewa" value="<?php echo $p->idSewa ?>"
                                             class="form-control">
                                         <input type="hidden" name="tipeSewa" class="form-control" value="SP">
                                         <input type="hidden" id="listJaminan" class="form-control" value="<?php echo $p->idJaminan ?>">
@@ -76,20 +76,24 @@
                                                     required>
                                                     <option value="">Pilih Mobil</option>
                                                     <?php foreach ($mobil as $m)  :  ?>
-                                                    <option value="<?= $m->idMobil ?>"><?= $m->jenisMobil; ?></option>
+                                                    <option value="<?= $m->idMobil ?>"
+                                                        <?php if ($m->idMobil==$p->mobilId) {
+                                                            echo " selected";
+                                                        } ?>
+                                                    ><?= $m->jenisMobil; ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label>Tanggal Berangkat</label>
                                                 <input type="date" name="tglBerangkat" id="tglBerangkat"
-                                                    class="form-control" required>
+                                                    class="form-control" value="<?php echo $p->tglBerangkat ?>" required>
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="id_end_time">Jam Berangkat</label>
                                                 <div class="input-group date" id="jamBerangkat">
                                                     <input type="text" name="jamBerangkat" class="form-control"
-                                                        placeholder="End time" title="" required id="id_end_time" />
+                                                        placeholder="End time" title="" required id="id_end_time" value="<?php echo $p->jamBerangkat ?>"/>
                                                     <div class="input-group-addon input-group-append">
                                                         <div class="input-group-text">
                                                             <i class="fas fa-clock"></i>
@@ -100,13 +104,13 @@
                                             <div class="form-group col-md-3">
                                                 <label>Tanggal Pengembalian</label>
                                                 <input type="date" name="tglKembali" id="tglKembali"
-                                                    class="form-control" required>
+                                                    class="form-control" value="<?php echo $p->tglKembali ?>" required>
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="id_end_time">Jam Pengembalian:</label>
                                                 <div class="input-group date" id="jamKembali">
                                                     <input type="text" name="jamKembali" class="form-control"
-                                                        placeholder="End time" title="" required id="id_end_time" />
+                                                        placeholder="End time" title="" required id="id_end_time" value="<?php echo $p->jamKembali ?>"/>
                                                     <div class="input-group-addon input-group-append">
                                                         <div class="input-group-text">
                                                             <i class="fas fa-clock"></i>
@@ -116,21 +120,29 @@
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label>Rute</label>
-                                                <input type="text" name="rute" class="form-control" required>
+                                                <input type="text" name="rute" class="form-control" value="<?php echo $p->rute ?>" required>
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label>Tipe Tarif</label>
                                                 <select class="form-control select2 select2-hidden-accessible"
-                                                    tabindex="-1" aria-hidden="true" name="tipeTarif" id="tipeTarif">
+                                                    tabindex="-1" aria-hidden="true" name="tipeTarif" id="tipeTarif" onchange="changeTarif()">
                                                     <option>Pilih Tipe Tarif</option>
-                                                    <option value="12">12 Jam</option>
-                                                    <option value="24">24 Jam</option>
+                                                    <option value="12"
+                                                        <?php if ($p->tipeTarif=='12') {
+                                                            echo " selected";
+                                                        } ?>
+                                                    >12 Jam</option>
+                                                    <option value="24"
+                                                        <?php if ($p->tipeTarif=='24') {
+                                                            echo " selected";
+                                                        } ?>
+                                                    >24 Jam</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-1">
                                                 <label>Lama Sewa</label>
                                                 <input type="text" name="lamaSewa" id="lamaSewa" class="form-control"
-                                                    value="1" required>
+                                                    value="1" required value="<?php echo $p->lamaSewa ?>">
                                                 <input type="hidden" name="hargaSewa" id="hargaSewa"
                                                     class="form-control" value="0">
                                             </div>
@@ -143,7 +155,7 @@
                                                         </div>
                                                     </div>
                                                     <input type="text" name="totalTarif" id="totalTarif"
-                                                        class="form-control" value="">
+                                                        class="form-control" value="<?php echo $p->totalTarif ?>">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-2">
@@ -154,7 +166,7 @@
                                                             Rp.
                                                         </div>
                                                     </div>
-                                                    <input type="text" name="dp" id="dp" class="form-control">
+                                                    <input type="text" name="dp" id="dp" class="form-control" value="<?php echo $p->dp ?>"> 
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-2">
@@ -166,7 +178,7 @@
                                                         </div>
                                                     </div>
                                                     <input type="text" name="kurangBayar" id="kurangBayar"
-                                                        class="form-control" readonly>
+                                                        class="form-control" readonly value="<?php echo $p->kurangBayar ?>">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-2">
@@ -178,11 +190,11 @@
                                                         </div>
                                                     </div>
                                                     <input type="text" name="denda" id="denda" class="form-control"
-                                                        value="0" required>
+                                                        required>
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-2">
-                                                <label>Jasa Antar</label>
+                                                <label>Jasa Antar</label>   
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">
@@ -190,7 +202,7 @@
                                                         </div>
                                                     </div>
                                                     <input type="text" name="jasaAntar" id="jasaAntar"
-                                                        class="form-control" value="0" required>
+                                                        class="form-control" required value="<?php echo $p->jasaAntar ?>">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-2">
@@ -202,7 +214,7 @@
                                                         </div>
                                                     </div>
                                                     <input type="text" name="jasaSopir" id="jasaSopir"
-                                                        class="form-control" value="0" required>
+                                                        class="form-control" required value="<?php echo $p->jasaSopir ?>">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-2">
@@ -214,7 +226,7 @@
                                                         </div>
                                                     </div>
                                                     <input type="text" name="overtime" id="overtime"
-                                                        class="form-control" value="0" required>
+                                                        class="form-control" required value="<?php echo $p->overtime ?>">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-2">
@@ -226,12 +238,12 @@
                                                         </div>
                                                     </div>
                                                     <input type="text" name="totalBayar" id="totalBayar"
-                                                        class="form-control" value="0">
+                                                        class="form-control" value="<?php echo $p->totalBayar ?>">
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label>Keterangan</label>
-                                                <input type="text" name="keterangan" class="form-control" value="-"
+                                                <input type="text" name="keterangan" class="form-control" value="<?php echo $p->keterangan ?>"
                                                     required>
                                             </div>
                                         </div>
@@ -350,6 +362,11 @@
         var idMobil = $('#idMobil').val();
         getMobil(idMobil)
     });
+
+    function changeTarif(){
+        var idMobil = $('#idMobil').val();
+        getMobil(idMobil)
+    }
 
     $('#lamaSewa').on("input", function() {
         var dInput = this.value;

@@ -213,4 +213,74 @@ class FormSewa extends CI_Controller
     public function replaceRupiah($val){
         return str_replace(".","",$val);
     }
+
+    // Update Data Sewa Penumpang
+    public function updateDataPenumpang()
+    {
+        $idSewa = $this->input->post('idSewa');
+        $tipeSewa = $this->input->post('tipeSewa');
+        $idPelanggan = $this->input->post('idPelanggan');
+        $idJaminan = $this->input->post('idJaminan');
+        $idMobil = $this->input->post('idMobil');
+        $tglBerangkat = $this->input->post('tglBerangkat');
+        $jamBerangkat = $this->input->post('jamBerangkat');
+        $tglKembali = $this->input->post('tglKembali');
+        $jamKembali = $this->input->post('jamKembali');
+        $tipeTarif = $this->input->post('tipeTarif');
+        $lamaSewa = $this->input->post('lamaSewa');
+        $totalTarif = $this->replaceRupiah($this->input->post('totalTarif'));
+        $dp = $this->replaceRupiah($this->input->post('dp'));
+        $jasaAntar = $this->replaceRupiah($this->input->post('jasaAntar'));
+        $jasaSopir = $this->replaceRupiah($this->input->post('jasaSopir'));
+        $kurangBayar = $this->replaceRupiah($this->input->post('kurangBayar'));
+        $totalBayar = $this->replaceRupiah($this->input->post('totalBayar'));
+        $overtime = $this->replaceRupiah($this->input->post('overtime'));
+        $rute = $this->input->post('rute');
+        $keterangan = $this->input->post('keterangan');
+        $jam1 = date("H:i:s", strtotime($jamBerangkat));
+        $jam2 = date("H:i:s", strtotime($jamKembali));
+		
+        $data = array(
+            'tipeSewa' => $tipeSewa,
+            'pelangganId' => $idPelanggan,
+            'mobilId' => $idMobil,
+            'tglBerangkat' => $tglBerangkat,
+            'jamBerangkat' => $jam1,
+            'tglKembali' => $tglKembali,
+            'jamKembali' => $jam2,
+            'tipeTarif' => $tipeTarif,
+            'lamaSewa' => $lamaSewa,
+            'totalTarif' => $totalTarif,
+            'dp' => $dp,
+            'jasaAntar' => $jasaAntar,
+            'jasaSopir' => $jasaSopir,
+            'kurangBayar' => $kurangBayar,
+            'totalBayar' => $totalBayar,
+            'overtime' => $overtime,
+            'rute' => $rute,
+            'keterangan' => $keterangan,
+        );
+
+        $where = array(
+            'idSewa' => $idSewa
+        );
+        $this->ModelFormSewa->updateSewa($where, $data, 'tb_formsewa');
+
+        // delete jaminan
+        $whereJaminan = array('idSewa' => $idSewa);
+        $this->ModelFormSewa->hapusSewa($whereJaminan, 'tb_jaminansewa');
+
+        // insert jaminan sewa
+        $jaminans = array();  
+        foreach($idJaminan AS $key => $val){
+            $uuidJaminan = Uuid::uuid4();
+            $jaminans[] = array(
+                'id'        => $uuidJaminan,
+                'idSewa'    => $idSewa,
+                'idJaminan' => $val,
+            );
+        }
+        $this->ModelFormSewa->insertBatch('tb_jaminansewa', $jaminans);
+        redirect('../DaftarSewa/penumpang');
+    }
 }

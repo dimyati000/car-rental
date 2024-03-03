@@ -156,7 +156,7 @@ class ModelFormSewa extends CI_Model
 	{
 		$q = "SELECT fs.idSewa, fs.noSewa, fs.tipeSewa, fs.tglBerangkat, fs.jamBerangkat, fs.tglKembali, fs.jamKembali, fs.rute, fs.muatan, fs.tipeTarif,
 		fs.lamaSewa, fs.totalTarif, fs.dp, fs.overtime, fs.kurangBayar, fs.jasaSopir, fs.jasaAntar, fs.totalBayar, fs.klaim, fs.keterangan, fs.created_by, 
-		fs.pelangganId, p.namaPelanggan, p.noTelp, p.alamat, m.jenisMobil, m.nopol,
+		fs.pelangganId, p.namaPelanggan, p.noTelp, p.alamat, m.jenisMobil, m.nopol, fs.mobilId,
 		(
 			SELECT GROUP_CONCAT(j.namaJaminan SEPARATOR ', ') jaminan
 			FROM tb_jaminansewa s 

@@ -105,7 +105,7 @@
                                             <div class="form-group col-md-3">
                                                 <label>Tipe Tarif</label>
                                                 <select class="form-control select2 select2-hidden-accessible"
-                                                    tabindex="-1" aria-hidden="true" name="tipeTarif" id="tipeTarif">
+                                                    tabindex="-1" aria-hidden="true" name="tipeTarif" id="tipeTarif" onchange="changeTarif()">
                                                     <option>Pilih Tipe Tarif</option>
                                                     <option value="12">12 Jam</option>
                                                     <option value="24">24 Jam</option>
@@ -288,11 +288,10 @@ $(document).ready(function() {
     $(".select2").select2({});
 });
 
-
-$("#tipeTarif").on("change", function(e) {
+function changeTarif(){
     var idMobil = $('#idMobil').val();
     getMobil(idMobil)
-});
+}
 
 $('#lamaSewa').on("input", function() {
     var dInput = this.value;
@@ -311,9 +310,6 @@ $('#dp').on("input", function() {
     // var totalTarifRupiahValue = replaceRupiah($('#totalTarif').val()); // Menghapus semua titik dengan fungsi manual
 	var totalTarif = parseFloat(totalTarifRupiahValue);
 	var kurangBayar = totalTarif - dInput;
-	console.log("Nilai dInput: " + dInput);
-	console.log("Nilai totalTarif: " + totalTarif);
-	console.log("Nilai kurangBayar: " + kurangBayar);
     $('#kurangBayar').val(formatRupiah(kurangBayar));
 });	
 
