@@ -181,7 +181,7 @@
                                                         class="form-control" readonly value="<?php echo $p->kurangBayar ?>">
                                                 </div>
                                             </div>
-                                            <div class="form-group col-md-2">
+                                            <!-- <div class="form-group col-md-2">
                                                 <label>Denda</label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
@@ -192,7 +192,7 @@
                                                     <input type="text" name="denda" id="denda" class="form-control"
                                                         required>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="form-group col-md-2">
                                                 <label>Jasa Antar</label>   
                                                 <div class="input-group">

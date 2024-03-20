@@ -15,14 +15,33 @@
                                 <h5>Sewa Barang</h5>
                             </div>
                             <div class="section-body">
-                                <div class="container-fluid">
+                                <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-3">
-                                            <?php echo anchor('FormSewa', '<div class="btn btn-success btn-sm ml-2 mt-3"><i class="fas fa-plus fa-sm"></i> Tambah Data</div>') ?>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="row pl-2">
+										<div class="col-md-6">
+											<?php echo anchor('FormSewa', '<div class="btn btn-success"><i class="fas fa-plus fa-sm"></i> Tambah Data</div>') ?>
+										</div>
+										<div class="col-md-2">
+											<select class="form-control" name="limit" id="limit" onchange="pageLoad(1)">
+												<option value="10" selected>10 Baris</option>
+												<option value="25">25 Baris</option>
+												<option value="50">50 Baris</option>
+												<option value="100">100 Baris</option>
+											</select>
+										</div>
+										<div class="col-md-4">
+											<div class="input-group">
+												<input type="text" id="search" name="search" class="form-control"
+													placeholder="Cari <Tekan Enter>">
+												<div class="input-group-append cursor-pointer" onclick="pageLoad(1)">
+													<span class="input-group-text">
+														<i class="fas fa-search"></i>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<br>
+                                    <div class="row">
                                         <div class="col-md-3">
                                             <input placeholder="Tanggal Awal" id="tgl_awal" Tooltip="Tanggal Awal"
                                                 type="date" name="tgl_awal" onchange="showLaporan()"
@@ -53,42 +72,8 @@
                                                 <i class="fas fa-print"> Print</i></a>
                                         </div>
                                     </div>
-                                </div>
-
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <!-- Tabel Data Mobil -->
-                                    <table class="table table-bordered">
-                                        <tr class="text-center">
-                                            <th width="2%">No</th>
-                                            <th width="15%">No Sewa</th>
-                                            <th>Tanggal Sewa</th>
-                                            <th>Pelanggan</th>
-                                            <th>Jaminan</th>
-                                            <th>Mobil</th>
-                                            <th class="text-center" colspan="9">Aksi</th>
-                                        </tr>
-                                        <?php
-											$no = 1;
-											foreach ($dataSewa as $ds) : ?>
-                                        <tr>
-                                            <td class="text-center"><?php echo $no++ ?></td>
-                                            <td><?php echo $ds->noSewa ?></d>
-                                            <td><?php echo $ds->tglBerangkat ?></d>
-                                            <td><?php echo $ds->namaPelanggan ?></d>
-                                            <td><?php echo $ds->namaJaminan ?></td>
-                                            <td><?php echo $ds->jenisMobil ?></td>
-                                            <td class="text-center">
-                                                <a href="javascript:;" onclick="printFormSewa('<?= $ds->idSewa ?>')"
-                                                    class="btn btn-success btn-sm"><i class="fas fa-print"></i></a>
-                                            </td>
-                                            <td class="text-center">
-                                                <?php echo anchor('DaftarSewa/delete_barang/' . $ds->idSewa, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?>
-                                            </td>
-                                        </tr>
-                                        <?php endforeach; ?>
-                                    </table>
+                                    <br>
+	                                <div id="list"></div>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +83,15 @@
         </section>
     </div>
 </div>
-
+<!-- DATA SORT -->
+<input type="hidden" name="hidden_id_th" id="hidden_id_th" value="#column_created">
+<input type="hidden" name="hidden_page" id="hidden_page" value="1">
+<input type="hidden" name="hidden_column_name" id="hidden_column_name" value="idSewa">
+<input type="hidden" name="hidden_sort_type" id="hidden_sort_type" value="desc">
+<div id="div_modal"></div>
+<script src="<?= base_url('assets/js/page/daftar-sewa-barang.js') ?>"></script>
+</html>
+<!-- 
 <script>
 function printFormSewa(idSewa) {
     // var tgl_awal = $('#tgl_awal').val();
@@ -124,4 +117,4 @@ function printReport() {
 	}
 </script>
 
-</html>
+</html> -->

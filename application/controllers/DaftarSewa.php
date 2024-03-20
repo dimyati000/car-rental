@@ -86,10 +86,36 @@ class DaftarSewa extends CI_Controller
         $page['current']   = $pg;
         $page['list']      = gen_paging($page);
         $data['paging']    = $page;
-        $data['list']      = $this->ModelFormSewa->get_list_data($key, $limit, $offset, $column, $sort, $idSewa, $created_by, $jenisMobil, $tanggal_awal, $tanggal_akhir);
+        $data['list']      = $this->ModelFormSewa->getList_dataPenumpang($key, $limit, $offset, $column, $sort, $idSewa, $created_by, $jenisMobil, $tanggal_awal, $tanggal_akhir);
   
         $this->load->view('system/daftarSewa/list_dataPenumpang',$data);
+    }
 
+    public function fetch_dataBarang(){
+        $pg     = ($this->input->get("page") != "") ? $this->input->get("page") : 1;
+        $key	= ($this->input->get("search") != "") ? $this->input->get("search") : "";
+        $limit	= $this->input->get("limit");
+        $offset = ($limit*$pg)-$limit;
+        $column = $this->input->get("sortby");
+        $sort   = $this->input->get("sorttype");
+        $idSewa = '';
+        if($this->session->userdata('roleId') == 1){
+            $created_by = '';
+        }else{
+            $created_by = $this->session->userdata('idUser');
+        }
+        $jenisMobil = $this->input->get("jenisMobil");
+        $tanggal_awal = $this->input->get("tanggal_awal");
+        $tanggal_akhir = $this->input->get("tanggal_akhir");
+        $page              = array();
+        $page['limit']     = $limit;
+        $page['count_row'] = $this->ModelFormSewa->get_list_count($key,  $idSewa, $created_by, $jenisMobil, $tanggal_awal, $tanggal_akhir)['jml'];
+        $page['current']   = $pg;
+        $page['list']      = gen_paging($page);
+        $data['paging']    = $page;
+        $data['list']      = $this->ModelFormSewa->getList_dataBarang($key, $limit, $offset, $column, $sort, $idSewa, $created_by, $jenisMobil, $tanggal_awal, $tanggal_akhir);
+  
+        $this->load->view('system/daftarSewa/list_dataBarang',$data);
     }
 
 	// Cetak Nota Sewa Penumpang

@@ -15,32 +15,32 @@
 								<h5>Sewa Penumpang</h5>
 							</div>
 							<div class="section-body">
-							<div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-										<?php echo anchor('FormSewa', '<div class="btn btn-success"><i class="fas fa-plus fa-sm"></i> Tambah Data</div>') ?>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <select class="form-control" name="limit" id="limit" onchange="pageLoad(1)">
-                                            <option value="10" selected>10 Baris</option>
-                                            <option value="25">25 Baris</option>
-                                            <option value="50">50 Baris</option>
-                                            <option value="100">100 Baris</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <input type="text" id="search" name="search" class="form-control"
-                                                placeholder="Cari <Tekan Enter>">
-                                            <div class="input-group-append cursor-pointer" onclick="pageLoad(1)">
-                                                <span class="input-group-text">
-                                                    <i class="fas fa-search"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-								<br>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-md-6">
+											<?php echo anchor('FormSewa', '<div class="btn btn-success"><i class="fas fa-plus fa-sm"></i> Tambah Data</div>') ?>
+										</div>
+										<div class="col-md-2">
+											<select class="form-control" name="limit" id="limit" onchange="pageLoad(1)">
+												<option value="10" selected>10 Baris</option>
+												<option value="25">25 Baris</option>
+												<option value="50">50 Baris</option>
+												<option value="100">100 Baris</option>
+											</select>
+										</div>
+										<div class="col-md-4">
+											<div class="input-group">
+												<input type="text" id="search" name="search" class="form-control"
+													placeholder="Cari <Tekan Enter>">
+												<div class="input-group-append cursor-pointer" onclick="pageLoad(1)">
+													<span class="input-group-text">
+														<i class="fas fa-search"></i>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<br>
 									<div class="row">
 										<div class="col-md-3">
 											<input placeholder="Tanggal Awal" id="tgl_awal" Tooltip="Tanggal Awal" type="date" name="tgl_awal" onchange="showLaporan()"  class="form-control" value="<?= (isset($_GET['tanggal_awal'])) ? $_GET['tanggal_awal'] : date('Y-m-d') ?>"
@@ -87,5 +87,5 @@
 <input type="hidden" name="hidden_column_name" id="hidden_column_name" value="idSewa">
 <input type="hidden" name="hidden_sort_type" id="hidden_sort_type" value="desc">
 <div id="div_modal"></div>
-<script src="<?= base_url('assets/js/page/daftar-sewa.js') ?>"></script>
+<script src="<?= base_url('assets/js/page/daftar-sewa-penumpang.js') ?>"></script>
 </html>

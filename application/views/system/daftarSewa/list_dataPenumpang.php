@@ -25,10 +25,10 @@
             </tr>
         </thead>
 		<tbody>
-			<?php 
-          if($list->num_rows()!=0){
-          $no=($paging['current']-1)*$paging['limit']; 
-          foreach ($list->result() as $ds) { $no++; ?>
+            <?php 
+            if($list->num_rows()!=0){
+            $no=($paging['current']-1)*$paging['limit']; 
+            foreach ($list->result() as $ds) { $no++; ?>
 			<tr>
                 <td class="text-center"><?php echo $no ?></td>
                 <td><?php echo $ds->noSewa ?></d>
@@ -47,16 +47,16 @@
                     <?php echo anchor('DaftarSewa/delete_penumpang/' . $ds->idSewa, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?>
                 </td>
             </tr>
-<?php 
-    }
-    }else{
-    ?>
-<tr>
-	<td colspan="7">Data tidak ditemukan!</td>
-</tr>
-<?php } ?>
-</tbody>
-</table>
+            <?php 
+            }
+            }else{
+            ?>
+            <tr>
+                <td colspan="7">Data tidak ditemukan!</td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
 </div>
 <?php 
   if($list->num_rows()>0){
