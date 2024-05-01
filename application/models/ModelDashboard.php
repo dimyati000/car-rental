@@ -73,18 +73,47 @@ class modelDashboard extends CI_Model{
 		return $result->row()->totalB;
 	}
 
-  public function getDataSewaAktif(){
-    $q = "
-      SELECT fs.idSewa, fs.noSewa, fs.tipeSewa, fs.tglBerangkat, fs.jamBerangkat, fs.tglKembali, fs.jamKembali, fs.rute, fs.muatan, fs.tipeTarif,
-      fs.lamaSewa, fs.totalTarif, fs.dp, fs.overtime, fs.kurangBayar, fs.jasaSopir, fs.jasaAntar, fs.totalBayar, fs.klaim, fs.keterangan, fs.created_by, 
-      p.namaPelanggan, p.noTelp, p.alamat, m.idMobil, m.jenisMobil, m.nopol 
-      FROM tb_formsewa fs
-      LEFT JOIN tb_pelanggan p ON fs.pelangganId = p.idPelanggan
-      LEFT JOIN tb_mobil m ON fs.mobilId = m.idMobil 
-      WHERE fs.tglKembali = CURRENT_DATE()
-      ORDER BY concat(fs.tglKembali, fs.jamKembali) ASC
-    ";
-		$query = $this->db->query($q);
-		return $query;
-  }
+	public function getDataSewaAktif(){
+		$q = "
+		SELECT fs.idSewa, fs.noSewa, fs.tipeSewa, fs.tglBerangkat, fs.jamBerangkat, fs.tglKembali, fs.jamKembali, fs.rute, fs.muatan, fs.tipeTarif,
+		fs.lamaSewa, fs.totalTarif, fs.dp, fs.overtime, fs.kurangBayar, fs.jasaSopir, fs.jasaAntar, fs.totalBayar, fs.klaim, fs.keterangan, fs.created_by, 
+		p.namaPelanggan, p.noTelp, p.alamat, m.idMobil, m.jenisMobil, m.nopol 
+		FROM tb_formsewa fs
+		LEFT JOIN tb_pelanggan p ON fs.pelangganId = p.idPelanggan
+		LEFT JOIN tb_mobil m ON fs.mobilId = m.idMobil 
+		WHERE fs.tglKembali = CURRENT_DATE()
+		ORDER BY concat(fs.tglKembali, fs.jamKembali) ASC
+		";
+			$query = $this->db->query($q);
+			return $query;
+	}
+	
+    function get_list_count($key=""){
+		$q = "select count(*) jml FROM tb_mobil m 
+		WHERE concat(jenisMobil, nopol) like '%$key%'
+		AND m.idMobil NOT IN (
+			SELECT mobilId from tb_formsewa 
+			WHERE STR_TO_DATE(CONCAT(tglKembali, ' ', jamKembali),'%Y-%m-%d %H:%i:%s') >= NOW()
+			GROUP BY mobilid
+		)
+		";
+			$query = $this->db->query($q)->row_array();
+			return $query;
+    }
+
+	public function getDataMobilReady($key="", $limit="", $offset="", $column="", $sort=""){
+		$q = "
+		SELECT m.* FROM tb_mobil m 
+		WHERE concat(jenisMobil, nopol) like '%$key%'
+		and m.idMobil NOT IN (
+			SELECT mobilId from tb_formsewa 
+			WHERE STR_TO_DATE(CONCAT(tglKembali, ' ', jamKembali),'%Y-%m-%d %H:%i:%s') >= NOW()
+			GROUP BY mobilid
+		)
+		";
+			$q .= " ORDER BY m.jenisMobil ASC
+			limit $limit offset $offset";
+			$query = $this->db->query($q);
+			return $query;
+	}	
 }

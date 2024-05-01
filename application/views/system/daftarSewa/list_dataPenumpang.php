@@ -13,17 +13,15 @@
 ?>
 <div class="table-responsive">
     <table class="table table-bordered">
-        <thead class="tr-head">
-            <tr class="text-center">
-                <th width="2%">No</th>
-                <th width="15%">No Sewa</th>
-                <th width="15%">Tanggal Sewa</th>
-                <th>Pelanggan</th>
-                <th>Jaminan</th>
-                <th>Mobil</th>
-                <th class="text-center" colspan="9">Aksi</th>
-            </tr>
-        </thead>
+        <tr class="text-center">
+            <th width="2%">No</th>
+            <th width="15%">No Sewa</th>
+            <th width="15%">Tanggal Sewa</th>
+            <th>Pelanggan</th>
+            <th>Jaminan</th>
+            <th>Mobil</th>
+            <th class="text-center" colspan="9">Aksi</th>
+        </tr>
 		<tbody>
             <?php 
             if($list->num_rows()!=0){

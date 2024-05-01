@@ -56,7 +56,7 @@
                                                 value="<?= (isset($_GET['tanggal_akhir'])) ? $_GET['tanggal_akhir'] : date('Y-m-d') ?>"
                                                 required>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
 											<select name="idMobil"
 												class="form-control select2 select2-hidden-accessible" id="idMobil"
 												onchange="showLaporan()"  required>
@@ -67,9 +67,9 @@
 												<?php endforeach; ?>
 											</select>
 										</div>
-                                        <div class=" col-md-3">
+                                        <div class=" col-md-2">
                                             <a href="javascript:;" onclick="printReport()" class="btn btn-success">
-                                                <i class="fas fa-print"> Print</i></a>
+                                                <i class="fas fa-print"> Print Laporan Sewa</i></a>
                                         </div>
                                     </div>
                                     <br>

@@ -268,6 +268,7 @@ class ModelFormSewa extends CI_Model
 
 	// perbulan mulai dari 001 lagi
 	function get_kode_penumpang($tbl,$kolom,$awal){
+		date_default_timezone_set('Asia/Jakarta');
 		$tgl = date('Y-m-d');
 		$q = $this->db->query("SELECT MAX(LEFT($kolom,3)) AS kd_max FROM $tbl 
 			WHERE MONTH(tglSewa)=MONTH('$tgl')
@@ -283,7 +284,6 @@ class ModelFormSewa extends CI_Model
 		}else{
 			$kd = "001";
 		}
-		date_default_timezone_set('Asia/Jakarta');
 		$newDate = date("dmY", strtotime($tgl));
 		return $kd."/".$awal."/".$newDate;
 	}

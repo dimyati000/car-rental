@@ -13,38 +13,36 @@
 ?>
 <div class="table-responsive">
 <table class="table table-bordered">
-    <thead class="tr-head">
+    <tr>
+        <th width="3%" class="text-center">No</th>
+        <th width="92%">Nama Jaminan</th>
+        <th width="5%" class="text-center" class="text-center"
+        colspan="2">Aksi</th>
+    </tr>
+    <tbody>
+        <?php 
+        if($list->num_rows()!=0){
+        $no=($paging['current']-1)*$paging['limit']; 
+        foreach ($list->result() as $j) { $no++; ?>
         <tr>
-            <th width="3%" class="text-center">No</th>
-            <th width="92%">Nama Jaminan</th>
-            <th width="5%" class="text-center" class="text-center"
-            colspan="2">Aksi</th>
+            <td class="text-center"><?php echo $no ?></td>
+            <td><?php echo $j->namaJaminan ?></td>
+            <td class="text-center">
+                <a href="javascript:;" data-id="<?= $j->idJaminan ?>" class="btn btn-warning btn-sm btn-edit"><i class="fa fa-edit"></i> Edit Data</a>
+            </td>
+            <td class="text-center">
+                <?php echo anchor('Jaminan/delete/' . $j->idJaminan, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus Data</div>') ?>
+            </td>
         </tr>
-        </thead>
-        <tbody>
-            <?php 
-          if($list->num_rows()!=0){
-          $no=($paging['current']-1)*$paging['limit']; 
-          foreach ($list->result() as $j) { $no++; ?>
-            <tr>
-                <td class="text-center"><?php echo $no ?></td>
-                <td><?php echo $j->namaJaminan ?></td>
-                <td class="text-center">
-                    <a href="javascript:;" data-id="<?= $j->idJaminan ?>" class="btn btn-warning btn-sm btn-edit"><i class="fa fa-edit"></i> Edit Data</a>
-                </td>
-                <td class="text-center">
-                    <?php echo anchor('Jaminan/delete/' . $j->idJaminan, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus Data</div>') ?>
-                </td>
-                </tr>
-<?php 
-          }
-        }else{
-        ?>
-<tr>
-	<td colspan="3">Data tidak ditemukan!</td>
-</tr>
-<?php } ?>
-</tbody>
+        <?php 
+                }
+                }else{
+                ?>
+        <tr>
+            <td colspan="3">Data tidak ditemukan!</td>
+        </tr>
+        <?php } ?>
+    </tbody>
 </table>
 </div>
 <?php 

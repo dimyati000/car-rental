@@ -14,40 +14,32 @@
 <div class="table-responsive">
     <table class="table table-bordered">
         <tr class="text-center">
-            <th width="2%">No</th>
-            <th width="15%">No Sewa</th>
-            <th>Tanggal Sewa</th>
-            <th>Pelanggan</th>
-            <th>Jaminan</th>
-            <th>Mobil</th>
-            <th class="text-center" colspan="9">Aksi</th>
+            <th width="3%">No</th>
+            <th>Nama Mobil</th>
+            <th>Merk</th>
+            <th>Nopol</th>
+            <th>Harga 12</th>
+            <th>Harga 24</th>
         </tr>
-        <tbody>
-            <tr>
+		<tbody>
             <?php 
             if($list->num_rows()!=0){
             $no=($paging['current']-1)*$paging['limit']; 
-            foreach ($list->result() as $ds) { $no++; ?>
+            foreach ($list->result() as $dm) { $no++; ?>
+			<tr>
                 <td class="text-center"><?php echo $no ?></td>
-                <td><?php echo $ds->noSewa ?></d>
-                <td><?php echo $ds->tglBerangkat ?></d>
-                <td><?php echo $ds->namaPelanggan ?></d>
-                <td><?php echo $ds->namaJaminan ?></td>
-                <td><?php echo $ds->jenisMobil ?></td>
-                <td class="text-center">
-                    <a href="javascript:;" onclick="printFormSewa('<?= $ds->idSewa ?>')"
-                        class="btn btn-success btn-sm"><i class="fas fa-print"></i></a>
-                </td>
-                <td class="text-center">
-                    <?php echo anchor('DaftarSewa/delete_barang/' . $ds->idSewa, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?>
-                </td>
+                <td><?= $dm->jenisMobil ?></d>
+                <td><?= $dm->merkMobil ?></d>
+                <td><?= $dm->nopol ?></d>
+                <td><?= $dm->harga12 ?></d>
+                <td><?= $dm->harga24 ?></td>
             </tr>
             <?php 
             }
             }else{
             ?>
             <tr>
-                <td colspan="7">Data tidak ditemukan!</td>
+                <td colspan="6">Data tidak ditemukan!</td>
             </tr>
             <?php } ?>
         </tbody>

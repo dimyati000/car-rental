@@ -39,6 +39,27 @@ class ModelMobil extends CI_Model
 
 		return $this->db->get('tb_mobil', $keyword);
 	}
+	public function showMobilReady($idSewa="")
+	{
+		$q = "
+		select * from tb_mobil
+		where idMobil NOT IN (
+			SELECT mobilId from tb_formsewa 
+			WHERE STR_TO_DATE(CONCAT(tglKembali, ' ', jamKembali),'%Y-%m-%d %H:%i:%s') >= NOW()
+		";
+		if ($idSewa!="") {
+			$q .= " AND idSewa NOT IN ('$idSewa') ";
+		}
+
+		$q .= " 
+			GROUP BY mobilid
+			) 
+			order by jenisMobil
+		";
+
+		$query = $this->db->query($q);
+        return $query;
+	}
 	public function tambahMobil($data, $table)
 	{
 		return $this->db->insert($table, $data);

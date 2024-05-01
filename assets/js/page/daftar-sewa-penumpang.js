@@ -43,7 +43,7 @@ $(document).ready(function () {
     var column_name = $('#hidden_column_name').val();
     var sort_type = $('#hidden_sort_type').val();
     $.ajax({
-      url: base_url + "/DaftarSewa/fetch_data",
+      url: base_url + "/DaftarSewa/fetch_dataPenumpang",
       type: 'GET',
       dataType: 'html',
       data: {
@@ -60,7 +60,7 @@ $(document).ready(function () {
       success: function (result) {
         $('#list').html(result);
         $('#hidden_page').val(page);
-        sort_finish(id_th, sort_type);
+        // sort_finish(id_th, sort_type);
       }
     });
   }

@@ -7,14 +7,17 @@ $(document).ready(function () {
       pageLoad(1);
     }
   });
+  
   function pageLoad(page = 1) {
+    var url = window.location.href
+    var url = new URL(url);
     var search = $('#search').val();
     var limit = $('#limit').val();
     var id_th = $('#hidden_id_th').val();
     var column_name = $('#hidden_column_name').val();
     var sort_type = $('#hidden_sort_type').val();
     $.ajax({
-      url: base_url + "/Pelanggan/fetch_data",
+      url: base_url + "/Dashboard/fetch_data",
       type: 'GET',
       dataType: 'html',
       data: {
@@ -28,7 +31,6 @@ $(document).ready(function () {
       success: function (result) {
         $('#list').html(result);
         $('#hidden_page').val(page);
-        // sort_finish(id_th, sort_type);
       }
     });
   }

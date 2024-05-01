@@ -60,7 +60,6 @@ $(document).ready(function () {
       success: function (result) {
         $('#list').html(result);
         $('#hidden_page').val(page);
-        sort_finish(id_th, sort_type);
       }
     });
   }

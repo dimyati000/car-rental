@@ -88,10 +88,10 @@
               <table class="table table-bordered">
                 <tr class="text-center">
                   <th width="3%">No</th>
-                  <th>Nama</th>
-                  <th>Unit</th>
+                  <th>Nama Pelanggan</th>
+                  <th>Mobil</th>
                   <th>Tanggal Kembali</th>
-                  <th>Jam</th>
+                  <th>Jam Kembali</th>
                 </tr>
                 <?php
 											$no = 1;
@@ -110,5 +110,47 @@
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="col-md-6">
+              <h5>Data Mobil Ready</h5>
+            </div>
+            <div class="col-md-2">
+              <select class="form-control" name="limit" id="limit" onchange="pageLoad(1)">
+                <option value="10" selected>10 Baris</option>
+                <option value="25">25 Baris</option>
+                <option value="50">50 Baris</option>
+                <option value="100">100 Baris</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <input type="text" id="search" name="search"  class="form-control"
+                  placeholder="Cari <Tekan Enter>">
+                <div class="input-group-append cursor-pointer" onclick="pageLoad(1)">
+                  <span class="input-group-text">
+                    <i class="fas fa-search"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div id="list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </div>
+<!-- DATA SORT -->
+<input type="hidden" name="hidden_id_th" id="hidden_id_th" value="#column_created">
+<input type="hidden" name="hidden_page" id="hidden_page" value="1">
+<input type="hidden" name="hidden_column_name" id="hidden_column_name" value="jenisMobil">
+<input type="hidden" name="hidden_sort_type" id="hidden_sort_type" value="asc">
+<div id="div_modal"></div>
+<script src="<?= base_url('assets/js/page/daftar-mobil-ready.js') ?>"></script>
+</html>

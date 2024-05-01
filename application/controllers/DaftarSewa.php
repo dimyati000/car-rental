@@ -64,7 +64,7 @@ class DaftarSewa extends CI_Controller
         $this->parser->parse('system/templateAdmin', $data);
     }
 
-    public function fetch_data(){
+    public function fetch_dataPenumpang(){
         $pg     = ($this->input->get("page") != "") ? $this->input->get("page") : 1;
         $key	= ($this->input->get("search") != "") ? $this->input->get("search") : "";
         $limit	= $this->input->get("limit");
@@ -149,7 +149,7 @@ class DaftarSewa extends CI_Controller
     public function editPenumpang($idSewa)
     {
         $where = array('idSewa' => $idSewa);
-        $data['mobil'] = $this->ModelMobil->showData()->result();
+        $data['mobil'] = $this->ModelMobil->showMobilReady($idSewa)->result();
         $data['jaminan'] = $this->ModelJaminan->showData()->result();
         $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
         $data['dataSewa'] = $this->ModelFormSewa->editSewaPenumpang($idSewa)->result();
