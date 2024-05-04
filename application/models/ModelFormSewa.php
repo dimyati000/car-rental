@@ -219,6 +219,36 @@ class ModelFormSewa extends CI_Model
 		return $query;
 	}
 
+	public function editSewaBarang($idSewa="", $tipeSewa="SB")
+	{
+		$q = "SELECT fs.idSewa, fs.noSewa, fs.tipeSewa, fs.tglBerangkat, fs.jamBerangkat, fs.tglKembali, fs.jamKembali, fs.rute, fs.muatan, fs.tipeTarif,
+		fs.lamaSewa, fs.totalTarif, fs.dp, fs.overtime, fs.kurangBayar, fs.jasaSopir, fs.jasaAntar, fs.totalBayar, fs.klaim, fs.keterangan, fs.created_by, 
+		fs.pelangganId, p.namaPelanggan, p.noTelp, p.alamat, m.jenisMobil, m.nopol, fs.mobilId,
+		(
+			SELECT GROUP_CONCAT(j.namaJaminan SEPARATOR ', ') jaminan
+			FROM tb_jaminansewa s 
+			left join tb_jaminan j on j.idJaminan = s.idJaminan 
+			WHERE s.idSewa = fs.idSewa
+		) namaJaminan,
+		(
+			SELECT GROUP_CONCAT(j.idJaminan SEPARATOR ', ') idJaminan
+			FROM tb_jaminansewa s 
+			left join tb_jaminan j on j.idJaminan = s.idJaminan 
+			WHERE s.idSewa = fs.idSewa
+		) idJaminan
+		FROM `tb_formsewa` fs
+		LEFT JOIN tb_pelanggan p ON fs.pelangganId = p.idPelanggan
+		LEFT JOIN tb_mobil m ON fs.mobilId = m.idMobil 
+		WHERE fs.tipeSewa = '$tipeSewa' ";
+		if ($idSewa != ""){
+			$q .= " and fs.idSewa = '$idSewa'";
+		}
+
+		$q .= " ORDER BY fs.tglBerangkat DESC, fs.noSewa DESC";
+		$query = $this->db->query($q);
+		return $query;
+	}
+
 	public function updateSewa($where, $data, $table)
 	{
 		$this->db->where($where);
@@ -290,6 +320,7 @@ class ModelFormSewa extends CI_Model
 
 	// perbulan mulai dari 001 lagi
 	function get_kode_barang($tbl,$kolom,$awal){
+		date_default_timezone_set('Asia/Jakarta');
 		$tgl = date('Y-m-d');
 		$q = $this->db->query("SELECT MAX(LEFT($kolom,3)) AS kd_max FROM $tbl 
 			WHERE MONTH(tglSewa)=MONTH('$tgl')
@@ -305,7 +336,6 @@ class ModelFormSewa extends CI_Model
 		}else{
 			$kd = "001";
 		}
-		date_default_timezone_set('Asia/Jakarta');
 		$newDate = date("dmY", strtotime($tgl));
 		return $kd."/".$awal."/".$newDate;
 	}

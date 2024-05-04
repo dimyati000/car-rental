@@ -39,6 +39,9 @@
                         class="btn btn-success btn-sm"><i class="fas fa-print"></i></a>
                 </td>
                 <td class="text-center">
+                    <?php echo anchor('DaftarSewa/editBarang/' . $ds->idSewa, ' <div class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top" data-original-title="Edit Data"><i class="fa fa-edit"></i></div>') ?>
+                </td>
+                <td class="text-center">
                     <?php echo anchor('DaftarSewa/delete_barang/' . $ds->idSewa, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>') ?>
                 </td>
             </tr>

@@ -80,11 +80,11 @@
                                             <input type="text" name="seat" class="form-control"
                                                 value="<?php echo $m->seat ?>">
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label>Status Tersedia</label>
                                             <input type="text" name="statusTersedia" class="form-control"
                                                 value="<?php echo $m->statusTersedia ?>">
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <label>Gambar Mobil</label>
                                             <br>

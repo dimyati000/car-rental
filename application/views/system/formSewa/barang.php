@@ -102,7 +102,8 @@
 											</div>
 											<div class="form-group col-md-3">
 											<label>Tipe Tarif</label>
-												<select class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" name="tipeTarif" id="tipeTarif">
+												<select class="form-control select2 select2-hidden-accessible"
+												tabindex="-1" aria-hidden="true" name="tipeTarif" id="tipeTarif" onchange="changeTarif()">
 													<option>Pilih Tipe Tarif</option>
 													<option value="12">12 Jam</option>
 													<option value="24">24 Jam</option>
@@ -121,7 +122,7 @@
 													Rp.
 												</div>
 												</div>
-												<input type="text" name="totalTarif" id="totalTarif" class="form-control" value="" >
+												<input type="text" name="totalTarif" id="totalTarif" class="form-control" value="" required>
 											</div>
 											</div>
 											<div class="form-group col-md-2">
@@ -146,7 +147,7 @@
 												<input type="text" name="kurangBayar" id="kurangBayar" class="form-control">
 											</div>
 											</div>
-											<div class="form-group col-md-2">
+											<!-- <div class="form-group col-md-2">
 											<label>Denda</label>
 											<div class="input-group">
 												<div class="input-group-prepend">
@@ -156,7 +157,7 @@
 												</div>
 												<input type="text" name="denda" class="form-control" value="0" required>
 											</div>
-											</div>
+											</div> -->
 											<div class="form-group col-md-2">
 											<label>Jasa Antar</label>
 											<div class="input-group">
@@ -198,7 +199,7 @@
 													Rp.
 												</div>
 												</div>
-												<input type="text" name="totalBayar" id="totalBayar" class="form-control" value="">
+												<input type="text" name="totalBayar" id="totalBayar" class="form-control" value="" min="0" required>
 											</div>
 											</div>
 											<div class="form-group col-md-12">
@@ -223,23 +224,21 @@
 	</div>
 </div>
 
-
 <script>
-      
-        $('#jamBerangkat').datetimepicker({
-            "allowInputToggle": true,
-            "showClose": true,
-            "showClear": true,
-            "showTodayButton": true,
-            "format": "HH:mm:ss",
-        });
-        $('#jamKembali').datetimepicker({
-            "allowInputToggle": true,
-            "showClose": true,
-            "showClear": true,
-            "showTodayButton": true,
-            "format": "HH:mm:ss",
-        });
+	$('#jamBerangkat').datetimepicker({
+		"allowInputToggle": true,
+		"showClose": true,
+		"showClear": true,
+		"showTodayButton": true,
+		"format": "HH:mm:ss",
+	});
+	$('#jamKembali').datetimepicker({
+		"allowInputToggle": true,
+		"showClose": true,
+		"showClear": true,
+		"showTodayButton": true,
+		"format": "HH:mm:ss",
+	});
        
 	function getMobil(idMobil) {
     $.ajax({
@@ -288,20 +287,17 @@
 		$('#totalTarif').val(formatRupiah(tarifTotal));
 	});
 		
-	$('#totalBayar').mask('#.##0', {reverse: true});
-	$('#denda').mask('#.##0', {reverse: true});
-	$('#overtime').mask('#.##0', {reverse: true});
-	$('#jasaAntar').mask('#.##0', {reverse: true});
-	$('#jasaSopir').mask('#.##0', {reverse: true});
+	// $('#totalBayar').mask('#.##0', {reverse: true});
+	// $('#denda').mask('#.##0', {reverse: true});
+	// $('#overtime').mask('#.##0', {reverse: true});
+	// $('#jasaAntar').mask('#.##0', {reverse: true});
+	// $('#jasaSopir').mask('#.##0', {reverse: true});
 	$('#dp').on("input", function() {
 		var dInput = parseFloat(replaceRupiah(this.value));
 		var totalTarifRupiahValue = $('#totalTarif').val().replace(/\./g, ''); // Menghapus semua titik dari javascript
 		// var totalTarifRupiahValue = replaceRupiah($('#totalTarif').val()); // Menghapus semua titik dengan fungsi manual
 		var totalTarif = parseFloat(totalTarifRupiahValue);
 		var kurangBayar = totalTarif - dInput;
-		console.log("Nilai dInput: " + dInput);
-		console.log("Nilai totalTarif: " + totalTarif);
-		console.log("Nilai kurangBayar: " + kurangBayar);
 		$('#kurangBayar').val(formatRupiah(kurangBayar));
 	});	
 

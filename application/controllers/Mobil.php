@@ -65,11 +65,11 @@ class Mobil extends CI_Controller
     $warna = $this->input->post('warna');
     $denda = $this->input->post('denda');
     $seat = $this->input->post('seat');
-    if ($statusTersedia = $this->input->post('statusTersedia')){
-      $statusTersedia;
-    } else {
-      $statusTersedia = ($this->input->post('statusTersedia' != "") ? $this->input->post('statusTersedia') : "0");
-    }
+    // if ($statusTersedia = $this->input->post('statusTersedia')){
+    //   $statusTersedia;
+    // } else {
+    //   $statusTersedia = ($this->input->post('statusTersedia' != "") ? $this->input->post('statusTersedia') : "0");
+    // }
 
     $gambarMobil = $_FILES['gambarMobil']['name'];
     if($gambarMobil = ''){
@@ -98,7 +98,7 @@ class Mobil extends CI_Controller
       'warna' => $warna,
       'denda' => $denda,
       'seat' => $seat,
-      'statusTersedia' => $statusTersedia,
+      // 'statusTersedia' => $statusTersedia,
       'gambarMobil' => $gambarMobil
     );
     $this->ModelMobil->tambahMobil($data, 'tb_mobil');
@@ -128,7 +128,7 @@ class Mobil extends CI_Controller
     $warna = $this->input->post('warna');
     $denda = $this->input->post('denda');
     $seat = $this->input->post('seat');
-    $statusTersedia = $this->input->post('statusTersedia');
+    // $statusTersedia = $this->input->post('statusTersedia');
     if($gambarMobil = $_FILES['gambarMobil']['name']){
       $config ['upload_path'] = 'assets/uploads/mobil/';
       $config ['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -150,7 +150,7 @@ class Mobil extends CI_Controller
           'warna' => $warna,
           'denda' => $denda,
           'seat' => $seat,
-          'statusTersedia' => $statusTersedia,
+          // 'statusTersedia' => $statusTersedia,
           'gambarMobil' => $gambarMobil
       );
     }else{
@@ -165,7 +165,7 @@ class Mobil extends CI_Controller
         'warna' => $warna,
         'denda' => $denda,
         'seat' => $seat,
-        'statusTersedia' => $statusTersedia
+        // 'statusTersedia' => $statusTersedia
       );
     }
     $where = array(

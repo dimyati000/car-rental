@@ -23,7 +23,7 @@
         </tr>
 		<tbody>
             <?php 
-            if($list->num_rows()!=0){
+            if($list->num_rows() !=0){
             $no=($paging['current']-1)*$paging['limit']; 
             foreach ($list->result() as $dm) { $no++; ?>
 			<tr>

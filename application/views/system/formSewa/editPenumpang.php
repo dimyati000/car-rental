@@ -1,272 +1,261 @@
-<title>Edit Data Penumpang</title>
+<title>Edit Form Sewa Penumpang</title>
 
-<body>
-    <div class="main-wrapper">
-        <!-- Main Content -->
-        <div class="main-content">
-            <section class="section">
-                <div class="section-header">
-                    <h1>Data Penumpang</h1>
-                    <div class="section-header-breadcrumb">
-                        <div class="breadcrumb-item active"><a href="<?= site_url('Dashboard') ?>">Dashboard</a></div>
-                        <div class="breadcrumb-item active"><a href="<?= site_url('FormSewa') ?>">Data Penumpang</a>
-                        </div>
-                        <div class="breadcrumb-item">Edit Data Penumpang</div>
-                    </div>
-                </div>
-
-                <!-- <div class="main-content"> -->
-                <div class="container">
-                    <!-- <div class="row justify-content-center"> -->
-                    <div class="card shadow-lg border-0 rounded-lg mt-50">
-                        <section class="section">
-                            <div class="section-header">
-                                <h1>Edit Data Penumpang</h1>
+<div class="main-wrapper main-wrapper-1">
+    <!-- Main Content -->
+    <div class="main-content">
+        <section class="section">
+            <!-- <div class="section-header">
+				<h1>Master Data Jaminan</h1>
+			</div> -->
+            <div class="section-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Edit Form Sewa Penumpang</h5>
                             </div>
                             <div class="section-body">
-                                <div class="container-fluid">
-                                    <!-- Form Edit Sewa Penumpang -->
+                                <div class="card-body">
+                                    <!-- Form Tambah Sewa Penumpang -->
                                     <?php foreach ($dataSewa as $p) : ?>
-                                    <form action="<?php echo base_url() . 'FormSewa/updateDataPenumpang' ?>"
-                                        method="post" enctype="multipart/form-data" autocomplete="off">
-                                        <input type="hidden" class="form-control" name="idSewa"
-                                            value="<?php echo $p->idSewa ?>"></input>
-                                        <input type="hidden" name="idSewa" value="<?php echo $p->idSewa ?>"
-                                            class="form-control">
-                                        <input type="hidden" name="tipeSewa" class="form-control" value="SP">
-                                        <input type="hidden" id="listJaminan" class="form-control" value="<?php echo $p->idJaminan ?>">
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label>Nomor Sewa</label>
-                                                <input type="text" name="noSewa" class="form-control"
-                                                    value="<?php echo $p->noSewa ?>" required>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label>Jaminan</label>
-                                                <select name="idJaminan[]"
-                                                    class="form-control select2 select2-hidden-accessible jaminans"
-                                                    id="idJaminan" multiple="multiple" required>
-                                                    <option value="">Pilih Jaminan</option>
-                                                    <?php foreach ($jaminan as $j)  :  ?>
-                                                        <option value="<?= $j->idJaminan ?>" 
-                                                            >
-                                                            <?= $j->namaJaminan; ?>
-                                                        </option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label>Nama Pelanggan</label>
-                                                <select name="idPelanggan"
-                                                    class="form-control select2 select2-hidden-accessible"
-                                                    id="idPelanggan" required>
-                                                    <option value="">Pilih Pelanggan</option>
-                                                    <?php foreach ($pelanggan as $pp)  :  ?>
-                                                    <option value="<?= $pp->idPelanggan ?>" <?php if ($pp->idPelanggan==$p->pelangganId) {
-                                                            echo " selected";
-                                                        } ?>><?= $pp->namaPelanggan; ?>
+                                <form action="<?php echo base_url() . 'FormSewa/updateDataPenumpang' ?>"
+                                    method="post" enctype="multipart/form-data" autocomplete="off">
+                                    <input type="hidden" class="form-control" name="idSewa"
+                                        value="<?php echo $p->idSewa ?>"></input>
+                                    <input type="hidden" name="idSewa" value="<?php echo $p->idSewa ?>" class="form-control">
+                                    <input type="hidden" name="tipeSewa" class="form-control" value="SP">
+                                    <input type="hidden" id="listJaminan" class="form-control" value="<?php echo $p->idJaminan ?>">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label>Nomor Sewa</label>
+                                            <input type="text" name="noSewa" class="form-control"
+                                                value="<?php echo $p->noSewa ?>" readonly required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label>Jaminan</label>
+                                            <select name="idJaminan[]"
+                                                class="form-control select2 select2-hidden-accessible jaminans"
+                                                id="idJaminan" multiple="multiple" required>
+                                                <option value="">Pilih Jaminan</option>
+                                                <?php foreach ($jaminan as $j)  :  ?>
+                                                    <option value="<?= $j->idJaminan ?>" 
+                                                        >
+                                                        <?= $j->namaJaminan; ?>
                                                     </option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label>Mobil</label>
-                                                <select name="idMobil"
-                                                    class="form-control select2 select2-hidden-accessible" id="idMobil"
-                                                    required>
-                                                    <option value="">Pilih Mobil</option>
-                                                    <?php foreach ($mobil as $m)  :  ?>
-                                                    <option value="<?= $m->idMobil ?>"
-                                                        <?php if ($m->idMobil==$p->mobilId) {
-                                                            echo " selected";
-                                                        } ?>
-                                                    ><?= $m->jenisMobil; ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <label>Tanggal Berangkat</label>
-                                                <input type="date" name="tglBerangkat" id="tglBerangkat"
-                                                    class="form-control" value="<?php echo $p->tglBerangkat ?>" required>
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <label for="id_end_time">Jam Berangkat</label>
-                                                <div class="input-group date" id="jamBerangkat">
-                                                    <input type="text" name="jamBerangkat" class="form-control"
-                                                        placeholder="End time" title="" required id="id_end_time" value="<?php echo $p->jamBerangkat ?>"/>
-                                                    <div class="input-group-addon input-group-append">
-                                                        <div class="input-group-text">
-                                                            <i class="fas fa-clock"></i>
-                                                        </div>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label>Nama Pelanggan</label>
+                                            <select name="idPelanggan"
+                                                class="form-control select2 select2-hidden-accessible"
+                                                id="idPelanggan" required>
+                                                <option value="">Pilih Pelanggan</option>
+                                                <?php foreach ($pelanggan as $pp)  :  ?>
+                                                <option value="<?= $pp->idPelanggan ?>" <?php if ($pp->idPelanggan==$p->pelangganId) {
+                                                        echo " selected";
+                                                    } ?>><?= $pp->namaPelanggan; ?>
+                                                </option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label>Mobil</label>
+                                            <select name="idMobil"
+                                                class="form-control select2 select2-hidden-accessible" id="idMobil"
+                                                required>
+                                                <option value="">Pilih Mobil</option>
+                                                <?php foreach ($mobil as $m)  :  ?>
+                                                <option value="<?= $m->idMobil ?>"
+                                                    <?php if ($m->idMobil==$p->mobilId) {
+                                                        echo " selected";
+                                                    } ?>
+                                                ><?= $m->jenisMobil; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label>Tanggal Berangkat</label>
+                                            <input type="date" name="tglBerangkat" id="tglBerangkat"
+                                                class="form-control" value="<?php echo $p->tglBerangkat ?>" required>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="id_end_time">Jam Berangkat</label>
+                                            <div class="input-group date" id="jamBerangkat">
+                                                <input type="text" name="jamBerangkat" class="form-control"
+                                                    placeholder="End time" title="" required id="id_end_time" value="<?php echo $p->jamBerangkat ?>"/>
+                                                <div class="input-group-addon input-group-append">
+                                                    <div class="input-group-text">
+                                                        <i class="fas fa-clock"></i>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <label>Tanggal Pengembalian</label>
-                                                <input type="date" name="tglKembali" id="tglKembali"
-                                                    class="form-control" value="<?php echo $p->tglKembali ?>" required>
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <label for="id_end_time">Jam Pengembalian:</label>
-                                                <div class="input-group date" id="jamKembali">
-                                                    <input type="text" name="jamKembali" class="form-control"
-                                                        placeholder="End time" title="" required id="id_end_time" value="<?php echo $p->jamKembali ?>"/>
-                                                    <div class="input-group-addon input-group-append">
-                                                        <div class="input-group-text">
-                                                            <i class="fas fa-clock"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label>Rute</label>
-                                                <input type="text" name="rute" class="form-control" value="<?php echo $p->rute ?>" required>
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <label>Tipe Tarif</label>
-                                                <select class="form-control select2 select2-hidden-accessible"
-                                                    tabindex="-1" aria-hidden="true" name="tipeTarif" id="tipeTarif" onchange="changeTarif()">
-                                                    <option>Pilih Tipe Tarif</option>
-                                                    <option value="12"
-                                                        <?php if ($p->tipeTarif=='12') {
-                                                            echo " selected";
-                                                        } ?>
-                                                    >12 Jam</option>
-                                                    <option value="24"
-                                                        <?php if ($p->tipeTarif=='24') {
-                                                            echo " selected";
-                                                        } ?>
-                                                    >24 Jam</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-1">
-                                                <label>Lama Sewa</label>
-                                                <input type="text" name="lamaSewa" id="lamaSewa" class="form-control"
-                                                    value="1" required value="<?php echo $p->lamaSewa ?>">
-                                                <input type="hidden" name="hargaSewa" id="hargaSewa"
-                                                    class="form-control" value="0">
-                                            </div>
-                                            <div class="form-group col-md-2">
-                                                <label>Total Tarif</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            Rp.
-                                                        </div>
-                                                    </div>
-                                                    <input type="text" name="totalTarif" id="totalTarif"
-                                                        class="form-control" value="<?php echo $p->totalTarif ?>">
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-2">
-                                                <label>Uang Muka (DP)</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            Rp.
-                                                        </div>
-                                                    </div>
-                                                    <input type="text" name="dp" id="dp" class="form-control" value="<?php echo $p->dp ?>"> 
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-2">
-                                                <label>Kurang Bayar</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            Rp.
-                                                        </div>
-                                                    </div>
-                                                    <input type="text" name="kurangBayar" id="kurangBayar"
-                                                        class="form-control" readonly value="<?php echo $p->kurangBayar ?>">
-                                                </div>
-                                            </div>
-                                            <!-- <div class="form-group col-md-2">
-                                                <label>Denda</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            Rp.
-                                                        </div>
-                                                    </div>
-                                                    <input type="text" name="denda" id="denda" class="form-control"
-                                                        required>
-                                                </div>
-                                            </div> -->
-                                            <div class="form-group col-md-2">
-                                                <label>Jasa Antar</label>   
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            Rp.
-                                                        </div>
-                                                    </div>
-                                                    <input type="text" name="jasaAntar" id="jasaAntar"
-                                                        class="form-control" required value="<?php echo $p->jasaAntar ?>">
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-2">
-                                                <label>Jasa Sopir</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            Rp.
-                                                        </div>
-                                                    </div>
-                                                    <input type="text" name="jasaSopir" id="jasaSopir"
-                                                        class="form-control" required value="<?php echo $p->jasaSopir ?>">
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-2">
-                                                <label>Overtime</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            Rp.
-                                                        </div>
-                                                    </div>
-                                                    <input type="text" name="overtime" id="overtime"
-                                                        class="form-control" required value="<?php echo $p->overtime ?>">
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-2">
-                                                <label>Total Bayar</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            Rp.
-                                                        </div>
-                                                    </div>
-                                                    <input type="text" name="totalBayar" id="totalBayar"
-                                                        class="form-control" value="<?php echo $p->totalBayar ?>">
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label>Keterangan</label>
-                                                <input type="text" name="keterangan" class="form-control" value="<?php echo $p->keterangan ?>"
-                                                    required>
                                             </div>
                                         </div>
-                                        <!-- <div class="modal-footer"> -->
-                                        <div style="text-align:right">
-                                            <?php echo anchor('FormSewa', '<div class="btn btn-secondary"> Batal</div>') ?>
-                                            <button type="submit" class="btn btn-primary">Simpan Data</button>
+                                        <div class="form-group col-md-3">
+                                            <label>Tanggal Pengembalian</label>
+                                            <input type="date" name="tglKembali" id="tglKembali"
+                                                class="form-control" value="<?php echo $p->tglKembali ?>" required>
                                         </div>
-                                        <!-- </div> -->
-                                    </form>
-                                    <?php endforeach; ?>
+                                        <div class="form-group col-md-3">
+                                            <label for="id_end_time">Jam Pengembalian:</label>
+                                            <div class="input-group date" id="jamKembali">
+                                                <input type="text" name="jamKembali" class="form-control"
+                                                    placeholder="End time" title="" required id="id_end_time" value="<?php echo $p->jamKembali ?>"/>
+                                                <div class="input-group-addon input-group-append">
+                                                    <div class="input-group-text">
+                                                        <i class="fas fa-clock"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label>Rute</label>
+                                            <input type="text" name="rute" class="form-control" value="<?php echo $p->rute ?>" required>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label>Tipe Tarif</label>
+                                            <select class="form-control select2 select2-hidden-accessible"
+                                                tabindex="-1" aria-hidden="true" name="tipeTarif" id="tipeTarif" onchange="changeTarif()">
+                                                <option>Pilih Tipe Tarif</option>
+                                                <option value="12"
+                                                    <?php if ($p->tipeTarif=='12') {
+                                                        echo " selected";
+                                                    } ?>
+                                                >12 Jam</option>
+                                                <option value="24"
+                                                    <?php if ($p->tipeTarif=='24') {
+                                                        echo " selected";
+                                                    } ?>
+                                                >24 Jam</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <label>Lama Sewa</label>
+                                            <input type="text" name="lamaSewa" id="lamaSewa" class="form-control"
+                                                value="1" required value="<?php echo $p->lamaSewa ?>">
+                                            <input type="hidden" name="hargaSewa" id="hargaSewa"
+                                                class="form-control" value="0">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label>Total Tarif</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        Rp.
+                                                    </div>
+                                                </div>
+                                                <input type="text" name="totalTarif" id="totalTarif"
+                                                    class="form-control" value="<?php echo $p->totalTarif ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label>Uang Muka (DP)</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        Rp.
+                                                    </div>
+                                                </div>
+                                                <input type="text" name="dp" id="dp" class="form-control" value="<?php echo $p->dp ?>"> 
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label>Kurang Bayar</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        Rp.
+                                                    </div>
+                                                </div>
+                                                <input type="text" name="kurangBayar" id="kurangBayar"
+                                                    class="form-control" readonly value="<?php echo $p->kurangBayar ?>">
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-group col-md-2">
+                                            <label>Denda</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        Rp.
+                                                    </div>
+                                                </div>
+                                                <input type="text" name="denda" id="denda" class="form-control"
+                                                    required>
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group col-md-2">
+                                            <label>Jasa Antar</label>   
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        Rp.
+                                                    </div>
+                                                </div>
+                                                <input type="text" name="jasaAntar" id="jasaAntar"
+                                                    class="form-control" required value="<?php echo $p->jasaAntar ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label>Jasa Sopir</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        Rp.
+                                                    </div>
+                                                </div>
+                                                <input type="text" name="jasaSopir" id="jasaSopir"
+                                                    class="form-control" required value="<?php echo $p->jasaSopir ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label>Overtime</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        Rp.
+                                                    </div>
+                                                </div>
+                                                <input type="text" name="overtime" id="overtime"
+                                                    class="form-control" required value="<?php echo $p->overtime ?>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label>Total Bayar</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        Rp.
+                                                    </div>
+                                                </div>
+                                                <input type="text" name="totalBayar" id="totalBayar"
+                                                    class="form-control" value="<?php echo $p->totalBayar ?>" min="0" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label>Keterangan</label>
+                                            <input type="text" name="keterangan" class="form-control" value="<?php echo $p->keterangan ?>"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="modal-footer"> -->
+                                    <div style="text-align:right">
+                                        <?php echo anchor('FormSewa', '<div class="btn btn-secondary"> Batal</div>') ?>
+                                        <button type="submit" class="btn btn-primary">Simpan Data</button>
+                                    </div>
+                                    <!-- </div> -->
+                                </form>
+                                <?php endforeach; ?>    
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </div>
-        </div>
+            </div>
+        </section>
     </div>
-    </section>
-    </div>
-    </div>
+</div>
 
-
-    <script>
+<script>
     var listJaminan = new Array();
     var options = $('#idJaminan option');
     var listJaminan = $.map(options ,function(option) {

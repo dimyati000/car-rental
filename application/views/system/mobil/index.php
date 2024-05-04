@@ -161,14 +161,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group col-md-12">
+                        <!-- <div class="form-group col-md-12">
                             <div class="control-label">Status Tersedia</div>
                             <label class="custom-switch mt-2">
                                 <input type="checkbox" name="statusTersedia" class="custom-switch-input" value="1">
                                 <span class="custom-switch-indicator"></span>
                                 <span class="custom-switch-description">Tidak / Ya</span>
                             </label>
-                        </div>
+                        </div> -->
                     </div>
             </div>
             <div class="modal-footer bg-whitesmoke">

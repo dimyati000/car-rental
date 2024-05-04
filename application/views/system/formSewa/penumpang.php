@@ -26,7 +26,7 @@
                                             <div class="form-group col-md-6">
                                                 <label>Nomor Sewa</label>
                                                 <input type="text" name="noSewa" class="form-control"
-                                                    value="<?= $kodeSewa ?>" required>
+                                                    value="<?= $kodeSewa ?>" readonly required>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label>Jaminan</label>
@@ -126,7 +126,7 @@
                                                             Rp.
                                                         </div>
                                                     </div>
-													<input type="text" name="totalTarif" id="totalTarif" class="form-control" value="">
+													<input type="text" name="totalTarif" id="totalTarif" class="form-control" value="" required>
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-2">

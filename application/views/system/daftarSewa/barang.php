@@ -18,7 +18,7 @@
                                 <div class="card-body">
                                     <div class="row">
 										<div class="col-md-6">
-											<?php echo anchor('FormSewa', '<div class="btn btn-success"><i class="fas fa-plus fa-sm"></i> Tambah Data</div>') ?>
+											<?php echo anchor('FormSewa/sewaBarang', '<div class="btn btn-success"><i class="fas fa-plus fa-sm"></i> Tambah Data</div>') ?>
 										</div>
 										<div class="col-md-2">
 											<select class="form-control" name="limit" id="limit" onchange="pageLoad(1)">

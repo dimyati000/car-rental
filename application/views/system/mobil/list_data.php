@@ -25,7 +25,7 @@
             <th width="2%">Warna</th>
             <th width="2%">Denda</th>
             <th width="2%">Seat</th>
-            <th width="2%">Status Tersedia</th>
+            <!-- <th width="2%">Status Tersedia</th> -->
             <th width="10%" class="text-center">Gambar Mobil</th>
             <th width="2%" class="text-center" colspan="9">Aksi</th>
         </tr>
@@ -46,13 +46,13 @@
 			<td><?php echo $m->warna ?></td>
 			<td><?php echo $m->denda ?></td>
 			<td class="text-center"><?php echo $m->seat ?></td>
-			<td class="text-center">
+			<!-- <td class="text-center">
 				<?php if ($m->statusTersedia == "1") {?>
 				tersedia
 				<?php } else { ?>
 				tidak tersedia
 				<?php } ?>
-			</td>
+			</td> -->
 			<td class="text-center">
 				<!-- <div class="mb-2 text-muted">Klik Gambar Untuk Perbesar!</div> -->
 				<div class="chocolat-parent">

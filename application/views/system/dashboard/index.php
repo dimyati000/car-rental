@@ -1,10 +1,12 @@
 <title><?= $title ?></title>
 
+<!-- Main Content -->
 <div class="main-content">
   <section class="section">
     <div class="section-header">
-      <h1>Dashboard</h1>
+        <h1>Dashboard</h1>
     </div>
+
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6 col-12">
         <a href="<?php echo base_url('Pelanggan') ?>" class="text-decoration-none">
@@ -76,6 +78,7 @@
         </a>
       </div>
     </div>
+    
     <div class="row">
       <div class="col-md-12">
         <div class="card">
@@ -110,14 +113,17 @@
         </div>
       </div>
     </div>
-
+    
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <div class="card-header">
+          <div class="card-body">
+            <div class="row">
+              
             <div class="col-md-6">
               <h5>Data Mobil Ready</h5>
             </div>
+            <hr>
             <div class="col-md-2">
               <select class="form-control" name="limit" id="limit" onchange="pageLoad(1)">
                 <option value="10" selected>10 Baris</option>
@@ -127,15 +133,16 @@
               </select>
             </div>
             <div class="col-md-4">
-              <div class="input-group">
-                <input type="text" id="search" name="search"  class="form-control"
-                  placeholder="Cari <Tekan Enter>">
-                <div class="input-group-append cursor-pointer" onclick="pageLoad(1)">
-                  <span class="input-group-text">
-                    <i class="fas fa-search"></i>
-                  </span>
+                    <div class="input-group">
+                    <input type="text" id="search" name="search" class="form-control"
+                        placeholder="Cari <Tekan Enter>">
+                    <div class="input-group-append cursor-pointer" onclick="pageLoad(1)">
+                        <span class="input-group-text">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
                 </div>
-              </div>
+            </div>
             </div>
           </div>
           <div class="card-body">

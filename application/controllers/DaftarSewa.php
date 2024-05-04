@@ -144,7 +144,6 @@ class DaftarSewa extends CI_Controller
         $this->pdf->load_view('system/sewaBarangCetak.php', $data);
 	}
 
-    
     // edit penumpang  
     public function editPenumpang($idSewa)
     {
@@ -155,7 +154,19 @@ class DaftarSewa extends CI_Controller
         $data['dataSewa'] = $this->ModelFormSewa->editSewaPenumpang($idSewa)->result();
         $data['content'] = "formSewa/editPenumpang.php";
         $this->parser->parse('system/templateAdmin', $data);
-      }
+    }
+
+     // edit barang  
+     public function editBarang($idSewa)
+     {
+         $where = array('idSewa' => $idSewa);
+         $data['mobil'] = $this->ModelMobil->showMobilReady($idSewa)->result();
+         $data['jaminan'] = $this->ModelJaminan->showData()->result();
+         $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
+         $data['dataSewa'] = $this->ModelFormSewa->editSewaBarang($idSewa)->result();
+         $data['content'] = "formSewa/editBarang.php";
+         $this->parser->parse('system/templateAdmin', $data);
+     }
 	
 	// Delete data sewa Penumpang
     public function delete_penumpang($idSewa)
@@ -179,6 +190,16 @@ class DaftarSewa extends CI_Controller
     {
         $where = array('idSewa' => $idSewa);
         $this->ModelFormSewa->hapusSewa($where, 'tb_formsewa');
+        redirect('../DaftarSewa/Barang');
+        // Dapatkan ID dari tb_jaminansewa berdasarkan idSewa
+        $idSewas = $this->db->select('id')->from('tb_jaminansewa')->where('idSewa', $idSewa)->get()->result_array();
+        // Buat array dari hasil query
+        $idSewaArray = array();
+        foreach ($idSewas as $row) {
+            $idSewaArray[] = $row['id'];
+        }       
+        // Hapus data dari tb_jaminansewa menggunakan fungsi deleteBatch
+        $this->ModelFormSewa->deleteBatch($idSewaArray);
         redirect('../DaftarSewa/Barang');
     }  
 
