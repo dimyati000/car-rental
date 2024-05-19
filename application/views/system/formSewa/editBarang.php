@@ -4,9 +4,6 @@
 	<!-- Main Content -->
 	<div class="main-content">
 		<section class="section">
-			<!-- <div class="section-header">
-				<h1>Master Data Jaminan</h1>
-			</div> -->
 			<div class="section-body">
 				<div class="row">
 					<div class="col-12">
@@ -32,7 +29,7 @@
 											<div class="form-group col-md-6">
 												<label>Jaminan</label>
 												<select name="idJaminan[]"
-													class="form-control select2 select2-hidden-accessible"
+													class="form-control select2 select2-hidden-accessible jaminans"
 													id="idJaminan" multiple="multiple" required>
 													<option value="">Pilih Jaminan</option>
 													<?php foreach ($jaminan as $j)  :  ?>
