@@ -276,10 +276,15 @@
 		});
 	});
 
-  $("#tipeTarif").on("change", function (e) {
+	function changeTarif(){
 		var idMobil = $('#idMobil').val();
 		getMobil(idMobil)
-	});
+	}
+
+  	// $("#tipeTarif").on("change", function (e) {
+	// 	var idMobil = $('#idMobil').val();
+	// 	getMobil(idMobil)
+	// });
 
 	$('#lamaSewa').on("input", function() {
 		var dInput = this.value;
