@@ -47,7 +47,7 @@
                                                     class="form-control select2 select2-hidden-accessible"
                                                     id="idPelanggan" required>
                                                     <option value="">Pilih Pelanggan</option>
-                                                    <?php foreach ($belanggan as $bp)  :  ?>
+                                                    <?php foreach ($pelanggan as $bp)  :  ?>
                                                     <option value="<?= $bp->idPelanggan ?>" <?php if ($bp->idPelanggan==$b->pelangganId) {
                                                             echo " selected";
                                                         } ?>><?= $bp->namaPelanggan; ?>
