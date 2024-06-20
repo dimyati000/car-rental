@@ -18,7 +18,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <button class="btn btn-success" data-toggle="modal"
-                                            data-target="#tambahPelanggan"><i class="fas fa-plus fa-sm"> Tambah
+                                            data-target="#tambahMobil"><i class="fas fa-plus fa-sm"> Tambah
                                                 Data</i></button>
                                     </div>
                                     <div class="col-md-2">

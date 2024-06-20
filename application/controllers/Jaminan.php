@@ -68,9 +68,11 @@ class Jaminan extends CI_Controller
     {
         $where = array('idJaminan' => $idJaminan);
         $data['jaminan'] = $this->ModelJaminan->editJaminan($where, 'tb_jaminan')->row_array();
-        $this->load->view('layout/templateAdmin');
-        $this->load->view('admin/editJaminan', $data);
-        $this->load->view("layout/footerTemplateAdmin");
+        // $this->load->view('layout/templateAdmin');
+        // $this->load->view('admin/editJaminan', $data);
+        // $this->load->view("layout/footerTemplateAdmin");
+        $data['content'] = "jaminan/editJaminan.php";
+        $this->parser->parse('system/templateAdmin', $data);
     }
     public function getById($idJaminan)
     {

@@ -93,9 +93,11 @@ class Pelanggan extends CI_Controller
     {
       $where = array('idPelanggan' => $idPelanggan);
       $data['pelanggan'] = $this->ModelPelanggan->editPelanggan($where, 'tb_pelanggan')->result();
-      $this->load->view("layout/templateAdmin");
-      $this->load->view("admin/editPelanggan", $data); 
-      $this->load->view("layout/footerTemplateAdmin");
+      // $this->load->view("layout/templateAdmin");
+      // $this->load->view("admin/editPelanggan", $data); 
+      // $this->load->view("layout/footerTemplateAdmin");
+      $data['content'] = "pelanggan/editPelanggan.php";
+      $this->parser->parse('system/templateAdmin', $data);
     }
 		// update pelanggan  
     public function update()
