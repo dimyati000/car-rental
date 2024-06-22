@@ -112,10 +112,11 @@
  							<th width="2%">No</th>
  							<th>No Sewa</th>
  							<th>Tanggal Berangkat</th>
-              <th>Nama Penyewa</th>
+              <th>Tanggal Kembali</th>
+              <th width="20%">Nama Penyewa</th>
  							<th>Jenis Mobil</th>
  							<th width="2%">Lama Sewa</th>
- 							<th>Harga Total</th>
+ 							<th width="20%">Harga Total</th>
  						</tr>
  					</thead>
  					<tbody class="body-table">
@@ -127,6 +128,7 @@
                 <td class="text-center"><?php echo $no++ ?></td>
                 <td class="text-center"><?php echo $ds->noSewa ?></td>
                 <td class="text-center"><?php echo format_date($ds->tglBerangkat, 'd/m/Y') ?></td>
+                <td class="text-center"><?php echo format_date($ds->tglKembali, 'd/m/Y') ?></td>
                 <td class="text-center"><?php echo $ds->namaPelanggan ?></td>
                 <td class="text-center"><?php echo $ds->jenisMobil ?></td>
                 <td class="text-center"><?php echo $ds->lamaSewa ?></td>
@@ -136,7 +138,7 @@
           $total+=$ds->totalTarif;
           endforeach; ?>
             <tr>
-              <th colspan="6">Total Pendapatan</th>
+              <th colspan="7">Total Pendapatan</th>
               <th class="text-left">Rp. <?= rupiah($total) ?></th>
         </tr>
  					</tbody>

@@ -14,9 +14,11 @@
 <div class="table-responsive">
     <table class="table table-bordered">
         <tr class="text-center">
-            <th width="2%">No</th>
+        <th width="2%">No</th>
             <th width="15%">No Sewa</th>
-            <th>Tanggal Sewa</th>
+            <th width="10%">Tanggal Berangkat</th>
+            <th width="10%">Tanggal Kembali</th>
+            <th width="5%">Jam Kembali</th>
             <th>Pelanggan</th>
             <th>Jaminan</th>
             <th>Mobil</th>
@@ -31,6 +33,8 @@
                 <td class="text-center"><?php echo $no ?></td>
                 <td><?php echo $ds->noSewa ?></d>
                 <td><?php echo $ds->tglBerangkat ?></d>
+                <td><?php echo $ds->tglKembali ?></d>
+                <td><?php echo $ds->jamKembali ?></d>
                 <td><?php echo $ds->namaPelanggan ?></d>
                 <td><?php echo $ds->namaJaminan ?></td>
                 <td><?php echo $ds->jenisMobil ?></td>

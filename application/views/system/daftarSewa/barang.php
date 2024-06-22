@@ -57,12 +57,16 @@
                                                 required>
                                         </div>
                                         <div class="col-md-4">
+                                        <?php $mobilId = (isset($_GET['jenisMobil'])) ? $_GET['jenisMobil'] : "" ?>
 											<select name="idMobil"
 												class="form-control select2 select2-hidden-accessible" id="idMobil"
 												onchange="showLaporan()"  required>
 												<option value="">Pilih Mobil</option>
 												<?php foreach ($mobil as $m)  :  ?>
 												<option value="<?= $m->idMobil ?>"
+                                                <?php if ($m->idMobil==$mobilId) {
+														echo " selected";
+													} ?>
 												><?= $m->jenisMobil; ?></option>
 												<?php endforeach; ?>
 											</select>
