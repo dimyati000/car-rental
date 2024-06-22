@@ -215,7 +215,7 @@
                               </tr>
                               <tr>
                                   <td style="vertical-align:top; padding-left:10px; ">4.</td>
-                                  <td>DP yang sudah dibayarkan tidak dapat dikembalikan tetapi dapat dijadikan DP di tanggal lain.</td>
+                                  <td>DP yang sudah dibayarkan tidak dapat ditarik kembali atau hangus jika ada pembatalan sepihak dari penyewa.</td>
                               </tr>
                               <tr>
                                   <td style="vertical-align:top; padding-left:10px; ">5.</td>
