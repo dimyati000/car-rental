@@ -28,14 +28,14 @@ class FormSewa extends CI_Controller
 	// Tampilkan data form sewa
     public function index()
     {   
-        $data['content'] = "formsewa.php";
+        $data['content'] = "formSewa.php";
         $this->parser->parse('system/templateAdmin', $data);
     }
 
     // Mengarahkan ke halaman form penumpang
     public function sewaPenumpang()
     {   
-        $data['mobil'] = $this->ModelMobil->showMobilReady()->result();
+        $data['mobil'] = $this->ModelMobil->get_all()->result();
         $data['jaminan'] = $this->ModelJaminan->showData()->result();
         $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
         $data['kodeSewa']  = $this->ModelFormSewa->get_kode_penumpang("tb_formsewa","noSewa","ET-SP"); 
@@ -46,9 +46,9 @@ class FormSewa extends CI_Controller
     // Mengarahkan ke halaman form barang
     public function sewaBarang()
     {   
+        $data['mobil'] = $this->ModelMobil->get_all()->result();
         $data['jaminan'] = $this->ModelJaminan->showData()->result();
         $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
-        $data['mobil'] = $this->ModelMobil->showMobilReady()->result();
         $data['kodeSewa']  = $this->ModelFormSewa->get_kode_barang("tb_formsewa","noSewa","ET-SB"); 
         $data['content'] = "formSewa/barang.php";
         $this->parser->parse('system/templateAdmin', $data);
@@ -143,13 +143,13 @@ class FormSewa extends CI_Controller
         $jamKembali = $this->input->post('jamKembali');
         $tipeTarif = $this->input->post('tipeTarif');
         $lamaSewa = $this->input->post('lamaSewa');
-        $totalTarif = $this->input->post('totalTarif');
-        $dp = $this->input->post('dp');
-        $jasaAntar = $this->input->post('jasaAntar');
-        $jasaSopir = $this->input->post('jasaSopir');
-        $kurangBayar = $this->input->post('kurangBayar');
-        $totalBayar = $this->input->post('totalBayar');
-        $overtime = $this->input->post('overtime');
+        $totalTarif = $this->replaceRupiah($this->input->post('totalTarif'));
+        $dp = $this->replaceRupiah($this->input->post('dp'));
+        $jasaAntar = $this->replaceRupiah($this->input->post('jasaAntar'));
+        $jasaSopir = $this->replaceRupiah($this->input->post('jasaSopir'));
+        $kurangBayar = $this->replaceRupiah($this->input->post('kurangBayar'));
+        $totalBayar = $this->replaceRupiah($this->input->post('totalBayar'));
+        $overtime = $this->replaceRupiah($this->input->post('overtime'));
         $rute = $this->input->post('rute');
         $muatan = $this->input->post('muatan');
         $keterangan = $this->input->post('keterangan');

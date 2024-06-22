@@ -23,7 +23,6 @@ class ModelMobil extends CI_Model
 
     function get_all(){
       $query = $this->db->select('idMobil, jenisMobil')
-              ->where('status', '1')
               ->order_by('jenisMobil', 'asc')
               ->get('tb_mobil');
       return $query;
