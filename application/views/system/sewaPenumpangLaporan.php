@@ -3,11 +3,6 @@
   $type = pathinfo($path_logo, PATHINFO_EXTENSION);
   $data = file_get_contents($path_logo);
   $logo_evano = 'data:image/' . $type . ';base64,' . base64_encode($data);
-
-  $path_checklist = base_url('assets/img/checklist-mobil.png');
-  $type = pathinfo($path_checklist, PATHINFO_EXTENSION);
-  $data = file_get_contents($path_checklist);
-  $checklist_mobil = 'data:image/' . $type . ';base64,' . base64_encode($data);
 ?>
 
 
