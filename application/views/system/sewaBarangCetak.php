@@ -128,7 +128,7 @@
                                     <td><?= isset($dataSewa) ? $dataSewa['tipeTarif'] : '' ?> Jam x <?= isset($dataSewa) ? $dataSewa['lamaSewa'] : '' ?> Hari</td>
                                     <td>Total Tarif</td>
                                     <td>:</td>
-                                    <td><?= isset($dataSewa) ? $dataSewa['totalTarif'] : '' ?></td>
+                                    <td>Rp. <?= isset($dataSewa) ? rupiah($dataSewa['totalTarif']) : '' ?></td>
                                 </tr>
                                 <tr>
                                     <td>Uang Muka (DP)</td>
