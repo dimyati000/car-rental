@@ -114,6 +114,16 @@
                                             <select class="form-control select2 select2-hidden-accessible"
                                                 tabindex="-1" aria-hidden="true" name="tipeTarif" id="tipeTarif" onchange="changeTarif()">
                                                 <option>Pilih Tipe Tarif</option>
+                                                <option value="3"
+                                                    <?php if ($p->tipeTarif=='3') {
+                                                        echo " selected";
+                                                    } ?>
+                                                >3 Jam</option>
+                                                <option value="6"
+                                                    <?php if ($p->tipeTarif=='6') {
+                                                        echo " selected";
+                                                    } ?>
+                                                >6 Jam</option>
                                                 <option value="12"
                                                     <?php if ($p->tipeTarif=='12') {
                                                         echo " selected";
@@ -317,7 +327,13 @@
             success: function(result) {
                 var lamaSewa = $('#lamaSewa').val();
                 var tipeTarif = $('#tipeTarif').val();
-                if (tipeTarif == '12') {
+                if (tipeTarif == '3') {
+                    $('#hargaSewa').val(result.data.harga3);
+                    var totalTarif = lamaSewa * $('#hargaSewa').val();
+                } else if (tipeTarif == '6') {
+                    $('#hargaSewa').val(result.data.harga6);
+                    var totalTarif = lamaSewa * $('#hargaSewa').val();
+                } else if (tipeTarif == '12') {
                     $('#hargaSewa').val(result.data.harga12);
                     var totalTarif = lamaSewa * $('#hargaSewa').val();
                 } else if (tipeTarif == '24') {

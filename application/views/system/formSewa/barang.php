@@ -104,6 +104,8 @@
 												<select class="form-control select2 select2-hidden-accessible"
 												tabindex="-1" aria-hidden="true" name="tipeTarif" id="tipeTarif" onchange="changeTarif()">
 													<option>Pilih Tipe Tarif</option>
+													<option value="3">3 Jam</option>
+													<option value="6">6 Jam</option>
 													<option value="12">12 Jam</option>
 													<option value="24">24 Jam</option>
 												</select>
