@@ -41,16 +41,15 @@
 											</div>
 											<div class="form-group col-md-6">
 												<label>Nama Pelanggan</label>
-												<select name="idPelanggan"
+												<span name="idPelanggan"
 													class="form-control select2 select2-hidden-accessible"
-													id="idJaminan" required>
-													id="idPelanggan" >
-													<option value="">Pilih Pelanggan</option>
+													id="idPelanggan" required>
+													<!-- <option value="">Pilih Pelanggan</option> -->
 													<?php foreach ($pelanggan as $p)  :  ?>
 													<option value="<?= $p->idPelanggan ?>"><?= $p->namaPelanggan; ?>
 													</option>
 													<?php endforeach; ?>
-												</select>
+												</span>
 											</div>
 											<div class="form-group col-md-6">
 												<label>Mobil</label>
@@ -252,13 +251,19 @@
       success: function(result) {
 		var lamaSewa = $('#lamaSewa').val();
 		var tipeTarif= $('#tipeTarif').val();
-		if (tipeTarif == '12') {
-			$('#hargaSewa').val(result.data.harga12);
-			var totalTarif = lamaSewa*$('#hargaSewa').val();
-		} else if (tipeTarif == '24'){
-			$('#hargaSewa').val(result.data.harga24);
-			var totalTarif = lamaSewa*$('#hargaSewa').val();
-		}
+		if (tipeTarif == '3') {
+                $('#hargaSewa').val(result.data.harga3);
+                var totalTarif = lamaSewa * $('#hargaSewa').val();
+            } else if (tipeTarif == '6') {
+                $('#hargaSewa').val(result.data.harga6);
+                var totalTarif = lamaSewa * $('#hargaSewa').val();
+            } else if (tipeTarif == '12') {
+                $('#hargaSewa').val(result.data.harga12);
+                var totalTarif = lamaSewa * $('#hargaSewa').val();
+            } else if (tipeTarif == '24') {
+                $('#hargaSewa').val(result.data.harga24);
+                var totalTarif = lamaSewa * $('#hargaSewa').val();
+            }
 		$('#dp').val('0');
 		$('#kurangBayar').val('0');
 		$('#totalTarif').val(formatRupiah(totalTarif));
