@@ -1,3 +1,4 @@
+
 <title>Form Sewa Penumpang</title>
 
 <div class="main-wrapper main-wrapper-1">
@@ -20,7 +21,7 @@
                                     <form action="<?php echo base_url() . 'FormSewa/tambahDataPenumpang' ?>"
                                         method="post" enctype="multipart/form-data" autocomplete="off">
                                         <input type="hidden" class="form-control" name="idSewa" value=""></input>
-                                        <input type="hidden" name="idPelanggan" class="form-control">
+                                        <!-- <input type="hidden" name="idPelanggan" class="form-control"> -->
                                         <input type="hidden" name="tipeSewa" class="form-control" value="SP">
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
@@ -42,15 +43,15 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label>Nama Pelanggan</label>
-                                                <span name="idPelanggan"
-                                                    class="form-control select2 select2-hidden-accessible"
+                                                <select name="idPelanggan"
+                                                    class="form-control select2"
                                                     id="idPelanggan" required>
-                                                    <!-- <option value="">Pilih Pelanggan</option> -->
+                                                    <option value="">Pilih Pelanggan</option>
                                                     <?php foreach ($pelanggan as $p)  :  ?>
                                                     <option value="<?= $p->idPelanggan ?>"><?= $p->namaPelanggan; ?>
                                                     </option>
                                                     <?php endforeach; ?>
-                                                </span>
+                                                </select>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label>Mobil</label>
@@ -235,9 +236,11 @@
         </section>
     </div>
 </div>
-
-
+<!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+<script src="<?php echo base_url(); ?>assets/modules/select2/dist/js/select2.full.min.js"></script>
 <script>
+  $(".select2").select2();
 $('#jamBerangkat').datetimepicker({
     "allowInputToggle": true,
     "showClose": true,
@@ -292,7 +295,7 @@ function getMobil(idMobil) {
 
 $(document).ready(function() {
 	// var dpinput = $('#dpRuppiah').val();
-    $(".select2").select2({});
+  
 });
 
 function changeTarif(){

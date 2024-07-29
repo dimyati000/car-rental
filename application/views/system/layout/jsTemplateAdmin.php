@@ -19,7 +19,7 @@
 
 <!-- JS Libraies -->
 <script src="<?php echo base_url(); ?>assets/modules/jquery-pwstrength/jquery.pwstrength.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
+<!-- <script src="<?php echo base_url(); ?>assets/modules/jquery-selectric/jquery.selectric.min.js"></script> -->
 <script src="<?php echo base_url(); ?>assets/modules/jquery.sparkline.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/modules/owlcarousel2/dist/owl.carousel.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.js"></script>
@@ -40,8 +40,8 @@
 <script src="<?php echo base_url(); ?>assets/modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/modules/select2/dist/js/select2.full.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
+<!-- <script src="<?php echo base_url(); ?>assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/modules/jquery-selectric/jquery.selectric.min.js"></script> -->
 <script src="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.js"></script>
 <script src="<?php echo base_url(); ?>assets/modules/codemirror/lib/codemirror.js"></script>
 <script src="<?php echo base_url(); ?>assets/modules/fullcalendar/fullcalendar.min.js"></script>
@@ -75,8 +75,8 @@
   <script src="<?php echo base_url(); ?>assets/js/page/modules-sweetalert.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/modules-toastr.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/page/auth-register.js"></script>
-  <script src="<?php echo base_url(); ?>assets/js/page/features-post-create.js"></script>
-  <script src="<?php echo base_url(); ?>assets/js/page/features-posts.js"></script>
+  <!-- <script src="<?php echo base_url(); ?>assets/js/page/features-post-create.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/page/features-posts.js"></script> -->
   <script src="<?php echo base_url(); ?>assets/js/page/features-setting-detail.js"></script>
 
   <script>
