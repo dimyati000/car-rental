@@ -225,7 +225,9 @@
 	</div>
 </div>
 
+<script src="<?php echo base_url(); ?>assets/modules/select2/dist/js/select2.full.min.js"></script>
 <script>
+	$(".select2").select2();
 	$('#jamBerangkat').datetimepicker({
 		"allowInputToggle": true,
 		"showClose": true,
@@ -279,8 +281,8 @@
 // 	});
 
 	$(document).ready(function () {
-		$(".select2").select2({
-		});
+		// $(".select2").select2({
+		// });
 	});
 
 	function changeTarif(){
