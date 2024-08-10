@@ -27,7 +27,7 @@
         </a>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-        <a href="<?php echo base_url('FormSewa') ?>" class="text-decoration-none">
+        <a href="<?php echo base_url('Mobil') ?>" class="text-decoration-none">
           <div class="card card-statistic-1">
             <div class="card-icon bg-danger">
               <i class="fas fa-car"></i>

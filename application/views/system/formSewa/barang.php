@@ -297,7 +297,7 @@
 
 	$('#lamaSewa').on("input", function() {
 		var dInput = this.value;
-		var tarifTotal = dInput*$('#hargaSewa').val();
+		var tarifTotal = dInput * $('#hargaSewa').val();
 		$('#totalTarif').val(formatRupiah(tarifTotal));
 	});
 		
@@ -319,7 +319,7 @@
 		var totalTarif = $('#totalTarif').val();
 		var jasaSopir = $('#jasaSopir').val();
 		var jasaAntar = $('#jasaAntar').val();
-		var totalBayar = totalTarif+$('#jasaSopir').val()+$('#jasaAntar').val();
+		var totalBayar = totalTarif + $('#jasaSopir').val() + $('#jasaAntar').val();
 		$('#totalBayar').val(totalBayar);	
 	};
 		
