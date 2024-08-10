@@ -1,23 +1,24 @@
 <?php
 class ModelPelanggan extends CI_Model
 {
-    function get_list_count($key=""){
-        $query = $this->db->query("
-            select count(*) as jml from tb_pelanggan
-            where 
-                concat(namaPelanggan) like '%$key%'
-        ")->row_array();
+    function get_list_count($key="", $created_by=""){
+        $q = "select count(*) as jml from tb_pelanggan
+        where concat(namaPelanggan) like '%$key%' ";
+        if ($created_by != ""){
+            $q .= " and created_by = '$created_by'";
+        }
+        $query = $this->db->query($q)->row_array();
         return $query;
     }
 
-    function get_list_data($key="",  $limit="", $offset="", $column="", $sort=""){
-        $query = $this->db->query("
-            select * from tb_pelanggan
-            where 
-                concat(namaPelanggan) like '%$key%' 
-            order by $column $sort
-            limit $limit offset $offset
-        ");
+    function get_list_data($key="",  $limit="", $offset="", $column="", $sort="", $created_by=""){
+        $q = "select * from tb_pelanggan
+            where concat(namaPelanggan) like '%$key%' ";
+            if ($created_by != ""){
+                $q .= " and created_by = '$created_by'";
+            }
+        $q .= " order by $column $sort limit $limit offset $offset ";
+        $query = $this->db->query($q);
         return $query;
     }
 
@@ -29,13 +30,6 @@ class ModelPelanggan extends CI_Model
       return $query;
     }
 
-    public function showData(){
-         // Menambahkan klausa ORDER BY ke query
-        $this->db->order_by('namaPelanggan', 'ASC');
-        
-        return $this->db->get('tb_pelanggan');
-    }
-    
     public function tambahPelanggan($data, $table)
     {
             return $this->db->insert($table, $data);

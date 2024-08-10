@@ -10,6 +10,7 @@ class Pelanggan extends CI_Controller
     public function __construct()
     {
        parent::__construct();
+       $this->load->model('ModelAuth');
        $this->load->model('ModelPelanggan');
        if($this->session->userdata('roleId') != 1 && $this->session->userdata('roleId') != 2){
            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -25,18 +26,22 @@ class Pelanggan extends CI_Controller
     public function index()
     {
       $data['title'] = $this->nama_menu." | ".$this->nama_sistem; 
-      $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
       $tipeTarif = '';
       if($this->session->userdata('roleId') == 1){
-          $created_by = '';
+        $created_by = '';
       }else{
-          $created_by = $this->session->userdata('idUser');
+        $created_by = $this->session->userdata('idUser');
       }
       $data['content'] = "pelanggan/index.php";
       $this->parser->parse('system/templateAdmin', $data);
     }
 
     public function fetch_data(){
+      if($this->session->userdata('roleId') == 1){
+        $created_by = '';
+      }else{
+        $created_by = $this->session->userdata('idUser');
+      }
       $pg     = ($this->input->get("page") != "") ? $this->input->get("page") : 1;
       $key	  = ($this->input->get("search") != "") ? $this->input->get("search") : "";
       $limit	= $this->input->get("limit");
@@ -46,11 +51,11 @@ class Pelanggan extends CI_Controller
       
       $page              = array();
       $page['limit']     = $limit;
-      $page['count_row'] = $this->ModelPelanggan->get_list_count($key)['jml'];
+      $page['count_row'] = $this->ModelPelanggan->get_list_count($key, $created_by)['jml'];
       $page['current']   = $pg;
       $page['list']      = gen_paging($page);
       $data['paging']    = $page;
-      $data['list']      = $this->ModelPelanggan->get_list_data($key, $limit, $offset, $column, $sort);
+      $data['list']      = $this->ModelPelanggan->get_list_data($key, $limit, $offset, $column, $sort, $created_by);
 
       $this->load->view('system/pelanggan/list_data',$data);
     }
