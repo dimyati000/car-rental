@@ -24,7 +24,6 @@ class ModelPelanggan extends CI_Model
 
     function get_all(){
       $query = $this->db->select('idPelanggan, namaPelanggan')
-              ->where('status', '1')
               ->order_by('namaPelanggan', 'asc')
               ->get('tb_pelanggan');
       return $query;

@@ -150,7 +150,7 @@ class DaftarSewa extends CI_Controller
         $where = array('idSewa' => $idSewa);
         $data['mobil'] = $this->ModelMobil->get_all($idSewa)->result();
         $data['jaminan'] = $this->ModelJaminan->showData()->result();
-        $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
+        $data['pelanggan'] = $this->ModelPelanggan->get_all()->result();
         $data['dataSewa'] = $this->ModelFormSewa->editSewaPenumpang($idSewa)->result();
         $data['content'] = "formSewa/editPenumpang.php";
         $this->parser->parse('system/templateAdmin', $data);
@@ -162,7 +162,7 @@ class DaftarSewa extends CI_Controller
          $where = array('idSewa' => $idSewa);
          $data['mobil'] = $this->ModelMobil->get_all($idSewa)->result();
          $data['jaminan'] = $this->ModelJaminan->showData()->result();
-         $data['pelanggan'] = $this->ModelPelanggan->showData()->result();
+         $data['pelanggan'] = $this->ModelPelanggan->get_all()->result();
          $data['dataSewa'] = $this->ModelFormSewa->editSewaBarang($idSewa)->result();
          $data['content'] = "formSewa/editBarang.php";
          $this->parser->parse('system/templateAdmin', $data);

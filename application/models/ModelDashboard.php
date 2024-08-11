@@ -1,10 +1,20 @@
 <?php
 class modelDashboard extends CI_Model{
-	public function getPelanggan()
+	public function getPelanggan($created_by="")
 	{
 		$data = "SELECT count(idPelanggan) as totalP FROM tb_pelanggan";
-		$result = $this->db->query($data);
-		return $result->row()->totalP;	
+		// Tambahkan klausa WHERE jika diperlukan
+		if ($created_by != "") {
+			$data .= " WHERE created_by = ?";
+			// Siapkan parameter untuk query
+			$params = [$created_by];
+		} else {
+			// Tidak ada parameter jika tidak ada kondisi WHERE
+			$params = [];
+		}
+		// Jalankan query dengan parameter
+		$result = $this->db->query($data, $params);
+		return $result->row()->totalP;
 	}
 	public function getMobil()
 	{
@@ -73,7 +83,7 @@ class modelDashboard extends CI_Model{
 		return $result->row()->totalB;
 	}
 
-	public function getDataSewaAktif(){
+	public function getDataSewaAktif($created_by=""){
 		$q = "
 		SELECT fs.idSewa, fs.noSewa, fs.tipeSewa, fs.tglBerangkat, fs.jamBerangkat, fs.tglKembali, fs.jamKembali, fs.rute, fs.muatan, fs.tipeTarif,
 		fs.lamaSewa, fs.totalTarif, fs.dp, fs.overtime, fs.kurangBayar, fs.jasaSopir, fs.jasaAntar, fs.totalBayar, fs.klaim, fs.keterangan, fs.created_by, 
@@ -81,11 +91,13 @@ class modelDashboard extends CI_Model{
 		FROM tb_formsewa fs
 		LEFT JOIN tb_pelanggan p ON fs.pelangganId = p.idPelanggan
 		LEFT JOIN tb_mobil m ON fs.mobilId = m.idMobil 
-		WHERE fs.tglKembali = CURRENT_DATE()
-		ORDER BY concat(fs.tglKembali, fs.jamKembali) ASC
-		";
-			$query = $this->db->query($q);
-			return $query;
+		WHERE fs.tglKembali = CURRENT_DATE()";
+		if ($created_by != ""){
+			$q .= " and fs.created_by = '$created_by'";
+		}
+		$q .= " ORDER BY concat(fs.tglKembali, fs.jamKembali) ASC";
+		$query = $this->db->query($q);
+		return $query;
 	}
 	
     function get_list_count($key=""){

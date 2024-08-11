@@ -28,16 +28,16 @@ class Dashboard extends CI_Controller
 	public function index()
 	{
 		$data['title'] = $this->nama_menu." | ".$this->nama_sistem;
-		$data['totalP'] = $this->ModelDashboard->getPelanggan();
 		$data['totalM'] = $this->ModelDashboard->getMobil();
 		if($this->session->userdata('roleId') == 1){
-            $created_by = '';
+			$created_by = '';
         }else{
-            $created_by = $this->session->userdata('idUser');
+			$created_by = $this->session->userdata('idUser');
         }
+		$data['totalP'] = $this->ModelDashboard->getPelanggan($created_by);
 		$data['totalSewaP'] = $this->ModelDashboard->getSewaPenumpang($created_by);
 		$data['totalSewaB'] = $this->ModelDashboard->getSewaBarang($created_by);
-		$data['dataSewa'] = $this->ModelDashboard->getDataSewaAktif()->result();
+		$data['dataSewa'] = $this->ModelDashboard->getDataSewaAktif($created_by)->result();
 		$data['content'] = "dashboard/index.php";
 		$this->parser->parse('system/templateAdmin', $data);
 	}
